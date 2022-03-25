@@ -1,0 +1,35 @@
+package src;
+/**
+ * Equipment
+ * Thing - base class
+ * Implements Effect interface.
+ * The abstract base class from which the the different equipments inherit(e.g. Gloves).
+ * It can be picked up or thrown out of a Virologist's EquipmentCollection. When it's in someone's EquipmentCollection, it applies it's Effect.
+ * @author csizm
+ *
+ */
+public abstract class Equipment {
+	/**
+	 * The Equipment applies its effect on the virologist given as parameter.
+	 * @param v the Virologist who has the equipment
+	 */
+	public void Affect(Virologist v) {
+		
+	}
+	
+	/**
+	 * Returns the name of the Effect the Equipment has. 
+	 * @return a string containing the name of the Effect
+	 */
+	public String GetEffectName() {
+		
+	}
+	
+	/**
+	 * Writes the Attributes of the Equipment in a string.
+	 * @return string
+	 */
+	public String ToString() {
+		
+	}
+}
