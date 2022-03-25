@@ -4,9 +4,8 @@ package src;
  * 
  * @author Vili
  * Gloves
- * Equipment
- * Does not store anything.
- * It implements the equipment "Gloves".
+ * Inherited from Equipment.
+ * It implements the equipment "Gloves". By wearing this equipment the virologist1 is able to anoint the other virologist2 with the agent virologist2 anointed to virologist1.
  */
 public class Gloves extends Equipment {
 	

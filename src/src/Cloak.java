@@ -5,9 +5,8 @@ package src;
  * 
  * @author Vili
  * Cloak
- * Equipment
- * Does not store anything.
- * It implements the equipment "Cloak".
+ * Inherited from Equipment
+ * It implements the equipment "Cloak". This equipment has an effect of protecting the virologist against other agents with a certain amount of chance.
  *
  */
 public class Cloak extends Equipment {

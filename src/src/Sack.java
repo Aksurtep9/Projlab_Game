@@ -4,9 +4,8 @@ package src;
  * 
  * @author Vili
  * Sack
- * Equipment
- * Does not store anything
- * It implements the equipment "Sack".
+ * Inherited from Equipment.
+ * It implements the equipment "Sack". By wearing this equipment the virologist's material inventory will be expanded by a certain amount.
  *
  */
 public class Sack extends Equipment {

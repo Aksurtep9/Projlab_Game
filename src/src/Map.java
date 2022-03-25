@@ -4,7 +4,6 @@ package src;
  * 
  * @author Vili
  * Map
- * Not an inherited class.
  * It is responsible for drawing fields.
  *
  */

@@ -6,7 +6,6 @@ import java.util.List;
  * 
  * @author Vili
  * Game
- * Not an inherited class.
  * This class counts the number of rounds, stores the player who is moving now 
  * and in the previous round and stores all the players playing in this game.
  * This is where building of the map starts. Stores the maximum number of
