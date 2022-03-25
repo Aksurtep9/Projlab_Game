@@ -30,6 +30,7 @@ public class Gloves extends Equipment {
 	 * 
 	 * @return Returns the properties of these Gloves.
 	 */
+	@override
 	public String ToString() {
 		
 	}

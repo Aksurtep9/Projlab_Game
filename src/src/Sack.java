@@ -31,6 +31,7 @@ public class Sack extends Equipment {
 	 * 
 	 * @return Returns the properties of this Sack.
 	 */
+	@override
 	public String ToString() {
 		
 	}
