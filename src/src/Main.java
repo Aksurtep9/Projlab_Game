@@ -7,7 +7,7 @@ public class Main {
 			System.out.println("FASZ");
 		System.out.print("niggerfuggveny");
 		System.out.println("Ok");
-		Sys;
+		
 	}
 
 }
