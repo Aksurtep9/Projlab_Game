@@ -1,14 +1,14 @@
-package agent;
- 
+package src;
+
 
 /**
-* Amnesia
-* Agent
-* Every parameter required for the agent
-* This class represents the 'Amnesia' agent and it's attributes
+* Pretoct
+* Inherited from Agent
+* Stores the required amount of nucleotid and aminoacid to craft the agent in addition the time till this agent affect someone and it expires
+* This class represents the 'Protect' agent and it's attributes. Protect is a type of vaccine the virologist can use to build up a resistance against other type of vaccines. It's effect wears of after the expireTime is zero.
 **/
 
-public class Amnesia 
+public class Protect extends Agent
 {
 	
 	/**Stating how long the agent can be used*/
@@ -25,7 +25,7 @@ public class Amnesia
 
 	
 	/**
-	* This method has an effect on the Virologist it is applied, making him forget every GenCode he has learnt so far
+	* This method has an effect on the Virologist it is applied, making him move to random fields for a sort period of turns
 	* @param v - v is the Virologist, the agent is affecting
 	**/
 	public void Affect(Virologist v)
@@ -35,7 +35,7 @@ public class Amnesia
 	
 	/**
 	* Gives back the name of the agent
-	* @return name - the name of the agent(here it's "Amnesia")
+	* @return name - the name of the agent(here it's "Protect")
 	**/
 	public String GetEffectName()
 	{
