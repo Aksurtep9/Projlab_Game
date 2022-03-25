@@ -1,32 +1,34 @@
 package src;
 
-/**
-* Osztály neve
-* Õsosztály neve
-* Mi(ke)t tárol?
-* Mire használjuk az osztály általánosságban?
-**/
 
-/**Mit csinál, mire való az adattag*/
-//private int adattag;
 
 /**
-* Mit csinál, mire való a függvény
-* @param paraméterNeve - Mit jelöl az adott paraméter, ha van?
-* @return Mit térít vissza a függvény, ha van visszatérési értéke.
+* Virologist
+* Inherited from Thing
+* Attributes:
+* equipmentCollection
+* effectCollection
+* craftedAgentCollection
+* genCodeCollection
+* materialCollection
+* 
+* Each player has its own Virologist instance that they control during the game. 
 **/
-//public int Függvény() {;}
-
 public class Virologist extends Thing {
 	
+	/**If the Virologist picks up an Equipment it gets into the equipmentCollection.*/
 	EquipmentCollection equipmentCollection;
 	
+	/**If the Virologist picks up an Equipment or gets an Agents Effect it gets into the effectCollection*/
 	EffectCollection effectCollection;
 	
+	/**If the Virologist crafts an Agent it gets into the craftedAgentCollection*/
 	AgentCollection craftedAgentCollection;
 	
+	/**If the Virologist learns a genCode in a Laboratory it gets into the genCodeCollection*/
 	AgentCollection genCodeCollection;
 	
+	/**The Materials owned by the Virologist are in the materialCollection*/
 	MaterialCollection materialCollection;
 	
 	/**
@@ -101,52 +103,92 @@ public class Virologist extends Thing {
 	
 	/**
 	* Removes an Equipment from the Virologists (in the parameter) equipmentCollection and adds it to its own (checks if v is paralyzed) 
-	* @param v - A Virologist on our Field
+	* @param victim - A Virologist on our Field
 	**/
-	public void StealEquipment(Virologist v) {
+	public void StealEquipment(Virologist victim) {
 		
 	}
 	
+	/**
+	* Removes Materials from the Virologists (in the parameter) MaterialCollection and adds it to its own (checks if v is paralyzed) 
+	* @param victim - A Virologist on our Field
+	**/
 	public void StealMaterial(Virologist victim) {
 		
 	}
 	
+	/**
+	* Shows the Equipments from the equipmentCollection to the Player and he chooses one then drops it on the Field that its Virologist standing on 
+	**/
 	public void DropEquipment() {
 		
 	}
 	
+	/**
+	* Shows the Equipments from the Field its Virologist standing on to the Player and he chooses one then picks it up.
+	**/
 	public void PickUpEquipment() {
 		
 	}
 	
+	/**
+	* The method chooses a random neighbour of the Field that the Virologist is standing on.
+	* Calls the MoveTo(Field f) method.
+	**/
 	public void RandomField() {
 		
 	}
 	
+	/**
+	* Deletes all the Agents from the genCodeCollection.
+	**/
 	public void DeleteLearntAgent() {
 		
 	}
 	
+	/**
+	* The method fills the Virologists Material amounts from another MaterialCollection
+	* @param m - A Warehouse or another Virologist MaterialCollection
+	**/
 	public void FillMaterials(MaterialCollection m) {
 		
 	}
 	
+	/**
+	* The method is called at the start of each turn and it calls every Effect from the effectCollection
+	**/
 	public void CallAffectWithAll() {
 		
 	}
 	
+	/**
+	* Default ToString method for console printout.
+	* @return String with every attribute of the Virologist
+	**/
 	public String ToString() {
 		
 	}
 	
+	/**
+	* Getter to the materialCollection
+	* @return materialCollection
+	**/
 	public MaterialCollection GetMaterialCollection() {
 		return materialCollection;
 	}
 	
+	/**
+	* Getter to the equipmentCollection
+	* @return equipmentCollection
+	**/
 	public EquipmentCollection GetEquipmentCollection() {
 		return equipmentCollection;
 	}
 	
+	/**
+	* Getter to the effectCollection
+	* @return effectCollection
+	**/
 	public EffectCollection GetEffectCollection() {
 		return effectCollection;
 	}
