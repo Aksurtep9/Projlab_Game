@@ -1,14 +1,14 @@
-package agent;
- 
+package src;
+
 
 /**
 * Chorea
-* Agent
-* Every parameter required for an agent
-* This class represents the 'Chorea' agent and i's attributes
+* Inherited from Agent
+* Stores the required amount of nucleotid and aminoacid to craft the agent in addition the time till this agent affect someone and it expires
+* This class represents the 'Chorea' agent and it's attributes. Chorea is a type of vaccine the Virologist can use to make the target move uncontrollable to fields for sort period of turns.
 **/
 
-public class Chorea 
+public class Chorea extends Agent
 {
 	
 	/**Stating how long the agent can be used*/

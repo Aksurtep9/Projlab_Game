@@ -1,14 +1,14 @@
-package agent;
- 
+package src;
+
 
 /**
 * Paralyze
-* Agent
-* Every parameter required for an agent
-* This class represents the 'Paralyze' agent and it's attributes
+* Inherited from Agent
+* Stores the required amount of nucleotid and aminoacid to craft the agent in addition the time till this agent affect someone and it expires
+* This class represents the 'Paralyze' agent and it's attributes. Paralyze is a type of vaccine the Virologist can use to make the target unable to move and do anything. The effect wears of when the expire time is zero.
 **/
 
-public class Paralyze 
+public class Paralyze extends Agent
 {
 	
 	/**Stating how long the agent can be used*/
@@ -25,7 +25,7 @@ public class Paralyze
 
 	
 	/**
-	* This method has an effect on the Virologist it is applied, making him unable to move for a short period of turns
+	* This method has an effect on the Virologist it is applied, making him move to random fields for a sort period of turns
 	* @param v - v is the Virologist, the agent is affecting
 	**/
 	public void Affect(Virologist v)
@@ -35,7 +35,7 @@ public class Paralyze
 	
 	/**
 	* Gives back the name of the agent
-	* @return name - The name of the agent(here it's "Paralyze")
+	* @return name - the name of the agent(here it's "Paralyze")
 	**/
 	public String GetEffectName()
 	{
