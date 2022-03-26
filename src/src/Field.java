@@ -12,26 +12,25 @@ import java.util.List;
 public class Field {
 
 	/**Stores the field neighbours.*/
-	private List<Field> neighbours;
+	protected List<Field> neighbours;
 	
 	/**Stores the things - virologist, agenst, materials, equipments - that can be found on the field.*/
-	private List<Thing> things;
+	protected List<Thing> things;
 	
 	/**
 	 * Stores the given thing.
 	 * @param t - the given thing that will be placed on the field
 	 */
 	public void Accept(Thing t) {
-		
+		this.things.add(t);
 	}
 	
 	/**
 	 * Stores the given virologist. <br> Acts different in other subclasses.
 	 * @param v - the given virologist who wants to move to the field
 	 */
-	@Override
 	public void Accept(Virologist v) {
-		
+		this.things.add(v);
 	}
 	
 	/**
@@ -43,7 +42,7 @@ public class Field {
 	}
 	
 	/**
-	 * Gives back a selected neighbour that has been pick out.
+	 * Gives back a selected neighbour that has been picked out.
 	 * @return the chosen neigbhour
 	 */
 	public Field GetNeighbour() {
@@ -51,10 +50,18 @@ public class Field {
 	}
 	
 	/**
+	 * Gives all the neighbour back that has been picked out.
+	 * @return the chosen neigbhour
+	 */
+	public List<Field> GetNeighbours() {
+		return this.neighbours;
+	}
+	
+	/**
 	 * Removes the given thing from its store.
 	 * @param t - the removable thing
 	 */
 	public void Remove(Thing t) {
-		
+		this.things.remove(t);
 	}
 }

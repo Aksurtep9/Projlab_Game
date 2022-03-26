@@ -7,7 +7,7 @@ package src;
  * Once a virologist enters a warehouse, can start its materials filling up.
  * @author Martin
  */
-public class Warehouse {
+public class Warehouse extends Field{
 
 	/**Stores the warehouse's materials.*/
 	private MaterialCollection materialCollection;
@@ -25,7 +25,8 @@ public class Warehouse {
 	 * @param v - the given virologist who might need materials
 	 */
 	public void Accept(Virologist v) {
-		
+		this.things.add(v);
+		v.FillMaterials(materialCollection);
 	}
 	
 	/**

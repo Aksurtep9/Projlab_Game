@@ -7,7 +7,7 @@ package src;
  * Once a virologist enters a laboratory, can start learning the foundable genetic code.
  * @author Martin
  */
-public class Laboratory {
+public class Laboratory extends Field{
 
 	/**Stores the laboratory's one and only genetic code.*/
 	private Agent genCode;
@@ -24,7 +24,9 @@ public class Laboratory {
 	 * Laboratory asks the virologist to learn its genetic code.
 	 * @param v - the given virologist who might not know the genetic code
 	 */
+	@Override
 	public void Accept(Virologist v) {
-		
+		this.things.add(v);
+		v.CloneGenCode(genCode);
 	}
 }

@@ -7,7 +7,7 @@ import java.util.List;
  * Stores equipments like gloves, cloak or sack.<br>
  * @author Martin
  */
-public class Shelter {
+public class Shelter extends Field {
 
 	/**Stores the shelter's equipments.*/
 	private List<Equipment> equipments;

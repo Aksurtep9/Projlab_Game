@@ -1,9 +1,8 @@
 package src;
-
-
+import java.util.List;
 
 /**
-* Virologist
+* Virologist class
 * Inherited from Thing
 * Attributes:
 * equipmentCollection
@@ -37,13 +36,38 @@ public class Virologist extends Thing {
 	**/
 	public void CloneGenCode(Agent genCode) {
 		
+		//Checks if the virologist already has this genCode
+		boolean contains = false;
+		if(this.genCodeCollection.Contains(genCode)) contains = true;
+		
+		//If the genCode is new
+		if(!contains) {
+			this.genCodeCollection.Add(genCode);
+			//TO-DO: Checkwin()
+			
+			boolean gameOver = false;
+			//If the virologist won
+			if(gameOver) {
+				//TO-DO: EndGame()
+			}
+		}
 	}
 	
 	/**
 	* Shows the available Fields to the Player -> Moves the Virologist.
 	**/
 	public void Move() {
+		List<Field> neighbours = this.field.GetNeighbours();
 		
+		//TO DO: Choosing
+		//-
+		
+		Field selected = neighbours.get(0);
+		if(selected != null && selected != this.field) {
+			
+			this.field.Remove(this);
+			selected.Accept(this);
+		}
 	}
 	
 	/**
