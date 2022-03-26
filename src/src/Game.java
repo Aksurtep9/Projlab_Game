@@ -1,5 +1,6 @@
 package src;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public class Game {
 	/**
 	 * The number of genetic codes that can be learnt.
 	 */
-	static final int maxGenCode;
+	static final int maxGenCode = 5;
 	
 	/**
 	 * The player who can currently move and interact with other things.
@@ -49,11 +50,32 @@ public class Game {
 	 */
 	Map map;
 	
+	public Game(int playerCount, int roundCount) {
+		this.playerCount = playerCount;
+		this.roundCount = roundCount;
+		this.map = new Map();
+		players = new ArrayList<Virologist>();
+	}
 	
 	/**
 	 * It starts a new game.
 	 */
 	void NewGame() {
+		for(int i = 0; i < playerCount; i++) {
+			Virologist v = new Virologist();
+			players.add(v);
+		}
+		
+		try {
+			currentPlayer = players.get(0);
+		}
+		catch(NullPointerException e) {
+			System.out.println("Nincsenek jatekosok!");
+		}
+		
+		map.GenerateFields();
+		
+		
 		
 	}
 	

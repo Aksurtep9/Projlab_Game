@@ -2,6 +2,7 @@ package src;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -78,8 +79,9 @@ public class Virologist extends Thing {
 	/**
 	* Shows the available Fields to the Player -> Moves the Virologist.
 	**/
-	public void MoveTo() {
-		
+	public void MoveTo(Field whereToMove) {
+		field.Remove(this);
+		whereToMove.Accept(this);
 	}
 	
 	/**
@@ -95,7 +97,7 @@ public class Virologist extends Thing {
 	* @param v - A Virologist on our Field
 	**/
 	public void Touch(Virologist v) {
-		
+		StealMaterial(v);
 	}
 	
 	/**
@@ -303,7 +305,8 @@ public class Virologist extends Thing {
 	* @param victim - A Virologist on our Field
 	**/
 	public void StealMaterial(Virologist victim) {
-		
+		MaterialCollection materialColl2 = victim.GetMaterialCollection();
+		FillMaterials(materialColl2);
 	}
 	
 	/**
@@ -325,7 +328,12 @@ public class Virologist extends Thing {
 	* Calls the MoveTo(Field f) method.
 	**/
 	public void RandomField() {
+		List<Field> neighbours = field.GetNeighbours();
+		Random rand = new Random();
+		int numberOfSelectedField = rand.nextInt(neighbours.size());
+		Field field = neighbours.get(numberOfSelectedField);
 		
+		MoveTo(field);
 	}
 	
 	/**
@@ -340,6 +348,46 @@ public class Virologist extends Thing {
 	* @param m - A Warehouse or another Virologist MaterialCollection
 	**/
 	public void FillMaterials(MaterialCollection m) {
+		AminoAcid victimAmino = m.GetAmino();
+		Nucleotid victimNucle = m.GetNucle();
+		int victimAminoAmount = victimAmino.amount;
+		int victimNucleAmount = victimNucle.amount;
+		
+		AminoAcid Amino = materialCollection.GetAmino();
+		Nucleotid Nucle = materialCollection.GetNucle();
+//		int AminoAmount = Amino.amount;
+//		int NucleAmount = Nucle.amount;
+		
+		int fillAminoWithAmount = maxAmino - Amino.amount;
+		int fillNucleWithAmount = maxNucle - Nucle.amount;
+		if(victimAminoAmount < fillAminoWithAmount) {
+			victimAminoAmount -= victimAminoAmount;
+			Amino.amount += victimAminoAmount;
+		}
+		else if(Amino.amount > fillAminoWithAmount) {
+			fillAminoWithAmount = fillAminoWithAmount - Amino.amount;
+			victimAminoAmount -= fillAminoWithAmount;
+			Amino.amount += fillAminoWithAmount;
+		}
+		else {
+			victimAminoAmount -= fillAminoWithAmount;
+			Amino.amount += fillAminoWithAmount;
+		}
+		
+		
+		if(victimNucleAmount < fillNucleWithAmount) {
+			victimNucle.amount -= victimNucleAmount;
+			Nucle.amount += victimNucleAmount;
+		}
+		else if(Nucle.amount > fillNucleWithAmount) {
+			fillNucleWithAmount = fillNucleWithAmount - Nucle.amount;
+			victimNucle.amount -= fillNucleWithAmount;
+			Nucle.amount += fillNucleWithAmount;
+		}
+		else {
+			victimNucle.amount -= fillNucleWithAmount;
+			Nucle.amount += fillNucleWithAmount;
+		}
 		
 	}
 	

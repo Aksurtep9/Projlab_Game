@@ -15,7 +15,7 @@ public class EquipmentCollection {
 	 * @param e the Equipment added
 	 */
 	public void Add(Equipment e) {
-		
+		equipments.add(e);
 	}
 	
 	/**

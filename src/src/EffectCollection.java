@@ -11,12 +11,17 @@ public class EffectCollection {
 	/** Stores all of the Effects applied to the Virologist*/
 	private List<Effect> effects;
 	
+	
+	public EffectCollection() {
+		effects = new ArrayList<Effect>();
+	}
+	
 	/**
 	 * Adds a new Effect to the collection.
 	 * @param craftedAgent the Effect
 	 */
-	public void Add(Agent craftedAgent) {
-		
+	public void Add(Effect e) {
+		e.Affect(viroPlayer1);
 	}
 	
 	/**

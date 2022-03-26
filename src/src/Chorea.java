@@ -30,7 +30,7 @@ public class Chorea extends Agent
 	**/
 	public void Affect(Virologist v)
 	{
-		
+		v.RandomField();
 	}
 	
 	/**
