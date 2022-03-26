@@ -1,5 +1,8 @@
 package src;
-import java.util.List;
+
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
+
 
 /**
 * Virologist class
@@ -100,6 +103,83 @@ public class Virologist extends Thing {
 	**/
 	public void Anoint(Agent a, Virologist victim) {
 		
+		System.out.println("The following vaccines are known to you:");
+		/**Stores all crafted vaccines to the Virologist.*/
+		List<Agent> agents=new ArrayList<Agent>(); 
+		agents = craftedAgentCollection.ListAll();
+		
+		/**opt Checking whether the Virologist has any vaccines*/
+		if(agents.isEmpty())
+		{
+			System.out.println("You do not have any vaccines yet, so you cannot anoint");
+			return;
+		}
+		
+		System.out.println("0. Cancel");
+		/**List every known genetic code with a serial number*/
+		for(int i=0;i<agents.size();i++){
+			int sernum = i+1;
+		    System.out.print(sernum);
+		    System.out.println(agents.get(i));
+		} 
+		
+		String serialnumber;
+		
+		boolean usable = false;
+		
+		do {
+			System.out.println("Please write the number of the agent you would like to use");
+			Scanner sc = new Scanner(System.in);
+			serialnumber=sc.nextLine();
+			/**Handling the string type exception*/
+			try {
+				/**Number must be between 1 and the size of the list+1, so if its smaller then 1 or greater than the size of the list the loop will go on*/
+				if(Integer.parseInt(serialnumber) > 0 || Integer.parseInt(serialnumber) < agents.size()+1) {
+					usable = true;
+				}
+				else {
+					System.out.println("Please use the numbers provided to you above to choose an agent to use");
+					
+				}
+					
+					/**Checking whether the Virologist has enough materials to craft*/
+			}
+			catch(NumberFormatException e) {
+				System.out.println("Please use the proper formats like numbers");
+				serialnumber = "";
+			}
+			
+		}/**Whether there is a usable agent selected by the Virologist*/
+		while(!usable);
+		
+		Agent craftedAgent = agents.get(Integer.parseInt(serialnumber)-1);
+		
+		if(victim.GetEquipmentCollection().Contains("Gloves")) {
+			
+			effectCollection.Add(craftedAgent);
+			victim.GetEquipmentCollection().Remove("Gloves");
+			craftedAgentCollection.Remove(craftedAgent);
+		}
+		else {
+			if(victim.GetEquipmentCollection().Contains("Cloak")) {
+				
+				double random = ThreadLocalRandom.current().nextDouble(0,100);
+				if(random<=82.3){
+					
+					
+				}
+				else
+					victim.GetEffectCollection().Add(craftedAgent);
+				
+			}
+			else {
+				
+			victim.GetEffectCollection().Add(craftedAgent);
+			
+			}
+			craftedAgentCollection.Remove(craftedAgent);
+		}
+		
 	}
 	
 	/**
@@ -113,7 +193,82 @@ public class Virologist extends Thing {
 	* Shows a menu to the Player of the genCodeCollection that he can choose from to craft
 	**/
 	public void Craft() {
+	
+		System.out.println("The following genetic codes are known to you:");
 		
+		/**Stores all known genCodes to the Virologist.*/
+		List<Agent> genCodes=new ArrayList<Agent>(); 
+		genCodes = genCodeCollection.ListAll();
+		
+		/**opt Checking whether the Virologist knows any genetic codes*/
+		if(genCodes.isEmpty())
+		{
+			System.out.println("You do not know any genetic codes yet, so you shall not craft");
+			return;
+		}
+		
+		System.out.println("0. Cancel");
+		
+		/**List every known genetic code with a serial number*/
+		for(int i=0;i<genCodes.size();i++){
+			int sernum = i+1;
+		    System.out.print(sernum);
+		    System.out.println(genCodes.get(i));
+		} 
+		
+		/**Attributes to address the nucleotid and aminoacid counter of the Virologist*/
+		AminoAcid amino = materialCollection.GetAmino();
+		Nucleotid nucle =materialCollection.GetNucle();
+		
+		/**The amount of aminoacid and nucleotid the Virologist has*/
+		int aminoAmount = amino.GetAmount();
+		int nucleAmount = nucle.GetAmount();
+		
+		/**The expression required for the loop to function. If it's false that means the agent cannot be crafted and the loop must go on. */
+		boolean craftable = false;
+		
+		
+		/**The serial number of the agent in the list*/
+		String serialnumber;
+		do {
+				System.out.println("Please write the number of the agent you would like to craft");
+				
+				/**User input watcher*/
+				Scanner sc = new Scanner(System.in);
+				serialnumber=sc.nextLine();
+				sc.close();
+				
+				/**Handling the string type exception*/
+				try {
+					/**Number must be between 1 and the size of the list+1, so if its smaller then 1 or greater than the size of the list the loop will go on*/
+					if(Integer.parseInt(serialnumber) > 0 || Integer.parseInt(serialnumber) < genCodes.size()+1) {
+						int testamino = genCodes.get(Integer.parseInt(serialnumber)-1).GetCostAmino();
+						int testnucle = genCodes.get(Integer.parseInt(serialnumber)-1).GetCostNucle();
+						
+						/**Checking whether the Virologist has enough materials to craft*/
+						if(testamino <= aminoAmount && testnucle <= nucleAmount)
+							craftable=true;	
+					}
+					else {
+						System.out.println("Please use the numbers provided to you above to choose an agent to craft");
+						serialnumber="";
+					}
+				}
+				catch(NumberFormatException e) {
+					System.out.println("Please use the proper formats like numbers");
+				}
+				
+		}/**Whether the agent is craftable by the Virologist*/
+		while(!craftable);
+		
+		int listnumber = Integer.parseInt(serialnumber);
+		
+		/**The agent to be crafted*/
+		Agent genCode = genCodes.get(listnumber-1);
+		int aminoCost = genCode.GetCostAmino();
+		int nucleCost = genCode.GetCostNucle();
+		
+		CreateAgent(genCode);
 	}
 	
 	/**
@@ -121,8 +276,16 @@ public class Virologist extends Thing {
 	* @param genCode - The Agent we wish to craft
 	* @return The crafted Agent
 	**/
-	public Agent CreateAgent(Agent genCode) {
-		return genCode;
+	public Agent CreateAgent(Agent genCode) {//erdei
+		
+		Agent craftedAgent = new Agent();//kell?
+		
+		craftedAgentCollection.Add(craftedAgent);
+		
+		/**Removes the amount required crafting the agent*/
+		materialCollection.GetAmino().RemoveAmount(genCode.GetCostAmino());
+		materialCollection.GetNucle().RemoveAmount(genCode.GetCostNucle());
+		return craftedAgent;
 	}
 	
 	/**
@@ -182,6 +345,17 @@ public class Virologist extends Thing {
 	* The method is called at the start of each turn and it calls every Effect from the effectCollection
 	**/
 	public void CallAffectWithAll() {
+		
+	}
+	
+	
+	public void CallDecreaseAgentTime() {
+		
+	}
+	
+	public void RemoveAgentFromAgentColl(Agent a) {
+		
+		effectCollection.Remove((Effect) a);
 		
 	}
 	

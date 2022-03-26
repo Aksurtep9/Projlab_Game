@@ -53,6 +53,11 @@ public abstract class Agent
 	 * @param v Virologist that the effect of the agent has been applied to
 	 */
 	public void DecreaseEffectTime(Virologist v) {
+		expireTime--;
+		if(expireTime == 0) {
+			
+			v.RemoveAgentFromAgentColl(this);
+		}
 		
 	}
 	

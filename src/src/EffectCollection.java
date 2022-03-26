@@ -13,9 +13,9 @@ public class EffectCollection {
 	
 	/**
 	 * Adds a new Effect to the collection.
-	 * @param e the Effect
+	 * @param craftedAgent the Effect
 	 */
-	public void Add(Effect e) {
+	public void Add(Agent craftedAgent) {
 		
 	}
 	
