@@ -9,6 +9,13 @@ package src;
  */
 public class Warehouse extends Field{
 
+	/**
+	 * Constructor for the Warehouse
+	 */
+	public Warehouse() {
+		super();
+	}
+	
 	/**Stores the warehouse's materials.*/
 	private MaterialCollection materialCollection;
 	
@@ -35,6 +42,15 @@ public class Warehouse extends Field{
 	 */
 	public MaterialCollection GetMaterialCollection() {
 		
+	}
+	
+	/**
+	 * Gives the field's type back
+	 * @return the type of the field
+	 */
+	@Override
+	public String toString() {
+		return "Warehouse" + ID;
 	}
 }
 

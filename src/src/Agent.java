@@ -36,7 +36,8 @@ public abstract class Agent
 	/**
 	 * Lists all the attributes of the agent in a string.
 	 */
-	public String ToString() {
+	@Override
+	public String toString() {
 		
 	}
 	

@@ -33,7 +33,7 @@ public class Cloak extends Equipment {
 	 * @return Returns the properties of this Cloak.
 	 */
 	@Override
-	public String ToString() {
+	public String toString() {
 		
 	}
 }

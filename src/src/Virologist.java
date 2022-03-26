@@ -49,12 +49,12 @@ public class Virologist extends Thing {
 		//If the genCode is new
 		if(!contains) {
 			this.genCodeCollection.Add(genCode);
-			//TO-DO: Checkwin()
+			Game.CheckWin();
 			
 			boolean gameOver = false;
 			//If the virologist won
 			if(gameOver) {
-				//TO-DO: EndGame()
+				Game.EndGame();
 			}
 		}
 	}
@@ -65,14 +65,20 @@ public class Virologist extends Thing {
 	public void Move() {
 		List<Field> neighbours = this.field.GetNeighbours();
 		
-		//TO DO: Choosing
-		//-
+		//Asks the user which neighbour is needed.
+		Skeleton.Interaction.PrintList(neighbours);
+		int index = Skeleton.Interaction.ListItemNumber(neighbours.size());
 		
-		Field selected = neighbours.get(0);
-		if(selected != null && selected != this.field) {
-			
-			this.field.Remove(this);
-			selected.Accept(this);
+		//If the user chose the 0: Maradok
+		if(index == 0)
+			System.out.print("Maradok");
+		else {
+			Field selected = neighbours.get(0);
+			if(selected != null && selected != this.field) {
+				
+				this.field.Remove(this);
+				selected.Accept(this);
+			}
 		}
 	}
 	
@@ -119,44 +125,48 @@ public class Virologist extends Thing {
 			return;
 		}
 		
-		System.out.println("0. Cancel");
-		/**List every known genetic code with a serial number*/
-		for(int i=0;i<agents.size();i++){
-			int sernum = i+1;
-		    System.out.print(sernum);
-		    System.out.println(agents.get(i));
-		} 
-		
-		String serialnumber;
-		
-		boolean usable = false;
-		
-		do {
-			System.out.println("Please write the number of the agent you would like to use");
-			Scanner sc = new Scanner(System.in);
-			serialnumber=sc.nextLine();
+//		//System.out.println("0. Cancel");
+//		/**List every known genetic code with a serial number*/
+//		for(int i=0;i<agents.size();i++){
+//			int sernum = i+1;
+//		    System.out.print(sernum);
+//		    System.out.println(agents.get(i));
+//		} 
+//		
+//		String serialnumber;
+//		
+//		boolean usable = false;
+//		
+//		do {
+//			System.out.println("Please write the number of the agent you would like to use");
+//			Scanner sc = new Scanner(System.in);
+//			serialnumber=sc.nextLine();*/
 			/**Handling the string type exception*/
-			try {
-				/**Number must be between 1 and the size of the list+1, so if its smaller then 1 or greater than the size of the list the loop will go on*/
-				if(Integer.parseInt(serialnumber) > 0 || Integer.parseInt(serialnumber) < agents.size()+1) {
-					usable = true;
-				}
-				else {
-					System.out.println("Please use the numbers provided to you above to choose an agent to use");
-					
-				}
-					
-					/**Checking whether the Virologist has enough materials to craft*/
-			}
-			catch(NumberFormatException e) {
-				System.out.println("Please use the proper formats like numbers");
-				serialnumber = "";
-			}
-			
-		}/**Whether there is a usable agent selected by the Virologist*/
-		while(!usable);
+//			try {
+//				/**Number must be between 1 and the size of the list+1, so if its smaller then 1 or greater than the size of the list the loop will go on*/
+//				if(Integer.parseInt(serialnumber) > 0 || Integer.parseInt(serialnumber) < agents.size()+1) {
+//					usable = true;
+//				}
+//				else {
+//					System.out.println("Please use the numbers provided to you above to choose an agent to use");
+//					
+//				}
+//					
+//					/**Checking whether the Virologist has enough materials to craft*/
+//			}
+//			catch(NumberFormatException e) {
+//				System.out.println("Please use the proper formats like numbers");
+//				serialnumber = "";
+//			}
+//			
+//		}/**Whether there is a usable agent selected by the Virologist*/
+//		while(!usable);
+	
+		Skeleton.Interaction.PrintList(agents);
 		
-		Agent craftedAgent = agents.get(Integer.parseInt(serialnumber)-1);
+		int serialnumber = Skeleton.Interaction.ListItemNumber(agents.size());
+		
+		Agent craftedAgent = agents.get(serialnumber-1);
 		
 		if(victim.GetEquipmentCollection().Contains("Gloves")) {
 			
@@ -211,64 +221,68 @@ public class Virologist extends Thing {
 			return;
 		}
 		
-		System.out.println("0. Cancel");
+//		System.out.println("0. Cancel");
+//		
+//		/**List every known genetic code with a serial number*/
+//		for(int i=0;i<genCodes.size();i++){
+//			int sernum = i+1;
+//		    System.out.print(sernum);
+//		    System.out.println(genCodes.get(i));
+//		} 
+//		
+//		/**Attributes to address the nucleotid and aminoacid counter of the Virologist*/
+//		AminoAcid amino = materialCollection.GetAmino();
+//		Nucleotid nucle =materialCollection.GetNucle();
+//		
+//		/**The amount of aminoacid and nucleotid the Virologist has*/
+//		int aminoAmount = amino.GetAmount();
+//		int nucleAmount = nucle.GetAmount();
+//		
+//		/**The expression required for the loop to function. If it's false that means the agent cannot be crafted and the loop must go on. */
+//		boolean craftable = false;
+//		
+//		
+//		/**The serial number of the agent in the list*/
+//		String serialnumber;
+//		do {
+//				System.out.println("Please write the number of the agent you would like to craft");
+//				
+//				/**User input watcher*/
+//				Scanner sc = new Scanner(System.in);
+//				serialnumber=sc.nextLine();
+//				sc.close();
+//				
+//				/**Handling the string type exception*/
+//				try {
+//					/**Number must be between 1 and the size of the list+1, so if its smaller then 1 or greater than the size of the list the loop will go on*/
+//					if(Integer.parseInt(serialnumber) > 0 || Integer.parseInt(serialnumber) < genCodes.size()+1) {
+//						int testamino = genCodes.get(Integer.parseInt(serialnumber)-1).GetCostAmino();
+//						int testnucle = genCodes.get(Integer.parseInt(serialnumber)-1).GetCostNucle();
+//						
+//						/**Checking whether the Virologist has enough materials to craft*/
+//						if(testamino <= aminoAmount && testnucle <= nucleAmount)
+//							craftable=true;	
+//					}
+//					else {
+//						System.out.println("Please use the numbers provided to you above to choose an agent to craft");
+//						serialnumber="";
+//					}
+//				}
+//				catch(NumberFormatException e) {
+//					System.out.println("Please use the proper formats like numbers");
+//				}
+//				
+//		}/**Whether the agent is craftable by the Virologist*/
+//		while(!craftable);
 		
-		/**List every known genetic code with a serial number*/
-		for(int i=0;i<genCodes.size();i++){
-			int sernum = i+1;
-		    System.out.print(sernum);
-		    System.out.println(genCodes.get(i));
-		} 
-		
-		/**Attributes to address the nucleotid and aminoacid counter of the Virologist*/
-		AminoAcid amino = materialCollection.GetAmino();
-		Nucleotid nucle =materialCollection.GetNucle();
-		
-		/**The amount of aminoacid and nucleotid the Virologist has*/
-		int aminoAmount = amino.GetAmount();
-		int nucleAmount = nucle.GetAmount();
-		
-		/**The expression required for the loop to function. If it's false that means the agent cannot be crafted and the loop must go on. */
-		boolean craftable = false;
+		Skeleton.Interaction.PrintList(genCodes);
+		int serialnumber = Skeleton.Interaction.ListItemNumber(genCodes.size());
 		
 		
-		/**The serial number of the agent in the list*/
-		String serialnumber;
-		do {
-				System.out.println("Please write the number of the agent you would like to craft");
-				
-				/**User input watcher*/
-				Scanner sc = new Scanner(System.in);
-				serialnumber=sc.nextLine();
-				sc.close();
-				
-				/**Handling the string type exception*/
-				try {
-					/**Number must be between 1 and the size of the list+1, so if its smaller then 1 or greater than the size of the list the loop will go on*/
-					if(Integer.parseInt(serialnumber) > 0 || Integer.parseInt(serialnumber) < genCodes.size()+1) {
-						int testamino = genCodes.get(Integer.parseInt(serialnumber)-1).GetCostAmino();
-						int testnucle = genCodes.get(Integer.parseInt(serialnumber)-1).GetCostNucle();
-						
-						/**Checking whether the Virologist has enough materials to craft*/
-						if(testamino <= aminoAmount && testnucle <= nucleAmount)
-							craftable=true;	
-					}
-					else {
-						System.out.println("Please use the numbers provided to you above to choose an agent to craft");
-						serialnumber="";
-					}
-				}
-				catch(NumberFormatException e) {
-					System.out.println("Please use the proper formats like numbers");
-				}
-				
-		}/**Whether the agent is craftable by the Virologist*/
-		while(!craftable);
-		
-		int listnumber = Integer.parseInt(serialnumber);
+//		int listnumber = Integer.parseInt(serialnumber);
 		
 		/**The agent to be crafted*/
-		Agent genCode = genCodes.get(listnumber-1);
+		Agent genCode = genCodes.get(serialnumber-1);
 		int aminoCost = genCode.GetCostAmino();
 		int nucleCost = genCode.GetCostNucle();
 		

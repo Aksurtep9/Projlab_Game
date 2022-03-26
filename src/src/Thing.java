@@ -14,9 +14,9 @@ public abstract class Thing
 	* Gives back all the attributes in string
 	* @return a string stating the parameters of the class
 	**/
-	
-    public abstract String ToString()
+	@Override
+	public String toString()
 	{
-		
+		return "";
 	}
 }

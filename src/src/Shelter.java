@@ -9,6 +9,13 @@ import java.util.List;
  */
 public class Shelter extends Field {
 
+	/**
+	 * Constructor for the Laboratory
+	 */
+	public Shelter() {
+		super();
+	}
+	
 	/**Stores the shelter's equipments.*/
 	private List<Equipment> equipments;
 	
@@ -29,4 +36,13 @@ public class Shelter extends Field {
 	 * 
 	 * }
 	 */
+	
+	/**
+	 * Gives the field's type back
+	 * @return the type of the field
+	 */
+	@Override
+	public String toString() {
+		return "Shelter" + ID;
+	}
 }
