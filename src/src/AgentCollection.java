@@ -34,7 +34,7 @@ public class AgentCollection {
 	}
 	
 	/**
-	 * Calls DecreaseExpireTime() on each of the Agents.
+	 * Decreases the expireTime of each of the Agents.
 	 * @param v the Virologist, who is the owner of the collection
 	 */
 	public void DecreaseAgentTimeAColl(Virologist v) {
@@ -62,7 +62,7 @@ public class AgentCollection {
 	 * @return true, if the agent given as parameter is found in the collection
 	 */
 	public boolean Contains(Agent genCode) {
-		return false;
+		
 	}
 }
 

@@ -41,7 +41,7 @@ public abstract class Agent
 	}
 	
 	/**
-	 * Decreases the attribute expireTime by one. This function is called in each round. If the remaining time is 0, it calls the RemoveAgentFromAgentColl() method of the Virologist.
+	 * Decreases the attribute expireTime by one. This function is called in each round. If the remaining time is 0, it removes the Agent from AgentCollection.
 	 * @param v Virologist that has the crafted agent
 	 */
 	public void DecreaseExpireTime(Virologist v) {
@@ -49,7 +49,7 @@ public abstract class Agent
 	}
 	
 	/**
-	 * Decreases the attribute effectTime by one. This function is called in each round. If the remaining time is 0, it calls the RemoveAgentFromEffectColl() method of the Virologist.
+	 * Decreases the attribute effectTime by one. This function is called in each round. If the remaining time is 0, it removes the Agent from EffectCollection.
 	 * @param v Virologist that the effect of the agent has been applied to
 	 */
 	public void DecreaseEffectTime(Virologist v) {
