@@ -14,7 +14,8 @@ public class AminoAcid extends Material{
 	* Default ToString method for console printout.
 	* @return String with the amount
 	**/
-	public String ToString() {
+	@Override
+	public String toString() {
 		return ("Amount of AminoAcid: " + amount);
 	}
 }
