@@ -11,6 +11,72 @@ import java.util.Scanner;
  */
 public class Skeleton {
 
+	//Instances
+	private Game game;
+	private Field moveHere;
+	private Field hereWeAre;
+	private Virologist viroPlayer1;
+	
+	/**
+	 * Constructor for the test program.
+	 */
+	public Skeleton() {
+		System.out.print("Welcome to the skeleton program!\n");
+	}
+	
+	/**
+	 * Initializes all the declared instance for this test program
+	 */
+	public void Initialize() {
+		game = new Game(3);
+		moveHere = new Field();
+		hereWeAre = new Field();
+		viroPlayer1 = new Virologist();
+		viroPlayer1.SetField(hereWeAre);
+	}
+	
+	/**
+	 * Runs the skeleton class with its menu system.<br>
+	 * Test program.
+	 */
+	public void Run() {
+		
+		do {
+			Menu.PrintMainMenu();
+			int menuItem = Interaction.MenuNumber(0, 15);
+			
+			switch(menuItem) {
+			case 0: System.exit(0); break;
+			case 1: break;
+			case 2: viroPlayer1.Move(); break;
+			case 3: viroPlayer1.Move(); break; //But only to laboratory
+			case 4: viroPlayer1.Move(); break; //But only to warehouse
+			case 5: viroPlayer1.Move(); break; //But only to shelter
+			case 6:  break;
+			case 7:  break;
+			case 8:  break;
+			case 9: 
+				Menu.PrintSubMenu();
+				int menuSubItem = Interaction.MenuNumber(0, 3);
+				switch(menuSubItem) {
+				case 0: /*do nothing*/ break;
+				case 1:  break;
+				case 2:  break;
+				case 3:  break;
+				}
+				break;
+			case 10:  break;
+			case 11:  break;
+			case 12:  break;
+			case 13:  break;
+			case 14:  break;
+			case 15: Game.EndGame(); break;
+			}
+			
+		}while(true);
+		
+	}
+	
 	/**
 	 * <b>Menu class</b><br>
 	 * Prints out the menu system so that the user can communicate with the program.
@@ -22,7 +88,7 @@ public class Skeleton {
 		 * Prints out the menu.
 		 */
 		public static void PrintMainMenu() {
-			System.out.print("The menu is the following:\n  "
+			System.out.print("The menu is the following:\n"
 					+ "0"+"\t"+":Kilepes"+"\n"
 					+ "1"+"\t"+":Jatek inditasa"+"\n"
 					+ "2"+"\t"+":Lepes mezore"+"\n"
@@ -39,7 +105,6 @@ public class Skeleton {
 					+ "13"+"\t"+":Kopeny"+"\n"
 					+ "14"+"\t"+":Uj kor"+"\n"
 					+ "15"+"\t"+":Jatek vege"+"\n");
-			
 		}
 		
 		public static void PrintSubMenu() {

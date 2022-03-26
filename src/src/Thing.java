@@ -8,7 +8,19 @@ package src;
 public abstract class Thing 
 {
 	/**The Field which the Thing is on*/
-	Field field;
+	private Field field;
+	
+	/**
+	 * Puts the thing on the given field.
+	 * @param pField - the field which the thing should be on.
+	 */
+	public void SetField(Field pField) { field = pField; }
+	
+	/**
+	 * Gives the thing's current field back.
+	 * @return the field which the thing is on
+	 */
+	public Field GetField() { return field; }
 	
 	/**
 	* Gives back all the attributes in string

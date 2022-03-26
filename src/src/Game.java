@@ -20,7 +20,7 @@ public class Game {
 	int playerCount;
 	
 	/**
-	 * The number of rounds played.
+	 * The number of the current round
 	 */
 	int roundCount;
 	
@@ -50,9 +50,9 @@ public class Game {
 	 */
 	Map map;
 	
-	public Game(int playerCount, int roundCount) {
+	public Game(int playerCount) {
 		this.playerCount = playerCount;
-		this.roundCount = roundCount;
+		this.roundCount = 0;
 		this.map = new Map();
 		players = new ArrayList<Virologist>();
 	}
