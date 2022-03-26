@@ -9,6 +9,13 @@ package src;
  */
 public class Laboratory extends Field{
 
+	/**
+	 * Constructor for the Laboratory
+	 */
+	public Laboratory() {
+		super();
+	}
+	
 	/**Stores the laboratory's one and only genetic code.*/
 	private Agent genCode;
 	
@@ -28,5 +35,14 @@ public class Laboratory extends Field{
 	public void Accept(Virologist v) {
 		this.things.add(v);
 		v.CloneGenCode(genCode);
+	}
+	
+	/**
+	 * Gives the field's type back
+	 * @return the type of the field
+	 */
+	@Override
+	public String toString() {
+		return "Laboratory" + ID;
 	}
 }

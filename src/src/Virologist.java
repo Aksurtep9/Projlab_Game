@@ -48,12 +48,12 @@ public class Virologist extends Thing {
 		//If the genCode is new
 		if(!contains) {
 			this.genCodeCollection.Add(genCode);
-			//TO-DO: Checkwin()
+			Game.CheckWin();
 			
 			boolean gameOver = false;
 			//If the virologist won
 			if(gameOver) {
-				//TO-DO: EndGame()
+				Game.EndGame();
 			}
 		}
 	}
@@ -64,14 +64,20 @@ public class Virologist extends Thing {
 	public void Move() {
 		List<Field> neighbours = this.field.GetNeighbours();
 		
-		//TO DO: Choosing
-		//-
+		//Asks the user which neighbour is needed.
+		Skeleton.Interaction.PrintList(neighbours);
+		int index = Skeleton.Interaction.ListItemNumber(neighbours.size());
 		
-		Field selected = neighbours.get(0);
-		if(selected != null && selected != this.field) {
-			
-			this.field.Remove(this);
-			selected.Accept(this);
+		//If the user chose the 0: Maradok
+		if(index == 0)
+			System.out.print("Maradok");
+		else {
+			Field selected = neighbours.get(0);
+			if(selected != null && selected != this.field) {
+				
+				this.field.Remove(this);
+				selected.Accept(this);
+			}
 		}
 	}
 	

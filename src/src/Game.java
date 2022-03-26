@@ -60,7 +60,7 @@ public class Game {
 	/**
 	 * It ends the game and declares the winner.
 	 */
-	void EndGame() {
+	static void EndGame() {
 		
 	}
 	
@@ -69,7 +69,7 @@ public class Game {
 	 * if it has learnt all of them.
 	 * @return Did the virologist learn all the genetic codes.
 	 */
-	public boolean CheckWin() {
+	public static boolean CheckWin() {
 		
 	}
 	

@@ -10,6 +10,21 @@ import java.util.List;
  * @author - Martin
  */
 public class Field {
+	
+	/**A counter for the fields. Use this to differ one field from another field.*/
+	private static int uniqueID = 0;
+	
+	/**The ID which being given to toString method.*/
+	protected int ID;
+	
+	/**
+	 * Constructor for the Field class.<br>
+	 * Creates a unique ID for the instance.
+	 */
+	public Field() {
+		this.ID = uniqueID;
+		++uniqueID;
+	}
 
 	/**Stores the field neighbours.*/
 	protected List<Field> neighbours;
@@ -63,5 +78,14 @@ public class Field {
 	 */
 	public void Remove(Thing t) {
 		this.things.remove(t);
+	}
+	
+	/**
+	 * Gives the field's type back
+	 * @return the type of the field
+	 */
+	@Override
+	public String toString() {
+		return "Field" + this.ID;
 	}
 }
