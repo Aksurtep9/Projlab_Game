@@ -327,9 +327,6 @@ public class Virologist extends Thing {
 		
 		/**The agent to be crafted*/
 		Agent genCode = genCodes.get(serialnumber-1);
-		int aminoCost = genCode.GetCostAmino();
-		int nucleCost = genCode.GetCostNucle();
-		
 		CreateAgent(genCode);
 	}
 	
