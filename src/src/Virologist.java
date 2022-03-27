@@ -21,6 +21,16 @@ import java.util.concurrent.ThreadLocalRandom;
 **/
 public class Virologist extends Thing {
 	
+	/**
+	 * The number of maximum aminoacid a player can hold at one time.
+	 */
+	private int maxAmino = 20;
+	
+	/**
+	 * The number of maximum nucleotid a player can hold at one time.
+	 */
+	private int maxNucle = 20;
+	
 	/**If the Virologist picks up an Equipment it gets into the equipmentCollection.*/
 	EquipmentCollection equipmentCollection;
 	
