@@ -50,6 +50,7 @@ public class Game {
 	private Map map;
 	
 	public Game(int playerCount) {
+		System.out.println("Game");
 		this.playerCount = playerCount;
 		this.roundCount = 0;
 		this.map = new Map();
@@ -57,6 +58,7 @@ public class Game {
 	}
 	
 	public ArrayList<Virologist> getPlayers(){
+		System.out.println("getPlayer");
 		return players;
 	}
 	
@@ -64,7 +66,7 @@ public class Game {
 	 * It starts a new game.
 	 */
 	void NewGame() {
-		System.out.println("NewGame()");
+		System.out.println("NewGame");
 		for(int i = 0; i < playerCount; i++) {
 			Virologist v = new Virologist();
 			players.add(v);
@@ -87,6 +89,7 @@ public class Game {
 	 * It ends the game and declares the winner.
 	 */
 	static void EndGame() {
+		System.out.println("EndGame");
 		
 	}
 	
@@ -96,6 +99,7 @@ public class Game {
 	 * @return Did the virologist learn all the genetic codes.
 	 */
 	public static boolean CheckWin() {
+		System.out.println("CheckWin");
 		if(currentPlayer.GetGenCodeCollection().GetSize()==maxGenCode) {
 			return true;
 		}
@@ -108,6 +112,7 @@ public class Game {
 	 * current player.
 	 */
 	public void NewRound() {
+		System.out.println("NewRound");
 		currentPlayer.CallDecreaseAgentTime();
 	}
 }

@@ -17,14 +17,15 @@ public class Sack extends Equipment {
 	 * @param v The virologist, who is being affected by an effect.
 	 */
 	public void Affect(Virologist v) {
-		
+		System.out.println("Affect");
 	}
 	
 	/**
 	 * 
 	 * @return Returns "Sack".
 	 */
-	public String GetEfectName() {
+	public String GetEffectName() {
+		System.out.println("GetEffectName");
 		return "Sack";
 	}
 	
@@ -34,11 +35,13 @@ public class Sack extends Equipment {
 	 */
 	@Override
 	public String toString() {
+		System.out.println("toString");
 		return GetEffectName();
 	}
 
 	@Override
 	public void DecreaseEffectTime(Virologist v) {
+		System.out.println("DecreaseEffectTime");
 		// TODO Auto-generated method stub
 		
 	}

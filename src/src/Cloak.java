@@ -13,6 +13,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Cloak extends Equipment {
 	
 	public Cloak() {
+		System.out.println("Cloak");
 	}
 	
 	/**
@@ -20,6 +21,7 @@ public class Cloak extends Equipment {
 	 * @param v The virologist, who is being affected by an effect.
 	 */
 	public void Affect(Virologist v) {
+		System.out.println("Affect");
 		double random = ThreadLocalRandom.current().nextDouble(0,100);
 		if(random>82.3){
 			
@@ -31,6 +33,7 @@ public class Cloak extends Equipment {
 	 * @return Returns "Cloak".
 	 */
 	public String GetEffectName() {
+		System.out.println("GetEffectName");
 		return "Cloak";
 	}
 	
@@ -40,11 +43,13 @@ public class Cloak extends Equipment {
 	 */
 	@Override
 	public String toString() {
+		System.out.println("toString");
 		return GetEffectName();
 	}
 
 	@Override
 	public void DecreaseEffectTime(Virologist v) {
+		System.out.println("DecreaseEffectTime");
 		// TODO Auto-generated method stub
 		
 	}

@@ -11,6 +11,7 @@ public class Gloves extends Equipment {
 	
 	public Gloves() {
 		super();
+		System.out.println("Gloves");
 	}
 	
 	/**
@@ -18,6 +19,7 @@ public class Gloves extends Equipment {
 	 * @param v The virologist, who is being affected by an effect.
 	 */
 	public void Affect(Virologist v) {
+		System.out.println("Affect");
 		
 	}
 	
@@ -26,6 +28,7 @@ public class Gloves extends Equipment {
 	 * @return Returns "Gloves".
 	 */
 	public String GetEfectName() {
+		System.out.println("GetEffectName");
 		return "Gloves";
 	}
 	
@@ -35,11 +38,13 @@ public class Gloves extends Equipment {
 	 */
 	@Override
 	public String toString() {
+		System.out.println("toString");
 		return GetEffectName();
 	}
 
 	@Override
 	public void DecreaseEffectTime(Virologist v) {
+		System.out.println("DecreaseEffectTime");
 		// TODO Auto-generated method stub
 		
 	}
