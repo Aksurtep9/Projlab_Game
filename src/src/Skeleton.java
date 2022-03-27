@@ -16,8 +16,8 @@ public class Skeleton {
 	//Instances
 	private Game game;
 	private Map map;
-	private Field moveHere;
-	private Field hereWeAre;
+	private static Field moveHere;
+	private static Field hereWeAre;
 	private Field labor;
 	private Field shelter;
 	private Field warehouse;
@@ -89,9 +89,6 @@ public class Skeleton {
 					labor = map.GetFields().get(1);
 					shelter = map.GetFields().get(2);
 					warehouse = map.GetFields().get(3);
-					viroPlayer1.SetField(hereWeAre);
-					viroPlayer2.SetField(labor);
-					viroPlayer3.SetField(shelter);
 					break;
 			}
 			case 2: viroPlayer1.Move(); break;
@@ -201,9 +198,9 @@ public class Skeleton {
 		 */
 		public static <T> void PrintList(List<T> listItem){
 			System.out.print("A kovetkezo dolgok talalhatoak itt.\n");
-			System.out.print("0\t:Megsem\n");
+			System.out.print("0\t:Megsem\n"); 
 			for(int i = 0; i<listItem.size(); ++i)
-				System.out.print((i+1) + "\t:" + listItem.get(i).toString() + "\n");
+				System.out.print((i+1) + ":\t" + listItem.get(i).toString() + "\n");
 		}
 		
 		/**
@@ -214,11 +211,11 @@ public class Skeleton {
 		public static int ListItemNumber(int max) {
 			int chosenItem = 0;
 			do {
+				System.out.print("Kerlek valassz egy menupontot: ");
 				if(scan.hasNextInt())
 					chosenItem = scan.nextInt();
 			}while(chosenItem<0 || chosenItem>max);
 			return chosenItem;
 		}
 	}
-	
 }

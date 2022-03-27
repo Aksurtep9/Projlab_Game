@@ -49,6 +49,10 @@ public class Map {
 		hereWeAre.AddNeighbours(warehouse);
 		hereWeAre.AddNeighbours(shelter);
 		
+		players.get(0).SetField(hereWeAre);
+		players.get(1).SetField(labor);
+		players.get(2).SetField(shelter);
+		
 		fields.add(players.get(0).GetField());
 		fields.add(labor);
 		fields.add(shelter);

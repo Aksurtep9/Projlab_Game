@@ -11,6 +11,10 @@ public abstract class Thing
 	/**The Field which the Thing is on*/
 	protected Field field; //Protectedre átírtam -Petruska
 	
+	public Thing() {
+		field = new Field();
+	}
+	
 	/**
 	 * Puts the thing on the given field.
 	 * @param pField - the field which the thing should be on.

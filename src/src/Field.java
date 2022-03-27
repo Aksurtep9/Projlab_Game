@@ -102,7 +102,6 @@ public class Field {
 	 */
 	@Override
 	public String toString() {
-		System.out.println("toString");
 		return "Field" + this.ID;
 	}
 }

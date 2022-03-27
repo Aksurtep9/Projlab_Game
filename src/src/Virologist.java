@@ -92,7 +92,7 @@ public class Virologist extends Thing {
 		
 		//If the user chose the 0: Maradok
 		if(index == 0)
-			System.out.print("Maradok");
+			System.out.println("Maradok");
 		else {
 			Field selected = neighbours.get(0);
 			if(selected != null && selected != this.field) {
