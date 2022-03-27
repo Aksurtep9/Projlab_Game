@@ -14,7 +14,7 @@ public class Laboratory extends Field{
 	 */
 	public Laboratory() {
 		super();
-		System.out.println("Laboratory");
+		System.out.println("Laboratory constructor");
 	}
 	
 	/**Stores the laboratory's one and only genetic code.*/

@@ -50,7 +50,7 @@ public class Game {
 	private Map map;
 	
 	public Game(int playerCount) {
-		System.out.println("Game");
+		System.out.println("Game constructor");
 		this.playerCount = playerCount;
 		this.roundCount = 0;
 		this.map = new Map();
