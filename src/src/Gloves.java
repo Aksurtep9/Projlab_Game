@@ -26,7 +26,7 @@ public class Gloves extends Equipment {
 	 * 
 	 * @return Returns "Gloves".
 	 */
-	public String GetEfectName() {
+	public String GetEffectName() {
 		System.out.println("GetEffectName");
 		return "Gloves";
 	}
@@ -38,7 +38,7 @@ public class Gloves extends Equipment {
 	@Override
 	public String toString() {
 		System.out.println("toString");
-		return GetEffectName();
+		return GetEffectName()+ID;
 	}
 
 	@Override

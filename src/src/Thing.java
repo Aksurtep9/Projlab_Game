@@ -8,11 +8,19 @@ package src;
 **/
 public abstract class Thing 
 {
+	/**A counter for the fields. Use this to differ one field from another field.*/
+	private static int uniqueID = 0;
+	
+	/**The ID which is given to toString method.*/
+	protected int ID;
+	
 	/**The Field which the Thing is on*/
 	protected Field field; //Protectedre átírtam -Petruska
 	
 	public Thing() {
 		field = new Field();
+		ID = uniqueID;
+		++uniqueID;
 	}
 	
 	/**

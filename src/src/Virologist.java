@@ -423,15 +423,18 @@ public class Virologist extends Thing {
 			//empty
 		}
 		else {
-			Thing equipmentThing = things.get(choosenNumber-1);
-			Equipment equipment = (Equipment)equipmentThing;
-			if(equipment != null) {
-				if(equipmentCollection.GetSize() < 3) {
-					equipmentCollection.Add(equipment);
-					effectCollection.Add(equipment, this);
-					field.Remove(equipment);
-				}	
+			if(!things.get(choosenNumber-1).toString().contains("Virologist")) {
+				Thing equipmentThing = things.get(choosenNumber-1);
+				Equipment equipment = (Equipment)equipmentThing;
+				if(equipment != null) {
+					if(equipmentCollection.GetSize() < 3) {
+						equipmentCollection.Add(equipment);
+						effectCollection.Add(equipment, this);
+						field.Remove(equipment);
+					}	
+				}
 			}
+			
 		}
 	}
 	

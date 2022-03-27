@@ -25,6 +25,7 @@ public class Skeleton {
 	private Virologist viroPlayer2;
 	private Virologist viroPlayer3;
 	private Agent genCode;
+	private Equipment gloves;
 	
 	/**
 	 * Constructor for the test program.
@@ -96,12 +97,14 @@ public class Skeleton {
 					labor = map.GetFields().get(1);
 					shelter = map.GetFields().get(2);
 					warehouse = map.GetFields().get(3);
-					break;}
+					break;
+			}
 			case 2: { 
 				moveHere = new Field();
 				hereWeAre.AddNeighbours(moveHere);
 				viroPlayer1.Move(); 
-				break;}
+				break;
+			}
 			case 3: viroPlayer1.Move(); break; //But only to laboratory
 			case 4: viroPlayer1.Move(); break; //But only to warehouse
 			case 5: viroPlayer1.Move(); break; //But only to shelter
@@ -109,8 +112,14 @@ public class Skeleton {
 				genCode = new Protect();
 				viroPlayer1.CloneGenCode(genCode);
 				viroPlayer1.Craft(); 
-				break;}
-			case 7: break;
+				break;
+			}
+			case 7: {
+				gloves = new Gloves();
+				hereWeAre.Accept(gloves);
+				viroPlayer1.PickUpEquipment();
+				break;
+			}
 			case 8:  break;
 			case 9: 
 				Menu.PrintSubMenu();
