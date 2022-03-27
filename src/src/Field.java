@@ -14,7 +14,7 @@ public class Field {
 	/**A counter for the fields. Use this to differ one field from another field.*/
 	private static int uniqueID = 0;
 	
-	/**The ID which being given to toString method.*/
+	/**The ID which is given to toString method.*/
 	protected int ID;
 
 	/**Stores the field neighbours.*/

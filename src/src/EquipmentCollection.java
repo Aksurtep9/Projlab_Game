@@ -46,7 +46,7 @@ public class EquipmentCollection {
 	
 	/**
 	 * Removes the equipment given as parameter from the collection.
-	 * @param e the item we want to remove
+	 * @param e the name of the item we want to remove
 	 */
 	public void Remove(String e) {
 		System.out.println("Remove");

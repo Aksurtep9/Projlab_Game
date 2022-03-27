@@ -4,7 +4,7 @@ package src;
  * <b>Warehouse class</b><br>
  * <i>Inherites from Field.</i><br><br>
  * Stores materials - aminoacid and/or nucleotid.<br>
- * Once a virologist enters a warehouse, can start its materials filling up.
+ * Once a virologist enters a warehouse, it can start filling up its materials.
  * @author Martin
  */
 public class Warehouse extends Field{

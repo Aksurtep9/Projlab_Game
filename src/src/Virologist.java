@@ -114,7 +114,7 @@ public class Virologist extends Thing {
 	}
 	
 	/**
-	* Starts the interraction with the Virologist on the same Field, opens the menu
+	* Starts the interaction with the Virologist on the same Field, opens the menu
 	**/
 	public void Encounter() {
 		System.out.println("Encounter");
@@ -336,7 +336,7 @@ public class Virologist extends Thing {
 	}
 	
 	/**
-	* Puts the Agent in the parameter to the craftedAgentCollection (checks if it is crafteble)
+	* Puts the Agent in the parameter to the craftedAgentCollection (checks if it is craftable)
 	* @param genCode - The Agent we wish to craft
 	* @return The crafted Agent
 	**/

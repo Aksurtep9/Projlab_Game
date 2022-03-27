@@ -2,9 +2,9 @@ package src;
 
 /**
  * <b>Laboratory class</b><br>
- * <i>Inherites from Field.</i><br><br>
+ * <i>Inherits from Field.</i><br><br>
  * Stores one genetic code which can be learnt by a virologist.<br>
- * Once a virologist enters a laboratory, can start learning the foundable genetic code.
+ * Once a virologist enters a laboratory, it can start learning the foundable genetic code.
  * @author Martin
  */
 public class Laboratory extends Field{
