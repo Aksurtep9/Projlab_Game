@@ -91,11 +91,10 @@ public class Virologist extends Thing {
 	}
 	
 	/**
-	* Starts the interraction with the Virologist in the parameter (calls Touch() method)
-	* @param v - A Virologist on our Field
+	* Starts the interraction with the Virologist on the same Field, opens the menu
 	**/
-	public void Encounter(Virologist v) {
-		List<Thing> things = field.GetThings();
+	public void Encounter() {
+		List<Thing> things = this.field.GetThings();
 		Skeleton.Interaction.PrintList(things);
 		int choosenNumber = Skeleton.Interaction.ListItemNumber(things.size());
 		//Virologist enemy = null;
@@ -107,13 +106,9 @@ public class Virologist extends Thing {
 			Thing enemyThing = things.get(choosenNumber-1);
 			if(enemyThing.toString().contains("Virologist")) {
 				Virologist enemy = (Virologist)enemyThing;
+				Touch(enemy);
 			}
 			
-		}
-		
-		for(int i = 0; i < things.size(); i++) {
-			System.out.println(i + ". " +things.get(i).toString());
-			things.get(i).ge
 		}
 		
 	}
@@ -123,6 +118,13 @@ public class Virologist extends Thing {
 	* @param v - A Virologist on our Field
 	**/
 	public void Touch(Virologist v) {
+		EffectCollection effectCol = v.GetEffectCollection();
+		boolean containsProtect = effectCol.Contains("protect");
+		boolean containsCloak = effectCol.Contains("cloak");
+		
+		if(!containsProtect && !containsCloak) {
+			
+		}
 		StealMaterial(v);
 	}
 	
@@ -347,17 +349,47 @@ public class Virologist extends Thing {
 	* Shows the Equipments from the equipmentCollection to the Player and he chooses one then drops it on the Field that its Virologist standing on 
 	**/
 	public void DropEquipment() {
-		Equipment choosenEquipment = null;
-		for(int i = 0; i < 0; i++) {
-			System.out.println(i+1 ".: " )
+		List<Equipment> equipments = this.equipmentCollection.GetEquipments();
+		Skeleton.Interaction.PrintList(equipments);
+		int choosenNumber = Skeleton.Interaction.ListItemNumber(equipments.size());
+		
+		if(choosenNumber == 0) {
+			//empty
 		}
+		else {
+			Equipment choosenEquipment = equipments.get(choosenNumber-1);
+			field.Accept(choosenEquipment);
+			effectCollection.Remove(choosenEquipment);
+			equipmentCollection.Remove(choosenEquipment);
+			
+			
+		}
+		
 	}
 	
 	/**
 	* Shows the Equipments from the Field its Virologist standing on to the Player and he chooses one then picks it up.
 	**/
 	public void PickUpEquipment() {
+		List<Thing> things = this.field.GetThings();
+		Skeleton.Interaction.PrintList(things);
+		int choosenNumber = Skeleton.Interaction.ListItemNumber(things.size());
+		//Virologist enemy = null;
 		
+		if(choosenNumber == 0) {
+			//empty
+		}
+		else {
+			Thing equipmentThing = things.get(choosenNumber-1);
+			Equipment equipment = (Equipment)equipmentThing;
+			if(equipment != null) {
+				if(equipmentCollection.GetSize() < 3) {
+					equipmentCollection.Add(equipment);
+					effectCollection.Add(equipment);
+					field.Remove(equipment);
+				}	
+			}
+		}
 	}
 	
 	/**

@@ -53,7 +53,7 @@ public class Field {
 	 * @return the things that can be found on the field
 	 */
 	public List<Thing> GetThings(){
-		
+		return things;
 	}
 	
 	/**

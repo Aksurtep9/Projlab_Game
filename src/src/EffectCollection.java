@@ -35,11 +35,14 @@ public class EffectCollection {
 	
 	/**
 	 * Checks whether the Effect given as parameter is in the collection or not.
-	 * @param e the Effect we compare to the Effects of the collection
+	 * @param effectName - the name of the Effect we compare to the Effect names in the collection
 	 * @return true, if the Effect is found
 	 */
-	public boolean Contains(Effect e) {
-		
+	public boolean Contains(String effectName) {
+		for(int i = 0; i < effects.size(); i++) {
+			if(effects.get(i).toString().contains(effectName)) return true; //If the toString of the Effect contains the effectname return true
+		}
+		return false;
 	}
 	
 	/**

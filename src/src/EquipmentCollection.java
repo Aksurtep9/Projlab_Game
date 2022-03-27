@@ -56,4 +56,8 @@ public class EquipmentCollection {
 		
 		return false;
 	}
+	
+	public List<Equipment> GetEquipments(){
+		return equipments;
+	}
 }

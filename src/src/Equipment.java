@@ -8,7 +8,7 @@ package src;
  * @author csizm
  *
  */
-public abstract class Equipment {
+public abstract class Equipment extends Thing implements Effect {
 	/**
 	 * The Equipment applies its effect on the virologist given as parameter. The subclasses override this method to apply their unique effects.
 	 * @param v the Virologist who has the equipment
