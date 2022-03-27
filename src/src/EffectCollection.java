@@ -65,8 +65,11 @@ public class EffectCollection {
 	 * @param v Virologist, who has the EffectCollection, given as parameter to DecreaseEffectTime()
 	 */
 	void DecreaseAgentTimeEColl(Virologist v) {
+		
 		for(int i=0;i< effects.size();i++) {
-			if(effects.get(i).)
+			this.effects.get(i).DecreaseEffectTime(v);
+				
+			
 		}
 	}
 	

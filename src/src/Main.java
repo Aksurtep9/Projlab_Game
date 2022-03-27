@@ -7,6 +7,7 @@ public class Main {
 		Skeleton testProgram = new Skeleton();
 		testProgram.Initialize();
 		testProgram.Run();
+		System.out.println("Vége");
 	}
 
 }

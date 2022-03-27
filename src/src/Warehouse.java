@@ -9,21 +9,24 @@ package src;
  */
 public class Warehouse extends Field{
 
-	/**
-	 * Constructor for the Warehouse
-	 */
-	public Warehouse() {
-		super();
-	}
+	
 	
 	/**Stores the warehouse's materials.*/
 	private MaterialCollection materialCollection;
 	
 	/**
+	 * Constructor for the Warehouse
+	 */
+	public Warehouse() {
+		super();
+		materialCollection = new MaterialCollection();
+	}
+	
+	/**
 	 * Allocates and creates a collection for the warehouse's materials.
 	 */
 	public void CreateMaterials() {
-		
+		System.out.println("CreateMaterials");
 	}
 	
 	/**

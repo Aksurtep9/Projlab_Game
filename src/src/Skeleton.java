@@ -69,17 +69,19 @@ public class Skeleton {
 	 */
 	public void Run() {
 		
+		int menuItem = 0;
 		do {
 			Menu.PrintMainMenu();
-			int menuItem = Interaction.MenuNumber(0, 15);
+			 menuItem = Interaction.MenuNumber(0, 15);
 			
 			switch(menuItem) {
 			case 0: System.exit(0); break;
-			case 1: game.NewGame();
+			case 1:{ game.NewGame();
 					viroPlayer1 = game.getPlayers().get(0);
 					viroPlayer2=game.getPlayers().get(1);
 					viroPlayer1.SetField(hereWeAre);
 					break;
+			}
 			case 2: viroPlayer1.Move(); break;
 			case 3: viroPlayer1.Move(); break; //But only to laboratory
 			case 4: viroPlayer1.Move(); break; //But only to warehouse
@@ -102,11 +104,14 @@ public class Skeleton {
 			case 12: Sack(); break;
 			case 13: AddCloak(); break;
 
-			case 14:  break;
+			case 14: game.NewRound(); break;
 			case 15: Game.EndGame(); break;
 			}
+			menuItem = 0;
+			
 			
 		}while(true);
+		
 		
 	}
 	
@@ -166,10 +171,11 @@ public class Skeleton {
 		 */
 		public static int MenuNumber(int min, int max) {
 			int chosenItem = 0;
-			System.out.print("Kerlek valassz egy menupontot: ");
+			
 			Scanner scan = new Scanner(System.in);
 			
 			do {
+				System.out.print("Kerlek valassz egy menupontot: ");
 				if(scan.hasNextInt())
 					chosenItem = scan.nextInt();
 			}while(chosenItem<min || chosenItem>max);
