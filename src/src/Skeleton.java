@@ -55,8 +55,7 @@ public class Skeleton {
 	
 	private void Sack() {
 		Equipment sack = new Sack();
-		EquipmentCollection ec = new EquipmentCollection();
-		ec.Add(sack);
+		viroPlayer1.GetEquipmentCollection().Add(sack);
 	}
 	
 	private void StealMaterial() {
@@ -66,6 +65,12 @@ public class Skeleton {
 	public static Agent ProtectConstr() {
 		Agent pr = new Protect();
 		return pr;
+	}
+	
+	private void Amnesia() {
+		Agent amnesia = new Amnesia();
+		viroPlayer1.effectCollection.Add(amnesia);
+		amnesia.Affect(viroPlayer1);
 	}
 	/**
 	 * Runs the skeleton class with its menu system.<br>
@@ -112,7 +117,7 @@ public class Skeleton {
 				}
 				break;
 			case 10: Chorea(); break;
-			case 11:  break;
+			case 11: Amnesia(); break;
 			case 12: Sack(); break;
 			case 13: AddCloak(); break;
 

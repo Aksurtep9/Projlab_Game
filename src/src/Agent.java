@@ -48,6 +48,7 @@ public abstract class Agent implements Effect
 	public void DecreaseExpireTime(Virologist v) {
 		System.out.println("DescreaseExpireTime");
 		expireTime--;
+		System.out.println("DecreaseEffectTime");
 	}
 	
 	/**
