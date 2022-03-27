@@ -23,6 +23,7 @@ public class Warehouse extends Field{
 		materialCollection = new MaterialCollection();
 	}
 	
+	
 	/**
 	 * Allocates and creates a collection for the warehouse's materials.
 	 */
