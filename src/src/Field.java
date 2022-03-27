@@ -80,6 +80,10 @@ public class Field {
 		this.things.remove(t);
 	}
 	
+	/**
+	 * Adds a new Field to the list of the Field's neighbours.
+	 * @param f the neighbour we want to add
+	 */
 	public void AddNeighbours(Field f) {
 		neighbours.add(f);
 	}

@@ -344,6 +344,22 @@ public class Virologist extends Thing {
 	**/
 	public void StealEquipment(Virologist victim) {
 		boolean paralyzed=victim.GetEffectCollection().Contains("Paralyze");
+		if(paralyzed) {
+			EquipmentCollection eqVictim=victim.GetEquipmentCollection();
+			Skeleton.Interaction.PrintList(eqVictim.GetEquipments());
+			int choosenNumber=Skeleton.Interaction.ListItemNumber(eqVictim.GetEquipments().size());
+			
+			if(choosenNumber==0) {
+				//empty
+			} else {
+				Equipment choosenEquipment = eqVictim.GetEquipments().get(choosenNumber-1);
+				EquipmentCollection eqSelf=this.GetEquipmentCollection();
+				eqSelf.Add(choosenEquipment);
+				eqVictim.Remove(choosenEquipment);
+				victim.GetEffectCollection().Remove(choosenEquipment);
+				this.GetEffectCollection().Add(choosenEquipment);
+			}
+		}
 	}
 	
 	/**
