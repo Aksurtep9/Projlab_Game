@@ -9,15 +9,18 @@ package src;
  */
 public class Laboratory extends Field{
 
+	
+	
+	/**Stores the laboratory's one and only genetic code.*/
+	private Agent genCode;
+	
 	/**
 	 * Constructor for the Laboratory
 	 */
 	public Laboratory() {
 		super();
+		genCode = new Protect();
 	}
-	
-	/**Stores the laboratory's one and only genetic code.*/
-	private Agent genCode;
 	
 	/**
 	 * Allocates and creates a genetic code for the laboratory.
