@@ -52,7 +52,7 @@ public class Skeleton {
 	private void Chorea() {
 		Agent chorea = new Chorea();
 		viroPlayer1.GetEffectCollection().Add(chorea,viroPlayer1);
-		chorea.Affect(viroPlayer1);
+
 	}
 	
 	private void Sack() {
@@ -73,7 +73,7 @@ public class Skeleton {
 	private void Amnesia() {
 		Agent amnesia = new Amnesia();
 		viroPlayer1.GetEffectCollection().Add(amnesia,viroPlayer1);
-		amnesia.Affect(viroPlayer1);
+
 	}
 	/**
 	 * Runs the skeleton class with its menu system.<br>
