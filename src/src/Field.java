@@ -63,7 +63,7 @@ public class Field {
 	 * @return the chosen neigbhour
 	 */
 	public Field GetNeighbour() {
-		
+		return neighbours.get(0);
 	}
 	
 	/**
