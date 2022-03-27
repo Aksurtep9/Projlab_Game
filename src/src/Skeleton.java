@@ -24,6 +24,7 @@ public class Skeleton {
 	private Virologist viroPlayer1;
 	private Virologist viroPlayer2;
 	private Virologist viroPlayer3;
+	private Agent genCode;
 	
 	/**
 	 * Constructor for the test program.
@@ -94,17 +95,21 @@ public class Skeleton {
 					labor = map.GetFields().get(1);
 					shelter = map.GetFields().get(2);
 					warehouse = map.GetFields().get(3);
-					break;
-			}
+					break;}
 			case 2: { 
 				moveHere = new Field();
 				hereWeAre.AddNeighbours(moveHere);
-				viroPlayer1.Move(); }break;
+				viroPlayer1.Move(); 
+				break;}
 			case 3: viroPlayer1.Move(); break; //But only to laboratory
 			case 4: viroPlayer1.Move(); break; //But only to warehouse
 			case 5: viroPlayer1.Move(); break; //But only to shelter
-			case 6:  break;
-			case 7:  break;
+			case 6: {
+				genCode = new Protect();
+				viroPlayer1.CloneGenCode(genCode);
+				viroPlayer1.Craft(); 
+				break;}
+			case 7: break;
 			case 8:  break;
 			case 9: 
 				Menu.PrintSubMenu();
