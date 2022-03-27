@@ -63,7 +63,7 @@ public class AgentCollection {
 	
 	/**
 	 * Checks whether a genetic code is part of the collection or not. If it is, the function returns true.
-	 * @param genCode the Agent we want to check
+	 * @param s the name of the Agent we want to check
 	 * @return true, if the agent given as parameter is found in the collection
 	 */
 	public boolean Contains(String s) {
