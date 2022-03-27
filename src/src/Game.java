@@ -95,7 +95,9 @@ public class Game {
 	 * @return Did the virologist learn all the genetic codes.
 	 */
 	public static boolean CheckWin() {
-		
+		if(currentPlayer.GetGenCodeCollection().getSize()==maxGenCode) {
+			
+		}
 	}
 	
 	/**

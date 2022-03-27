@@ -136,7 +136,7 @@ public class Virologist extends Thing {
 	}
 	
 	/**
-	* If the Virologist in the parameter is touchable, shows the iterraction menu to the Player
+	* If the Virologist in the parameter is touchable, it shows the interaction menu to the Player
 	* @param v - A Virologist on our Field
 	**/
 	public void Touch(Virologist v) {
@@ -544,5 +544,9 @@ public class Virologist extends Thing {
 	**/
 	public EffectCollection GetEffectCollection() {
 		return effectCollection;
+	}
+	
+	public AgentCollection GetGenCodeCollection() {
+		return genCodeCollection;
 	}
 }
