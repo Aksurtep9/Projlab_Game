@@ -14,6 +14,7 @@ public class Shelter extends Field {
 	 */
 	public Shelter() {
 		super();
+		System.out.println("Shelter");
 	}
 	
 	/**Stores the shelter's equipments.*/
@@ -23,6 +24,7 @@ public class Shelter extends Field {
 	 * Allocates and creates special equipments for the shelter's store.
 	 */
 	public void CreateEquipment() {
+		System.out.println("CreateEquipment");
 		
 	}
 	
@@ -43,6 +45,7 @@ public class Shelter extends Field {
 	 */
 	@Override
 	public String toString() {
+		System.out.println("toString");
 		return "Shelter" + ID;
 	}
 }
