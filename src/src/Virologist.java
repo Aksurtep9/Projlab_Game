@@ -63,8 +63,6 @@ public class Virologist extends Thing {
 		//Checks if the virologist already has this genCode
 		boolean contains = false;
 
-		if(this.genCodeCollection.Contains(genCode.toString())) contains = true;
-
 		if(this.genCodeCollection.Contains(genCode.GetEffectName())) contains = true;
 
 		

@@ -67,8 +67,7 @@ public class EffectCollection {
 	void DecreaseAgentTimeEColl(Virologist v) {
 		
 		for(int i=0;i< effects.size();i++) {
-			this.effects.get(i).DecreaseEffectTime(v);
-				
+			this.effects.get(i).DecreaseEffectTime(v);			
 			
 		}
 	}

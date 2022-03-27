@@ -16,38 +16,38 @@ public class Game {
 	/**
 	 * The number of players in current game.
 	 */
-	int playerCount;
+	private int playerCount;
 	
 	/**
 	 * The number of the current round
 	 */
-	int roundCount;
+	private int roundCount;
 	
 	/**
 	 * The number of genetic codes that can be learnt.
 	 */
-	static final int maxGenCode = 5;
+	private static final int maxGenCode = 5;
 	
 	/**
 	 * The player who can currently move and interact with other things.
 	 */
-	Virologist currentPlayer;
+	private static Virologist currentPlayer;
 	
 	/**
 	 * The player who could currently move and interact with other things in the
 	 * previous round.
 	 */
-	Virologist previousPlayer;
+	private static Virologist previousPlayer;
 	
 	/**
 	 * The list of current players.
 	 */
-	ArrayList<Virologist> players;
+	private ArrayList<Virologist> players;
 	
 	/**
 	 * It stores the map.
 	 */
-	Map map;
+	private Map map;
 	
 	public Game(int playerCount) {
 		this.playerCount = playerCount;
@@ -95,9 +95,11 @@ public class Game {
 	 * @return Did the virologist learn all the genetic codes.
 	 */
 	public static boolean CheckWin() {
-		if(currentPlayer.GetGenCodeCollection().getSize()==maxGenCode) {
-			
-		}
+		if(currentPlayer.GetGenCodeCollection().GetSize()==maxGenCode) {
+			return true;
+		}else {
+			return false;
+		}		
 	}
 	
 	/**
