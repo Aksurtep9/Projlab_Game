@@ -2,7 +2,7 @@ package src;
 
 
 /**
-* Pretoct
+* Protect
 * Inherited from Agent
 * Stores the required amount of nucleotid and aminoacid to craft the agent in addition the time till this agent affect someone and it expires
 * This class represents the 'Protect' agent and it's attributes. Protect is a type of vaccine the virologist can use to build up a resistance against other type of vaccines. It's effect wears of after the expireTime is zero.
@@ -24,7 +24,7 @@ public class Protect extends Agent
 	private int costNucle;
 	
 	public Protect() {
-		
+		System.out.println("Protect");
 		expireTime=6;
 		effectTime=6;
 		costAmino=5;
@@ -38,7 +38,7 @@ public class Protect extends Agent
 	**/
 	public void Affect(Virologist v)
 	{
-		
+		System.out.println("Protect");
 	}
 	
 	/**
@@ -47,6 +47,7 @@ public class Protect extends Agent
 	**/
 	public String GetEffectName()
 	{
+		System.out.println("Protect");
 		return "Protect";
 	}
 	
@@ -57,6 +58,7 @@ public class Protect extends Agent
 	@Override
 	public String toString()
 	{
+		System.out.println("Protect");
 		return  GetEffectName() + " amino cost:" + costAmino +", nucleo cost:" + costNucle + ", expire time:" + expireTime + ", effect time:" + effectTime;
 	}
 }
