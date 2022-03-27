@@ -120,11 +120,12 @@ public class Skeleton {
 				viroPlayer1.PickUpEquipment();
 				break;
 			}
-			case 8: 
+			case 8: {
 				gloves = new Gloves();
 				viroPlayer1.GetEquipmentCollection().Add(gloves);
 				viroPlayer1.DropEquipment(); break;
-			case 9: 
+			}
+			case 9: {
 				Menu.PrintSubMenu();
 				int menuSubItem = Interaction.MenuNumber(0, 3);
 				switch(menuSubItem) {
@@ -140,6 +141,7 @@ public class Skeleton {
 				case 3: StealMaterial(); break;
 				}
 				break;
+			}
 			case 10: Chorea(); break; // még fos1
 			case 11: Amnesia(); break;
 			case 12: Sack(); break;
