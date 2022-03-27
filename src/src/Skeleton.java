@@ -16,6 +16,7 @@ public class Skeleton {
 	private Field moveHere;
 	private Field hereWeAre;
 	private Virologist viroPlayer1;
+	private Virologist viroPlayer2;
 	
 	/**
 	 * Constructor for the test program.
@@ -32,13 +33,16 @@ public class Skeleton {
 		moveHere = new Field();
 		hereWeAre = new Field();
 		viroPlayer1 = new Virologist();
+		viroPlayer2=new Virologist();
 		viroPlayer1.SetField(hereWeAre);
 	}
 	
-	public void MakeCloak() {
+	public void AddCloak() {
 		EquipmentCollection eq= viroPlayer1.GetEquipmentCollection();
-		eq.Add(new Cloak());
-		
+		EffectCollection ef=viroPlayer1.GetEffectCollection();
+		Cloak clk=new Cloak();
+		eq.Add(clk);
+		ef.Add(clk);		
 	}
 	/**
 	 * Runs the skeleton class with its menu system.<br>
@@ -66,14 +70,14 @@ public class Skeleton {
 				switch(menuSubItem) {
 				case 0: /*do nothing*/ break;
 				case 1:  break;
-				case 2:  break;
+				case 2: viroPlayer1.StealEquipment(viroPlayer2); break;
 				case 3:  break;
 				}
 				break;
 			case 10:  break;
 			case 11:  break;
 			case 12:  break;
-			case 13: MakeCloak(); break;
+			case 13: AddCloak(); break;
 			case 14:  break;
 			case 15: Game.EndGame(); break;
 			}
