@@ -515,7 +515,7 @@ public class Virologist extends Thing {
 	
 	
 	public void CallDecreaseAgentTime() {
-		System.out.println("CallDecreaseAgentTime");
+		System.out.println("CallDecreaseAgentTime Virologistcall");
 		craftedAgentCollection.DecreaseAgentTimeAColl(this);
 		effectCollection.DecreaseAgentTimeEColl(this);
 	}
