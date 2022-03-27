@@ -46,7 +46,7 @@ public abstract class Agent
 	 * @param v Virologist that has the crafted agent
 	 */
 	public void DecreaseExpireTime(Virologist v) {
-		
+		expireTime--;
 	}
 	
 	/**

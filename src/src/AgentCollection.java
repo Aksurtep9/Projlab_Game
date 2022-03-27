@@ -38,7 +38,9 @@ public class AgentCollection {
 	 * @param v the Virologist, who is the owner of the collection
 	 */
 	public void DecreaseAgentTimeAColl(Virologist v) {
-		
+		for(int i=0;i<agents.size();i++) {
+			agents.get(i).DecreaseExpireTime(v);
+		}			
 	}
 	
 	/**

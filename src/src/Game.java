@@ -101,6 +101,6 @@ public class Game {
 	 * current player.
 	 */
 	public void NewRound() {
-		
+		currentPlayer.CallDecreaseAgentTime();
 	}
 }

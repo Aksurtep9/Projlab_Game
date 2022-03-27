@@ -469,7 +469,7 @@ public class Virologist extends Thing {
 	
 	
 	public void CallDecreaseAgentTime() {
-		
+		craftedAgentCollection.DecreaseAgentTimeAColl(this);
 	}
 	
 	public void RemoveAgentFromAgentColl(Agent a) {
