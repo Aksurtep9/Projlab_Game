@@ -1,7 +1,6 @@
 package src;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 
@@ -15,7 +14,7 @@ public class Map {
 	/**
 	 * Stores all the fields.
 	 */
-	List<Field> fields;
+	ArrayList<Field> fields;
 	
 	
 	public Map() {
@@ -31,11 +30,11 @@ public class Map {
 		Laboratory labor = new Laboratory();
 		try {
 			hereWeAre.Accept(players.get(0));
-			warehouse.Accept(players.get(0));
-			shelter.Accept(players.get(0));
+			warehouse.Accept(players.get(1));
+			shelter.Accept(players.get(2));
 		}
 		catch(NullPointerException e) {
-			System.out.println("Nincs kezdomezo!");
+			System.out.println("Nincs kezdomezo!" + e);
 		}
 		
 		hereWeAre.AddNeighbours(labor);

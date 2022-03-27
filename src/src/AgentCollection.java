@@ -1,5 +1,5 @@
 package src;
-import java.util.List;
+import java.util.ArrayList;
 /**
  * AgentCollection
  * Stores Agents which the Virologist crafted, or the genetic Codes (also represented by Agent class) he has learnt.
@@ -8,7 +8,11 @@ import java.util.List;
  */
 public class AgentCollection {
 /** heterogenous collection of the different child classes of Agent*/
-	private List<Agent> agents;
+	private ArrayList<Agent> agents;
+	
+	public AgentCollection() {
+		agents = new ArrayList<Agent>();
+	}
 	
 	/**
 	 * Adds the Agent given as argument to the collection.
@@ -21,7 +25,7 @@ public class AgentCollection {
 	/**
 	 * Returns all of the Agents, so the player can choose which one he wants to use.
 	 */
-	public List<Agent> ListAll() {
+	public ArrayList<Agent> ListAll() {
 		return agents;
 	}
 	

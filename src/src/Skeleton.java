@@ -32,9 +32,7 @@ public class Skeleton {
 		game = new Game(3);
 		moveHere = new Field();
 		hereWeAre = new Field();
-		viroPlayer1 = game.getPlayers().get(0);
-		viroPlayer2=game.getPlayers().get(1);
-		viroPlayer1.SetField(hereWeAre);
+		
 	}
 	
 	public void AddCloak() {
@@ -76,7 +74,11 @@ public class Skeleton {
 			
 			switch(menuItem) {
 			case 0: System.exit(0); break;
-			case 1: game.NewGame(); break;
+			case 1: game.NewGame();
+					viroPlayer1 = game.getPlayers().get(0);
+					viroPlayer2=game.getPlayers().get(1);
+					viroPlayer1.SetField(hereWeAre);
+					break;
 			case 2: viroPlayer1.Move(); break;
 			case 3: viroPlayer1.Move(); break; //But only to laboratory
 			case 4: viroPlayer1.Move(); break; //But only to warehouse

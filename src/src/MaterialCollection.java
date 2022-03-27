@@ -25,6 +25,11 @@ public class MaterialCollection {
 	 */
 	private int amount;
 	
+	public MaterialCollection() {
+		amino = new AminoAcid();
+		nucle = new Nucleotid();
+	}
+	
 	/**
 	* Getter to the AminoAcid
 	* @return amino

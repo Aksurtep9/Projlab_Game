@@ -1,5 +1,5 @@
 package src;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * <b>Field class</b><br>
@@ -16,6 +16,12 @@ public class Field {
 	
 	/**The ID which being given to toString method.*/
 	protected int ID;
+
+	/**Stores the field neighbours.*/
+	protected ArrayList<Field> neighbours;
+	
+	/**Stores the things - virologist, agenst, materials, equipments - that can be found on the field.*/
+	protected ArrayList<Thing> things;
 	
 	/**
 	 * Constructor for the Field class.<br>
@@ -24,13 +30,9 @@ public class Field {
 	public Field() {
 		this.ID = uniqueID;
 		++uniqueID;
+		neighbours = new ArrayList<Field>();
+		things = new ArrayList<Thing>();
 	}
-
-	/**Stores the field neighbours.*/
-	protected List<Field> neighbours;
-	
-	/**Stores the things - virologist, agenst, materials, equipments - that can be found on the field.*/
-	protected List<Thing> things;
 	
 	/**
 	 * Stores the given thing.
@@ -52,7 +54,7 @@ public class Field {
 	 * Gives back the things.
 	 * @return the things that can be found on the field
 	 */
-	public List<Thing> GetThings(){
+	public ArrayList<Thing> GetThings(){
 		return things;
 	}
 	
@@ -68,7 +70,7 @@ public class Field {
 	 * Gives all the neighbour back that has been picked out.
 	 * @return the chosen neigbhour
 	 */
-	public List<Field> GetNeighbours() {
+	public ArrayList<Field> GetNeighbours() {
 		return this.neighbours;
 	}
 	

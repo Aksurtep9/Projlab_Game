@@ -9,6 +9,9 @@ package src;
 **/
 public class AminoAcid extends Material{
 	
+	public AminoAcid() {
+		
+	}
 	
 	/**
 	* Default ToString method for console printout.

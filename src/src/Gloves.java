@@ -9,6 +9,9 @@ package src;
  */
 public class Gloves extends Equipment {
 	
+	public Gloves() {
+		super();
+	}
 	
 	/**
 	 * 

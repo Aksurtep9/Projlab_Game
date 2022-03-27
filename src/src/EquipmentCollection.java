@@ -1,5 +1,5 @@
 package src;
-import java.util.List;
+import java.util.ArrayList;
 /**
  * EquipmentCollection
  * Stores the different Equipments a Virologist picks up in a heterogenous collection.
@@ -8,7 +8,11 @@ import java.util.List;
  */
 public class EquipmentCollection {
 	/**the Equipments that the Virologist has */
-	private List<Equipment> equipments;
+	private ArrayList<Equipment> equipments;
+	
+	public EquipmentCollection() {
+		equipments = new ArrayList<Equipment>();
+	}
 	
 	/**
 	 * Adds a new Equipment to the collection.
@@ -66,7 +70,7 @@ public class EquipmentCollection {
 		return false;
 	}
 	
-	public List<Equipment> GetEquipments(){
+	public ArrayList<Equipment> GetEquipments(){
 		return equipments;
 	}
 }

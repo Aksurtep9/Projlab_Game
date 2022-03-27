@@ -23,6 +23,12 @@ public class Chorea extends Agent
 	/**Stating how much nukleoid the agent requires to be crafted*/
 	private int costNucle;
 
+	public Chorea() {
+		this.expireTime = 4;
+		this.effectTime = 4;
+		this.costAmino = 3;
+		this.costNucle = 2;
+	}
 	
 	/**
 	* This method has an effect on the Virologist it is applied to, making him move to random fields for a sort period of turns

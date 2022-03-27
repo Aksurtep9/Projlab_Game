@@ -22,7 +22,13 @@ public class Amnesia extends Agent
 	
 	/**Stating how much nukleoid the agent requires to be crafted*/
 	private int costNucle;
-
+	
+	public Amnesia() {
+		this.expireTime = 0;
+		this.effectTime = 2;
+		this.costAmino = 1;
+		this.costNucle = 0;
+	}
 	
 	/**
 	* This method has an effect on the Virologist it is applied, making him forget every GenCode he has learnt so far
