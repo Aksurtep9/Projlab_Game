@@ -97,9 +97,8 @@ public class Game {
 	public static boolean CheckWin() {
 		if(currentPlayer.GetGenCodeCollection().GetSize()==maxGenCode) {
 			return true;
-		}else {
-			return false;
-		}		
+		}
+		return false;
 	}
 	
 	/**

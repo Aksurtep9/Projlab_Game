@@ -11,6 +11,8 @@ import java.util.Scanner;
  */
 public class Skeleton {
 
+	private static Scanner scan = new Scanner(System.in);
+	
 	//Instances
 	private Game game;
 	private Field moveHere;
@@ -71,11 +73,11 @@ public class Skeleton {
 		
 		int menuItem = 0;
 		do {
-			Menu.PrintMainMenu();
+			 Menu.PrintMainMenu();
 			 menuItem = Interaction.MenuNumber(0, 15);
 			
 			switch(menuItem) {
-			case 0: System.exit(0); break;
+			case 0: System.out.print("ok"); scan.close(); System.exit(0); break;
 			case 1:{ game.NewGame();
 					viroPlayer1 = game.getPlayers().get(0);
 					viroPlayer2=game.getPlayers().get(1);
@@ -172,7 +174,6 @@ public class Skeleton {
 		public static int MenuNumber(int min, int max) {
 			int chosenItem = 0;
 			
-			Scanner scan = new Scanner(System.in);
 			
 			do {
 				System.out.print("Kerlek valassz egy menupontot: ");
@@ -180,7 +181,6 @@ public class Skeleton {
 					chosenItem = scan.nextInt();
 			}while(chosenItem<min || chosenItem>max);
 			
-			scan.close();
 			return chosenItem;
 		}
 		
@@ -203,12 +203,10 @@ public class Skeleton {
 		 */
 		public static int ListItemNumber(int max) {
 			int chosenItem = 0;
-			Scanner scan = new Scanner(System.in);
 			do {
 				if(scan.hasNextInt())
 					chosenItem = scan.nextInt();
 			}while(chosenItem<0 || chosenItem>max);
-			scan.close();
 			return chosenItem;
 		}
 	}
