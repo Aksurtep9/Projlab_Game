@@ -19,7 +19,6 @@ public class Warehouse extends Field{
 	 */
 	public Warehouse() {
 		super();
-		System.out.println("Warehouse constructor");
 		materialCollection = new MaterialCollection();
 	}
 	
