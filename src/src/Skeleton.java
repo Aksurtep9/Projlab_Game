@@ -111,12 +111,15 @@ public class Skeleton {
 				int menuSubItem = Interaction.MenuNumber(0, 3);
 				switch(menuSubItem) {
 				case 0: /*do nothing*/ break;
-				case 1:  break;
-				case 2: viroPlayer1.StealEquipment(viroPlayer2); break;
+				case 1:  //viroPlayer1.Anoint(viroPlayer2);
+					break;
+				case 2: 
+					viroPlayer1.StealEquipment(viroPlayer2);
+					break;
 				case 3: StealMaterial(); break;
 				}
 				break;
-			case 10: Chorea(); break;
+			case 10: Chorea(); break; // még fos1
 			case 11: Amnesia(); break;
 			case 12: Sack(); break;
 			case 13: AddCloak(); break;
