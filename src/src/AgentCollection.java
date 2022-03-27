@@ -15,14 +15,14 @@ public class AgentCollection {
 	 * @param a the Agent we are adding to the collection
 	 */
 	public void Add(Agent a) {
-		
+		agents.add(a);
 	}
 	
 	/**
 	 * Returns all of the Agents, so the player can choose which one he wants to use.
 	 */
 	public List<Agent> ListAll() {
-		
+		return agents;
 	}
 	
 	/**
@@ -30,7 +30,7 @@ public class AgentCollection {
 	 * @return the number of Agents
 	 */
 	public int GetSize() {
-		
+		return agents.size();
 	}
 	
 	/**
@@ -46,14 +46,19 @@ public class AgentCollection {
 	 * @param a the agent which needs to be removed
 	 */
 	public void Remove(Agent a) {
-		
+		for(int i=0; i< agents.size(); i++) {
+			if(agents.get(i)==a) {
+				agents.remove(i);
+				return;
+			}
+		}
 	}
 	
 	/**
 	 * removes every agent from the collection
 	 */
 	public void ClearAll() {
-		
+		agents.clear();
 	}
 	
 	/**
@@ -61,8 +66,13 @@ public class AgentCollection {
 	 * @param genCode the Agent we want to check
 	 * @return true, if the agent given as parameter is found in the collection
 	 */
-	public boolean Contains(Agent genCode) {
+	public boolean Contains(String s) {
 		
+		for(int i=0; i< agents.size(); i++) {
+			if(agents.get(i).GetEffectName().equals(s))
+				return true;
+		}
+		return false;
 	}
 }
 

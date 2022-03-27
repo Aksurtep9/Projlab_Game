@@ -39,15 +39,16 @@ public class Protect extends Agent
 	**/
 	public String GetEffectName()
 	{
-		
+		return "Protect";
 	}
 	
 	/**
 	* Gives back all the attributes in string
 	* @return a string stating the parameters of the class
 	**/
-	public String ToString()
+	@Override
+	public String toString()
 	{
-		
+		return  GetEffectName() + " amino cost:" + costAmino +", nucleo cost:" + costNucle + ", expire time:" + expireTime + ", effect time:" + effectTime;
 	}
 }

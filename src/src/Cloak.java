@@ -34,6 +34,6 @@ public class Cloak extends Equipment {
 	 */
 	@Override
 	public String toString() {
-		
+		return GetEffectName();
 	}
 }
