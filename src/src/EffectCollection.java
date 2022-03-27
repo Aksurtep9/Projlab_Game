@@ -21,10 +21,10 @@ public class EffectCollection {
 	 * Adds a new Effect to the collection.
 	 * @param craftedAgent the Effect
 	 */
-	public void Add(Effect e) {
+	public void Add(Effect e, Virologist v) {
 		System.out.println("Add");
 		effects.add(e);
-//		e.Affect(viroPlayer1);
+		e.Affect(v);
 	}
 	
 	/**

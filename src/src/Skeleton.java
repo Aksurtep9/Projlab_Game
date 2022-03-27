@@ -45,18 +45,19 @@ public class Skeleton {
 		EffectCollection ef=viroPlayer1.GetEffectCollection();
 		Cloak clk=new Cloak();
 		eq.Add(clk);
-		ef.Add(clk);		
+		//ef.Add(clk);		
 	}
 	
 	private void Chorea() {
 		Agent chorea = new Chorea();
-		viroPlayer1.effectCollection.Add(chorea);
+		viroPlayer1.effectCollection.Add(chorea,viroPlayer1);
 		chorea.Affect(viroPlayer1);
 	}
 	
 	private void Sack() {
 		Equipment sack = new Sack();
-		viroPlayer1.GetEquipmentCollection().Add(sack);
+		viroPlayer2.GetEquipmentCollection().Add(sack);
+		viroPlayer2.GetEffectCollection().Add(sack,viroPlayer2);
 	}
 	
 	private void StealMaterial() {
@@ -70,7 +71,7 @@ public class Skeleton {
 	
 	private void Amnesia() {
 		Agent amnesia = new Amnesia();
-		viroPlayer1.effectCollection.Add(amnesia);
+		viroPlayer1.effectCollection.Add(amnesia,viroPlayer1);
 		amnesia.Affect(viroPlayer1);
 	}
 	/**
@@ -116,9 +117,12 @@ public class Skeleton {
 				int menuSubItem = Interaction.MenuNumber(0, 3);
 				switch(menuSubItem) {
 				case 0: /*do nothing*/ break;
-				case 1:  //viroPlayer1.Anoint(viroPlayer2);
+				case 1:  
+					viroPlayer1.GetCraftedACollection().Add(new Protect());
+					viroPlayer1.Anoint(viroPlayer2);
 					break;
 				case 2: 
+					viroPlayer2.GetEffectCollection().Add(new Paralyze(),viroPlayer2);
 					viroPlayer1.StealEquipment(viroPlayer2);
 					break;
 				case 3: StealMaterial(); break;

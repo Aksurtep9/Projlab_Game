@@ -157,7 +157,7 @@ public class Virologist extends Thing {
 	* @param a - An Agent from the craftedAgentCollection
 	* @param victom - the choosen Virologist we wish to anoint
 	**/
-	public void Anoint(Agent a, Virologist victim) {
+	public void Anoint(Virologist victim) {
 		System.out.println("Anoint");
 		
 		System.out.println("The following vaccines are known to you:");
@@ -217,7 +217,7 @@ public class Virologist extends Thing {
 		
 		if(victim.GetEquipmentCollection().Contains("Gloves")) {
 			
-			effectCollection.Add((Effect)craftedAgent);
+			effectCollection.Add((Effect)craftedAgent,this);
 			victim.GetEquipmentCollection().Remove("Gloves");
 			craftedAgentCollection.Remove(craftedAgent);
 		}
@@ -230,12 +230,12 @@ public class Virologist extends Thing {
 					
 				}
 				else
-					victim.GetEffectCollection().Add((Effect)craftedAgent);
+					victim.GetEffectCollection().Add((Effect)craftedAgent,victim);
 				
 			}
 			else {
 				
-			victim.GetEffectCollection().Add((Effect)craftedAgent);
+			victim.GetEffectCollection().Add((Effect)craftedAgent,victim);
 			
 			}
 			craftedAgentCollection.Remove(craftedAgent);
@@ -372,7 +372,7 @@ public class Virologist extends Thing {
 				eqSelf.Add(choosenEquipment);
 				eqVictim.Remove(choosenEquipment.GetEffectName());
 				victim.GetEffectCollection().Remove(choosenEquipment);
-				this.GetEffectCollection().Add(choosenEquipment);
+				effectCollection.Add(choosenEquipment,this);
 			}
 		}
 	}
@@ -428,7 +428,7 @@ public class Virologist extends Thing {
 			if(equipment != null) {
 				if(equipmentCollection.GetSize() < 3) {
 					equipmentCollection.Add(equipment);
-					effectCollection.Add(equipment);
+					effectCollection.Add(equipment, this);
 					field.Remove(equipment);
 				}	
 			}
@@ -566,5 +566,10 @@ public class Virologist extends Thing {
 	public AgentCollection GetGenCodeCollection() {
 		System.out.println("GetGenCodeCollection");
 		return genCodeCollection;
+	}
+	
+	public AgentCollection GetCraftedACollection() {
+		System.out.println("GetCraftedACollection");
+		return craftedAgentCollection;
 	}
 }
