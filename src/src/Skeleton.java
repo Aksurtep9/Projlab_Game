@@ -165,6 +165,8 @@ public class Skeleton {
 	 */
 	public static class Interaction{
 		
+		private static Scanner scan;
+		
 		/**
 		 * Asks the user which menu item is being chosen.
 		 * @param min - the start index of the menu
@@ -174,10 +176,10 @@ public class Skeleton {
 		public static int MenuNumber(int min, int max) {
 			int chosenItem = 0;
 			
-			
+
 			do {
 				System.out.print("Kerlek valassz egy menupontot: ");
-				if(scan.hasNextInt())
+				if(scan.hasNextInt() && scan.hasNextLine())
 					chosenItem = scan.nextInt();
 			}while(chosenItem<min || chosenItem>max);
 			
