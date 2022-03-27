@@ -326,12 +326,17 @@ public class Virologist extends Thing {
 		Skeleton.Interaction.PrintList(genCodes);
 		int serialnumber = Skeleton.Interaction.ListItemNumber(genCodes.size());
 		
-		
 //		int listnumber = Integer.parseInt(serialnumber);
 		
 		/**The agent to be crafted*/
 		Agent genCode = genCodes.get(serialnumber-1);
-		CreateAgent(genCode);
+		if(genCode.GetCostAmino() <= materialCollection.GetAmino().GetAmount() && genCode.GetCostNucle() <= materialCollection.GetNucle().GetAmount()) {
+				CreateAgent(genCode);
+		}
+		else {
+			System.out.println("You cannot craft this");
+		}
+		
 	}
 	
 	/**
