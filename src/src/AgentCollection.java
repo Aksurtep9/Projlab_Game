@@ -11,7 +11,6 @@ public class AgentCollection {
 	private ArrayList<Agent> agents;
 	
 	public AgentCollection() {
-		System.out.println("AgentCollection()");
 		agents = new ArrayList<Agent>();
 	}
 	

@@ -19,6 +19,7 @@ public class Skeleton {
 	private Field hereWeAre;
 	private Virologist viroPlayer1;
 	private Virologist viroPlayer2;
+	private Virologist viroPlayer3;
 	
 	/**
 	 * Constructor for the test program.
@@ -80,7 +81,8 @@ public class Skeleton {
 			case 0: scan.close(); System.exit(0); break;
 			case 1:{ game.NewGame();
 					viroPlayer1 = game.getPlayers().get(0);
-					viroPlayer2=game.getPlayers().get(1);
+					viroPlayer2 = game.getPlayers().get(1);
+					viroPlayer3 = game.getPlayers().get(2);
 					viroPlayer1.SetField(hereWeAre);
 					break;
 			}
