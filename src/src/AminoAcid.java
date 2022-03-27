@@ -13,7 +13,6 @@ public class AminoAcid extends Material{
 	 * default constructor
 	 */
 	public AminoAcid() {
-		System.out.println("AminoAcid");
 		amount=20;
 	}
 	

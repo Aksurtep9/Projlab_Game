@@ -12,7 +12,6 @@ public class Amnesia extends Agent
 {
 	
 	public Amnesia() {
-		System.out.println("Amnesia");
 		this.expireTime = 0;
 		this.effectTime = 2;
 		this.costAmino = 1;

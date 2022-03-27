@@ -12,7 +12,6 @@ public class Chorea extends Agent
 {
 
 	public Chorea() {
-		System.out.println("Chorea");
 		this.expireTime = 4;
 		this.effectTime = 4;
 		this.costAmino = 3;
