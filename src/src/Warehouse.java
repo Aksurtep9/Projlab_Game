@@ -20,6 +20,7 @@ public class Warehouse extends Field{
 	public Warehouse() {
 		System.out.println("Warehouse");
 		super();
+		System.out.println("Warehouse constructor");
 		materialCollection = new MaterialCollection();
 	}
 	
@@ -36,6 +37,7 @@ public class Warehouse extends Field{
 	 * @param v - the given virologist who might need materials
 	 */
 	public void Accept(Virologist v) {
+		System.out.println("Accept");
 		this.things.add(v);
 		v.FillMaterials(materialCollection);
 	}
@@ -45,6 +47,7 @@ public class Warehouse extends Field{
 	 * @return the warehouse's materials
 	 */
 	public MaterialCollection GetMaterialCollection() {
+		System.out.println("GetMaterialCollection");
 		return materialCollection;
 	}
 	
@@ -54,6 +57,7 @@ public class Warehouse extends Field{
 	 */
 	@Override
 	public String toString() {
+		System.out.println("toString");
 		return "Warehouse" + ID;
 	}
 }

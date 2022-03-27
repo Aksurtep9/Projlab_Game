@@ -15,13 +15,19 @@ public abstract class Thing
 	 * Puts the thing on the given field.
 	 * @param pField - the field which the thing should be on.
 	 */
-	public void SetField(Field pField) { field = pField; }
+	public void SetField(Field pField) { 
+		System.out.println("SetField");
+		field = pField; 
+	}
 	
 	/**
 	 * Gives the thing's current field back.
 	 * @return the field which the thing is on
 	 */
-	public Field GetField() { return field; }
+	public Field GetField() { 
+		System.out.println("GetField");
+		return field; 
+	}
 	
 	/**
 	* Gives back all the attributes in string
@@ -30,6 +36,7 @@ public abstract class Thing
 	@Override
 	public String toString()
 	{
+		System.out.println("toString");
 		return "";
 	}
 }
