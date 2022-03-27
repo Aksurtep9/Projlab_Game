@@ -14,6 +14,7 @@ public class EffectCollection {
 	
 	
 	public EffectCollection() {
+		System.out.println("EffectCollection");
 		effects = new ArrayList<Effect>();
 	}
 	
@@ -22,6 +23,7 @@ public class EffectCollection {
 	 * @param craftedAgent the Effect
 	 */
 	public void Add(Effect e) {
+		System.out.println("Add");
 		effects.add(e);
 //		e.Affect(viroPlayer1);
 	}
@@ -31,7 +33,7 @@ public class EffectCollection {
 	 * @param e the Effect we need to remove
 	 */
 	public void Remove(Effect e) {
-		
+		System.out.println("Remove");
 		for(int i=0; i< effects.size(); i++) {
 			if(effects.get(i)==e) {
 				effects.remove(i);
@@ -46,6 +48,7 @@ public class EffectCollection {
 	 * @return true, if the Effect is found
 	 */
 	public boolean Contains(String effectName) {
+		System.out.println("Contains");
 		for(int i = 0; i < effects.size(); i++) {
 			if(effects.get(i).toString().contains(effectName)) return true; //If the toString of the Effect contains the effectname return true
 		}
@@ -57,7 +60,7 @@ public class EffectCollection {
 	 * @param v Virologist, it is given as parameter to the Affect methods
 	 */
 	void AffectWithAll(Virologist v) {
-		
+		System.out.println("AffectWithAll");
 	}
 	
 	/**
@@ -65,7 +68,7 @@ public class EffectCollection {
 	 * @param v Virologist, who has the EffectCollection, given as parameter to DecreaseEffectTime()
 	 */
 	void DecreaseAgentTimeEColl(Virologist v) {
-		
+		System.out.println("DecreaseAgentTimeEColl");
 		for(int i=0;i< effects.size();i++) {
 			this.effects.get(i).DecreaseEffectTime(v);			
 			

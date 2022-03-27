@@ -11,6 +11,7 @@ public class EquipmentCollection {
 	private ArrayList<Equipment> equipments;
 	
 	public EquipmentCollection() {
+		System.out.println("EquipmentCollection");
 		equipments = new ArrayList<Equipment>();
 	}
 	
@@ -19,6 +20,7 @@ public class EquipmentCollection {
 	 * @param e the Equipment added
 	 */
 	public void Add(Equipment e) {
+		System.out.println("Add");
 		equipments.add(e);
 	}
 	
@@ -27,6 +29,7 @@ public class EquipmentCollection {
 	 * @return number of equipments
 	 */
 	public int GetSize() {
+		System.out.println("GetSize");
 		return equipments.size();
 	}
 	
@@ -35,6 +38,7 @@ public class EquipmentCollection {
 	 * @return list
 	 */
 	public void ListAll() {
+		System.out.println("ListAll");
 		for(int i=0;i< equipments.size();i++) {
 			System.out.println(equipments.get(i).ToString());
 		}
@@ -45,7 +49,7 @@ public class EquipmentCollection {
 	 * @param e the item we want to remove
 	 */
 	public void Remove(String e) {
-		
+		System.out.println("Remove");
 		for(int i=0; i< equipments.size(); i++) {
 			if(equipments.get(i).equals(e)) {
 				equipments.remove(i);
@@ -61,7 +65,7 @@ public class EquipmentCollection {
 	 * @return true, if the equipment was found in the collection
 	 */
 	public boolean Contains(String s) {
-		
+		System.out.println("Contains");
 		for(int i=0; i< equipments.size(); i++) {
 			if(equipments.get(i).GetEffectName().equals(s))
 				return true;
@@ -71,6 +75,7 @@ public class EquipmentCollection {
 	}
 	
 	public ArrayList<Equipment> GetEquipments(){
+		System.out.println("GetEquipments");
 		return equipments;
 	}
 }
