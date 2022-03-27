@@ -31,19 +31,19 @@ public class Virologist extends Thing {
 	private int maxNucle = 20;
 	
 	/**If the Virologist picks up an Equipment it gets into the equipmentCollection.*/
-	EquipmentCollection equipmentCollection;
+	private EquipmentCollection equipmentCollection;
 	
 	/**If the Virologist picks up an Equipment or gets an Agents Effect it gets into the effectCollection*/
-	EffectCollection effectCollection;
+	private EffectCollection effectCollection;
 	
 	/**If the Virologist crafts an Agent it gets into the craftedAgentCollection*/
-	AgentCollection craftedAgentCollection;
+	private AgentCollection craftedAgentCollection;
 	
 	/**If the Virologist learns a genCode in a Laboratory it gets into the genCodeCollection*/
-	AgentCollection genCodeCollection;
+	private AgentCollection genCodeCollection;
 	
 	/**The Materials owned by the Virologist are in the materialCollection*/
-	MaterialCollection materialCollection;
+	private MaterialCollection materialCollection;
 	
 	public Virologist() {
 		equipmentCollection = new EquipmentCollection();
@@ -354,6 +354,7 @@ public class Virologist extends Thing {
 		/**Removes the amount required crafting the agent*/
 		materialCollection.GetAmino().RemoveAmount(genCode.GetCostAmino());
 		materialCollection.GetNucle().RemoveAmount(genCode.GetCostNucle());
+		System.out.println(materialCollection.GetAmino().GetAmount());
 		return pr;
 	}
 	

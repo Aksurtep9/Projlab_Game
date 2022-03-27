@@ -39,7 +39,7 @@ public class EquipmentCollection {
 	public void ListAll() {
 		System.out.println("ListAll");
 		for(int i=0;i< equipments.size();i++) {
-			System.out.println(equipments.get(i).ToString());
+			System.out.println(equipments.get(i).toString());
 		}
 	}
 	

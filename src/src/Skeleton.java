@@ -51,7 +51,7 @@ public class Skeleton {
 	
 	private void Chorea() {
 		Agent chorea = new Chorea();
-		viroPlayer1.effectCollection.Add(chorea,viroPlayer1);
+		viroPlayer1.GetEffectCollection().Add(chorea,viroPlayer1);
 		chorea.Affect(viroPlayer1);
 	}
 	
@@ -72,7 +72,7 @@ public class Skeleton {
 	
 	private void Amnesia() {
 		Agent amnesia = new Amnesia();
-		viroPlayer1.effectCollection.Add(amnesia,viroPlayer1);
+		viroPlayer1.GetEffectCollection().Add(amnesia,viroPlayer1);
 		amnesia.Affect(viroPlayer1);
 	}
 	/**
@@ -120,7 +120,10 @@ public class Skeleton {
 				viroPlayer1.PickUpEquipment();
 				break;
 			}
-			case 8:  break;
+			case 8: 
+				gloves = new Gloves();
+				viroPlayer1.GetEquipmentCollection().Add(gloves);
+				viroPlayer1.DropEquipment(); break;
 			case 9: 
 				Menu.PrintSubMenu();
 				int menuSubItem = Interaction.MenuNumber(0, 3);

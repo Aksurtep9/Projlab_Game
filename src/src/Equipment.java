@@ -30,7 +30,7 @@ public abstract class Equipment extends Thing implements Effect {
 	 * Writes the Attributes of the Equipment in a string.
 	 * @return string
 	 */
-	public String ToString() {
+	public String toString() {
 		System.out.println("ToString");
 		return "";
 	}
