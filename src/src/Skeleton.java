@@ -32,8 +32,8 @@ public class Skeleton {
 		game = new Game(3);
 		moveHere = new Field();
 		hereWeAre = new Field();
-		viroPlayer1 = new Virologist();
-		viroPlayer2=new Virologist();
+		viroPlayer1 = game.getPlayers().get(0);
+		viroPlayer2=game.getPlayers().get(1);
 		viroPlayer1.SetField(hereWeAre);
 	}
 	
@@ -43,6 +43,21 @@ public class Skeleton {
 		Cloak clk=new Cloak();
 		eq.Add(clk);
 		ef.Add(clk);		
+	}
+	
+	public void Chorea() {
+		Agent chorea = new Chorea();
+		viroPlayer1.effectCollection.Add((Effect)chorea);
+	}
+	
+	public void Sack() {
+		Equipment sack = new Sack();
+		EquipmentCollection ec = new EquipmentCollection();
+		ec.Add(sack);
+	}
+	
+	public void StealMaterial() {
+		viroPlayer1.Touch(viroPlayer2);
 	}
 	/**
 	 * Runs the skeleton class with its menu system.<br>
@@ -56,7 +71,7 @@ public class Skeleton {
 			
 			switch(menuItem) {
 			case 0: System.exit(0); break;
-			case 1: break;
+			case 1: game.NewGame(); break;
 			case 2: viroPlayer1.Move(); break;
 			case 3: viroPlayer1.Move(); break; //But only to laboratory
 			case 4: viroPlayer1.Move(); break; //But only to warehouse
@@ -71,13 +86,14 @@ public class Skeleton {
 				case 0: /*do nothing*/ break;
 				case 1:  break;
 				case 2: viroPlayer1.StealEquipment(viroPlayer2); break;
-				case 3:  break;
+				case 3: StealMaterial(); break;
 				}
 				break;
-			case 10:  break;
+			case 10: Chorea(); break;
 			case 11:  break;
-			case 12:  break;
+			case 12: Sack(); break;
 			case 13: AddCloak(); break;
+
 			case 14:  break;
 			case 15: Game.EndGame(); break;
 			}

@@ -24,13 +24,15 @@ public class Map {
 	/**
 	 * It creates the fields for the game and sets their neighbours.
 	 */
-	public void GenerateFields() {
+	public void GenerateFields(ArrayList<Virologist> players) {
 		Field hereWeAre = new Field();
 		Warehouse warehouse = new Warehouse();
 		Shelter shelter = new Shelter();
 		Laboratory labor = new Laboratory();
 		try {
 			hereWeAre.Accept(players.get(0));
+			warehouse.Accept(players.get(0));
+			shelter.Accept(players.get(0));
 		}
 		catch(NullPointerException e) {
 			System.out.println("Nincs kezdomezo!");

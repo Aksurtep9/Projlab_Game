@@ -43,7 +43,7 @@ public class Game {
 	/**
 	 * The list of current players.
 	 */
-	List<Virologist> players;
+	ArrayList<Virologist> players;
 	
 	/**
 	 * It stores the map.
@@ -55,6 +55,10 @@ public class Game {
 		this.roundCount = 0;
 		this.map = new Map();
 		players = new ArrayList<Virologist>();
+	}
+	
+	public ArrayList<Virologist> getPlayers(){
+		return players;
 	}
 	
 	/**
@@ -73,7 +77,7 @@ public class Game {
 			System.out.println("Nincsenek jatekosok!");
 		}
 		
-		map.GenerateFields();
+		map.GenerateFields(players);
 		
 		
 		
