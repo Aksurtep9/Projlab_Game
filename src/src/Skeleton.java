@@ -35,7 +35,7 @@ public class Skeleton {
 		
 	}
 	
-	public void AddCloak() {
+	private void AddCloak() {
 		EquipmentCollection eq= viroPlayer1.GetEquipmentCollection();
 		EffectCollection ef=viroPlayer1.GetEffectCollection();
 		Cloak clk=new Cloak();
@@ -43,18 +43,19 @@ public class Skeleton {
 		ef.Add(clk);		
 	}
 	
-	public void Chorea() {
+	private void Chorea() {
 		Agent chorea = new Chorea();
-		viroPlayer1.effectCollection.Add((Effect)chorea);
+		viroPlayer1.effectCollection.Add(chorea);
+		chorea.Affect(viroPlayer1);
 	}
 	
-	public void Sack() {
+	private void Sack() {
 		Equipment sack = new Sack();
 		EquipmentCollection ec = new EquipmentCollection();
 		ec.Add(sack);
 	}
 	
-	public void StealMaterial() {
+	private void StealMaterial() {
 		viroPlayer1.Touch(viroPlayer2);
 	}
 	

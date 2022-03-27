@@ -7,7 +7,7 @@ package src;
  * @author csizm
  *
  */
-public abstract class Agent 
+public abstract class Agent implements Effect
 {
 	/**The number of remaining rounds, before the agent expires.	 */
 	protected int expireTime;

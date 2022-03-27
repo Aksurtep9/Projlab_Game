@@ -22,7 +22,8 @@ public class EffectCollection {
 	 * @param craftedAgent the Effect
 	 */
 	public void Add(Effect e) {
-		e.Affect(viroPlayer1);
+		effects.add(e);
+//		e.Affect(viroPlayer1);
 	}
 	
 	/**
