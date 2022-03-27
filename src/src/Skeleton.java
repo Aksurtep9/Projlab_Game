@@ -165,8 +165,6 @@ public class Skeleton {
 	 */
 	public static class Interaction{
 		
-		private static Scanner scan;
-		
 		/**
 		 * Asks the user which menu item is being chosen.
 		 * @param min - the start index of the menu
