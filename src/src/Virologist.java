@@ -95,6 +95,26 @@ public class Virologist extends Thing {
 	* @param v - A Virologist on our Field
 	**/
 	public void Encounter(Virologist v) {
+		List<Thing> things = field.GetThings();
+		Skeleton.Interaction.PrintList(things);
+		int choosenNumber = Skeleton.Interaction.ListItemNumber(things.size());
+		//Virologist enemy = null;
+		
+		if(choosenNumber == 0) {
+			//empty
+		}
+		else {
+			Thing enemyThing = things.get(choosenNumber-1);
+			if(enemyThing.toString().contains("Virologist")) {
+				Virologist enemy = (Virologist)enemyThing;
+			}
+			
+		}
+		
+		for(int i = 0; i < things.size(); i++) {
+			System.out.println(i + ". " +things.get(i).toString());
+			things.get(i).ge
+		}
 		
 	}
 	
@@ -327,7 +347,10 @@ public class Virologist extends Thing {
 	* Shows the Equipments from the equipmentCollection to the Player and he chooses one then drops it on the Field that its Virologist standing on 
 	**/
 	public void DropEquipment() {
-		
+		Equipment choosenEquipment = null;
+		for(int i = 0; i < 0; i++) {
+			System.out.println(i+1 ".: " )
+		}
 	}
 	
 	/**
