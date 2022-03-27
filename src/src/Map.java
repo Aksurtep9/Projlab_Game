@@ -16,10 +16,16 @@ public class Map {
 	 */
 	ArrayList<Field> fields;
 	
-	
+	/**
+	 * Constructor for Map
+	 */
 	public Map() {
 		
 		fields = new ArrayList<Field>();
+	}
+	
+	public ArrayList<Field> GetFields(){
+		return fields;
 	}
 	/**
 	 * It creates the fields for the game and sets their neighbours.
@@ -32,8 +38,8 @@ public class Map {
 		Laboratory labor = new Laboratory();
 		try {
 			hereWeAre.Accept(players.get(0));
-			warehouse.Accept(players.get(1));
-			shelter.Accept(players.get(2));
+			//warehouse.Accept(players.get(1));
+			//shelter.Accept(players.get(2));
 		}
 		catch(NullPointerException e) {
 			System.out.println("Nincs kezdomezo!" + e);
@@ -42,6 +48,11 @@ public class Map {
 		hereWeAre.AddNeighbours(labor);
 		hereWeAre.AddNeighbours(warehouse);
 		hereWeAre.AddNeighbours(shelter);
+		
+		fields.add(players.get(0).GetField());
+		fields.add(labor);
+		fields.add(shelter);
+		fields.add(warehouse);
 		
 		labor.CreateGenCode();
 		shelter.CreateEquipment();

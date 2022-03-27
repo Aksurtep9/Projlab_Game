@@ -15,8 +15,12 @@ public class Skeleton {
 	
 	//Instances
 	private Game game;
+	private Map map;
 	private Field moveHere;
 	private Field hereWeAre;
+	private Field labor;
+	private Field shelter;
+	private Field warehouse;
 	private Virologist viroPlayer1;
 	private Virologist viroPlayer2;
 	private Virologist viroPlayer3;
@@ -33,9 +37,6 @@ public class Skeleton {
 	 */
 	public void Initialize() {
 		game = new Game(3);
-		moveHere = new Field();
-		hereWeAre = new Field();
-		
 	}
 	
 	private void AddCloak() {
@@ -83,7 +84,14 @@ public class Skeleton {
 					viroPlayer1 = game.getPlayers().get(0);
 					viroPlayer2 = game.getPlayers().get(1);
 					viroPlayer3 = game.getPlayers().get(2);
+					map = game.GetMap();
+					hereWeAre = map.GetFields().get(0);
+					labor = map.GetFields().get(1);
+					shelter = map.GetFields().get(2);
+					warehouse = map.GetFields().get(3);
 					viroPlayer1.SetField(hereWeAre);
+					viroPlayer2.SetField(labor);
+					viroPlayer3.SetField(shelter);
 					break;
 			}
 			case 2: viroPlayer1.Move(); break;
@@ -131,30 +139,30 @@ public class Skeleton {
 		 */
 		public static void PrintMainMenu() {
 			System.out.print("The menu is the following:\n"
-					+ "0"+"\t"+":Kilepes"+"\n"
-					+ "1"+"\t"+":Jatek inditasa"+"\n"
-					+ "2"+"\t"+":Lepes mezore"+"\n"
-					+ "3"+"\t"+":Lepes laborra"+"\n"
-					+ "4"+"\t"+":Lepes raktarra"+"\n"
-					+ "5"+"\t"+":Lepes ovohelyre"+"\n"
-					+ "6"+"\t"+":Barkacsol"+"\n"
-					+ "7"+"\t"+":Felvesz"+"\n"
-					+ "8"+"\t"+":Eldob"+"\n"
-					+ "9"+"\t"+":Interakcio mas virologussal"+"\n"
-					+ "10"+"\t"+":Vitustanc"+"\n"
-					+ "11"+"\t"+":Amnezia"+"\n"
-					+ "12"+"\t"+":Zsak"+"\n"
-					+ "13"+"\t"+":Kopeny"+"\n"
-					+ "14"+"\t"+":Uj kor"+"\n"
-					+ "15"+"\t"+":Jatek vege"+"\n");
+					+ "0:"+"\t"+"Kilepes"+"\n"
+					+ "1:"+"\t"+"Jatek inditasa"+"\n"
+					+ "2:"+"\t"+"Lepes mezore"+"\n"
+					+ "3:"+"\t"+"Lepes laborra"+"\n"
+					+ "4:"+"\t"+"Lepes raktarra"+"\n"
+					+ "5:"+"\t"+"Lepes ovohelyre"+"\n"
+					+ "6:"+"\t"+"Barkacsol"+"\n"
+					+ "7:"+"\t"+"Felvesz"+"\n"
+					+ "8:"+"\t"+"Eldob"+"\n"
+					+ "9:"+"\t"+"Interakcio mas virologussal"+"\n"
+					+ "10:"+"\t"+"Vitustanc"+"\n"
+					+ "11:"+"\t"+"Amnezia"+"\n"
+					+ "12:"+"\t"+"Zsak"+"\n"
+					+ "13:"+"\t"+"Kopeny"+"\n"
+					+ "14:"+"\t"+"Uj kor"+"\n"
+					+ "15:"+"\t"+"Jatek vege"+"\n");
 		}
 		
 		public static void PrintSubMenu() {
 			System.out.print("A menu az alabbi:\n  "
-					+ "0"+"\t"+":Megsem interaktalok"+"\n"
-					+ "1"+"\t"+":Virologus agenst hasznal"+"\n"
-					+ "2"+"\t"+":Felszereles rablas"+"\n"
-					+ "3"+"\t"+":Anyag rablas"+"\n");
+					+ "0:"+"\t"+"Megsem interaktalok"+"\n"
+					+ "1:"+"\t"+"Virologus agenst hasznal"+"\n"
+					+ "2:"+"\t"+"Felszereles rablas"+"\n"
+					+ "3:"+"\t"+"Anyag rablas"+"\n");
 		}
 	}
 	

@@ -49,6 +49,10 @@ public class Game {
 	 */
 	private Map map;
 	
+	/**
+	 * Constructor for the game
+	 * @param playerCount - the number of the players
+	 */
 	public Game(int playerCount) {
 		this.playerCount = playerCount;
 		this.roundCount = 0;
@@ -56,9 +60,21 @@ public class Game {
 		players = new ArrayList<Virologist>();
 	}
 	
+	/**
+	 * Gives the game's players back
+	 * @return all the players
+	 */
 	public ArrayList<Virologist> getPlayers(){
 		System.out.println("getPlayer");
 		return players;
+	}
+	
+	/**
+	 * Gives the game's map back
+	 * @return the map
+	 */
+	public Map GetMap() {
+		return map;
 	}
 	
 	/**
@@ -77,11 +93,7 @@ public class Game {
 		catch(NullPointerException e) {
 			System.out.println("Nincsenek jatekosok!");
 		}
-		
 		map.GenerateFields(players);
-		
-		
-		
 	}
 	
 	/**

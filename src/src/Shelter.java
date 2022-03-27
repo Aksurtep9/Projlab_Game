@@ -14,7 +14,6 @@ public class Shelter extends Field {
 	 */
 	public Shelter() {
 		super();
-		System.out.println("Shelter");
 	}
 	
 	/**Stores the shelter's equipments.*/
