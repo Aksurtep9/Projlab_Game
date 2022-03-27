@@ -80,6 +80,9 @@ public class Field {
 		this.things.remove(t);
 	}
 	
+	public void AddNeighbours(Field f) {
+		neighbours.add(f);
+	}
 	/**
 	 * Gives the field's type back
 	 * @return the type of the field

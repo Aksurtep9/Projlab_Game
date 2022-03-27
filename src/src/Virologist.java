@@ -343,7 +343,7 @@ public class Virologist extends Thing {
 	* @param victim - A Virologist on our Field
 	**/
 	public void StealEquipment(Virologist victim) {
-		
+		boolean paralyzed=victim.GetEffectCollection().Contains("Paralyze");
 	}
 	
 	/**

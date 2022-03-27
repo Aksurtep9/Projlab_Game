@@ -36,8 +36,9 @@ public class Skeleton {
 	}
 	
 	public void MakeCloak() {
-		viroPlayer1.GetEquipmentCollection().Add(new Cloak());
-		viroPlayer1.GetEquipmentCollection().ListAll();
+		EquipmentCollection eq= viroPlayer1.GetEquipmentCollection();
+		eq.Add(new Cloak());
+		
 	}
 	/**
 	 * Runs the skeleton class with its menu system.<br>
