@@ -8,7 +8,7 @@ package src;
 public abstract class Thing 
 {
 	/**The Field which the Thing is on*/
-	private Field field;
+	protected Field field;
 	
 	/**
 	 * Puts the thing on the given field.

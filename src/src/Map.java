@@ -30,7 +30,7 @@ public class Map {
 		Shelter shelter = new Shelter();
 		Laboratory labor = new Laboratory();
 		try {
-			hereWeAre.Accept(currentPlayer);
+			hereWeAre.Accept(players.get(0));
 		}
 		catch(NullPointerException e) {
 			System.out.println("Nincs kezdomezo!");
