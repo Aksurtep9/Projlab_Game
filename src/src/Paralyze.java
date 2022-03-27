@@ -25,6 +25,7 @@ public class Paralyze extends Agent
 
 	
 	public Paralyze() {
+		System.out.println("Paralyze constructor");
 		expireTime = 3;
 		effectTime = 3;
 		costAmino = 2;
@@ -37,7 +38,7 @@ public class Paralyze extends Agent
 	**/
 	public void Affect(Virologist v)
 	{
-		
+		System.out.println("Affect");
 	}
 	
 	/**
@@ -46,6 +47,7 @@ public class Paralyze extends Agent
 	**/
 	public String GetEffectName()
 	{
+		System.out.println("GetEffectName");
 		return "Paralyze";
 	}
 	
@@ -56,6 +58,7 @@ public class Paralyze extends Agent
 	@Override
 	public String toString()
 	{
+		System.out.println("toString");
 		return  GetEffectName() + " amino cost:" + costAmino +", nucleo cost:" + costNucle + ", expire time:" + expireTime + ", effect time:" + effectTime;
 	}
 }
