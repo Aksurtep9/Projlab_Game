@@ -46,7 +46,7 @@ public class Virologist extends Thing {
 	MaterialCollection materialCollection;
 	
 	public Virologist() {
-		
+		System.out.println("Virologist constructor");
 		equipmentCollection = new EquipmentCollection();
 		effectCollection = new EffectCollection();
 		craftedAgentCollection = new AgentCollection();
@@ -60,6 +60,7 @@ public class Virologist extends Thing {
 	**/
 	public void CloneGenCode(Agent genCode) {
 		
+		System.out.println("CloneGenCode");
 		//Checks if the virologist already has this genCode
 		boolean contains = false;
 
@@ -83,6 +84,7 @@ public class Virologist extends Thing {
 	* Shows the available Fields to the Player -> Moves the Virologist.
 	**/
 	public void Move() {
+		System.out.println("Move");
 		List<Field> neighbours = this.field.GetNeighbours();
 		
 		//Asks the user which neighbour is needed.
@@ -106,6 +108,7 @@ public class Virologist extends Thing {
 	* Shows the available Fields to the Player -> Moves the Virologist.
 	**/
 	public void MoveTo(Field whereToMove) {
+		System.out.println("MoveTo");
 		field.Remove(this);
 		whereToMove.Accept(this);
 	}
@@ -114,6 +117,7 @@ public class Virologist extends Thing {
 	* Starts the interraction with the Virologist on the same Field, opens the menu
 	**/
 	public void Encounter() {
+		System.out.println("Encounter");
 		List<Thing> things = this.field.GetThings();
 		Skeleton.Interaction.PrintList(things);
 		int choosenNumber = Skeleton.Interaction.ListItemNumber(things.size());
@@ -138,6 +142,7 @@ public class Virologist extends Thing {
 	* @param v - A Virologist on our Field
 	**/
 	public void Touch(Virologist v) {
+		System.out.println("Touch");
 		EffectCollection effectCol = v.GetEffectCollection();
 		boolean containsProtect = effectCol.Contains("protect");
 		boolean containsCloak = effectCol.Contains("cloak");
@@ -154,6 +159,7 @@ public class Virologist extends Thing {
 	* @param victom - the choosen Virologist we wish to anoint
 	**/
 	public void Anoint(Agent a, Virologist victim) {
+		System.out.println("Anoint");
 		
 		System.out.println("The following vaccines are known to you:");
 		/**Stores all crafted vaccines to the Virologist.*/
@@ -242,13 +248,14 @@ public class Virologist extends Thing {
 	* Shows a menu to the player of the craftedAgentCollection that he can choose from to vaccinate its own Virologist
 	**/
 	public void Vaccinate() {
-		
+		System.out.println("Vaccinate");
 	}
 	
 	/**
 	* Shows a menu to the Player of the genCodeCollection that he can choose from to craft
 	**/
 	public void Craft() {
+		System.out.println("Craft");
 	
 		System.out.println("The following genetic codes are known to you:");
 		
@@ -334,6 +341,7 @@ public class Virologist extends Thing {
 	* @return The crafted Agent
 	**/
 	public Agent CreateAgent(Agent genCode) {
+		System.out.println("CreateAgent");
 		
 		Agent pr = Skeleton.ProtectConstr();// example
 		
@@ -350,6 +358,7 @@ public class Virologist extends Thing {
 	* @param victim - A Virologist on our Field
 	**/
 	public void StealEquipment(Virologist victim) {
+		System.out.println("StealEquipment");
 		boolean paralyzed=victim.GetEffectCollection().Contains("Paralyze");
 		if(paralyzed) {
 			EquipmentCollection eqVictim=victim.GetEquipmentCollection();
@@ -374,6 +383,7 @@ public class Virologist extends Thing {
 	* @param victim - A Virologist on our Field
 	**/
 	public void StealMaterial(Virologist victim) {
+		System.out.println("StealMaterial");
 		MaterialCollection materialColl2 = victim.GetMaterialCollection();
 		FillMaterials(materialColl2);
 	}
@@ -382,6 +392,7 @@ public class Virologist extends Thing {
 	* Shows the Equipments from the equipmentCollection to the Player and he chooses one then drops it on the Field that its Virologist standing on 
 	**/
 	public void DropEquipment() {
+		System.out.println("DropEquipment");
 		List<Equipment> equipments = this.equipmentCollection.GetEquipments();
 		Skeleton.Interaction.PrintList(equipments);
 		int choosenNumber = Skeleton.Interaction.ListItemNumber(equipments.size());
@@ -403,6 +414,7 @@ public class Virologist extends Thing {
 	* Shows the Equipments from the Field its Virologist standing on to the Player and he chooses one then picks it up.
 	**/
 	public void PickUpEquipment() {
+		System.out.println("PickUpEquipment");
 		List<Thing> things = this.field.GetThings();
 		Skeleton.Interaction.PrintList(things);
 		int choosenNumber = Skeleton.Interaction.ListItemNumber(things.size());
@@ -429,6 +441,7 @@ public class Virologist extends Thing {
 	* Calls the MoveTo(Field f) method.
 	**/
 	public void RandomField() {
+		System.out.println("RandomField");
 		List<Field> neighbours = field.GetNeighbours();
 		Random rand = new Random();
 		int numberOfSelectedField = rand.nextInt(neighbours.size());
@@ -441,6 +454,7 @@ public class Virologist extends Thing {
 	* Deletes all the Agents from the genCodeCollection.
 	**/
 	public void DeleteLearntAgent() {
+		System.out.println("DeleteLearntAgent");
 		genCodeCollection.ClearAll();
 	}
 	
@@ -449,6 +463,7 @@ public class Virologist extends Thing {
 	* @param m - A Warehouse or another Virologist MaterialCollection
 	**/
 	public void FillMaterials(MaterialCollection m) {
+		System.out.println("FillMaterial");
 		AminoAcid victimAmino = m.GetAmino();
 		Nucleotid victimNucle = m.GetNucle();
 		int victimAminoAmount = victimAmino.amount;
@@ -496,17 +511,18 @@ public class Virologist extends Thing {
 	* The method is called at the start of each turn and it calls every Effect from the effectCollection
 	**/
 	public void CallAffectWithAll() {
-		
+		System.out.println("CallAffectWithAll");
 	}
 	
 	
 	public void CallDecreaseAgentTime() {
+		System.out.println("CallDecreaseAgentTime");
 		craftedAgentCollection.DecreaseAgentTimeAColl(this);
 		effectCollection.DecreaseAgentTimeEColl(this);
 	}
 	
 	public void RemoveAgentFromAgentColl(Agent a) {
-		
+		System.out.println("RemoveAgentFromAgentColl");
 		effectCollection.Remove((Effect) a);
 		
 	}
@@ -517,6 +533,7 @@ public class Virologist extends Thing {
 	**/
 	@Override
 	public String toString() {
+		System.out.println("toString");
 		return "Virologist";
 	}
 	
@@ -525,6 +542,7 @@ public class Virologist extends Thing {
 	* @return materialCollection
 	**/
 	public MaterialCollection GetMaterialCollection() {
+		System.out.println("GetMaterialCollection");
 		return materialCollection;
 	}
 	
@@ -533,6 +551,7 @@ public class Virologist extends Thing {
 	* @return equipmentCollection
 	**/
 	public EquipmentCollection GetEquipmentCollection() {
+		System.out.println("GetEquipmentCollection");
 		return equipmentCollection;
 	}
 	
@@ -541,10 +560,12 @@ public class Virologist extends Thing {
 	* @return effectCollection
 	**/
 	public EffectCollection GetEffectCollection() {
+		System.out.println("GetEffectCollection");
 		return effectCollection;
 	}
 	
 	public AgentCollection GetGenCodeCollection() {
+		System.out.println("GetGenCodeCollection");
 		return genCodeCollection;
 	}
 }
