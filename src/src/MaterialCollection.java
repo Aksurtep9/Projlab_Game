@@ -19,6 +19,7 @@ public class MaterialCollection {
 	 * default constructor
 	 */
 	public MaterialCollection() {
+		System.out.println("MaterialCollection constructor");
 		amino = new AminoAcid();
 		nucle = new Nucleotid();
 	}
@@ -29,6 +30,7 @@ public class MaterialCollection {
 	* @return amino
 	**/
 	public AminoAcid GetAmino(){
+		System.out.println("GetAmino");
 		return amino;
 	}
 	
@@ -37,6 +39,7 @@ public class MaterialCollection {
 	* @return nucle
 	**/
 	public Nucleotid GetNucle() {
+		System.out.println("GetNucle");
 		return nucle;
 	}
 }

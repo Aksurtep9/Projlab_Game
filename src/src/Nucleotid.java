@@ -12,6 +12,7 @@ public class Nucleotid extends Material{
 	 * default constructor
 	 */
 	public Nucleotid() {
+		System.out.println("Nucleotid constructor");
 		amount = 20;
 	}
 	/**
@@ -19,6 +20,7 @@ public class Nucleotid extends Material{
 	* @return String with the amount
 	**/
 	public String ToString() {
+		System.out.println("ToString");
 		return ("Amount of Nucleotid: " + amount);
 	}
 }

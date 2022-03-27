@@ -18,12 +18,14 @@ public class Map {
 	
 	
 	public Map() {
+		System.out.println("Map constructor");
 		fields = new ArrayList<Field>();
 	}
 	/**
 	 * It creates the fields for the game and sets their neighbours.
 	 */
 	public void GenerateFields(ArrayList<Virologist> players) {
+		System.out.println("GenerateFields");
 		Field hereWeAre = new Field();
 		Warehouse warehouse = new Warehouse();
 		Shelter shelter = new Shelter();
