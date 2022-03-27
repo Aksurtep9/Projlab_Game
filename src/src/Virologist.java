@@ -46,7 +46,6 @@ public class Virologist extends Thing {
 	MaterialCollection materialCollection;
 	
 	public Virologist() {
-		
 		equipmentCollection = new EquipmentCollection();
 		effectCollection = new EffectCollection();
 		craftedAgentCollection = new AgentCollection();

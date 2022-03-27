@@ -10,20 +10,9 @@ package src;
 
 public class Chorea extends Agent
 {
-	
-	/**Stating how long the agent can be used*/
-	private int expireTime;
-	
-	/**Stating how long the agent has an effect on the target*/
-	private int effectTime;
-	
-	/**Stating how much aminoacid the agent requires to be crafted*/
-	private int costAmino;
-	
-	/**Stating how much nukleoid the agent requires to be crafted*/
-	private int costNucle;
 
 	public Chorea() {
+		System.out.println("Chorea");
 		this.expireTime = 4;
 		this.effectTime = 4;
 		this.costAmino = 3;
@@ -36,6 +25,7 @@ public class Chorea extends Agent
 	**/
 	public void Affect(Virologist v)
 	{
+		System.out.println("Affect");
 		v.RandomField();
 	}
 	
@@ -45,6 +35,7 @@ public class Chorea extends Agent
 	**/
 	public String GetEffectName()
 	{
+		System.out.println("GetEffectName");
 		return "Chorea";
 	}
 	
@@ -55,6 +46,7 @@ public class Chorea extends Agent
 	@Override
 	public String toString()
 	{
+		System.out.println("toString");
 		return  GetEffectName() + " amino cost:" + costAmino +", nucleo cost:" + costNucle + ", expire time:" + expireTime + ", effect time:" + effectTime;
 	}
 }

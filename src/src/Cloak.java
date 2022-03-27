@@ -13,7 +13,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Cloak extends Equipment {
 	
 	public Cloak() {
-		
 	}
 	
 	/**

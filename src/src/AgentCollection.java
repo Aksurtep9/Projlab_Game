@@ -11,6 +11,7 @@ public class AgentCollection {
 	private ArrayList<Agent> agents;
 	
 	public AgentCollection() {
+		System.out.println("AgentCollection()");
 		agents = new ArrayList<Agent>();
 	}
 	
@@ -19,6 +20,7 @@ public class AgentCollection {
 	 * @param a the Agent we are adding to the collection
 	 */
 	public void Add(Agent a) {
+		System.out.println("Add");
 		agents.add(a);
 	}
 	
@@ -26,6 +28,7 @@ public class AgentCollection {
 	 * Returns all of the Agents, so the player can choose which one he wants to use.
 	 */
 	public ArrayList<Agent> ListAll() {
+		System.out.println("ListAll");
 		return agents;
 	}
 	
@@ -34,6 +37,7 @@ public class AgentCollection {
 	 * @return the number of Agents
 	 */
 	public int GetSize() {
+		System.out.println("GetSize()");
 		return agents.size();
 	}
 	
@@ -42,6 +46,7 @@ public class AgentCollection {
 	 * @param v the Virologist, who is the owner of the collection
 	 */
 	public void DecreaseAgentTimeAColl(Virologist v) {
+		System.out.println("DecreaseAgentTimeAColl");
 		for(int i=0;i<agents.size();i++) {
 			agents.get(i).DecreaseExpireTime(v);
 		}			
@@ -52,6 +57,7 @@ public class AgentCollection {
 	 * @param a the agent which needs to be removed
 	 */
 	public void Remove(Agent a) {
+		System.out.println("Remove");
 		for(int i=0; i< agents.size(); i++) {
 			if(agents.get(i)==a) {
 				agents.remove(i);
@@ -64,6 +70,7 @@ public class AgentCollection {
 	 * removes every agent from the collection
 	 */
 	public void ClearAll() {
+		System.out.println("ClearAll");
 		agents.clear();
 	}
 	
@@ -73,7 +80,7 @@ public class AgentCollection {
 	 * @return true, if the agent given as parameter is found in the collection
 	 */
 	public boolean Contains(String s) {
-		
+		System.out.println("Contains");
 		for(int i=0; i< agents.size(); i++) {
 			if(agents.get(i).GetEffectName().equals(s))
 				return true;

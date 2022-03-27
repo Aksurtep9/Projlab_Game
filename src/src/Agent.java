@@ -46,6 +46,7 @@ public abstract class Agent implements Effect
 	 * @param v Virologist that has the crafted agent
 	 */
 	public void DecreaseExpireTime(Virologist v) {
+		System.out.println("DescreaseExpireTime");
 		expireTime--;
 	}
 	
@@ -54,6 +55,7 @@ public abstract class Agent implements Effect
 	 * @param v Virologist that the effect of the agent has been applied to
 	 */
 	public void DecreaseEffectTime(Virologist v) {
+		System.out.println("DecreaseEffectTime");
 		expireTime--;
 		if(expireTime == 0) {
 			
@@ -67,6 +69,7 @@ public abstract class Agent implements Effect
 	 * @return the amount of aminoacid required
 	 */
 	public int GetCostAmino() {
+		System.out.println("GetCostAmino");
 		return costAmino;
 	}
 	
@@ -75,6 +78,7 @@ public abstract class Agent implements Effect
 	 * @return the amount of nucleotid required
 	 */
 	public int GetCostNucle() {
+		System.out.println("GetCostNucle");
 		return costNucle;
 	}
 	
@@ -83,6 +87,7 @@ public abstract class Agent implements Effect
 	 * @return the number of rounds
 	 */
 	public int GetExpireTime() {
+		System.out.println("GetExpireTime");
 		return expireTime;
 	}
 	
@@ -90,6 +95,6 @@ public abstract class Agent implements Effect
 	 * Deletes the agent.
 	 */
 	public void Delete() {
-		
+		System.out.println("Delete");
 	}
 }

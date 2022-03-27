@@ -11,19 +11,8 @@ package src;
 public class Amnesia extends Agent
 {
 	
-	/**Stating how long the agent can be used*/
-	private int expireTime;
-	
-	/**Stating how long the agent has an effect on the target*/
-	private int effectTime;
-	
-	/**Stating how much aminoacid the agent requires to be crafted*/
-	private int costAmino;
-	
-	/**Stating how much nukleoid the agent requires to be crafted*/
-	private int costNucle;
-	
 	public Amnesia() {
+		System.out.println("Amnesia");
 		this.expireTime = 0;
 		this.effectTime = 2;
 		this.costAmino = 1;
@@ -36,6 +25,7 @@ public class Amnesia extends Agent
 	**/
 	public void Affect(Virologist v)
 	{
+		System.out.println("Affect");
 		v.DeleteLearntAgent();
 	}
 	
@@ -45,6 +35,7 @@ public class Amnesia extends Agent
 	**/
 	public String GetEffectName()
 	{
+		System.out.println("GetEffectName");
 		return "Amnesia";
 	}
 	
@@ -56,6 +47,7 @@ public class Amnesia extends Agent
 	@Override
 	public String toString()
 	{
+		System.out.println("toString");
 		return  GetEffectName() + " amino cost:" + costAmino +", nucleo cost:" + costNucle + ", expire time:" + expireTime + ", effect time:" + effectTime;
 	}
 }

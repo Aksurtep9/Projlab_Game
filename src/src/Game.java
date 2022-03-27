@@ -64,6 +64,7 @@ public class Game {
 	 * It starts a new game.
 	 */
 	void NewGame() {
+		System.out.println("NewGame()");
 		for(int i = 0; i < playerCount; i++) {
 			Virologist v = new Virologist();
 			players.add(v);

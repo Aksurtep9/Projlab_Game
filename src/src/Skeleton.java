@@ -77,7 +77,7 @@ public class Skeleton {
 			 menuItem = Interaction.MenuNumber(0, 15);
 			
 			switch(menuItem) {
-			case 0: System.out.print("ok"); scan.close(); System.exit(0); break;
+			case 0: scan.close(); System.exit(0); break;
 			case 1:{ game.NewGame();
 					viroPlayer1 = game.getPlayers().get(0);
 					viroPlayer2=game.getPlayers().get(1);
