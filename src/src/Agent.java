@@ -38,7 +38,7 @@ public abstract class Agent
 	 */
 	@Override
 	public String toString() {
-		
+		return "";
 	}
 	
 	/**
@@ -67,7 +67,7 @@ public abstract class Agent
 	 * @return the amount of aminoacid required
 	 */
 	public int GetCostAmino() {
-		
+		return costAmino;
 	}
 	
 	/**
@@ -75,7 +75,7 @@ public abstract class Agent
 	 * @return the amount of nucleotid required
 	 */
 	public int GetCostNucle() {
-		
+		return costNucle;
 	}
 	
 	/**
@@ -83,7 +83,7 @@ public abstract class Agent
 	 * @return the number of rounds
 	 */
 	public int GetExpireTime() {
-		
+		return expireTime;
 	}
 	
 	/**

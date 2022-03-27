@@ -25,7 +25,7 @@ public class Chorea extends Agent
 
 	
 	/**
-	* This method has an effect on the Virologist it is applied, making him move to random fields for a sort period of turns
+	* This method has an effect on the Virologist it is applied to, making him move to random fields for a sort period of turns
 	* @param v - v is the Virologist, the agent is affecting
 	**/
 	public void Affect(Virologist v)
@@ -39,15 +39,16 @@ public class Chorea extends Agent
 	**/
 	public String GetEffectName()
 	{
-		
+		return "Chorea";
 	}
 	
 	/**
 	* Gives back all the attributes in string
 	* @return a string stating the parameters of the class
 	**/
-	public String ToString()
+	@Override
+	public String toString()
 	{
-		
+		return  GetEffectName() + " amino cost:" + costAmino +", nucleo cost:" + costNucle + ", expire time:" + expireTime + ", effect time:" + effectTime;
 	}
 }

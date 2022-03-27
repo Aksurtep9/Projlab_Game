@@ -31,7 +31,7 @@ public class Gloves extends Equipment {
 	 * @return Returns the properties of these Gloves.
 	 */
 	@Override
-	public String ToString() {
-		
+	public String toString() {
+		return GetEffectName();
 	}
 }

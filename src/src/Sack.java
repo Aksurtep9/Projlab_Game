@@ -32,7 +32,7 @@ public class Sack extends Equipment {
 	 * @return Returns the properties of this Sack.
 	 */
 	@Override
-	public String ToString() {
-		
+	public String toString() {
+		return GetEffectName();
 	}
 }

@@ -23,7 +23,7 @@ public class EquipmentCollection {
 	 * @return number of equipments
 	 */
 	public int GetSize() {
-		
+		return equipments.size();
 	}
 	
 	/**
@@ -31,7 +31,7 @@ public class EquipmentCollection {
 	 * @return list
 	 */
 	public List<Equipment> ListAll() {
-		
+		return equipments;
 	}
 	
 	/**
@@ -47,7 +47,13 @@ public class EquipmentCollection {
 	 * @param e the Equipment we are checking
 	 * @return true, if the equipment was found in the collection
 	 */
-	public boolean Contains(Equipment e) {
+	public boolean Contains(String s) {
 		
+		for(int i=0; i< equipments.size(); i++) {
+			if(equipments.get(i).GetEffectName().equals(s))
+				return true;
+		}
+		
+		return false;
 	}
 }

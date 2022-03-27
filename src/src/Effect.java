@@ -2,7 +2,7 @@ package src;
 
 /**
  * <b>Effect class</b><br>
- * This class is implemented in Agent and Equipment classes so that can behave like an effect.<br>
+ * This interface is implemented in Agent and Equipment classes so that they can behave like an effect.<br>
  * Interacts with the virologist.
  * @author - Martin
  */
@@ -21,8 +21,8 @@ public interface Effect {
 	public String GetEffectName();
 	
 	/**
-	 * Reduces the effect's effect time - which considered to be agent.
-	 * @param v - the virologist whom agents' effect time gets reduced
+	 * Reduces the effect's effect time, if it's considered to be an Agent.
+	 * @param v - the virologist whose agents' effect time gets reduced
 	 */
 	public void DecreaseEffectTime(Virologist v);
 }

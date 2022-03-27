@@ -377,7 +377,7 @@ public class Virologist extends Thing {
 	* Deletes all the Agents from the genCodeCollection.
 	**/
 	public void DeleteLearntAgent() {
-		
+		genCodeCollection.ClearAll();
 	}
 	
 	/**
