@@ -94,7 +94,7 @@ public class Virologist extends Thing {
 		if(index == 0)
 			System.out.println("Maradok");
 		else {
-			Field selected = neighbours.get(0);
+			Field selected = neighbours.get(index-1);
 			if(selected != null && selected != this.field) {
 				
 				this.field.Remove(this);

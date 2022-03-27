@@ -16,8 +16,8 @@ public class Skeleton {
 	//Instances
 	private Game game;
 	private Map map;
-	private static Field moveHere;
-	private static Field hereWeAre;
+	private Field moveHere;
+	private Field hereWeAre;
 	private Field labor;
 	private Field shelter;
 	private Field warehouse;
@@ -96,7 +96,10 @@ public class Skeleton {
 					warehouse = map.GetFields().get(3);
 					break;
 			}
-			case 2: viroPlayer1.Move(); break;
+			case 2: { 
+				moveHere = new Field();
+				hereWeAre.AddNeighbours(moveHere);
+				viroPlayer1.Move(); }break;
 			case 3: viroPlayer1.Move(); break; //But only to laboratory
 			case 4: viroPlayer1.Move(); break; //But only to warehouse
 			case 5: viroPlayer1.Move(); break; //But only to shelter
