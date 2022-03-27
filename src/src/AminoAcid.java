@@ -9,8 +9,11 @@ package src;
 **/
 public class AminoAcid extends Material{
 	
+	/**
+	 * default constructor
+	 */
 	public AminoAcid() {
-		
+		amount=20;
 	}
 	
 	/**

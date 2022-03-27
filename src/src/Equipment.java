@@ -22,7 +22,7 @@ public abstract class Equipment extends Thing implements Effect {
 	 * @return a string containing the name of the Effect
 	 */
 	public String GetEffectName() {
-		
+		return "";
 	}
 	
 	/**

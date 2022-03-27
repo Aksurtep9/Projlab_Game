@@ -8,6 +8,9 @@ package src;
 **/
 public class Nucleotid extends Material{
 	
+	/**
+	 * default constructor
+	 */
 	public Nucleotid() {
 		amount = 20;
 	}
