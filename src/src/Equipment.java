@@ -14,7 +14,7 @@ public abstract class Equipment extends Thing implements Effect {
 	 * @param v the Virologist who has the equipment
 	 */
 	public void Affect(Virologist v) {
-		
+		System.out.println("Affect");
 	}
 	
 	/**
@@ -22,6 +22,7 @@ public abstract class Equipment extends Thing implements Effect {
 	 * @return a string containing the name of the Effect
 	 */
 	public String GetEffectName() {
+		System.out.println("GetEffectName");
 		return "";
 	}
 	
@@ -30,6 +31,7 @@ public abstract class Equipment extends Thing implements Effect {
 	 * @return string
 	 */
 	public String ToString() {
+		System.out.println("ToString");
 		return "";
 	}
 }
