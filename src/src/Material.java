@@ -12,7 +12,7 @@ public abstract class Material extends Thing {
 	protected int amount;
 	
 	public Material() {
-		System.out.println("Material constructor");
+		
 		amount = 20;
 	}
 	

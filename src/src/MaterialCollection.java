@@ -19,7 +19,7 @@ public class MaterialCollection {
 	 * default constructor
 	 */
 	public MaterialCollection() {
-		System.out.println("MaterialCollection constructor");
+
 		amino = new AminoAcid();
 		nucle = new Nucleotid();
 	}

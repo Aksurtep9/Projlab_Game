@@ -25,7 +25,6 @@ public class Paralyze extends Agent
 
 	
 	public Paralyze() {
-		System.out.println("Paralyze constructor");
 		expireTime = 3;
 		effectTime = 3;
 		costAmino = 2;

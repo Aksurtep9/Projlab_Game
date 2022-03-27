@@ -18,7 +18,7 @@ public class Map {
 	
 	
 	public Map() {
-		System.out.println("Map constructor");
+		
 		fields = new ArrayList<Field>();
 	}
 	/**
