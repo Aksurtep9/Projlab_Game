@@ -11,7 +11,7 @@ public class Gloves extends Equipment {
 	
 	public Gloves() {
 		super();
-		System.out.println("Gloves");
+		System.out.println("Gloves constructor");
 	}
 	
 	/**

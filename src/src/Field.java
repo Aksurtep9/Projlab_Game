@@ -28,7 +28,7 @@ public class Field {
 	 * Creates a unique ID for the instance.
 	 */
 	public Field() {
-		System.out.println("Field");
+		System.out.println("Field constructor");
 		this.ID = uniqueID;
 		++uniqueID;
 		neighbours = new ArrayList<Field>();
