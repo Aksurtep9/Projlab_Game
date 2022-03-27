@@ -40,7 +40,14 @@ public class EquipmentCollection {
 	 * Removes the equipment given as parameter from the collection.
 	 * @param e the item we want to remove
 	 */
-	public void Remove(Equipment e) {
+	public void Remove(String e) {
+		
+		for(int i=0; i< equipments.size(); i++) {
+			if(equipments.get(i).equals(e)) {
+				equipments.remove(i);
+				return;
+			}
+		}
 		
 	}
 	

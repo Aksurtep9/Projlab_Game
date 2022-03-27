@@ -41,7 +41,7 @@ public class Warehouse extends Field{
 	 * @return the warehouse's materials
 	 */
 	public MaterialCollection GetMaterialCollection() {
-		
+		return materialCollection;
 	}
 	
 	/**

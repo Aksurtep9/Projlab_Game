@@ -24,6 +24,13 @@ public class Paralyze extends Agent
 	private int costNucle;
 
 	
+	public Paralyze() {
+		expireTime = 3;
+		effectTime = 3;
+		costAmino = 2;
+		costNucle = 1;
+	}
+	
 	/**
 	* This method has an effect on the Virologist it is applied, making him move to random fields for a sort period of turns
 	* @param v - v is the Virologist, the agent is affecting

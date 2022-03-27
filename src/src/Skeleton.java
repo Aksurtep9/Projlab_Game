@@ -59,6 +59,11 @@ public class Skeleton {
 	public void StealMaterial() {
 		viroPlayer1.Touch(viroPlayer2);
 	}
+	
+	public static Agent ProtectConstr() {
+		Agent pr = new Protect();
+		return pr;
+	}
 	/**
 	 * Runs the skeleton class with its menu system.<br>
 	 * Test program.

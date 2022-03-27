@@ -31,6 +31,12 @@ public class EffectCollection {
 	 */
 	public void Remove(Effect e) {
 		
+		for(int i=0; i< effects.size(); i++) {
+			if(effects.get(i)==e) {
+				effects.remove(i);
+				return;
+			}
+		}
 	}
 	
 	/**

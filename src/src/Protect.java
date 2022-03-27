@@ -22,6 +22,14 @@ public class Protect extends Agent
 	
 	/**Stating how much nukleoid the agent requires to be crafted*/
 	private int costNucle;
+	
+	public Protect() {
+		
+		expireTime=6;
+		effectTime=6;
+		costAmino=5;
+		costNucle=4;
+	}
 
 	
 	/**

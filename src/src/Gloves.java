@@ -34,4 +34,11 @@ public class Gloves extends Equipment {
 	public String toString() {
 		return GetEffectName();
 	}
+
+	@Override
+	public void DecreaseEffectTime(Virologist v) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

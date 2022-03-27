@@ -3,7 +3,6 @@ package src;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 
@@ -46,6 +45,15 @@ public class Virologist extends Thing {
 	/**The Materials owned by the Virologist are in the materialCollection*/
 	MaterialCollection materialCollection;
 	
+	public Virologist() {
+		
+		equipmentCollection = new EquipmentCollection();
+		effectCollection = new EffectCollection();
+		craftedAgentCollection = new AgentCollection();
+		genCodeCollection = new AgentCollection();
+		materialCollection = new MaterialCollection();
+	}
+	
 	/**
 	* The method stores the genCode in the parameter.
 	* @param genCode - The Agent that will be stored.
@@ -54,7 +62,11 @@ public class Virologist extends Thing {
 		
 		//Checks if the virologist already has this genCode
 		boolean contains = false;
+
 		if(this.genCodeCollection.Contains(genCode.toString())) contains = true;
+
+		if(this.genCodeCollection.Contains(genCode.GetEffectName())) contains = true;
+
 		
 		//If the genCode is new
 		if(!contains) {
@@ -202,7 +214,7 @@ public class Virologist extends Thing {
 		
 		if(victim.GetEquipmentCollection().Contains("Gloves")) {
 			
-			effectCollection.Add(craftedAgent);
+			effectCollection.Add((Effect)craftedAgent);
 			victim.GetEquipmentCollection().Remove("Gloves");
 			craftedAgentCollection.Remove(craftedAgent);
 		}
@@ -215,12 +227,12 @@ public class Virologist extends Thing {
 					
 				}
 				else
-					victim.GetEffectCollection().Add(craftedAgent);
+					victim.GetEffectCollection().Add((Effect)craftedAgent);
 				
 			}
 			else {
 				
-			victim.GetEffectCollection().Add(craftedAgent);
+			victim.GetEffectCollection().Add((Effect)craftedAgent);
 			
 			}
 			craftedAgentCollection.Remove(craftedAgent);
@@ -326,16 +338,16 @@ public class Virologist extends Thing {
 	* @param genCode - The Agent we wish to craft
 	* @return The crafted Agent
 	**/
-	public Agent CreateAgent(Agent genCode) {//erdei
+	public Agent CreateAgent(Agent genCode) {
 		
-		Agent craftedAgent = new Agent();//kell?
+		Agent pr = Skeleton.ProtectConstr();// example
 		
-		craftedAgentCollection.Add(craftedAgent);
+		craftedAgentCollection.Add(pr);
 		
 		/**Removes the amount required crafting the agent*/
 		materialCollection.GetAmino().RemoveAmount(genCode.GetCostAmino());
 		materialCollection.GetNucle().RemoveAmount(genCode.GetCostNucle());
-		return craftedAgent;
+		return pr;
 	}
 	
 	/**
@@ -355,7 +367,7 @@ public class Virologist extends Thing {
 				Equipment choosenEquipment = eqVictim.GetEquipments().get(choosenNumber-1);
 				EquipmentCollection eqSelf=this.GetEquipmentCollection();
 				eqSelf.Add(choosenEquipment);
-				eqVictim.Remove(choosenEquipment);
+				eqVictim.Remove(choosenEquipment.GetEffectName());
 				victim.GetEffectCollection().Remove(choosenEquipment);
 				this.GetEffectCollection().Add(choosenEquipment);
 			}
@@ -386,8 +398,7 @@ public class Virologist extends Thing {
 			Equipment choosenEquipment = equipments.get(choosenNumber-1);
 			field.Accept(choosenEquipment);
 			effectCollection.Remove(choosenEquipment);
-			equipmentCollection.Remove(choosenEquipment);
-			
+			equipmentCollection.Remove(choosenEquipment.GetEffectName());
 			
 		}
 		
@@ -509,8 +520,9 @@ public class Virologist extends Thing {
 	* Default ToString method for console printout.
 	* @return String with every attribute of the Virologist
 	**/
-	public String ToString() {
-		
+	@Override
+	public String toString() {
+		return "Virologist";
 	}
 	
 	/**

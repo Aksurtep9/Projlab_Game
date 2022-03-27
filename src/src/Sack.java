@@ -10,6 +10,7 @@ package src;
  */
 public class Sack extends Equipment {
 	
+	public Sack() {}
 	
 	/**
 	 * 
@@ -34,5 +35,11 @@ public class Sack extends Equipment {
 	@Override
 	public String toString() {
 		return GetEffectName();
+	}
+
+	@Override
+	public void DecreaseEffectTime(Virologist v) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -8,7 +8,9 @@ package src;
 **/
 public class Nucleotid extends Material{
 	
-	
+	public Nucleotid() {
+		amount = 20;
+	}
 	/**
 	* Default ToString method for console printout.
 	* @return String with the amount

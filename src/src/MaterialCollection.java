@@ -15,6 +15,11 @@ public class MaterialCollection {
 	/**The Nucleotid in the collection*/
 	private Nucleotid nucle;
 	
+	public MaterialCollection() {
+		amino = new AminoAcid();
+		nucle = new Nucleotid();
+	}
+	
 	/**
 	 * The amount of Nucleotid or Aminoacid a player currently carrying.
 	 */
