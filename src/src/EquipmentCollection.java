@@ -11,7 +11,6 @@ public class EquipmentCollection {
 	private ArrayList<Equipment> equipments;
 	
 	public EquipmentCollection() {
-		System.out.println("EquipmentCollection");
 		equipments = new ArrayList<Equipment>();
 	}
 	

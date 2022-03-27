@@ -14,7 +14,6 @@ public class EffectCollection {
 	
 	
 	public EffectCollection() {
-		System.out.println("EffectCollection");
 		effects = new ArrayList<Effect>();
 	}
 	
