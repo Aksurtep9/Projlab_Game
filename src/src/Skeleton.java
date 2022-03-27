@@ -35,6 +35,10 @@ public class Skeleton {
 		viroPlayer1.SetField(hereWeAre);
 	}
 	
+	public void MakeCloak() {
+		viroPlayer1.GetEquipmentCollection().Add(new Cloak());
+		viroPlayer1.GetEquipmentCollection().ListAll();
+	}
 	/**
 	 * Runs the skeleton class with its menu system.<br>
 	 * Test program.
@@ -67,7 +71,7 @@ public class Skeleton {
 				break;
 			case 10:  break;
 			case 11:  break;
-			case 12:  break;
+			case 12: MakeCloak(); break;
 			case 13:  break;
 			case 14:  break;
 			case 15: Game.EndGame(); break;

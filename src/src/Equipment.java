@@ -30,6 +30,6 @@ public abstract class Equipment extends Thing implements Effect {
 	 * @return string
 	 */
 	public String ToString() {
-		
+		return "";
 	}
 }

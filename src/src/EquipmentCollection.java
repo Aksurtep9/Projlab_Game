@@ -30,8 +30,10 @@ public class EquipmentCollection {
 	 * Returns the list of all the equipment.
 	 * @return list
 	 */
-	public List<Equipment> ListAll() {
-		return equipments;
+	public void ListAll() {
+		for(int i=0;i< equipments.size();i++) {
+			System.out.println(equipments.get(i).ToString());
+		}
 	}
 	
 	/**
