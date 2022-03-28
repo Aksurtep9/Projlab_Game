@@ -3,7 +3,7 @@ import java.util.List;
 
 /**
  * <b>Shelter class</b><br>
- * <i>Inherites from Field.</i><br><br>
+ * <i>Inherits from Field.</i><br><br>
  * Stores equipments like gloves, cloak or sack.<br>
  * @author Martin
  */
