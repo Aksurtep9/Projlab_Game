@@ -483,11 +483,11 @@ public class Virologist extends Thing {
 		
 		int fillAminoWithAmount = maxAmino - Amino.amount;
 		int fillNucleWithAmount = maxNucle - Nucle.amount;
-		if(victimAminoAmount < fillAminoWithAmount) {
+		if(victimAminoAmount <= fillAminoWithAmount) {
 			victimAminoAmount -= victimAminoAmount;
 			Amino.amount += victimAminoAmount;
 		}
-		else if(Amino.amount > fillAminoWithAmount) {
+		/*else if(Amino.amount > fillAminoWithAmount) {
 			fillAminoWithAmount = fillAminoWithAmount - Amino.amount;
 			victimAminoAmount -= fillAminoWithAmount;
 			Amino.amount += fillAminoWithAmount;
@@ -496,19 +496,28 @@ public class Virologist extends Thing {
 			victimAminoAmount -= fillAminoWithAmount;
 			Amino.amount += fillAminoWithAmount;
 		}
+		*/
+		else if(victimAminoAmount > fillAminoWithAmount) {
+			victimAminoAmount -= fillAminoWithAmount;
+			Amino.amount += fillAminoWithAmount;
+		}
 		
 		
-		if(victimNucleAmount < fillNucleWithAmount) {
+		if(victimNucleAmount <= fillNucleWithAmount) {
 			victimNucle.amount -= victimNucleAmount;
 			Nucle.amount += victimNucleAmount;
 		}
-		else if(Nucle.amount > fillNucleWithAmount) {
+		/*else if(Nucle.amount > fillNucleWithAmount) {
 			fillNucleWithAmount = fillNucleWithAmount - Nucle.amount;
 			victimNucle.amount -= fillNucleWithAmount;
 			Nucle.amount += fillNucleWithAmount;
 		}
 		else {
 			victimNucle.amount -= fillNucleWithAmount;
+			Nucle.amount += fillNucleWithAmount;
+		}*/
+		else if(victimNucleAmount > fillNucleWithAmount) {
+			victimNucleAmount -= fillNucleWithAmount;
 			Nucle.amount += fillNucleWithAmount;
 		}
 		
