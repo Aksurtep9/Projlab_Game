@@ -354,7 +354,6 @@ public class Virologist extends Thing {
 		/**Removes the amount required crafting the agent*/
 		materialCollection.GetAmino().RemoveAmount(genCode.GetCostAmino());
 		materialCollection.GetNucle().RemoveAmount(genCode.GetCostNucle());
-		System.out.println(materialCollection.GetAmino().GetAmount());
 		return pr;
 	}
 	
