@@ -21,6 +21,12 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Virologist extends Thing {
 	
 	/**
+	 * A boolean that shows if the player is still alive in the game
+	 */
+	
+	private boolean alive;
+	
+	/**
 	 * The number of maximum aminoacid a player can hold at one time.
 	 */
 	private int maxAmino = 20;
@@ -29,6 +35,7 @@ public class Virologist extends Thing {
 	 * The number of maximum nucleotid a player can hold at one time.
 	 */
 	private int maxNucle = 20;
+	
 	
 	/**If the Virologist picks up an Equipment it gets into the equipmentCollection.*/
 	private EquipmentCollection equipmentCollection;
@@ -51,6 +58,8 @@ public class Virologist extends Thing {
 		craftedAgentCollection = new AgentCollection();
 		genCodeCollection = new AgentCollection();
 		materialCollection = new MaterialCollection();
+		alive = true;
+		
 	}
 	
 	/**
@@ -588,5 +597,12 @@ public class Virologist extends Thing {
 	public AgentCollection GetCraftedACollection() {
 		System.out.println("GetCraftedACollection");
 		return craftedAgentCollection;
+	}
+	
+	/**
+	 * Setting the alive attribute to false
+	 */
+	public void setDead() {
+		alive = false;
 	}
 }

@@ -42,4 +42,12 @@ public class MaterialCollection {
 		System.out.println("GetNucle");
 		return nucle;
 	}
+	
+	/**
+	 * Sets the amount of the Materials to zero.
+	 */
+	public void DestroyMaterials() {
+		amino.RemoveAmount(amino.GetAmount());
+		nucle.RemoveAmount(nucle.GetAmount());
+	}
 }

@@ -59,5 +59,12 @@ public class Warehouse extends Field{
 		System.out.println("toString");
 		return "Warehouse" + ID;
 	}
+	
+	/**
+	 * Removes every Material from the materialCollection
+	 */
+	public void DestroyMaterialCollection() {
+		materialCollection.DestroyMaterials();
+	}
 }
 
