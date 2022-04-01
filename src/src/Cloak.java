@@ -1,5 +1,6 @@
 package src;
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -26,6 +27,16 @@ public class Cloak extends Equipment {
 		if(random>82.3){
 			
 		}
+	}
+	
+	/**
+	 * Calculates the chance of protecting the Virologist against Touching and BearDance.
+	 * @return Whether the Virologist can be interacted with.
+	 */
+	public boolean Chance() {
+		Random rand = new Random();
+		double chance = rand.nextDouble() * 100;
+		return chance >= 82.3;
 	}
 	
 	/**

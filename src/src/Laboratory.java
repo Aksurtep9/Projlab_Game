@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Random;
+
 /**
  * <b>Laboratory class</b><br>
  * <i>Inherits from Field.</i><br><br>
@@ -14,12 +16,20 @@ public class Laboratory extends Field{
 	/**Stores the laboratory's one and only genetic code.*/
 	private Agent genCode;
 	
+	private Agent bearDanceCode;
+	
 	/**
 	 * Constructor for the Laboratory
 	 */
 	public Laboratory() {
 		super();
 		genCode = new Protect();
+		
+		Random rand = new Random();
+		double bearDanceSpawnChance = rand.nextDouble() * 100;
+		if(bearDanceSpawnChance >= 0.85) {
+			bearDanceCode = new BearDance();
+		}
 	}
 	
 	/**

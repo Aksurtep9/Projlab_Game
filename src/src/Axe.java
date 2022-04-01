@@ -8,8 +8,7 @@ public class Axe extends Equipment{
 
 	@Override
 	public void DecreaseEffectTime(Virologist v) {
-		// TODO Auto-generated method stub
-		
+				
 	}
 	
 	/**

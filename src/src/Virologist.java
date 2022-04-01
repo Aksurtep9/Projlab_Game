@@ -533,6 +533,36 @@ public class Virologist extends Thing {
 	}
 	
 	/**
+	 * Anoints the Virologist given in the parameters with bear dance. Gets an instance of a cloak which is being held by the victim
+	 * then applies BearDance to the virologist if the conditions are correct.
+	 * @param v2 The virologist which will be anointed with bear dance.
+	 */
+	public void BearDanceAnoint(Virologist v2) {
+		Cloak eq = null;
+		boolean containsCloak = false;
+		
+		
+		
+		for(Equipment item: v2.GetEquipmentCollection().GetEquipments()) {
+			if(item.toString().contains("cloak") && !containsCloak) {
+				containsCloak = true;
+				eq = (Cloak)item;
+			}
+		}
+		
+		boolean isVictimProtected = v2.GetEffectCollection().Contains("Protect");
+		boolean haveCloak = v2.GetEffectCollection().Contains("Cloak") && eq.Chance();
+		boolean hasBearDanceAlready = v2.GetEffectCollection().Contains("BearDance");
+		
+		
+		
+		if(!(isVictimProtected && haveCloak && hasBearDanceAlready)) {
+			Agent bearDance = new BearDance();
+			v2.effectCollection.Add(bearDance, v2);
+		}
+	}
+	
+	/**
 	* The method is called at the start of each turn and it calls every Effect from the effectCollection
 	**/
 	public void CallAffectWithAll() {
