@@ -15,6 +15,7 @@ public class Axe extends Equipment{
 	 */
 	public Axe() {
 		super();
+		useTime = 1;
 	}
 
 	/**
@@ -22,7 +23,7 @@ public class Axe extends Equipment{
 	 */
 	@Override
 	public void DecreaseEffectTime(Virologist v) {
-				
+		//üres
 	}
 	
 	/**
@@ -34,7 +35,31 @@ public class Axe extends Equipment{
 		v.setDead();
 	}
 	
+	/**
+	 * Returns the equipment's reduced use-time.
+	 * <br>Reduces the use time by one.
+	 * @return the reduces value
+	 */
+	public int DecreaseUseTime() {
+		return --useTime;
+	}
 	
 	
+	/**
+	 * Returns the name of the Effect the Equipment has. 
+	 * @return a string containing the name of the Effect
+	 */
+	public String GetEffectName() {
+		return "Axe";
+	}
+	
+	/**
+	 * Writes the Attributes of the Equipment in a string.
+	 * @return string
+	 */
+	public String toString() {
+		System.out.println("ToString");
+		return "Axe" + this.ID;
+	}
 
 }

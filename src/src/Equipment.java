@@ -9,22 +9,28 @@ package src;
  *
  */
 public abstract class Equipment extends Thing implements Effect {
+	
+	/** The equipment's time of use which tells when will the equipment get destroyed*/
+	protected int useTime;
+	
 	/**
 	 * The Equipment applies its effect on the virologist given as parameter. The subclasses override this method to apply their unique effects.
 	 * @param v the Virologist who has the equipment
 	 */
-	public void Affect(Virologist v) {
-		System.out.println("Affect");
-	}
+	public abstract void Affect(Virologist v);
 	
 	/**
 	 * Returns the name of the Effect the Equipment has. 
 	 * @return a string containing the name of the Effect
 	 */
-	public String GetEffectName() {
-		System.out.println("GetEffectName");
-		return "";
-	}
+	public abstract String GetEffectName();
+	
+	/**
+	 * Returns the equipment's reduced use-time.
+	 * <br>Reduces the use time by one.
+	 * @return the reduces value
+	 */
+	public abstract int DecreaseUseTime();
 	
 	/**
 	 * Writes the Attributes of the Equipment in a string.

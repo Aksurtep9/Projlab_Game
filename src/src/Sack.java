@@ -13,7 +13,9 @@ public class Sack extends Equipment {
 	/**
 	 * Constructor for Sack.
 	 */
-	public Sack() {}
+	public Sack() {
+		useTime = 1;
+	}
 	
 	/**
 	 * 
@@ -39,7 +41,7 @@ public class Sack extends Equipment {
 	@Override
 	public String toString() {
 		System.out.println("toString");
-		return GetEffectName();
+		return GetEffectName() + this.ID;
 	}
 
 	/**
@@ -48,7 +50,17 @@ public class Sack extends Equipment {
 	@Override
 	public void DecreaseEffectTime(Virologist v) {
 		System.out.println("DecreaseEffectTime");
-		// TODO Auto-generated method stub
+		//üres
 		
+	}
+
+	/**
+	 * Returns the equipment's reduced use-time.
+	 * <br>Reduces the use time by one.
+	 * @return the reduces value
+	 */
+	@Override
+	public int DecreaseUseTime() {
+		return 1;
 	}
 }

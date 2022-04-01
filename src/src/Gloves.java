@@ -9,8 +9,12 @@ package src;
  */
 public class Gloves extends Equipment {
 	
+	/**
+	 * Constructor for Gloves
+	 */
 	public Gloves() {
 		super();
+		useTime = 3;
 	}
 	
 	/**
@@ -19,7 +23,6 @@ public class Gloves extends Equipment {
 	 */
 	public void Affect(Virologist v) {
 		System.out.println("Affect");
-		
 	}
 	
 	/**
@@ -38,14 +41,24 @@ public class Gloves extends Equipment {
 	@Override
 	public String toString() {
 		System.out.println("toString");
-		return GetEffectName()+ID;
+		return GetEffectName() + this.ID;
 	}
 
 	@Override
 	public void DecreaseEffectTime(Virologist v) {
 		System.out.println("DecreaseEffectTime");
-		// TODO Auto-generated method stub
+		//üres
 		
+	}
+
+	/**
+	 * Returns the equipment's reduced use-time.
+	 * <br>Reduces the use time by one.
+	 * @return the reduces value
+	 */
+	@Override
+	public int DecreaseUseTime() {
+		return --useTime;
 	}
 
 }

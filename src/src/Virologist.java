@@ -636,4 +636,20 @@ public class Virologist extends Thing {
 	public void setDead() {
 		alive = false;
 	}
+	
+	/**
+	 * Gives TRUE back if the virologist is alive
+	 * @return TRUE if the virologist is alive
+	 */
+	public boolean IsAlive() {
+		return alive;
+	}
+	
+	/**
+	 * 
+	 * @param v - the virologist who's become bear
+	 */
+	public void KillTheBear(Virologist v) {
+		v.setDead();
+	}
 }

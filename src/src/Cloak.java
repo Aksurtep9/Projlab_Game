@@ -14,7 +14,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Cloak extends Equipment {
 	
 	public Cloak() {
-		
+		this.useTime = 1;
 	}
 	
 	/**
@@ -63,5 +63,11 @@ public class Cloak extends Equipment {
 		System.out.println("DecreaseEffectTime");
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int DecreaseUseTime() {
+		//üres
+		return 1;
 	}
 }
