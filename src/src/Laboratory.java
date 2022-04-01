@@ -16,6 +16,7 @@ public class Laboratory extends Field{
 	/**Stores the laboratory's one and only genetic code.*/
 	private Agent genCode;
 	
+	/**Stores the laboratory's one and only bearDanceCode if it has or not.*/
 	private Agent bearDanceCode;
 	
 	/**
@@ -24,6 +25,7 @@ public class Laboratory extends Field{
 	public Laboratory() {
 		super();
 		genCode = new Protect();
+		bearDanceCode = null;
 		
 		Random rand = new Random();
 		double bearDanceSpawnChance = rand.nextDouble() * 100;
@@ -50,6 +52,10 @@ public class Laboratory extends Field{
 		System.out.println("Accept");
 		this.things.add(v);
 		v.CloneGenCode(genCode);
+		
+		if(bearDanceCode != null) {
+			v.BearDanceAnoint(v);
+		}
 	}
 	
 	/**

@@ -10,6 +10,9 @@ package src;
  */
 public class Sack extends Equipment {
 	
+	/**
+	 * Constructor for Sack.
+	 */
 	public Sack() {}
 	
 	/**
@@ -30,7 +33,7 @@ public class Sack extends Equipment {
 	}
 	
 	/**
-	 * 
+	 * Gives the equipment's properties back.
 	 * @return Returns the properties of this Sack.
 	 */
 	@Override
@@ -39,6 +42,9 @@ public class Sack extends Equipment {
 		return GetEffectName();
 	}
 
+	/**
+	 * Decrease the equipment's effect time
+	 */
 	@Override
 	public void DecreaseEffectTime(Virologist v) {
 		System.out.println("DecreaseEffectTime");
