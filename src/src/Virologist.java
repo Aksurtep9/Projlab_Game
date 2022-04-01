@@ -551,14 +551,15 @@ public class Virologist extends Thing {
 		}
 		
 		boolean isVictimProtected = v2.GetEffectCollection().Contains("Protect");
-		boolean haveCloak = v2.GetEffectCollection().Contains("Cloak") && eq.Chance();
-		boolean hasBearDanceAlready = v2.GetEffectCollection().Contains("BearDance");
-		
-		
-		
-		if(!(isVictimProtected && haveCloak && hasBearDanceAlready)) {
-			Agent bearDance = new BearDance();
-			v2.effectCollection.Add(bearDance, v2);
+		boolean haveCloak = v2.GetEffectCollection().Contains("Cloak");
+		if(haveCloak) {
+			boolean protectingCloak = eq.Chance();
+			boolean hasBearDanceAlready = v2.GetEffectCollection().Contains("BearDance");
+
+			if(!(isVictimProtected && protectingCloak && hasBearDanceAlready)) {
+				Agent bearDance = new BearDance();
+				v2.effectCollection.Add(bearDance, v2);
+			}
 		}
 	}
 	
