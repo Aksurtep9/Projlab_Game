@@ -53,12 +53,12 @@ public class AgentCollection {
 	
 	/**
 	 * Removes the Agent given as parameter from the collection.
-	 * @param a the agent which needs to be removed
+	 * @param a the name of the agent which needs to be removed
 	 */
-	public void Remove(Agent a) {
+	public void Remove(String a) {
 		System.out.println("Remove");
 		for(int i=0; i< agents.size(); i++) {
-			if(agents.get(i)==a) {
+			if(agents.get(i).toString().contains(a)) {
 				agents.remove(i);
 				return;
 			}

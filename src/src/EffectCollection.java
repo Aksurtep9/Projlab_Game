@@ -31,10 +31,10 @@ public class EffectCollection {
 	 * Removes the Effect given as parameter from the collection.
 	 * @param e the Effect we need to remove
 	 */
-	public void Remove(Effect e) {
+	public void Remove(String e) {
 		System.out.println("Remove");
 		for(int i=0; i< effects.size(); i++) {
-			if(effects.get(i)==e) {
+			if(effects.get(i).toString().contains(e)) {
 				effects.remove(i);
 				return;
 			}
