@@ -73,6 +73,10 @@ public class EquipmentCollection {
 		return false;
 	}
 	
+	/**
+	 * Returns the equipments stored at the virologist.
+	 * @return The equipments the virologist currently has.
+	 */
 	public ArrayList<Equipment> GetEquipments(){
 		System.out.println("GetEquipments");
 		return equipments;
