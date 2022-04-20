@@ -262,7 +262,7 @@ public class Virologist extends Thing {
 	/**
 	* Shows a menu to the Player of the genCodeCollection that he can choose from to craft
 	**/
-	public void Craft() {
+	public void Craft(int index) {
 		System.out.println("Craft");
 	
 		System.out.println("The following genetic codes are known to you:");
@@ -338,7 +338,8 @@ public class Virologist extends Thing {
 //		int listnumber = Integer.parseInt(serialnumber);
 		
 		/**The agent to be crafted*/
-		Agent genCode = genCodes.get(serialnumber-1);
+		//Agent genCode = genCodes.get(serialnumber-1);
+		Agent genCode = genCodeCollection.ListAll().get(index);
 		if(genCode.GetCostAmino() <= materialCollection.GetAmino().GetAmount() && genCode.GetCostNucle() <= materialCollection.GetNucle().GetAmount()) {
 				CreateAgent(genCode);
 		}
