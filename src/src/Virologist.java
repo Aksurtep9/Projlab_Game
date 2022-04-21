@@ -346,7 +346,6 @@ public class Virologist extends Thing {
 		else {
 			System.out.println("You cannot craft this");
 		}
-		
 	}
 	
 	/**

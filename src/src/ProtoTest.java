@@ -16,7 +16,8 @@ public class ProtoTest {
 	private String expectedOutFilePath;
 	/**The file that contains the generated output after the run.*/
 	private String generatedOutFilePath;
-	
+	/**Proto class*/
+	private Prototype proto;
 	
 	/**
 	 * Initializes the files' path
@@ -31,6 +32,9 @@ public class ProtoTest {
 	 */
 	public void Run() {
 		//TO-DO: Run tests here
+		//String resultMain = " ";
+		//resultMain += Method();
+		//resultMain kiírása a generatedOut
 		String result = ProtoTest.TestCalculator.Calculate(generatedOutFilePath, expectedOutFilePath);
 		System.out.println(result);
 	}
@@ -39,8 +43,12 @@ public class ProtoTest {
 	//TO-DO: Write tests here - each test has a method
 	// ------ IDE -----
 	//----------------
-	
-	
+	//public String Method() { ... Tesztet tartalmazó algoritmust ... }
+	public String Method() {
+		String[] cmd = {"exit"};
+		proto.NewGame(cmd);
+		return "";
+	}
 	
 	
 	/**
@@ -61,7 +69,7 @@ public class ProtoTest {
 			int succeededRows = 0;
 			int numberOfRows = 0;	// the number of rows that the file contains
 			
-			//TO-DO: Fájl sorainak összehasonlítása
+			//TO-DO: Fájl sorainak összehasonlítása ---> az elsõ hibás sorig ellenõrzése
 			
 			return "The result: " + succeededRows + "/" + numberOfRows;
 		}
