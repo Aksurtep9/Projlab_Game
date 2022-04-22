@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class Prototype {
 	
 	private static Scanner scan = new Scanner(System.in);
+	
 	static File wd;
 	
 	/**
@@ -54,18 +55,16 @@ public class Prototype {
 					NewGame(cmd);
 				else if(whatCommand.equals("addEq"))
 					AddEq(cmd);
-				else if(whatCommand.equals("addEq"))
-					AddEq(cmd);
 				else if(whatCommand.equals("addAgCraft"))
 					AddAgCraft(cmd);
 				else if(whatCommand.equals("setMat"))
-					AddEq(cmd);
+					SetMat(cmd);
 				else if(whatCommand.equals("pickup"))
-					AddEq(cmd);
+					PickUp(cmd);
 				else if(whatCommand.equals("drop"))
-					AddEq(cmd);
+					Drop(cmd);
 				else if(whatCommand.equals("stealeq"))
-					AddEq(cmd);
+					StealEq(cmd);
 			}
 		}
 	}
@@ -103,23 +102,37 @@ public class Prototype {
 	}
 	
 	public void AddEq(String[] cmd) {
+		int EqNum=Integer.parseInt(cmd[1]);
+		int ViroNum=Integer.parseInt(cmd[2]);
 		
 	}
 	
 	public void AddAgCraft(String[] cmd) {
-		
+		int AgNum=Integer.parseInt(cmd[1]);
+		int ViroNum=Integer.parseInt(cmd[2]);
 	}
 	
 	public void SetMat(String[] cmd) {
-		
-		
+		boolean isAmino;
+		if(cmd[1].equals("a")) {
+			isAmino=true;
+		} else {
+			isAmino=false;
+		}
+		int amount=Integer.parseInt(cmd[2]);
+		int ViroNum=Integer.parseInt(cmd[3]);
 	}
 	
 	public void PickUp(String[] cmd) {
-	
+		int EqNum=Integer.parseInt(cmd[1]);
 	}
 	
 	public void Drop(String[] cmd) {
+		int EqNum=Integer.parseInt(cmd[1]);
+	}
 	
+	public void StealEq(String[] cmd) {
+		int EqNum=Integer.parseInt(cmd[2]);
+		int ViroNum=Integer.parseInt(cmd[1]);
 	}
 }
