@@ -52,6 +52,20 @@ public class Prototype {
 					Exit(cmd);
 				else if(whatCommand.equals("newgame"))
 					NewGame(cmd);
+				else if(whatCommand.equals("addEq"))
+					AddEq(cmd);
+				else if(whatCommand.equals("addEq"))
+					AddEq(cmd);
+				else if(whatCommand.equals("addAgCraft"))
+					AddAgCraft(cmd);
+				else if(whatCommand.equals("setMat"))
+					AddEq(cmd);
+				else if(whatCommand.equals("pickup"))
+					AddEq(cmd);
+				else if(whatCommand.equals("drop"))
+					AddEq(cmd);
+				else if(whatCommand.equals("stealeq"))
+					AddEq(cmd);
 			}
 		}
 	}
@@ -86,5 +100,26 @@ public class Prototype {
 		}
 		else
 			System.err.println("The file does not exist!");
+	}
+	
+	public void AddEq(String[] cmd) {
+		
+	}
+	
+	public void AddAgCraft(String[] cmd) {
+		
+	}
+	
+	public void SetMat(String[] cmd) {
+		
+		
+	}
+	
+	public void PickUp(String[] cmd) {
+	
+	}
+	
+	public void Drop(String[] cmd) {
+	
 	}
 }
