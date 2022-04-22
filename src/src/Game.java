@@ -50,6 +50,9 @@ public class Game implements Serializable{
 	 */
 	private Map map;
 	
+	/**Stores the game's randomness*/
+	private boolean random;
+	
 	/**
 	 * Constructor for the game
 	 * @param playerCount - the number of the players
@@ -124,11 +127,39 @@ public class Game implements Serializable{
 	 * current player.
 	 */
 	public void NewRound() {
-		System.out.println("NewRound");
 		currentPlayer.CallDecreaseAgentTime();
+		++roundCount;
+		int indexPrevious = players.indexOf(currentPlayer);
+		previousPlayer = currentPlayer;
+		
+		int indexCurrent = 0;
+		
+		if(indexPrevious == players.size()-1)
+			indexCurrent = 0;
+		else
+			indexCurrent = indexPrevious + 1;
+		
+		currentPlayer = players.get(indexCurrent);
+		System.out.println(indexCurrent);
 	}
 	
 	public Virologist getCurrentPlayer() {
 		return currentPlayer;
+	}
+
+	/**
+	 * Returns the program's randomness
+	 * @return the game's randomness
+	 */
+	public boolean isRandom() {
+		return random;
+	}
+
+	/**
+	 * Sets the program's randomness
+	 * @param random - the value
+	 */
+	public void setRandom(boolean random) {
+		this.random = random;
 	}
 }

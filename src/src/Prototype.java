@@ -91,6 +91,10 @@ public class Prototype {
 					LoadGame(cmd);
 				else if(whatCommand.equals("log"))
 					Log(cmd);
+				else if(whatCommand.equals("setrandom"))
+					SetRandom(cmd);
+				else if(whatCommand.equals("newround"))
+					NewRound(cmd);
 			}
 		}
 	}
@@ -222,6 +226,11 @@ public class Prototype {
 		
 	}
 	
+	/**
+	 * Logs depending on the parameters.
+	 * @param message - the message that needs to logged.
+	 * @param logFile - the file where the log is saved.
+	 */
 	private void logger(String message, File logFile) {
 		if(logEnabled) {
 			try {
@@ -236,4 +245,22 @@ public class Prototype {
 		else
 			System.out.println(message);
 	}
+	
+	/**
+	 * Sets the program's randomness
+	 * @param cmd - the command
+	 */
+	public void SetRandom(String[] cmd) {
+		boolean randomEnabled = (cmd[1].contains("on")) ? true : false;
+		game.setRandom(randomEnabled);
+	}
+	
+	/**
+	 * Calls a new round in the game.
+	 * @param cmd - the command
+	 */
+	public void NewRound(String[] cmd) {
+		game.NewRound();
+	}
+	
 }
