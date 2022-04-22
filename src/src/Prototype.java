@@ -1,8 +1,10 @@
 package src;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -17,15 +19,25 @@ import java.util.Scanner;
 public class Prototype {
 	
 	private static Scanner scan = new Scanner(System.in);
+	
 	private Game game;
 	
 	static File wd;
+	
+	boolean logEnabled;
+	File logFile;
+	
+	boolean start;
 	
 	/**
 	 * Initializes the game and the commands.
 	 */
 	public void Initialize() {
 		//TO-DO: Give the files' path!
+		wd = new File(System.getProperty("user.dir"), "src/src");
+		logEnabled = false;
+		logFile = null;
+		start = true;
 	}
 	
 	
@@ -45,7 +57,6 @@ public class Prototype {
 	public void Run() {
 		System.out.println("Hi there!");
 		String line = "";
-		wd = new File(System.getProperty("user.dir"), "src/src");
 		
 		//Waiting for commands
 		while(true) {
@@ -76,6 +87,8 @@ public class Prototype {
 					SaveGame(cmd);
 				else if(whatCommand.equals("load"))
 					LoadGame(cmd);
+				else if(whatCommand.equals("log"))
+					Log(cmd);
 			}
 		}
 	}
@@ -103,6 +116,7 @@ public class Prototype {
 		String mapPath = cmd[1];
 		File mapFile = new File(wd, mapPath);
 		game.GetMap().GenerateFields(mapFile);
+		logger("Game has been set.", logFile);
 	}
 	
 	public void AddEq(String[] cmd) {
@@ -151,15 +165,15 @@ public class Prototype {
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(saveHere));
 			out.writeObject(game);
 			out.close();
+			logger("The game has been saved.", logFile);
 		} catch (IOException e) {
-			System.out.print("Ne jó.");
-			e.printStackTrace();
+			
 		}
 	}
 	
 	
 	/**
-	 * Saves the current game.
+	 * Loads the current game.
 	 * @param cmd - the command
 	 */
 	public void LoadGame(String[] cmd) {
@@ -169,12 +183,50 @@ public class Prototype {
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream(loadHere));
 			game = (Game)in.readObject();
 			in.close();
+			logger("The game has been loaded.", logFile);
 		} catch (FileNotFoundException e) {
-			System.err.println("No such file.");
+			logger("No such file.", logFile);
 		} catch (IOException e) {
-			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		}
+	}
+	
+	
+	/**
+	 * Logs
+	 * @param cmd - the command
+	 */
+	public void Log(String[] cmd) {
+		boolean enabled = (cmd[1].contains("on")) ? true : false;
+		if(enabled && logFile == null) {
+			String logPath = cmd[2];
+			logFile = new File(wd, logPath);
+			if(start) {
+				logFile.delete();
+				start = false;
+				logFile = new File(wd, logPath);
+			}
+			logEnabled = true;
+			logger("Logging is on.", logFile);
+		}else {
+			logFile = null;
+			logEnabled = false;
+		}
+		
+	}
+	
+	private void logger(String message, File logFile) {
+		if(logEnabled) {
+			try {
+				FileWriter fw = new FileWriter(logFile, true);
+				BufferedWriter br = new BufferedWriter(fw);
+				br.write(message + "\n");
+				br.close();
+				fw.close();
+			} catch (IOException e) {
+			}
+		}
+		else
+			System.out.println(message);
 	}
 }
