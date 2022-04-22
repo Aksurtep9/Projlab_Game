@@ -15,7 +15,7 @@ public class Field {
 	private static int uniqueID = 0;
 	
 	/**The ID which is given to toString method.*/
-	protected int ID;
+	private int ID;
 
 	/**Stores the field neighbours.*/
 	protected ArrayList<Field> neighbours;
@@ -28,8 +28,8 @@ public class Field {
 	 * Creates a unique ID for the instance.
 	 */
 	public Field() {
-		this.ID = uniqueID;
 		++uniqueID;
+		ID = uniqueID;
 		neighbours = new ArrayList<Field>();
 		things = new ArrayList<Thing>();
 	}
@@ -93,7 +93,6 @@ public class Field {
 	 * @param f the neighbour we want to add
 	 */
 	public void AddNeighbours(Field f) {
-		System.out.println("AddNeighbours");
 		neighbours.add(f);
 	}
 	/**

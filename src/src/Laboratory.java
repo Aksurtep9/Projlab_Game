@@ -65,6 +65,6 @@ public class Laboratory extends Field{
 	@Override
 	public String toString() {
 		System.out.println("toString");
-		return "Laboratory" + ID;
+		return "Laboratory";
 	}
 }

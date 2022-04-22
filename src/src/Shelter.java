@@ -45,6 +45,6 @@ public class Shelter extends Field {
 	@Override
 	public String toString() {
 		System.out.println("toString");
-		return "Shelter" + ID;
+		return "Shelter";
 	}
 }

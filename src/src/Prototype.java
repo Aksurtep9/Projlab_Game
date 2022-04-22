@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class Prototype {
 	
 	private static Scanner scan = new Scanner(System.in);
+	private Game game;
 	
 	static File wd;
 	
@@ -65,6 +66,8 @@ public class Prototype {
 					Drop(cmd);
 				else if(whatCommand.equals("stealeq"))
 					StealEq(cmd);
+				else if(whatCommand.equals("save"))
+					SaveGame(cmd);
 			}
 		}
 	}
@@ -87,18 +90,11 @@ public class Prototype {
 	 * @param cmd - the command
 	 */
 	public void NewGame(String[] cmd) {
-		//TO-DO: Legenerál egy pályát, 3 játékossal
+		game = new Game(3);
 		
 		String mapPath = cmd[1];
 		File mapFile = new File(wd, mapPath);
-		System.out.println(mapFile);
-		System.out.println(wd);
-		if(mapFile.exists()) {
-			//TO-DO: Generate here
-			System.out.println("The file does exist!");
-		}
-		else
-			System.err.println("The file does not exist!");
+		game.GetMap().GenerateFields(mapFile);
 	}
 	
 	public void AddEq(String[] cmd) {
@@ -134,5 +130,13 @@ public class Prototype {
 	public void StealEq(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[2]);
 		int ViroNum=Integer.parseInt(cmd[1]);
+	}
+	
+	/**
+	 * Saves the current game.
+	 * @param cmd - the command
+	 */
+	public void SaveGame(String[] cmd) {
+		
 	}
 }

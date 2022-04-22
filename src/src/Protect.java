@@ -24,7 +24,6 @@ public class Protect extends Agent
 	private int costNucle;
 	
 	public Protect() {
-		System.out.println("Protect");
 		expireTime=6;
 		effectTime=6;
 		costAmino=5;
