@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  * <b>The program's prototype class.</b><br><br>
@@ -21,7 +22,8 @@ public class Prototype {
 	private static Scanner scan = new Scanner(System.in);
 	
 	private Game game;
-	
+	private ArrayList<Equipment> eqs=new ArrayList<Equipment>();
+	private ArrayList<Agent> ags=new ArrayList<Agent>();
 	static File wd;
 	
 	boolean logEnabled;
@@ -122,36 +124,41 @@ public class Prototype {
 	public void AddEq(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
 		int ViroNum=Integer.parseInt(cmd[2]);
-		
+		game.getPlayers().get(ViroNum-1).GetEquipmentCollection().Add(eqs.get(EqNum-1));
+		game.getPlayers().get(ViroNum-1).GetEffectCollection().Add(eqs.get(EqNum-1), game.getPlayers().get(ViroNum-1));
 	}
 	
 	public void AddAgCraft(String[] cmd) {
 		int AgNum=Integer.parseInt(cmd[1]);
 		int ViroNum=Integer.parseInt(cmd[2]);
+		game.getPlayers().get(ViroNum-1).GetCraftedACollection().Add(ags.get(AgNum-1));
 	}
 	
 	public void SetMat(String[] cmd) {
-		boolean isAmino;
-		if(cmd[1].equals("a")) {
-			isAmino=true;
-		} else {
-			isAmino=false;
-		}
 		int amount=Integer.parseInt(cmd[2]);
 		int ViroNum=Integer.parseInt(cmd[3]);
+		if(cmd[1].equals("a")) {
+			game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetAmino().AddAmount(amount);
+		} else {
+			game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetNucle().AddAmount(amount);
+		}
+		
 	}
 	
 	public void PickUp(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
+		game.getCurrentPlayer().PickUpEquipment();
 	}
 	
 	public void Drop(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
+		game.getCurrentPlayer().DropEquipment();
 	}
 	
 	public void StealEq(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[2]);
 		int ViroNum=Integer.parseInt(cmd[1]);
+		game.getCurrentPlayer().StealEquipment(game.getPlayers().get(ViroNum-1));
 	}
 	
 	/**
