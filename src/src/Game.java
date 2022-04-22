@@ -127,4 +127,8 @@ public class Game implements Serializable{
 		System.out.println("NewRound");
 		currentPlayer.CallDecreaseAgentTime();
 	}
+	
+	public Virologist getCurrentPlayer() {
+		return currentPlayer;
+	}
 }
