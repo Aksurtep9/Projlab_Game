@@ -1,4 +1,5 @@
 package src;
+import java.io.Serializable;
 /**
  * Equipment
  * Thing - base class
@@ -8,7 +9,7 @@ package src;
  * @author csizm
  *
  */
-public abstract class Equipment extends Thing implements Effect {
+public abstract class Equipment extends Thing implements Effect, Serializable {
 	
 	/** The equipment's time of use which tells when will the equipment get destroyed*/
 	protected int useTime;

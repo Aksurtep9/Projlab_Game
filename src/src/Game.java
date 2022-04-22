@@ -1,5 +1,6 @@
 package src;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  * This is where building of the map starts. Stores the maximum number of
  * genetic codes that can be learnt. 
  */
-public class Game {
+public class Game implements Serializable{
 	
 	/**
 	 * The number of players in current game.
@@ -93,7 +94,7 @@ public class Game {
 		catch(NullPointerException e) {
 			System.out.println("Nincsenek jatekosok!");
 		}
-		map.GenerateFields(players);
+		//map.GenerateFields(players);
 	}
 	
 	/**

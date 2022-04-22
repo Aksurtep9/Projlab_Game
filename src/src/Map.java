@@ -2,6 +2,7 @@ package src;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ import java.util.Scanner;
  * It is responsible for drawing fields.
  *
  */
-public class Map {
+public class Map implements Serializable{
 	
 	/**
 	 * Stores all the fields.
@@ -64,7 +65,6 @@ public class Map {
 				Field B = fields.get(indexB);
 				A.AddNeighbours(B);
 				B.AddNeighbours(A);
-				System.out.println(B.GetNeighbours());
 			}
 			
 			

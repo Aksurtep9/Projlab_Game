@@ -1,12 +1,13 @@
 package src;
 import java.util.ArrayList;
+import java.io.Serializable;
 /**
  * EquipmentCollection
  * Stores the different Equipments a Virologist picks up in a heterogenous collection.
  * @author csizm
  *
  */
-public class EquipmentCollection {
+public class EquipmentCollection implements Serializable{
 	/**the Equipments that the Virologist has */
 	private ArrayList<Equipment> equipments;
 	

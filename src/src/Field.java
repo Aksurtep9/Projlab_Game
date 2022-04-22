@@ -1,5 +1,6 @@
 package src;
 import java.util.ArrayList;
+import java.io.Serializable;
 
 /**
  * <b>Field class</b><br>
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  * Implements a special method - called Accept(Virologist v) - which acts different in other subclasses.
  * @author - Martin
  */
-public class Field {
+public class Field implements Serializable{
 	
 	/**A counter for the fields. Use this to differ one field from another field.*/
 	private static int uniqueID = 0;

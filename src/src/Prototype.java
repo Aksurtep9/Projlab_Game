@@ -1,5 +1,11 @@
 package src;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 /**
@@ -68,6 +74,8 @@ public class Prototype {
 					StealEq(cmd);
 				else if(whatCommand.equals("save"))
 					SaveGame(cmd);
+				else if(whatCommand.equals("load"))
+					LoadGame(cmd);
 			}
 		}
 	}
@@ -137,6 +145,36 @@ public class Prototype {
 	 * @param cmd - the command
 	 */
 	public void SaveGame(String[] cmd) {
-		
+		String saveGame = cmd[1];
+		File saveHere = new File(wd, saveGame);
+		try {
+			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(saveHere));
+			out.writeObject(game);
+			out.close();
+		} catch (IOException e) {
+			System.out.print("Ne jó.");
+			e.printStackTrace();
+		}
+	}
+	
+	
+	/**
+	 * Saves the current game.
+	 * @param cmd - the command
+	 */
+	public void LoadGame(String[] cmd) {
+		String savedGame = cmd[1];
+		File loadHere = new File(wd, savedGame);
+		try {
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream(loadHere));
+			game = (Game)in.readObject();
+			in.close();
+		} catch (FileNotFoundException e) {
+			System.err.println("No such file.");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 }

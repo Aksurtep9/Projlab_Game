@@ -1,12 +1,13 @@
 package src;
 import java.util.ArrayList;
+import java.io.Serializable;
 /**
  * AgentCollection
  * Stores Agents which the Virologist crafted, or the genetic Codes (also represented by Agent class) he has learnt.
  * @author csizm
  *
  */
-public class AgentCollection {
+public class AgentCollection implements Serializable {
 /** heterogenous collection of the different child classes of Agent*/
 	private ArrayList<Agent> agents;
 	

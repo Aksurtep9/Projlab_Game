@@ -1,4 +1,6 @@
 package src;
+
+import java.io.Serializable;
 /**
  * Agent
  * Thing- base class
@@ -7,7 +9,7 @@ package src;
  * @author csizm
  *
  */
-public abstract class Agent implements Effect
+public abstract class Agent implements Effect, Serializable
 {
 	/**The number of remaining rounds, before the agent expires.	 */
 	protected int expireTime;

@@ -1,13 +1,14 @@
 package src;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 /**
  * EffectCollection
  * Stores classes that implement the Effect interface, that are affecting the Virologist in the current round.
  * @author csizm
  *
  */
-public class EffectCollection {
+public class EffectCollection implements Serializable {
 	
 	/** Stores all of the Effects applied to the Virologist*/
 	private List<Effect> effects;

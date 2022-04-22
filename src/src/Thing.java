@@ -1,12 +1,12 @@
 
 package src;
-
+import java.io.Serializable;
 /**
 * Thing
 * Stores the field the thing is on
 * Representing every thing(Player, Equipment, Agent and Material) in the game
 **/
-public abstract class Thing 
+public abstract class Thing implements Serializable
 {
 	/**A counter for the fields. Use this to differ one field from another field.*/
 	private static int uniqueID = 0;
