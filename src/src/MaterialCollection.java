@@ -50,4 +50,5 @@ public class MaterialCollection implements Serializable {
 		amino.RemoveAmount(amino.GetAmount());
 		nucle.RemoveAmount(nucle.GetAmount());
 	}
+	
 }
