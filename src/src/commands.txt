@@ -1,9 +1,39 @@
 newgame mapFile.txt
 newgame mapFile.txt
 putViro 1 0
+newround
+ls 1 vi
+ls 0 fi
+move 4
+newgame mapFile.txt
+putViro 1 0
+newround
+ls 1 vi
+ls 0 fi
+move 1
+ls 1 ge
+newgame mapFile.txt
+putViro 1 4
+newround
+ls 1 vi
+ls 0 fi
+move 3
+ls 1 ma
+newgame mapFile.txt
+putViro 1 0
 putAg 1 1
 newround
 ls 1 vi
 ls 1 fi
 move 1
 ls 1 ef
+newgame mapFile.txt
+putViro 1 0
+putEq 1 2
+newround
+ls 1 vi
+ls 0 fi
+move 2
+ls 2 fi
+pickup 0
+ls 1 eq

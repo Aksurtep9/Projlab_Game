@@ -80,6 +80,56 @@ public class ProtoTest {
 		proto.NewGame(cmd);
 	}
 	
+	public void Test_2_2() {
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Move(cmd);
+	}
+	
+	public void Test_2_3() {
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Move(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+	}
+	
+	public void Test_2_4() {
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Move(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+	}
+	
+	
 	public void Test_2_5(){
 		String[] cmd = sc.nextLine().split(" ");
 		proto.NewGame(cmd);
@@ -99,6 +149,29 @@ public class ProtoTest {
 		proto.Ls(cmd);
 		
 		sc.close();
+	}
+	
+	public void Test_2_6() {
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutEq(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Move(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PickUp(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
 	}
 	
 	/**
