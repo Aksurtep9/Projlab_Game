@@ -106,7 +106,9 @@ public class Prototype {
 				else if(whatCommand.equals("putAg"))
 					PutAg(cmd);
 				else if(whatCommand.equals("addAgEff"))
-					AddAgEff
+					AddAgEff(cmd);
+				else if(whatCommand.equals("ls"))
+					Ls(cmd);
 			}
 		}
 	}
