@@ -95,10 +95,6 @@ public class Prototype {
 					SetRandom(cmd);
 				else if(whatCommand.equals("newround"))
 					NewRound(cmd);
-				else if(whatCommand.equals("move"))
-					Move(cmd);
-				else if(whatCommand.equals("anoint"))
-					Anoint(cmd);
 			}
 		}
 	}
@@ -268,24 +264,54 @@ public class Prototype {
 	}
 	
 	/**
-	 * Moves the current players virologist to the specified field
+	 * Put a Virologist on a Field
 	 * @param cmd - the command
 	 */
-	public void Move(String[] cmd) {
-		int field =Integer.parseInt(cmd[1]);
-		game.getCurrentPlayer().Move(field);
-		logger("Virologist have been moved", logFile);
+	public void PutViro(String[] cmd) {
+		int ViroNum=Integer.parseInt(cmd[1]);
+		int FieldNum = Integer.parseInt(cmd[2]);
+		Virologist v = game.getPlayers().get(ViroNum-1);
+		game.GetMap().fields.get(FieldNum-1).Accept(v);
 	}
 	
 	/**
-	 * Anoint a virologist cshoosen by the player with the specified agent
+	 * Calls a new round in the game.
 	 * @param cmd - the command
 	 */
-	public void Anoint(String[] cmd) {
-		int victim = Integer.parseInt(cmd[1]);
-		int agent = Integer.parseInt(cmd[2]);
-		game.getCurrentPlayer().Anoint(victim, agent);
-		logger("Virologist used agents. It's very effective", logFile);
+	public void PutEq(String[] cmd) {
+		int EqNum=Integer.parseInt(cmd[1]);
+		int FieldNum = Integer.parseInt(cmd[2]);
+		Equipment e = eqs.get(EqNum-1);
+		game.GetMap().fields.get(FieldNum-1).Accept(e);
 	}
+	
+	/**
+	 * Puts an Agent on a Lab
+	 * @param cmd - the command
+	 */
+	public void PutAg(String[] cmd) {
+		int AgNum=Integer.parseInt(cmd[1]);
+		int LabNum = Integer.parseInt(cmd[2]);
+		Field f = game.GetMap().GetFields().get(LabNum-1);
+		if(f.toString().contains("Laboratory")) {
+			Laboratory l = (Laboratory)f;
+			l.SetGenCode(ags.get(AgNum-1));
+		}
+	}
+	
+	/**
+	 * Adds an Agent effect to the Virologist
+	 * @param cmd - the command
+	 */
+	public void AddAgEff(String[] cmd) {
+		int AgNum=Integer.parseInt(cmd[1]);
+		int ViroNum=Integer.parseInt(cmd[2]);
+		
+		Virologist v = game.getPlayers().get(ViroNum-1);
+		
+		v.GetEffectCollection().Add(ags.get(AgNum-1), v);
+	}
+	
+	
 	
 }
