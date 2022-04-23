@@ -99,6 +99,16 @@ public class Prototype {
 					Move(cmd);
 				else if(whatCommand.equals("anoint"))
 					Anoint(cmd);
+				else if(whatCommand.equals("putViro"))
+					PutViro(cmd);
+				else if(whatCommand.equals("putEq"))
+					PutEq(cmd);
+				else if(whatCommand.equals("putAg"))
+					PutAg(cmd);
+				else if(whatCommand.equals("addAgEff"))
+					AddAgEff(cmd);
+				else if(whatCommand.equals("ls"))
+					Ls(cmd);
 			}
 		}
 	}
@@ -335,6 +345,81 @@ public class Prototype {
 		int agent = Integer.parseInt(cmd[2]);
 		game.getCurrentPlayer().Anoint(victim, agent);
 		logger("Virologist used agents. It's very effective", logFile);
+	}
+	
+	
+	public void Ls(String[] cmd) {
+		int ViroNum = Integer.parseInt(cmd[1]);
+		Virologist viro = game.getPlayers().get(ViroNum-1);
+		
+		if(cmd[2].equals("pl")) {
+			int index = 0;
+			for(Thing t : viro.field.GetThings())
+			{
+				if(t.toString().contains("Virologist")) {
+					index++;
+					System.out.println(index + ": Virologist:" + t.ID);
+				}
+			}
+		}
+		
+		else if(cmd[2].equals("fi")) {
+			System.out.println("Current: "+ viro.field.toString());
+			int index = 0;
+			for(Thing t : viro.field.GetThings())
+			{
+				System.out.println(index + ": "+ t.toString());
+				index++;
+			}
+			System.out.println("----------------------------------------------------");
+			for(Field f : viro.field.GetNeighbours()) {
+				System.out.println(index + ": " + f.toString());
+				index++;
+			}
+		}
+		
+		else if(cmd[2].equals("ge")) {
+			System.out.println("Learnt agents: ");
+			int index = 0;
+			for(Agent a : viro.GetGenCodeCollection().GetAgents()) {
+				System.out.println(index + ": " + a.toString());
+				index++;
+			}
+		}
+		else if(cmd[2].equals("ag")) {
+			System.out.println("Crafted agents: ");
+			int index = 0;
+			for(Agent a : viro.GetCraftedACollection().GetAgents()) {
+				System.out.println(index + ": " + a.toString());
+			}
+		}
+		else if(cmd[2].equals("eq")) {
+			System.out.println("Owned equipments: ");
+			int index = 0;
+			for(Equipment e : viro.GetEquipmentCollection().GetEquipments()) {
+				System.out.println(index + ": " + e.toString());
+			}
+		}
+		
+		else if(cmd[2].equals("ef")) {
+			System.out.println("Effects on the Virologist: ");
+			System.out.println(viro.GetEffectCollection().toString());
+		}
+		else if(cmd[2].equals("ag")) {
+			System.out.println("Crafted agents: ");
+			int index = 0;
+			for(Agent a : viro.GetCraftedACollection().GetAgents()) {
+				System.out.println(index + ": " + a.toString());
+			}
+		}
+		
+		else if(cmd[2].equals("ma")) {
+			System.out.println(viro.GetMaterialCollection().toString());
+		}
+		
+		else if(cmd[2].equals("vi")) {
+			System.out.println(viro.VirologistStat());
+		}
 	}
 	
 	

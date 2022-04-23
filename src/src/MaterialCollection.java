@@ -51,6 +51,7 @@ public class MaterialCollection implements Serializable {
 		nucle.RemoveAmount(nucle.GetAmount());
 	}
 	
+
 	public String toString() {
 		return nucle.ToString()+System.lineSeparator()+ amino.ToString();
 	}

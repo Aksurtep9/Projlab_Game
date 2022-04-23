@@ -23,7 +23,6 @@ public class EffectCollection implements Serializable {
 	 * @param craftedAgent the Effect
 	 */
 	public void Add(Effect e, Virologist v) {
-		System.out.println("Add");
 		effects.add(e);
 		e.Affect(v);
 	}
@@ -33,7 +32,6 @@ public class EffectCollection implements Serializable {
 	 * @param e the Effect we need to remove
 	 */
 	public void Remove(String e) {
-		System.out.println("Remove");
 		for(int i=0; i< effects.size(); i++) {
 			if(effects.get(i).toString().contains(e)) {
 				effects.remove(i);
@@ -48,7 +46,6 @@ public class EffectCollection implements Serializable {
 	 * @return true, if the Effect is found
 	 */
 	public boolean Contains(String effectName) {
-		System.out.println("Contains");
 		for(int i = 0; i < effects.size(); i++) {
 			if(effects.get(i).toString().contains(effectName)) return true; //If the toString of the Effect contains the effectname return true
 		}
@@ -75,6 +72,7 @@ public class EffectCollection implements Serializable {
 		}
 	}
 	
+
 	public String toString() {
 		String effect ="";
 		for(Effect e : effects)
@@ -82,6 +80,10 @@ public class EffectCollection implements Serializable {
 			effect+=e.GetEffectName()+ System.lineSeparator();
 		}
 		return effect;
+
+	public List<Effect> GetEffects() {
+		return effects;
+
 	}
 	
 	

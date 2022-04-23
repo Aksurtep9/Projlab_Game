@@ -43,6 +43,13 @@ public class Laboratory extends Field{
 	}
 	
 	/**
+	 * Setting the genCode manually
+	 */
+	public void SetGenCode(Agent a) {
+		genCode = a;
+	}
+	
+	/**
 	 * Stores the given virologist. <br>
 	 * Laboratory asks the virologist to learn its genetic code.
 	 * @param v - the given virologist who might not know the genetic code

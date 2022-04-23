@@ -607,6 +607,10 @@ public class Virologist extends Thing {
 		return alive;
 	}
 	
+	public int GetId() {
+		return ID;
+	}
+	
 	/**
 	 * 
 	 * @param v - the virologist who's become bear
