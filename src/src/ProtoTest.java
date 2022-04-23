@@ -1,6 +1,9 @@
 package src;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * <b>Test class for the program's prototype</b><br><br>
@@ -10,7 +13,11 @@ import java.io.File;
  */
 public class ProtoTest {
 	
-	
+	public static void main(String[] args) {
+		ProtoTest test = new ProtoTest();
+		test.Initialize();
+		test.Run();
+	}
 	
 	/**The file that contains the runnable commands.*/
 	private File commandsFile;
@@ -18,6 +25,7 @@ public class ProtoTest {
 	private File expectedOutFile;
 	/**The file that contains the generated output after the run.*/
 	private File generatedOutFile;
+	
 	/**Proto class*/
 	private Prototype proto;
 	
@@ -28,10 +36,15 @@ public class ProtoTest {
 	 */
 	public void Initialize() {
 		//TO-DO: Give the files' path!
+		proto = new Prototype();
+		
 		wd = new File(System.getProperty("user.dir"), "src/src");
 		commandsFile = new File(wd, "commands.txt");
 		expectedOutFile = new File(wd, "expected.txt");
-		generatedOutFile = new File(wd, "generated.txt");
+		
+		String[] setLog = {"log", "on", "generated.txt"};
+		proto.Log(setLog);
+		generatedOutFile = proto.GetLogFile();
 	}
 	
 	
@@ -40,9 +53,8 @@ public class ProtoTest {
 	 */
 	public void Run() {
 		//TO-DO: Run tests here
-		//String resultMain = " ";
-		//resultMain += Method();
-		//resultMain kiírása a generatedOut
+		TestNewGame();
+		
 		String result = ProtoTest.TestCalculator.Calculate(generatedOutFile, expectedOutFile);
 		System.out.println(result);
 	}
@@ -51,13 +63,11 @@ public class ProtoTest {
 	//TO-DO: Write tests here - each test has a method
 	// ------ IDE -----
 	//----------------
-	//public String Method() { ... Tesztet tartalmazó algoritmust ... }
-	public String Method() {
-		String[] cmd = {"exit"};
+	//public void Method() { ... Tesztet tartalmazó algoritmust ... }
+	public void TestNewGame() {
+		String[] cmd = {"newgame", "mapFile.txt"};
 		proto.NewGame(cmd);
-		return "";
 	}
-	
 	
 	/**
 	 * <b> Class for the tests' results.</b><br><br>

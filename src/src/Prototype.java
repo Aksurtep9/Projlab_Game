@@ -138,7 +138,7 @@ public class Prototype {
 		String mapPath = cmd[1];
 		File mapFile = new File(wd, mapPath);
 		game.GetMap().GenerateFields(mapFile);
-		logger("Game has been set.", logFile);
+		logger("The map has been generated.", logFile);
 	}
 	
 	public void AddEq(String[] cmd) {
@@ -234,7 +234,6 @@ public class Prototype {
 				logFile = new File(wd, logPath);
 			}
 			logEnabled = true;
-			logger("Logging is on.", logFile);
 		}else {
 			logFile = null;
 			logEnabled = false;
@@ -260,6 +259,15 @@ public class Prototype {
 		}
 		else
 			System.out.println(message);
+	}
+	
+	/**
+	 * Sets the logFile output path.
+	 * @param path - where the log should be saved.
+	 * @return the reference to the file.
+	 */
+	public File GetLogFile() {
+		return logFile;
 	}
 	
 	/**
