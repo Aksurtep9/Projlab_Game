@@ -20,7 +20,6 @@ public class EquipmentCollection implements Serializable{
 	 * @param e the Equipment added
 	 */
 	public void Add(Equipment e) {
-		System.out.println("Add");
 		equipments.add(e);
 	}
 	
@@ -29,7 +28,6 @@ public class EquipmentCollection implements Serializable{
 	 * @return number of equipments
 	 */
 	public int GetSize() {
-		System.out.println("GetSize");
 		return equipments.size();
 	}
 	
@@ -50,7 +48,6 @@ public class EquipmentCollection implements Serializable{
 	 * @param e the name of the item we want to remove
 	 */
 	public void Remove(String e) {
-		System.out.println("Remove");
 		for(int i=0; i< equipments.size(); i++) {
 			if(equipments.get(i).equals(e)) {
 				equipments.remove(i);
@@ -66,7 +63,6 @@ public class EquipmentCollection implements Serializable{
 	 * @return true, if the equipment was found in the collection
 	 */
 	public boolean Contains(String s) {
-		System.out.println("Contains");
 		for(int i=0; i< equipments.size(); i++) {
 			if(equipments.get(i).GetEffectName().equals(s))
 				return true;
@@ -80,7 +76,6 @@ public class EquipmentCollection implements Serializable{
 	 * @return The equipments the virologist currently has.
 	 */
 	public ArrayList<Equipment> GetEquipments(){
-		System.out.println("GetEquipments");
 		return equipments;
 	}
 }

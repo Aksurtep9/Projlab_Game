@@ -99,6 +99,8 @@ public class Prototype {
 					Move(cmd);
 				else if(whatCommand.equals("anoint"))
 					Anoint(cmd);
+				else if(whatCommand.equals("craft"))
+					Craft(cmd);
 				else if(whatCommand.equals("putViro"))
 					PutViro(cmd);
 				else if(whatCommand.equals("putEq"))
@@ -345,6 +347,19 @@ public class Prototype {
 		int agent = Integer.parseInt(cmd[2]);
 		game.getCurrentPlayer().Anoint(victim, agent);
 		logger("Virologist used agents. It's very effective", logFile);
+	}
+	
+	public void Craft(String[] cmd) {
+		int craft = Integer.parseInt(cmd[1]);
+		if(game.getCurrentPlayer().GetGenCodeCollection().GetAgents().isEmpty())
+			return;
+		game.getCurrentPlayer().Craft(craft);
+		logger("Virologist crafted agent.", logFile);
+	}
+	
+	public void StealMat(String[] cmd){
+		int victim = Integer.parseInt(cmd[1]);
+		game.getCurrentPlayer().StealMaterial(victim);
 	}
 	
 	

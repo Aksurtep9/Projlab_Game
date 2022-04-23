@@ -176,20 +176,24 @@ public class Virologist extends Thing {
 		}
 		else {
 			if(vic.GetEquipmentCollection().Contains("Cloak")) {
-				
-				double random = ThreadLocalRandom.current().nextDouble(0,100);
-				if(random>=82.3){	
+				Cloak c=null;
+				for(Equipment e: this.GetEquipmentCollection().GetEquipments()) {
+					if(e.GetEffectName().equals("Cloak")) {
+						c=(Cloak) e;
+					}
+				}
+					
+				if(c.Chance()){	
 					vic.GetEffectCollection().Add((Effect)a,vic);
 				}		
 			}
 			else {
 				
-			vic.GetEffectCollection().Add((Effect)a,vic);
+				vic.GetEffectCollection().Add((Effect)a,vic);
 			
 			}
 			craftedAgentCollection.Remove(a.GetEffectName());
 		}
-		
 	}
 	
 	/**
@@ -203,88 +207,12 @@ public class Virologist extends Thing {
 	* Shows a menu to the Player of the genCodeCollection that he can choose from to craft
 	**/
 	public void Craft(int index) {
-		System.out.println("Craft");
 	
-		System.out.println("The following genetic codes are known to you:");
-		
-		/**Stores all known genCodes to the Virologist.*/
-		List<Agent> genCodes=new ArrayList<Agent>(); 
-		genCodes = genCodeCollection.ListAll();
-		
-		/**opt Checking whether the Virologist knows any genetic codes*/
-		if(genCodes.isEmpty())
-		{
-			System.out.println("You do not know any genetic codes yet, so you shall not craft");
+		if(index>=this.GetGenCodeCollection().GetAgents().size())
 			return;
-		}
-		
-//		System.out.println("0. Cancel");
-//		
-//		/**List every known genetic code with a serial number*/
-//		for(int i=0;i<genCodes.size();i++){
-//			int sernum = i+1;
-//		    System.out.print(sernum);
-//		    System.out.println(genCodes.get(i));
-//		} 
-//		
-//		/**Attributes to address the nucleotid and aminoacid counter of the Virologist*/
-//		AminoAcid amino = materialCollection.GetAmino();
-//		Nucleotid nucle =materialCollection.GetNucle();
-//		
-//		/**The amount of aminoacid and nucleotid the Virologist has*/
-//		int aminoAmount = amino.GetAmount();
-//		int nucleAmount = nucle.GetAmount();
-//		
-//		/**The expression required for the loop to function. If it's false that means the agent cannot be crafted and the loop must go on. */
-//		boolean craftable = false;
-//		
-//		
-//		/**The serial number of the agent in the list*/
-//		String serialnumber;
-//		do {
-//				System.out.println("Please write the number of the agent you would like to craft");
-//				
-//				/**User input watcher*/
-//				Scanner sc = new Scanner(System.in);
-//				serialnumber=sc.nextLine();
-//				sc.close();
-//				
-//				/**Handling the string type exception*/
-//				try {
-//					/**Number must be between 1 and the size of the list+1, so if its smaller then 1 or greater than the size of the list the loop will go on*/
-//					if(Integer.parseInt(serialnumber) > 0 || Integer.parseInt(serialnumber) < genCodes.size()+1) {
-//						int testamino = genCodes.get(Integer.parseInt(serialnumber)-1).GetCostAmino();
-//						int testnucle = genCodes.get(Integer.parseInt(serialnumber)-1).GetCostNucle();
-//						
-//						/**Checking whether the Virologist has enough materials to craft*/
-//						if(testamino <= aminoAmount && testnucle <= nucleAmount)
-//							craftable=true;	
-//					}
-//					else {
-//						System.out.println("Please use the numbers provided to you above to choose an agent to craft");
-//						serialnumber="";
-//					}
-//				}
-//				catch(NumberFormatException e) {
-//					System.out.println("Please use the proper formats like numbers");
-//				}
-//				
-//		}/**Whether the agent is craftable by the Virologist*/
-//		while(!craftable);
-		
-		Skeleton.Interaction.PrintList(genCodes);
-		int serialnumber = Skeleton.Interaction.ListItemNumber(genCodes.size());
-		
-//		int listnumber = Integer.parseInt(serialnumber);
-		
-		/**The agent to be crafted*/
-		//Agent genCode = genCodes.get(serialnumber-1);
-		Agent genCode = genCodeCollection.ListAll().get(index);
+		Agent genCode = genCodeCollection.ListAll().get(index-1);
 		if(genCode.GetCostAmino() <= materialCollection.GetAmino().GetAmount() && genCode.GetCostNucle() <= materialCollection.GetNucle().GetAmount()) {
 				CreateAgent(genCode);
-		}
-		else {
-			System.out.println("You cannot craft this");
 		}
 	}
 	
@@ -335,10 +263,20 @@ public class Virologist extends Thing {
 	* Removes Materials from the Virologists (in the parameter) MaterialCollection and adds it to its own (checks if v is paralyzed) 
 	* @param victim - A Virologist on our Field
 	**/
-	public void StealMaterial(Virologist victim) {
-		System.out.println("StealMaterial");
-		MaterialCollection materialColl2 = victim.GetMaterialCollection();
-		FillMaterials(materialColl2);
+	public void StealMaterial(int victim) {
+		ArrayList<Virologist> vir= new ArrayList<Virologist>();
+		for(Thing t : this.field.GetThings())
+		{
+			if(t.toString().contains("Virologist")) {
+				vir.add((Virologist) t);
+			}
+		}
+		if(vir.size()<=victim)
+		{
+			Virologist vic = vir.get(victim-1);
+			MaterialCollection materialColl2 = vic.GetMaterialCollection();
+			FillMaterials(materialColl2);
+		}
 	}
 	
 	/**
