@@ -62,5 +62,9 @@ public class Gloves extends Equipment {
 	public int DecreaseUseTime() {
 		return --useTime;
 	}
+	
+	public int GetUseTime() {
+		return this.useTime;
+	}
 
 }

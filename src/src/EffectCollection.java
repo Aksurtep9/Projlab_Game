@@ -80,7 +80,8 @@ public class EffectCollection implements Serializable {
 			effect+=e.GetEffectName()+ System.lineSeparator();
 		}
 		return effect;
-
+	}
+	
 	public List<Effect> GetEffects() {
 		return effects;
 

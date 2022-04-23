@@ -362,6 +362,10 @@ public class Prototype {
 		game.getCurrentPlayer().StealMaterial(victim);
 	}
 	
+	public void Attack(String[] cmd) {
+		int victim = Integer.parseInt(cmd[1]);
+		game.getCurrentPlayer().Attack(victim);
+	}
 	
 	public void Ls(String[] cmd) {
 		int ViroNum = Integer.parseInt(cmd[1]);

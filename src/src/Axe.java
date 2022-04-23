@@ -61,5 +61,9 @@ public class Axe extends Equipment{
 		System.out.println("ToString");
 		return "Axe" + this.ID;
 	}
+	
+	public int GetUseTime() {
+		return this.useTime;
+	}
 
 }

@@ -93,7 +93,13 @@ public class Virologist extends Thing {
 	**/
 	public void Move(int field) {
 		
+		/**Guard for index out of range*/
+		if(this.field.GetNeighbours().size()<=field)
+			return;
+		
+		/**The destination field*/
 		Field tomoveto = this.field.GetNeighbours().get(field-1);
+		
 		this.field.Remove(this);
 		tomoveto.Accept(this);
 	}
@@ -102,7 +108,6 @@ public class Virologist extends Thing {
 	* Shows the available Fields to the Player -> Moves the Virologist.
 	**/
 	public void MoveTo(Field whereToMove) {
-		System.out.println("MoveTo");
 		field.Remove(this);
 		whereToMove.Accept(this);
 	}
@@ -154,8 +159,14 @@ public class Virologist extends Thing {
 	**/
 	public void Anoint(int victim, int agent) {
 		
+		/**Guard for index out of range*/
+		if(this.GetCraftedACollection().GetAgents().size()<=agent)
+			return;
 		
+		/**Agent to be used*/
 		Agent a =this.craftedAgentCollection.GetAgents().get(agent);
+		
+		/**The possible victims*/
 		ArrayList<Virologist> vir= new ArrayList<Virologist>();
 		for(Thing t : this.field.GetThings())
 		{
@@ -163,18 +174,36 @@ public class Virologist extends Thing {
 				vir.add((Virologist) t);
 			}
 		}
+		
+		/**Guard for index out of range*/
+		if(vir.size()<=victim)
+			return;
+		
+		/**The Victim*/
 		Virologist vic = vir.get(victim-1);
 		
+		/**Checking for gloves*/
 		if(vic.GetEquipmentCollection().Contains("Gloves")) {
+			Gloves g=null;
+			for(Equipment e: this.GetEquipmentCollection().GetEquipments()) {
+				if(e.GetEffectName().equals("Gloves")) {
+					g=(Gloves) e;
+				}
+			}
 			
-			effectCollection.Add((Effect)a,this);
-			craftedAgentCollection.Remove(a.GetEffectName());
-			for(Equipment e: equipmentCollection.GetEquipments()) {
-				if(vic.GetEquipmentCollection().Contains("Gloves"))
-					e.DecreaseUseTime();
+			/**Checking if the gloves are still usable*/
+			if(g.GetUseTime()>0)
+			{
+				effectCollection.Add((Effect)a,this);
+				craftedAgentCollection.Remove(a.GetEffectName());
+				for(Equipment e: equipmentCollection.GetEquipments()) {
+					if(vic.GetEquipmentCollection().Contains("Gloves"))
+						e.DecreaseUseTime();
+				}
 			}
 		}
 		else {
+			/**Checking for cloak*/
 			if(vic.GetEquipmentCollection().Contains("Cloak")) {
 				Cloak c=null;
 				for(Equipment e: this.GetEquipmentCollection().GetEquipments()) {
@@ -182,16 +211,15 @@ public class Virologist extends Thing {
 						c=(Cloak) e;
 					}
 				}
-					
+				//**Initiating the cloaks defense mechanism*/
 				if(c.Chance()){	
 					vic.GetEffectCollection().Add((Effect)a,vic);
 				}		
 			}
 			else {
-				
 				vic.GetEffectCollection().Add((Effect)a,vic);
-			
 			}
+			/**Removing the used agent*/
 			craftedAgentCollection.Remove(a.GetEffectName());
 		}
 	}
@@ -200,17 +228,21 @@ public class Virologist extends Thing {
 	* Shows a menu to the player of the craftedAgentCollection that he can choose from to vaccinate its own Virologist
 	**/
 	public void Vaccinate() {
-		System.out.println("Vaccinate");
 	}
 	
 	/**
 	* Shows a menu to the Player of the genCodeCollection that he can choose from to craft
 	**/
 	public void Craft(int index) {
-	
+		
+		/**Guard for index out of range*/
 		if(index>=this.GetGenCodeCollection().GetAgents().size())
 			return;
+		
+		/**the agent to be crafted*/
 		Agent genCode = genCodeCollection.ListAll().get(index-1);
+		
+		/**Checking whether its possible to craft the agent*/
 		if(genCode.GetCostAmino() <= materialCollection.GetAmino().GetAmount() && genCode.GetCostNucle() <= materialCollection.GetNucle().GetAmount()) {
 				CreateAgent(genCode);
 		}
@@ -222,16 +254,25 @@ public class Virologist extends Thing {
 	* @return The crafted Agent
 	**/
 	public Agent CreateAgent(Agent genCode) {
-		System.out.println("CreateAgent");
 		
-		Agent pr = Skeleton.ProtectConstr();// example
+		/**Creating the specific agent*/
+		Agent a = null;
+		if(genCode.GetEffectName().equals("Chorea"))
+			a= new Chorea();
+		else if(genCode.GetEffectName().equals("Amnesia"))
+			a=new Amnesia();
+		else if(genCode.GetEffectName().equals("Paralyze"))
+			a=new Paralyze();
+		else if(genCode.GetEffectName().equals("Protect"))
+			a= new Protect();
 		
-		craftedAgentCollection.Add(pr);
+		/**Adding it to the collection*/
+		this.craftedAgentCollection.Add(a);
 		
 		/**Removes the amount required crafting the agent*/
 		materialCollection.GetAmino().RemoveAmount(genCode.GetCostAmino());
 		materialCollection.GetNucle().RemoveAmount(genCode.GetCostNucle());
-		return pr;
+		return a;
 	}
 	
 	/**
@@ -555,5 +596,48 @@ public class Virologist extends Thing {
 	 */
 	public void KillTheBear(Virologist v) {
 		v.setDead();
+	}
+	
+	public void Attack(int victim) {
+		
+		ArrayList<Virologist> vir= new ArrayList<Virologist>();
+		for(Thing t : this.field.GetThings())
+		{
+			if(t.toString().contains("Virologist")) {
+				vir.add((Virologist) t);
+			}
+		}
+		
+		/**Guard for index out of range*/
+		if(vir.size()<=victim)
+			return;
+		
+		/**The Victim*/
+		Virologist vic = vir.get(victim-1);
+		
+		/**Checking for the bear*/
+		if(!vic.IsAlive())
+		{
+			ArrayList<Axe> axes=new ArrayList<Axe>();
+			for(Equipment e: this.GetEquipmentCollection().GetEquipments()) {
+				if(e.GetEffectName().equals("Axe")) {
+					axes.add((Axe) e);
+				}
+			}
+			
+			
+			for(Axe a : axes)
+			{
+				if(a.GetUseTime()>0)
+				{
+					/**KILL THE BEAR*/
+					KillTheBear(vic);
+				
+					/**Axe goes to the trash*/
+					a.DecreaseUseTime();
+					return;
+				}
+			}
+		}
 	}
 }
