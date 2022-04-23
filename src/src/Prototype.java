@@ -141,43 +141,75 @@ public class Prototype {
 		logger("The map has been generated.", logFile);
 	}
 	
+	/**
+	 * Adds the desired equipment to the chosen virologist's equipmentcollection.
+	 * @param cmd - the command
+	 */
 	public void AddEq(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
 		int ViroNum=Integer.parseInt(cmd[2]);
+		if(EqNum>=eqs.size()||ViroNum>=game.getPlayers().size())return;
 		game.getPlayers().get(ViroNum-1).GetEquipmentCollection().Add(eqs.get(EqNum-1));
 		game.getPlayers().get(ViroNum-1).GetEffectCollection().Add(eqs.get(EqNum-1), game.getPlayers().get(ViroNum-1));
 	}
 	
+	/**
+	 * Adds the desired agent to the chosen virologist's collection of crafted agents.
+	 * @param cmd - the command
+	 */
 	public void AddAgCraft(String[] cmd) {
 		int AgNum=Integer.parseInt(cmd[1]);
 		int ViroNum=Integer.parseInt(cmd[2]);
+		if(AgNum>=eqs.size()||ViroNum>=game.getPlayers().size())return;
 		game.getPlayers().get(ViroNum-1).GetCraftedACollection().Add(ags.get(AgNum-1));
 	}
 	
+	/**
+	 * Sets the given material (either aminoacid or nucleotid) of the desired virologist to the given number.
+	 * @param cmd - the command
+	 */
 	public void SetMat(String[] cmd) {
 		int amount=Integer.parseInt(cmd[2]);
 		int ViroNum=Integer.parseInt(cmd[3]);
+		if(ViroNum>=game.getPlayers().size())return;
 		if(cmd[1].equals("a")) {
-			game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetAmino().AddAmount(amount);
+			if(game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetAmino().GetAmount()+amount>game.getPlayers().get(ViroNum-1).getmaxamino)
+				game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetAmino().AddAmount(amount);
 		} else {
-			game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetNucle().AddAmount(amount);
+			if(game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetNucle().GetAmount()+amount>game.getPlayers().get(ViroNum-1).getmaxnucle)
+				game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetNucle().AddAmount(amount);
 		}
 		
 	}
 	
+	/**
+	 * Makes the virologist, whose turn it is pick up an equipment from the field it's on.
+	 * @param cmd - the command
+	 */
 	public void PickUp(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
+		if(EqNum>=game.getCurrentPlayer().field.GetThings().size())return;
 		game.getCurrentPlayer().PickUpEquipment();
 	}
 	
+	/**
+	 * Makes the virologist, whose turn it is drop a selected piece of equipment.
+	 * @param cmd - the command
+	 */
 	public void Drop(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
+		if(EqNum>=game.getCurrentPlayer().GetEquipmentCollection().GetSize())return;
 		game.getCurrentPlayer().DropEquipment();
 	}
 	
+	/**
+	 * Makes the virologist, whose turn it is steal a piece of equipment from an other virologist.
+	 * @param cmd - the command
+	 */
 	public void StealEq(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[2]);
 		int ViroNum=Integer.parseInt(cmd[1]);
+		if(EqNum>=eqs.size()||ViroNum>=game.getPlayers().size())return;
 		game.getCurrentPlayer().StealEquipment(game.getPlayers().get(ViroNum-1));
 	}
 	
@@ -342,7 +374,7 @@ public class Prototype {
 	}
 	
 	/**
-	 * Anoint a virologist cshoosen by the player with the specified agent
+	 * Anoint a virologist choosen by the player with the specified agent
 	 * @param cmd - the command
 	 */
 	public void Move(String[] cmd) {
@@ -352,7 +384,7 @@ public class Prototype {
 	}
 	
 	/**
-	 * Anoint a virologist cshoosen by the player with the specified agent
+	 * Anoint a virologist choosen by the player with the specified agent
 	 * @param cmd - the command
 	 */
 	public void Anoint(String[] cmd) {
