@@ -2,8 +2,10 @@ package src;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * <b>Test class for the program's prototype</b><br><br>
@@ -31,6 +33,8 @@ public class ProtoTest {
 	
 	private static File wd;
 	
+	private static Scanner sc;
+	
 	/**
 	 * Initializes the files' path
 	 */
@@ -47,13 +51,20 @@ public class ProtoTest {
 		generatedOutFile = proto.GetLogFile();
 	}
 	
-	
 	/**
 	 * Runs the tests and gives the results back.
 	 */
 	public void Run() {
+		
+		try {
+			sc = new Scanner(commandsFile);
+		} catch (FileNotFoundException e) {
+			System.err.println("The file is not found.");
+		}
+		
 		//TO-DO: Run tests here
-		TestNewGame();
+		Test_2_1();
+		Test_2_5();
 		
 		String result = ProtoTest.TestCalculator.Calculate(generatedOutFile, expectedOutFile);
 		System.out.println(result);
@@ -64,9 +75,30 @@ public class ProtoTest {
 	// ------ IDE -----
 	//----------------
 	//public void Method() { ... Tesztet tartalmazó algoritmust ... }
-	public void TestNewGame() {
-		String[] cmd = {"newgame", "mapFile.txt"};
+	public void Test_2_1() {
+		String[] cmd = sc.nextLine().split(" ");
 		proto.NewGame(cmd);
+	}
+	
+	public void Test_2_5(){
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutAg(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Move(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		
+		sc.close();
 	}
 	
 	/**

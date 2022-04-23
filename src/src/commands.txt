@@ -1,0 +1,9 @@
+newgame mapFile.txt
+newgame mapFile.txt
+putViro 1 0
+putAg 1 1
+newround
+ls 1 vi
+ls 1 fi
+move 1
+ls 1 ef

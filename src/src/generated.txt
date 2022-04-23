@@ -1,1 +1,14 @@
 The map has been generated.
+The map has been generated.
+Newround
+Virologist12
+
+Amount of Nucleotid: 20Equipments: 
+Effects: 
+Learnt Gencodes: 
+Crafted Agents: 
+
+Current: Field:18
+Virologist have been moved
+Effects on the Virologist: 
+

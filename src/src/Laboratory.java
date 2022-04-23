@@ -40,7 +40,7 @@ public class Laboratory extends Field{
 			}
 		}else {
 			genCode = new Protect();
-			bearDanceCode = null;
+			bearDanceCode = new BearDance();
 		}
 	}
 	

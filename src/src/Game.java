@@ -62,6 +62,9 @@ public class Game implements Serializable{
 		this.roundCount = 0;
 		this.map = new Map();
 		players = new ArrayList<Virologist>();
+		for(int i = 0; i<playerCount; ++i)
+			players.add(new Virologist());
+		currentPlayer = players.get(0);
 		random = true;
 	}
 	
