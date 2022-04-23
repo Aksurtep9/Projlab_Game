@@ -95,6 +95,10 @@ public class Prototype {
 					SetRandom(cmd);
 				else if(whatCommand.equals("newround"))
 					NewRound(cmd);
+				else if(whatCommand.equals("move"))
+					Move(cmd);
+				else if(whatCommand.equals("anoint"))
+					Anoint(cmd);
 			}
 		}
 	}
@@ -310,6 +314,27 @@ public class Prototype {
 		Virologist v = game.getPlayers().get(ViroNum-1);
 		
 		v.GetEffectCollection().Add(ags.get(AgNum-1), v);
+	}
+	
+	/**
+	 * Anoint a virologist cshoosen by the player with the specified agent
+	 * @param cmd - the command
+	 */
+	public void Move(String[] cmd) {
+		int field =Integer.parseInt(cmd[1]);
+		game.getCurrentPlayer().Move(field);
+		logger("Virologist have been moved", logFile);
+	}
+	
+	/**
+	 * Anoint a virologist cshoosen by the player with the specified agent
+	 * @param cmd - the command
+	 */
+	public void Anoint(String[] cmd) {
+		int victim = Integer.parseInt(cmd[1]);
+		int agent = Integer.parseInt(cmd[2]);
+		game.getCurrentPlayer().Anoint(victim, agent);
+		logger("Virologist used agents. It's very effective", logFile);
 	}
 	
 	
