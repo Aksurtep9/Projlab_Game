@@ -87,5 +87,13 @@ public class AgentCollection implements Serializable {
 		}
 		return false;
 	}
+	
+	/**
+	 * Returns the crated agents a virologist has
+	 * @return the list of agents crafted by the virologist (and still usable)
+	 */
+	public ArrayList<Agent> GetAgents(){
+		return agents;
+	}
 }
 

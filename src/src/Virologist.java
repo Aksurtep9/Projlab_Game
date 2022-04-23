@@ -91,25 +91,11 @@ public class Virologist extends Thing {
 	/**
 	* Shows the available Fields to the Player -> Moves the Virologist.
 	**/
-	public void Move() {
-		System.out.println("Move");
-		List<Field> neighbours = this.field.GetNeighbours();
+	public void Move(int field) {
 		
-		//Asks the user which neighbour is needed.
-		Skeleton.Interaction.PrintList(neighbours);
-		int index = Skeleton.Interaction.ListItemNumber(neighbours.size());
-		
-		//If the user chose the 0: Maradok
-		if(index == 0)
-			System.out.println("Maradok");
-		else {
-			Field selected = neighbours.get(index-1);
-			if(selected != null && selected != this.field) {
-				
-				this.field.Remove(this);
-				selected.Accept(this);
-			}
-		}
+		Field tomoveto = this.field.GetNeighbours().get(field-1);
+		this.field.Remove(this);
+		tomoveto.Accept(this);
 	}
 	
 	/**
@@ -163,91 +149,45 @@ public class Virologist extends Thing {
 	
 	/**
 	* The method adds the Agent (from our craftedAgentCollection) in the parameters to the victims EffectCollection
-	* @param a - An Agent from the craftedAgentCollection
-	* @param victom - the choosen Virologist we wish to anoint
+	* @param agent - An Agent from the craftedAgentCollection
+	* @param victim - the choosen Virologist we wish to anoint
 	**/
-	public void Anoint(Virologist victim) {
-		System.out.println("Anoint");
+	public void Anoint(int victim, int agent) {
 		
-		System.out.println("The following vaccines are known to you:");
-		/**Stores all crafted vaccines to the Virologist.*/
-		List<Agent> agents=new ArrayList<Agent>(); 
-		agents = craftedAgentCollection.ListAll();
 		
-		/**opt Checking whether the Virologist has any vaccines*/
-		if(agents.isEmpty())
+		Agent a =this.craftedAgentCollection.GetAgents().get(agent);
+		ArrayList<Virologist> vir= new ArrayList<Virologist>();
+		for(Thing t : this.field.GetThings())
 		{
-			System.out.println("You do not have any vaccines yet, so you cannot anoint");
-			return;
+			if(t.toString().contains("Virologist")) {
+				vir.add((Virologist) t);
+			}
 		}
+		Virologist vic = vir.get(victim-1);
 		
-//		//System.out.println("0. Cancel");
-//		/**List every known genetic code with a serial number*/
-//		for(int i=0;i<agents.size();i++){
-//			int sernum = i+1;
-//		    System.out.print(sernum);
-//		    System.out.println(agents.get(i));
-//		} 
-//		
-//		String serialnumber;
-//		
-//		boolean usable = false;
-//		
-//		do {
-//			System.out.println("Please write the number of the agent you would like to use");
-//			Scanner sc = new Scanner(System.in);
-//			serialnumber=sc.nextLine();*/
-			/**Handling the string type exception*/
-//			try {
-//				/**Number must be between 1 and the size of the list+1, so if its smaller then 1 or greater than the size of the list the loop will go on*/
-//				if(Integer.parseInt(serialnumber) > 0 || Integer.parseInt(serialnumber) < agents.size()+1) {
-//					usable = true;
-//				}
-//				else {
-//					System.out.println("Please use the numbers provided to you above to choose an agent to use");
-//					
-//				}
-//					
-//					/**Checking whether the Virologist has enough materials to craft*/
-//			}
-//			catch(NumberFormatException e) {
-//				System.out.println("Please use the proper formats like numbers");
-//				serialnumber = "";
-//			}
-//			
-//		}/**Whether there is a usable agent selected by the Virologist*/
-//		while(!usable);
-	
-		Skeleton.Interaction.PrintList(agents);
-		
-		int serialnumber = Skeleton.Interaction.ListItemNumber(agents.size());
-		
-		Agent craftedAgent = agents.get(serialnumber-1);
-		
-		if(victim.GetEquipmentCollection().Contains("Gloves")) {
+		if(vic.GetEquipmentCollection().Contains("Gloves")) {
 			
-			effectCollection.Add((Effect)craftedAgent,this);
-			victim.GetEquipmentCollection().Remove("Gloves");
-			craftedAgentCollection.Remove(craftedAgent);
+			effectCollection.Add((Effect)a,this);
+			craftedAgentCollection.Remove(a.GetEffectName());
+			for(Equipment e: equipmentCollection.GetEquipments()) {
+				if(vic.GetEquipmentCollection().Contains("Gloves"))
+					e.DecreaseUseTime();
+			}
 		}
 		else {
-			if(victim.GetEquipmentCollection().Contains("Cloak")) {
+			if(vic.GetEquipmentCollection().Contains("Cloak")) {
 				
 				double random = ThreadLocalRandom.current().nextDouble(0,100);
-				if(random<=82.3){
-					
-					
-				}
-				else
-					victim.GetEffectCollection().Add((Effect)craftedAgent,victim);
-				
+				if(random>=82.3){	
+					vic.GetEffectCollection().Add((Effect)a,vic);
+				}		
 			}
 			else {
 				
-			victim.GetEffectCollection().Add((Effect)craftedAgent,victim);
+			vic.GetEffectCollection().Add((Effect)a,vic);
 			
 			}
-			craftedAgentCollection.Remove(craftedAgent);
+			craftedAgentCollection.Remove(a.GetEffectName());
 		}
 		
 	}
