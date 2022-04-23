@@ -1,5 +1,5 @@
 package src;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -11,7 +11,7 @@ import java.util.Random;
 public class Shelter extends Field {
 	
 	/**Stores the shelter's equipments.*/
-	private List<Equipment> equipments;
+	private ArrayList<Equipment> equipments;
 	
 	
 	/**
@@ -19,6 +19,7 @@ public class Shelter extends Field {
 	 */
 	public Shelter() {
 		super();
+		equipments = new ArrayList<Equipment>();
 		
 		if(Game.isRandom()) {
 			Random rand = new Random();
