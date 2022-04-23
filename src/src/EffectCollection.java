@@ -57,7 +57,6 @@ public class EffectCollection implements Serializable {
 	 * @param v Virologist, it is given as parameter to the Affect methods
 	 */
 	void AffectWithAll(Virologist v) {
-		System.out.println("AffectWithAll");
 	}
 	
 	/**
@@ -65,14 +64,16 @@ public class EffectCollection implements Serializable {
 	 * @param v Virologist, who has the EffectCollection, given as parameter to DecreaseEffectTime()
 	 */
 	void DecreaseAgentTimeEColl(Virologist v) {
-		System.out.println("DecreaseAgentTimeEColl");
 		for(int i=0;i< effects.size();i++) {
 			this.effects.get(i).DecreaseEffectTime(v);			
 			
 		}
 	}
 	
-
+	/**
+	 * Listing every effect a Virologist has
+	 * @return the effects
+	 */
 	public String toString() {
 		String effect ="";
 		for(Effect e : effects)
@@ -82,9 +83,12 @@ public class EffectCollection implements Serializable {
 		return effect;
 	}
 	
+	/**
+	 * Returns the Effect Collection of the Virologist
+	 * @return effect collection
+	 */
 	public List<Effect> GetEffects() {
 		return effects;
-
 	}
 	
 	

@@ -24,7 +24,6 @@ public class Gloves extends Equipment {
 	 * @param v The virologist, who is being affected by an effect.
 	 */
 	public void Affect(Virologist v) {
-		System.out.println("Affect");
 	}
 	
 	/**
@@ -32,7 +31,6 @@ public class Gloves extends Equipment {
 	 * @return Returns "Gloves".
 	 */
 	public String GetEffectName() {
-		System.out.println("GetEffectName");
 		return "Gloves";
 	}
 	
@@ -42,13 +40,11 @@ public class Gloves extends Equipment {
 	 */
 	@Override
 	public String toString() {
-		System.out.println("toString");
 		return GetEffectName() + this.ID;
 	}
 
 	@Override
 	public void DecreaseEffectTime(Virologist v) {
-		System.out.println("DecreaseEffectTime");
 		//üres
 		
 	}
@@ -63,6 +59,10 @@ public class Gloves extends Equipment {
 		return --useTime;
 	}
 	
+	/**
+	 * Returns the available uses for the equipment
+	 * @return useTime
+	 */
 	public int GetUseTime() {
 		return this.useTime;
 	}

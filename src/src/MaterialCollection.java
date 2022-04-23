@@ -51,7 +51,10 @@ public class MaterialCollection implements Serializable {
 		nucle.RemoveAmount(nucle.GetAmount());
 	}
 	
-
+	/**
+	 * Returns the aminoacid and nucleotid amount the virologist possess, or the Warehouse stores
+	 * @return nucleotid and aminoacid amount
+	 */
 	public String toString() {
 		return nucle.ToString()+System.lineSeparator()+ amino.ToString();
 	}

@@ -89,6 +89,10 @@ public class AgentCollection implements Serializable {
 		return agents;
 	}
 	
+	/**
+	 * Returns the agents know or has been crafted by the virologist
+	 * @return agents
+	 */
 	public String toString() {
 		String agent="";
 		for(Agent a : agents) {
