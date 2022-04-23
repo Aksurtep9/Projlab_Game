@@ -24,12 +24,12 @@ public class Prototype {
 	private Game game;
 	private ArrayList<Equipment> eqs=new ArrayList<Equipment>();
 	private ArrayList<Agent> ags=new ArrayList<Agent>();
-	static File wd;
+	private static File wd;
 	
-	boolean logEnabled;
-	File logFile;
+	private boolean logEnabled;
+	private File logFile;
 	
-	boolean start;
+	private boolean start;
 	
 	/**
 	 * Initializes the game and the commands.
@@ -269,6 +269,10 @@ public class Prototype {
 	public void SetRandom(String[] cmd) {
 		boolean randomEnabled = (cmd[1].contains("on")) ? true : false;
 		game.setRandom(randomEnabled);
+		if(randomEnabled)
+			logger("Random is on.", logFile);
+		else
+			logger("Random is off.", logFile);
 	}
 	
 	/**
@@ -277,6 +281,7 @@ public class Prototype {
 	 */
 	public void NewRound(String[] cmd) {
 		game.NewRound();
+		logger("Newround", logFile);
 	}
 	
 	/**

@@ -1,5 +1,7 @@
 package src;
 
+import java.io.File;
+
 /**
  * <b>Test class for the program's prototype</b><br><br>
  * Use this class to run the tests.<br>
@@ -11,19 +13,25 @@ public class ProtoTest {
 	
 	
 	/**The file that contains the runnable commands.*/
-	private String commandsFilePath;
+	private File commandsFile;
 	/**The file that contains the expected output after the run.*/
-	private String expectedOutFilePath;
+	private File expectedOutFile;
 	/**The file that contains the generated output after the run.*/
-	private String generatedOutFilePath;
+	private File generatedOutFile;
 	/**Proto class*/
 	private Prototype proto;
+	
+	private static File wd;
 	
 	/**
 	 * Initializes the files' path
 	 */
 	public void Initialize() {
 		//TO-DO: Give the files' path!
+		wd = new File(System.getProperty("user.dir"), "src/src");
+		commandsFile = new File(wd, "commands.txt");
+		expectedOutFile = new File(wd, "expected.txt");
+		generatedOutFile = new File(wd, "generated.txt");
 	}
 	
 	
@@ -35,7 +43,7 @@ public class ProtoTest {
 		//String resultMain = " ";
 		//resultMain += Method();
 		//resultMain kiírása a generatedOut
-		String result = ProtoTest.TestCalculator.Calculate(generatedOutFilePath, expectedOutFilePath);
+		String result = ProtoTest.TestCalculator.Calculate(generatedOutFile, expectedOutFile);
 		System.out.println(result);
 	}
 	
@@ -65,7 +73,7 @@ public class ProtoTest {
 		 * @param expected - the file that contains the expected output
 		 * @return the string which contains the results.
 		 */
-		public static String Calculate(String generated, String expected) {
+		public static String Calculate(File generated, File expected) {
 			int succeededRows = 0;
 			int numberOfRows = 0;	// the number of rows that the file contains
 			
