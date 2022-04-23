@@ -51,7 +51,7 @@ public class Game implements Serializable{
 	private Map map;
 	
 	/**Stores the game's randomness*/
-	private boolean random;
+	private static boolean random;
 	
 	/**
 	 * Constructor for the game
@@ -62,6 +62,7 @@ public class Game implements Serializable{
 		this.roundCount = 0;
 		this.map = new Map();
 		players = new ArrayList<Virologist>();
+		random = true;
 	}
 	
 	/**
@@ -151,7 +152,7 @@ public class Game implements Serializable{
 	 * Returns the program's randomness
 	 * @return the game's randomness
 	 */
-	public boolean isRandom() {
+	public static boolean isRandom() {
 		return random;
 	}
 

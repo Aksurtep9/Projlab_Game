@@ -24,13 +24,23 @@ public class Laboratory extends Field{
 	 */
 	public Laboratory() {
 		super();
-		genCode = new Protect();
-		bearDanceCode = null;
 		
-		Random rand = new Random();
-		double bearDanceSpawnChance = rand.nextDouble() * 100;
-		if(bearDanceSpawnChance >= 0.85) {
-			bearDanceCode = new BearDance();
+		if(Game.isRandom()) {
+			Random rand = new Random();
+			double bearDanceSpawnChance = rand.nextDouble() * 100;
+			if(bearDanceSpawnChance >= 0.85) {
+				bearDanceCode = new BearDance();
+			}
+			int genCodeRandom = rand.nextInt(3);
+			switch(genCodeRandom) {
+				case 0: genCode = new Amnesia(); break;
+				case 1: genCode = new Chorea(); break;
+				case 2: genCode = new Paralyze(); break;
+				case 3: genCode = new Protect(); break;
+			}
+		}else {
+			genCode = new Protect();
+			bearDanceCode = null;
 		}
 	}
 	

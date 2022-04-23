@@ -1,5 +1,6 @@
 package src;
 import java.util.List;
+import java.util.Random;
 
 /**
  * <b>Shelter class</b><br>
@@ -8,16 +9,30 @@ import java.util.List;
  * @author Martin
  */
 public class Shelter extends Field {
-
+	
+	/**Stores the shelter's equipments.*/
+	private List<Equipment> equipments;
+	
+	
 	/**
 	 * Constructor for the Laboratory
 	 */
 	public Shelter() {
 		super();
+		
+		if(Game.isRandom()) {
+			Random rand = new Random();
+			int equipRandom = rand.nextInt(3);
+			switch(equipRandom) {
+				case 0: equipments.add(new Axe()); break;
+				case 1: equipments.add(new Cloak()); break;
+				case 2: equipments.add(new Gloves()); break;
+				case 3: equipments.add(new Sack()); break;
+			}
+		}else {
+			equipments.add(new Gloves());
+		}
 	}
-	
-	/**Stores the shelter's equipments.*/
-	private List<Equipment> equipments;
 	
 	/**
 	 * Allocates and creates special equipments for the shelter's store.
