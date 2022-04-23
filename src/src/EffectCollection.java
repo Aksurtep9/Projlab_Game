@@ -75,5 +75,14 @@ public class EffectCollection implements Serializable {
 		}
 	}
 	
+	public String toString() {
+		String effect ="";
+		for(Effect e : effects)
+		{
+			effect+=e.GetEffectName()+ System.lineSeparator();
+		}
+		return effect;
+	}
+	
 	
 }

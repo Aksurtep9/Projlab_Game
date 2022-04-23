@@ -38,7 +38,6 @@ public abstract class Equipment extends Thing implements Effect, Serializable {
 	 * @return string
 	 */
 	public String toString() {
-		System.out.println("ToString");
 		return "";
 	}
 }

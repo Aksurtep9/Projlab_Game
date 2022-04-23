@@ -34,14 +34,15 @@ public class EquipmentCollection implements Serializable{
 	}
 	
 	/**
-	 * Returns the list of all the equipment.
-	 * @return list
+	 * Returns the string of all the equipment.
+	 * @return equipment
 	 */
-	public void ListAll() {
-		System.out.println("ListAll");
-		for(int i=0;i< equipments.size();i++) {
-			System.out.println(equipments.get(i).toString());
+	public String toString() {
+		String equipment="";
+		for(Equipment e : equipments) {
+			equipment+=e.toString()+System.lineSeparator();
 		}
+		return equipment;
 	}
 	
 	/**

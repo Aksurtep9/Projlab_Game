@@ -95,5 +95,13 @@ public class AgentCollection implements Serializable {
 	public ArrayList<Agent> GetAgents(){
 		return agents;
 	}
+	
+	public String toString() {
+		String agent="";
+		for(Agent a : agents) {
+			agent=a.toString()+System.lineSeparator();
+		}
+		return agent;
+	}
 }
 

@@ -44,7 +44,6 @@ public class Cloak extends Equipment {
 	 * @return Returns "Cloak".
 	 */
 	public String GetEffectName() {
-		System.out.println("GetEffectName");
 		return "Cloak";
 	}
 	
@@ -55,7 +54,7 @@ public class Cloak extends Equipment {
 	@Override
 	public String toString() {
 		System.out.println("toString");
-		return GetEffectName();
+		return GetEffectName()+this.ID;
 	}
 
 	@Override

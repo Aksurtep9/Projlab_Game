@@ -529,9 +529,31 @@ public class Virologist extends Thing {
 	**/
 	@Override
 	public String toString() {
-		System.out.println("toString");
-		return "Virologist";
+		return "Virologist"+ID;
 	}
+	
+	/**
+	* Default ToString method for console printout.
+	* @return String with every attribute of the Virologist
+	**/
+	public String VirologistStat() {
+		String stat="";
+		stat+=this.toString();
+		stat+=System.lineSeparator();
+		stat+=this.GetMaterialCollection().GetAmino();
+		stat+=System.lineSeparator();
+		stat+=this.GetMaterialCollection().GetNucle().ToString();
+		stat+="Equipments: "+System.lineSeparator();
+		stat+=this.GetEquipmentCollection().toString();
+		stat+="Effects: "+System.lineSeparator();
+		stat+=this.GetEffectCollection().toString();
+		stat+="Learnt Gencodes: "+System.lineSeparator();
+		stat+=this.GetGenCodeCollection().toString();
+		stat+="Crafted Agents: "+System.lineSeparator();
+		stat+=this.GetCraftedACollection().toString();
+		return stat;
+	}
+	
 	
 	/**
 	* Getter to the materialCollection
