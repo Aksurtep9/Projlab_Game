@@ -48,18 +48,19 @@ public class Shelter extends Field {
 	 * Asks the virologist to check the shelter's equipments.
 	 * @param v - the given virologist who might pick up an equipment
 	 */
-	/*
-	 * public void Accept(Virologist v) {
-	 * 
-	 * }
-	 */
+	
+	 public void Accept(Virologist v) {
+		//System.out.println("Accept");
+		this.things.add(v);
+	 }
+	 
 	
 	/**
 	 * Stores the given thing.
 	 * @param t - the given thing that will be placed on the field
 	 */
 	public void Accept(Thing t) {
-		System.out.println("Accept");
+		System.out.println("TESZTELÜNK HAHA");
 		this.things.add(t);
 	}
 	

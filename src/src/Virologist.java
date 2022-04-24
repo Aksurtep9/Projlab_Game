@@ -365,7 +365,7 @@ public class Virologist extends Thing {
 	* Picks up the selected Equipment from the Field the Player is standing on
 	* @param eqNum the number of the equipment which should be picked up
 	**/
-	public void PickUpEquipment(int eqNum,File logFile) {
+	public void PickUpEquipment(int eqNum) {
 		ArrayList<Thing> thingsList = this.field.GetThings();
 		
 		if(eqNum>thingsList.size())return;
@@ -378,7 +378,7 @@ public class Virologist extends Thing {
 						equipmentCollection.Add(equipment);
 						effectCollection.Add(equipment, this);
 						field.Remove(equipment);
-						logger("",logFile);
+						Prototype.logger("Hello",Prototype.GetLogFile());
 					}	
 				}
 			}

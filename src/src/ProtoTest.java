@@ -169,15 +169,11 @@ public class ProtoTest {
 		cmd = sc.nextLine().split(" ");
 		proto.PutEq(cmd);
 		cmd = sc.nextLine().split(" ");
-		proto.NewRound(cmd);
-		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.Move(cmd);
-		cmd = sc.nextLine().split(" ");
-		proto.Ls(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.PickUp(cmd);
 		cmd = sc.nextLine().split(" ");

@@ -27,8 +27,8 @@ public class Prototype {
 	private static File wd;
 	
 	private static boolean logEnabled;
-	static String logPath;
-	static File logFile=new File(wd, logPath);
+	private static String logPath;
+	private static File logFile;
 	
 	private boolean start;
 	
@@ -38,8 +38,9 @@ public class Prototype {
 	public void Initialize() {
 		//TO-DO: Give the files' path!
 		wd = new File(System.getProperty("user.dir"), "src/src");
-		logEnabled = false;
 		logFile = null;
+		logPath = null;
+		logEnabled = false;
 		start = true;
 		ags.add(new Chorea()); // 0th agent is Chorea.
 		ags.add(new Protect());// 1st agent is Protect.
@@ -286,7 +287,7 @@ public class Prototype {
 	 * @param message - the message that needs to logged.
 	 * @param logFile - the file where the log is saved.
 	 */
-	static void logger(String message, File logFile) {
+	public static void logger(String message, File logFile) {
 		if(logEnabled) {
 			try {
 				FileWriter fw = new FileWriter(logFile, true);
@@ -306,7 +307,7 @@ public class Prototype {
 	 * @param path - where the log should be saved.
 	 * @return the reference to the file.
 	 */
-	public File GetLogFile() {
+	public static File GetLogFile() {
 		return logFile;
 	}
 	

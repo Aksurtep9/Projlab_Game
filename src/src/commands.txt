@@ -28,6 +28,14 @@ ls 0 fi
 move 1
 ls 0 ef
 newgame mapFile.txt
+putViro 0 2
+putEq 0 2
+ls 0 vi
+ls 0 fi
+move 2
+pickup 0
+ls 0 eq
+newgame mapFile.txt
 putViro 0 0
 newround
 ls 0 vi

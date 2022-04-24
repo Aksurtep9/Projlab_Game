@@ -6,10 +6,10 @@ Virologist14
 Amount of Nucleotid: 20Equipments: 
 Effects: 
 Learnt Gencodes: 
-Chorea amino cost:3, nucleo cost:2, expire time:4, effect time:4
+Paralyze amino cost:2, nucleo cost:1, expire time:3, effect time:3
 Crafted Agents: 
 
-Current: Field:20
+Current: Field:22
 Virologist have been moved
 The map has been generated.
 Newround
@@ -20,7 +20,7 @@ Effects:
 Learnt Gencodes: 
 Crafted Agents: 
 
-Current: Field:37
+Current: Field:41
 Virologist have been moved
 Learnt agents: 
 The map has been generated.
@@ -32,7 +32,7 @@ Effects:
 Learnt Gencodes: 
 Crafted Agents: 
 
-Current: Field:54
+Current: Field:60
 Virologist have been moved
 Amount of Nucleotid: 20
 Amount of AminoAcid: 20
@@ -45,12 +45,11 @@ Effects:
 Learnt Gencodes: 
 Crafted Agents: 
 
-Current: Field:71
+Current: Field:79
 Virologist have been moved
 Effects on the Virologist: 
 
 The map has been generated.
-Newround
 Virologist62
 
 Amount of Nucleotid: 20Equipments: 
@@ -58,6 +57,5 @@ Effects:
 Learnt Gencodes: 
 Crafted Agents: 
 
-Current: Field:88
+Current: Field:98
 Virologist have been moved
-Current: Field:88
