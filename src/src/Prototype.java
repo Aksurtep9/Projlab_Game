@@ -378,7 +378,6 @@ public class Prototype {
 		int ViroNum=Integer.parseInt(cmd[2]);
 		
 		Virologist v = game.getPlayers().get(ViroNum-1);
-		
 		v.GetEffectCollection().Add(ags.get(AgNum-1), v);
 	}
 	
@@ -388,8 +387,8 @@ public class Prototype {
 	 */
 	public void Move(String[] cmd) {
 		int field =Integer.parseInt(cmd[1]);
+		logger("Virologist have been moved to "+field, logFile);
 		game.getCurrentPlayer().Move(field);
-		logger("Virologist have been moved", logFile);
 	}
 	
 	/**
@@ -399,8 +398,8 @@ public class Prototype {
 	public void Anoint(String[] cmd) {
 		int victim = Integer.parseInt(cmd[1]);
 		int agent = Integer.parseInt(cmd[2]);
+		logger("Virologist used "+agent+" on "+victim, logFile);
 		game.getCurrentPlayer().Anoint(victim, agent);
-		logger("Virologist used agents. It's very effective", logFile);
 	}
 	
 	public void Craft(String[] cmd) {
@@ -408,19 +407,19 @@ public class Prototype {
 		if(game.getCurrentPlayer().GetGenCodeCollection().GetAgents().isEmpty())
 			return;
 		game.getCurrentPlayer().Craft(craft);
-		logger("Virologist crafted agent.", logFile);
+		logger("Virologist crafted "+craft+".", logFile);
 	}
 	
 	public void StealMat(String[] cmd){
 		int victim = Integer.parseInt(cmd[1]);
 		game.getCurrentPlayer().StealMaterial(victim);
-		logger("Virologist stole material.", logFile);
+		logger("Virologist stole material from"+victim, logFile);
 	}
 	
 	public void Attack(String[] cmd) {
 		int victim = Integer.parseInt(cmd[1]);
 		game.getCurrentPlayer().Attack(victim);
-		logger("Virologus used axe! Bear fainted.", logFile);
+		logger("Virologus used axe on " +victim , logFile);
 	}
 	
 	public void Ls(String[] cmd) {

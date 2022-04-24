@@ -216,6 +216,7 @@ public class Virologist extends Thing {
 					if(vic.GetEquipmentCollection().Contains("Gloves"))
 						e.DecreaseUseTime();
 				}
+				Prototype.logger("It's not very effective.",Prototype.GetLogFile());
 			}
 		}
 		else {
@@ -230,10 +231,12 @@ public class Virologist extends Thing {
 				//**Initiating the cloaks defense mechanism*/
 				if(c.Chance()){	
 					vic.GetEffectCollection().Add((Effect)a,vic);
+					Prototype.logger("It's very effective.",Prototype.GetLogFile());
 				}		
 			}
 			else {
 				vic.GetEffectCollection().Add((Effect)a,vic);
+				Prototype.logger("It's very effective.",Prototype.GetLogFile());
 			}
 			/**Removing the used agent*/
 			craftedAgentCollection.Remove(a.GetEffectName());
@@ -344,6 +347,7 @@ public class Virologist extends Thing {
 			Virologist vic = vir.get(victim-1);
 			MaterialCollection materialColl2 = vic.GetMaterialCollection();
 			FillMaterials(materialColl2);
+			Prototype.logger("It's very effective.",Prototype.GetLogFile());
 		}
 	}
 	
@@ -650,6 +654,7 @@ public class Virologist extends Thing {
 				
 					/**Axe goes to the trash*/
 					a.DecreaseUseTime();
+					Prototype.logger("Bear fainted",Prototype.GetLogFile());
 					return;
 				}
 			}
