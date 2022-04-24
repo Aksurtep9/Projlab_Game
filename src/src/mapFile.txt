@@ -4,8 +4,11 @@ Laboratory
 Shelter
 Warehouse
 Field
+Field
+Field
 0-1
 0-2
 0-4
 4-1
 4-3
+5-6

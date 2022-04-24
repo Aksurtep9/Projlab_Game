@@ -80,6 +80,16 @@ newround
 newround
 ls 0 ef
 newgame mapFile.txt
+putViro 0 5
+putViro 1 6
+addAgEff 0 1
+addAgEff 1 0
+ls 0 vi
+ls 0 fi
+ls 0 ef
+newround
+ls 1 ef
+newgame mapFile.txt
 putViro 0 6
 putViro 1 6
 addEq 3 0
@@ -89,3 +99,13 @@ ls 0 vi
 ls 0 fi
 ls 1 ef
 attack 1
+newgame mapFile.txt
+putViro 0 0
+putAg 1 1
+setMat a -20 0
+setMat n -20 0
+move 1
+ls 0 vi
+ls 0 fi
+craft 0
+ls 0 ag

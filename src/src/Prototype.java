@@ -41,8 +41,9 @@ public class Prototype {
 		logFile = null;
 		start = true;
 		ags.add(new Chorea()); // 0th agent is Chorea.
+		ags.add(new Protect());// 1st agent is Protect.
 		eqs.add(new Gloves()); // 0th equip is Gloves
-		eqs.add(new Gloves()); // 1th equip is Gloves.
+		eqs.add(new Gloves()); // 1st equip is Gloves.
 	}
 	
 	
@@ -178,11 +179,11 @@ public class Prototype {
 		int ViroNum=Integer.parseInt(cmd[3]);
 		if(ViroNum>game.getPlayers().size())return;
 		if(cmd[1].equals("a")) {
-			if(game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetAmino().GetAmount()+amount>game.getPlayers().get(ViroNum-1).GetMaxAmino())
-				game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetAmino().AddAmount(amount);
+			if(game.getPlayers().get(ViroNum).GetMaterialCollection().GetAmino().GetAmount()+amount>game.getPlayers().get(ViroNum).GetMaxAmino())
+				game.getPlayers().get(ViroNum).GetMaterialCollection().GetAmino().AddAmount(amount);
 		} else {
-			if(game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetNucle().GetAmount()+amount>game.getPlayers().get(ViroNum-1).GetMaxNucle())
-				game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetNucle().AddAmount(amount);
+			if(game.getPlayers().get(ViroNum).GetMaterialCollection().GetNucle().GetAmount()+amount>game.getPlayers().get(ViroNum-1).GetMaxNucle())
+				game.getPlayers().get(ViroNum).GetMaterialCollection().GetNucle().AddAmount(amount);
 		}
 		
 	}
