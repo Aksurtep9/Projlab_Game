@@ -37,7 +37,7 @@ public class Paralyze extends Agent
 	**/
 	public void Affect(Virologist v)
 	{
-		System.out.println("Affect");
+		
 	}
 	
 	/**

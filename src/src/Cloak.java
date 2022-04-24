@@ -22,7 +22,6 @@ public class Cloak extends Equipment {
 	 * @param v The virologist, who is being affected by an effect.
 	 */
 	public void Affect(Virologist v) {
-		System.out.println("Affect");
 		double random = ThreadLocalRandom.current().nextDouble(0,100);
 		if(random>82.3){
 			
@@ -53,13 +52,11 @@ public class Cloak extends Equipment {
 	 */
 	@Override
 	public String toString() {
-		System.out.println("toString");
 		return GetEffectName()+this.ID;
 	}
 
 	@Override
 	public void DecreaseEffectTime(Virologist v) {
-		System.out.println("DecreaseEffectTime");
 		// TODO Auto-generated method stub
 		
 	}

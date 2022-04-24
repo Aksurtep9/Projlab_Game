@@ -58,7 +58,6 @@ public class Axe extends Equipment{
 	 * @return string
 	 */
 	public String toString() {
-		System.out.println("ToString");
 		return "Axe" + this.ID;
 	}
 	

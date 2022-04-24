@@ -27,7 +27,6 @@ public class Warehouse extends Field{
 	 * Allocates and creates a collection for the warehouse's materials.
 	 */
 	public void CreateMaterials() {
-		System.out.println("CreateMaterials");
 	}
 	
 	/**

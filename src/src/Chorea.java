@@ -24,7 +24,6 @@ public class Chorea extends Agent
 	**/
 	public void Affect(Virologist v)
 	{
-		System.out.println("Affect");
 		v.RandomField();
 	}
 	
@@ -34,7 +33,6 @@ public class Chorea extends Agent
 	**/
 	public String GetEffectName()
 	{
-		System.out.println("GetEffectName");
 		return "Chorea";
 	}
 	
@@ -45,7 +43,6 @@ public class Chorea extends Agent
 	@Override
 	public String toString()
 	{
-		System.out.println("toString");
 		return  GetEffectName() + " amino cost:" + costAmino +", nucleo cost:" + costNucle + ", expire time:" + expireTime + ", effect time:" + effectTime;
 	}
 }

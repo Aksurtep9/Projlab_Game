@@ -39,7 +39,6 @@ public class Shelter extends Field {
 	 * Allocates and creates special equipments for the shelter's store.
 	 */
 	public void CreateEquipment() {
-		System.out.println("CreateEquipment");
 		
 	}
 	

@@ -22,7 +22,6 @@ public class Sack extends Equipment {
 	 * @param v The virologist, who is being affected by an effect.
 	 */
 	public void Affect(Virologist v) {
-		System.out.println("Affect");
 	}
 	
 	/**
@@ -47,7 +46,6 @@ public class Sack extends Equipment {
 	 */
 	@Override
 	public void DecreaseEffectTime(Virologist v) {
-		System.out.println("DecreaseEffectTime");
 		//üres
 		
 	}

@@ -85,7 +85,6 @@ public class Virologist extends Thing {
 	**/
 	public void CloneGenCode(Agent genCode) {
 		
-		System.out.println("CloneGenCode");
 		//Checks if the virologist already has this genCode
 		boolean contains = false;
 
@@ -159,7 +158,6 @@ public class Virologist extends Thing {
 	* @param v - A Virologist on our Field
 	**/
 	public void Touch(Virologist v) {
-		System.out.println("Touch");
 		EffectCollection effectCol = v.GetEffectCollection();
 		boolean containsProtect = effectCol.Contains("protect");
 		boolean containsCloak = effectCol.Contains("cloak");
@@ -393,7 +391,6 @@ public class Virologist extends Thing {
 	* Calls the MoveTo(Field f) method.
 	**/
 	public void RandomField() {
-		System.out.println("RandomField");
 		List<Field> neighbours = field.GetNeighbours();
 		Random rand = new Random();
 		int numberOfSelectedField = rand.nextInt(neighbours.size());
@@ -406,7 +403,6 @@ public class Virologist extends Thing {
 	* Deletes all the Agents from the genCodeCollection.
 	**/
 	public void DeleteLearntAgent() {
-		System.out.println("DeleteLearntAgent");
 		genCodeCollection.ClearAll();
 	}
 	
@@ -415,7 +411,6 @@ public class Virologist extends Thing {
 	* @param m - A Warehouse or another Virologist MaterialCollection
 	**/
 	public void FillMaterials(MaterialCollection m) {
-		System.out.println("FillMaterial");
 		AminoAcid victimAmino = m.GetAmino();
 		Nucleotid victimNucle = m.GetNucle();
 		int victimAminoAmount = victimAmino.amount;
@@ -508,13 +503,11 @@ public class Virologist extends Thing {
 	
 	
 	public void CallDecreaseAgentTime() {
-		System.out.println("CallDecreaseAgentTime Virologistcall");
 		craftedAgentCollection.DecreaseAgentTimeAColl(this);
 		effectCollection.DecreaseAgentTimeEColl(this);
 	}
 	
 	public void RemoveAgentFromAgentColl(Agent a) {
-		System.out.println("RemoveAgentFromAgentColl");
 		effectCollection.Remove(a.GetEffectName());
 		
 	}

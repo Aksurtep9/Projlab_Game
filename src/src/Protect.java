@@ -37,7 +37,7 @@ public class Protect extends Agent
 	**/
 	public void Affect(Virologist v)
 	{
-		System.out.println("Protect");
+		
 	}
 	
 	/**
