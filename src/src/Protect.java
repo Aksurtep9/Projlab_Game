@@ -46,7 +46,6 @@ public class Protect extends Agent
 	**/
 	public String GetEffectName()
 	{
-		System.out.println("Protect");
 		return "Protect";
 	}
 	
@@ -57,7 +56,6 @@ public class Protect extends Agent
 	@Override
 	public String toString()
 	{
-		System.out.println("Protect");
 		return  GetEffectName() + " amino cost:" + costAmino +", nucleo cost:" + costNucle + ", expire time:" + expireTime + ", effect time:" + effectTime;
 	}
 }

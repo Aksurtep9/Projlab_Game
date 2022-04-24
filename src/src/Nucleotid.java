@@ -19,7 +19,6 @@ public class Nucleotid extends Material{
 	* @return String with the amount
 	**/
 	public String ToString() {
-		System.out.println("ToString");
 		return ("Amount of Nucleotid: " + amount);
 	}
 }

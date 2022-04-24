@@ -554,7 +554,6 @@ public class Virologist extends Thing {
 	* @return materialCollection
 	**/
 	public MaterialCollection GetMaterialCollection() {
-		System.out.println("GetMaterialCollection");
 		return materialCollection;
 	}
 	
@@ -563,7 +562,6 @@ public class Virologist extends Thing {
 	* @return equipmentCollection
 	**/
 	public EquipmentCollection GetEquipmentCollection() {
-		System.out.println("GetEquipmentCollection");
 		return equipmentCollection;
 	}
 	
@@ -572,17 +570,14 @@ public class Virologist extends Thing {
 	* @return effectCollection
 	**/
 	public EffectCollection GetEffectCollection() {
-		System.out.println("GetEffectCollection");
 		return effectCollection;
 	}
 	
 	public AgentCollection GetGenCodeCollection() {
-		System.out.println("GetGenCodeCollection");
 		return genCodeCollection;
 	}
 	
 	public AgentCollection GetCraftedACollection() {
-		System.out.println("GetCraftedACollection");
 		return craftedAgentCollection;
 	}
 	

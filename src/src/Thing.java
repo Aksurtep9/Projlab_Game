@@ -28,7 +28,6 @@ public abstract class Thing implements Serializable
 	 * @param pField - the field which the thing should be on.
 	 */
 	public void SetField(Field pField) { 
-		System.out.println("SetField");
 		field = pField; 
 	}
 	
@@ -37,7 +36,6 @@ public abstract class Thing implements Serializable
 	 * @return the field which the thing is on
 	 */
 	public Field GetField() { 
-		System.out.println("GetField");
 		return field; 
 	}
 	
@@ -48,7 +46,6 @@ public abstract class Thing implements Serializable
 	@Override
 	public String toString()
 	{
-		System.out.println("toString");
 		return "";
 	}
 }

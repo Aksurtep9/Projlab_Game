@@ -40,7 +40,6 @@ public class Field implements Serializable{
 	 * @param t - the given thing that will be placed on the field
 	 */
 	public void Accept(Thing t) {
-		System.out.println("Accept");
 		this.things.add(t);
 	}
 	
@@ -49,7 +48,6 @@ public class Field implements Serializable{
 	 * @param v - the given virologist who wants to move to the field
 	 */
 	public void Accept(Virologist v) {
-		System.out.println("Accept");
 		v.SetField(this);
 		this.things.add(v);
 	}
@@ -67,7 +65,6 @@ public class Field implements Serializable{
 	 * @return the chosen neigbhour
 	 */
 	public Field GetNeighbour() {
-		System.out.println("GetNeighbour");
 		return neighbours.get(0);
 	}
 	
@@ -76,7 +73,6 @@ public class Field implements Serializable{
 	 * @return the chosen neigbhour
 	 */
 	public ArrayList<Field> GetNeighbours() {
-		System.out.println("GetNeighbours");
 		return this.neighbours;
 	}
 	
@@ -85,7 +81,6 @@ public class Field implements Serializable{
 	 * @param t - the removable thing
 	 */
 	public void Remove(Thing t) {
-		System.out.println("Remove");
 		this.things.remove(t);
 	}
 	

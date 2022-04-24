@@ -48,7 +48,6 @@ public class Laboratory extends Field{
 	 * Allocates and creates a genetic code for the laboratory.
 	 */
 	public void CreateGenCode() {
-		System.out.println("CreateGenCode");
 		
 	}
 	
@@ -66,7 +65,6 @@ public class Laboratory extends Field{
 	 */
 	@Override
 	public void Accept(Virologist v) {
-		System.out.println("Accept");
 		this.things.add(v);
 		v.CloneGenCode(genCode);
 		
@@ -81,7 +79,6 @@ public class Laboratory extends Field{
 	 */
 	@Override
 	public String toString() {
-		System.out.println("toString");
 		return "Laboratory";
 	}
 }

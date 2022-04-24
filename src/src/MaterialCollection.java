@@ -30,7 +30,6 @@ public class MaterialCollection implements Serializable {
 	* @return amino
 	**/
 	public AminoAcid GetAmino(){
-		System.out.println("GetAmino");
 		return amino;
 	}
 	
@@ -39,7 +38,6 @@ public class MaterialCollection implements Serializable {
 	* @return nucle
 	**/
 	public Nucleotid GetNucle() {
-		System.out.println("GetNucle");
 		return nucle;
 	}
 	

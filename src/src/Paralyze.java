@@ -46,7 +46,6 @@ public class Paralyze extends Agent
 	**/
 	public String GetEffectName()
 	{
-		System.out.println("GetEffectName");
 		return "Paralyze";
 	}
 	
@@ -57,7 +56,6 @@ public class Paralyze extends Agent
 	@Override
 	public String toString()
 	{
-		System.out.println("toString");
 		return  GetEffectName() + " amino cost:" + costAmino +", nucleo cost:" + costNucle + ", expire time:" + expireTime + ", effect time:" + effectTime;
 	}
 }

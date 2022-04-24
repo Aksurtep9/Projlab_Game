@@ -30,7 +30,6 @@ public class Sack extends Equipment {
 	 * @return Returns "Sack".
 	 */
 	public String GetEffectName() {
-		System.out.println("GetEffectName");
 		return "Sack";
 	}
 	
@@ -40,7 +39,6 @@ public class Sack extends Equipment {
 	 */
 	@Override
 	public String toString() {
-		System.out.println("toString");
 		return GetEffectName() + this.ID;
 	}
 

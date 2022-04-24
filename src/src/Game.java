@@ -73,7 +73,6 @@ public class Game implements Serializable{
 	 * @return all the players
 	 */
 	public ArrayList<Virologist> getPlayers(){
-		System.out.println("getPlayer");
 		return players;
 	}
 	
@@ -89,7 +88,6 @@ public class Game implements Serializable{
 	 * It starts a new game.
 	 */
 	void NewGame() {
-		System.out.println("NewGame");
 		for(int i = 0; i < playerCount; i++) {
 			Virologist v = new Virologist();
 			players.add(v);
@@ -118,7 +116,6 @@ public class Game implements Serializable{
 	 * @return Did the virologist learn all the genetic codes.
 	 */
 	public static boolean CheckWin() {
-		System.out.println("CheckWin");
 		if(currentPlayer.GetGenCodeCollection().GetSize()==maxGenCode) {
 			return true;
 		}
