@@ -26,8 +26,9 @@ public class Prototype {
 	private ArrayList<Agent> ags=new ArrayList<Agent>();
 	private static File wd;
 	
-	private boolean logEnabled;
-	private File logFile;
+	private static boolean logEnabled;
+	static String logPath;
+	static File logFile=new File(wd, logPath);
 	
 	private boolean start;
 	
@@ -265,7 +266,7 @@ public class Prototype {
 	public void Log(String[] cmd) {
 		boolean enabled = (cmd[1].contains("on")) ? true : false;
 		if(enabled && logFile == null) {
-			String logPath = cmd[2];
+			logPath = cmd[2];
 			logFile = new File(wd, logPath);
 			if(start) {
 				logFile.delete();
@@ -285,7 +286,7 @@ public class Prototype {
 	 * @param message - the message that needs to logged.
 	 * @param logFile - the file where the log is saved.
 	 */
-	public void logger(String message, File logFile) {
+	static void logger(String message, File logFile) {
 		if(logEnabled) {
 			try {
 				FileWriter fw = new FileWriter(logFile, true);

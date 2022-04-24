@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import java.io.File;
 
 
 /**
@@ -135,8 +136,6 @@ public class Virologist extends Thing {
 	public void Encounter() {
 		System.out.println("Encounter");
 		List<Thing> things = this.field.GetThings();
-		Skeleton.Interaction.PrintList(things);
-		int choosenNumber = Skeleton.Interaction.ListItemNumber(things.size());
 		//Virologist enemy = null;
 		
 		if(choosenNumber == 0) {
@@ -366,7 +365,7 @@ public class Virologist extends Thing {
 	* Picks up the selected Equipment from the Field the Player is standing on
 	* @param eqNum the number of the equipment which should be picked up
 	**/
-	public void PickUpEquipment(int eqNum) {
+	public void PickUpEquipment(int eqNum,File logFile) {
 		ArrayList<Thing> thingsList = this.field.GetThings();
 		
 		if(eqNum>thingsList.size())return;
@@ -379,7 +378,7 @@ public class Virologist extends Thing {
 						equipmentCollection.Add(equipment);
 						effectCollection.Add(equipment, this);
 						field.Remove(equipment);
-						//logger()
+						logger("",logFile);
 					}	
 				}
 			}
@@ -514,7 +513,7 @@ public class Virologist extends Thing {
 	
 	public void RemoveAgentFromAgentColl(Agent a) {
 		System.out.println("RemoveAgentFromAgentColl");
-		effectCollection.Remove((Effect) a);
+		effectCollection.Remove(a.GetEffectName());
 		
 	}
 	
