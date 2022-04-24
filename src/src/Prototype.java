@@ -223,7 +223,7 @@ public class Prototype {
 	public void StealEq(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[2]);
 		int ViroNum=Integer.parseInt(cmd[1]);
-		
+		logger("Stole " + game.getPlayers().get(ViroNum).GetEquipmentCollection().GetEquipments().get(EqNum).toString(),logFile);
 		game.getCurrentPlayer().StealEquipment(ViroNum,EqNum);
 	}
 	
@@ -346,6 +346,7 @@ public class Prototype {
 		int ViroNum = Integer.parseInt(cmd[1]);
 		int FieldNum = Integer.parseInt(cmd[2]);
 		Virologist v = game.getPlayers().get(ViroNum);
+		logger("Virologist " + ViroNum + " has been put to " + FieldNum, logFile);
 		game.GetMap().GetFields().get(FieldNum).Accept(v);
 	}
 	
@@ -358,6 +359,7 @@ public class Prototype {
 		int FieldNum = Integer.parseInt(cmd[2]);
 		Equipment e = eqs.get(EqNum);
 		Field sh = game.GetMap().GetFields().get(FieldNum);
+		logger("Equipment " + EqNum + " has been put to " + FieldNum, logFile);
 		sh.Accept(e);
 	}
 	
@@ -373,6 +375,7 @@ public class Prototype {
 			Laboratory l = (Laboratory)f;
 			l.SetGenCode(ags.get(AgNum-1));
 		}
+		logger("Agent " + AgNum + " has been put to " + LabNum, logFile);
 	}
 	
 	/**
@@ -384,7 +387,7 @@ public class Prototype {
 		int ViroNum=Integer.parseInt(cmd[2]);
 		
 		Virologist v = game.getPlayers().get(ViroNum);
-		
+		logger("Virologist " + ViroNum + " got " + AgNum + " agent ", logFile);
 		v.GetEffectCollection().Add(ags.get(AgNum), v);
 	}
 	
