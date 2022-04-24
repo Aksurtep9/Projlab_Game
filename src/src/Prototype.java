@@ -44,8 +44,10 @@ public class Prototype {
 		start = true;
 		ags.add(new Chorea()); // 0th agent is Chorea.
 		ags.add(new Protect());// 1st agent is Protect.
+		ags.add(new Paralyze());//2nd agent is Paralyze.
 		eqs.add(new Gloves()); // 0th equip is Gloves
 		eqs.add(new Gloves()); // 1st equip is Gloves.
+		eqs.add(new Sack());	//2nd equip is Sack.
 	}
 	
 	
