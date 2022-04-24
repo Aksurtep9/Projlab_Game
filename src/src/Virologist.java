@@ -111,17 +111,13 @@ public class Virologist extends Thing {
 	public void Move(int field) {
 		
 		/**Guard for index out of range*/
-		if(this.field.GetNeighbours().size()<=field) {
+		if(this.field.GetNeighbours().size()<=field)
 			return;
-		}
-			
 		
 		/**The destination field*/
 		Field tomoveto = this.field.GetNeighbours().get(field);
 		
-		
 		this.field.Remove(this);
-		
 		this.field = tomoveto;
 		tomoveto.Accept(this);
 	}
@@ -220,7 +216,6 @@ public class Virologist extends Thing {
 					if(vic.GetEquipmentCollection().Contains("Gloves"))
 						e.DecreaseUseTime();
 				}
-				Prototype.logger("It's not very effective.",Prototype.GetLogFile());
 			}
 		}
 		else {
@@ -235,12 +230,10 @@ public class Virologist extends Thing {
 				//**Initiating the cloaks defense mechanism*/
 				if(c.Chance()){	
 					vic.GetEffectCollection().Add((Effect)a,vic);
-					Prototype.logger("It's very effective.",Prototype.GetLogFile());
 				}		
 			}
 			else {
 				vic.GetEffectCollection().Add((Effect)a,vic);
-				Prototype.logger("It's very effective.",Prototype.GetLogFile());
 			}
 			/**Removing the used agent*/
 			craftedAgentCollection.Remove(a.GetEffectName());
@@ -312,8 +305,8 @@ public class Virologist extends Thing {
 			}
 		}
 		Virologist victim;
-		if(vir.size()>vic) {
-			victim = vir.get(vic);
+		if(vir.size()>=vic) {
+			victim = vir.get(vic-1);
 		}else {
 			return;
 		}
@@ -321,19 +314,16 @@ public class Virologist extends Thing {
 		if(paralyzed) {
 			EquipmentCollection eqVictim=victim.GetEquipmentCollection();
 			
-			if(eqNum>=victim.GetEquipmentCollection().GetSize()) {
+			if(eqNum>victim.GetEquipmentCollection().GetSize()) {
 				return;
 			} else {
-				Equipment choosenEquipment = eqVictim.GetEquipments().get(eqNum);
+				Equipment choosenEquipment = eqVictim.GetEquipments().get(eqNum-1);
 				EquipmentCollection eqSelf=this.GetEquipmentCollection();
 				eqSelf.Add(choosenEquipment);
 				eqVictim.Remove(choosenEquipment.GetEffectName());
 				victim.GetEffectCollection().Remove(choosenEquipment.GetEffectName());
 				effectCollection.Add(choosenEquipment,this);
-				Prototype.logger("Stole "+choosenEquipment.GetEffectName()+" from virologist "+vic+" .",Prototype.GetLogFile());
 			}
-		} else {
-			Prototype.logger("Failed, virologist "+vic+" is not paralyzed.",Prototype.GetLogFile());
 		}
 	}
 	
@@ -354,7 +344,6 @@ public class Virologist extends Thing {
 			Virologist vic = vir.get(victim-1);
 			MaterialCollection materialColl2 = vic.GetMaterialCollection();
 			FillMaterials(materialColl2);
-			Prototype.logger("It's very effective.",Prototype.GetLogFile());
 		}
 	}
 	
@@ -381,7 +370,6 @@ public class Virologist extends Thing {
 		
 		if(eqNum>thingsList.size())return;
 		else {
-			Thing thing = thingsList.get(eqNum);
 			if(!thingsList.get(eqNum).toString().contains("Virologist")) {
 				Thing equipmentThing = thingsList.get(eqNum);
 				Equipment equipment = (Equipment)equipmentThing;
@@ -390,13 +378,9 @@ public class Virologist extends Thing {
 						equipmentCollection.Add(equipment);
 						effectCollection.Add(equipment, this);
 						field.Remove(equipment);
-						Prototype.logger("Picked up "+equipment.GetEffectName(),Prototype.GetLogFile());
-					}else {
-						Prototype.logger("Failed, virologist's itemcollection is full",Prototype.GetLogFile());
-					}
-				}else {Prototype.logger("Failed",Prototype.GetLogFile());}
-			} else {
-				Prototype.logger("Failed",Prototype.GetLogFile());
+						//logger("",logFile);
+					}	
+				}
 			}
 			
 		}
@@ -666,7 +650,6 @@ public class Virologist extends Thing {
 				
 					/**Axe goes to the trash*/
 					a.DecreaseUseTime();
-					Prototype.logger("Bear fainted",Prototype.GetLogFile());
 					return;
 				}
 			}

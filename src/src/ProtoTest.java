@@ -1,10 +1,13 @@
 package src;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Scanner;
 
 /**
@@ -24,9 +27,9 @@ public class ProtoTest {
 	/**The file that contains the runnable commands.*/
 	private File commandsFile;
 	/**The file that contains the expected output after the run.*/
-	private File expectedOutFile;
+	static File expectedOutFile;
 	/**The file that contains the generated output after the run.*/
-	private File generatedOutFile;
+	static File generatedOutFile;
 	
 	/**Proto class*/
 	private Prototype proto;
@@ -50,6 +53,7 @@ public class ProtoTest {
 		proto.Log(setLog);
 		generatedOutFile = proto.GetLogFile();
 	}
+	
 	
 	/**
 	 * Runs the tests and gives the results back.
@@ -459,9 +463,39 @@ public class ProtoTest {
 			int succeededRows = 0;
 			int numberOfRows = 0;	// the number of rows that the file contains
 			
-			//TO-DO: Fájl sorainak összehasonlítása ---> az elsõ hibás sorig ellenõrzése
+				try {
+				FileReader fr_generated = new FileReader(generatedOutFile);
+				FileReader fr_expected = new FileReader(expectedOutFile);
+				BufferedReader br_gen = new BufferedReader(fr_generated);
+				BufferedReader br_ex = new BufferedReader(fr_expected);
+				
+				String line_gen;
+				String line_ex;
+				
+				int index = 0;
+				
+				boolean success = true;
+				
+				while(br_gen.readLine()!=null) {
+					line_gen = br_gen.readLine();
+					line_ex = br_ex.readLine();
+					index++;
+					numberOfRows = index;
+					if(line_gen.compareTo(line_ex)==0) {
+						succeededRows = numberOfRows;
+					}
+					else {
+						success = false;
+						break;
+					}	
+				}
+				
+				fr_generated.close();
+				fr_expected.close();
+				}
+				catch(IOException e) {};
 			
 			return "The result: " + succeededRows + "/" + numberOfRows;
+			}
 		}
 	}
-}
