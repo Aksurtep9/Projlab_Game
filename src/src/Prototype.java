@@ -148,7 +148,7 @@ public class Prototype {
 	public void AddEq(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
 		int ViroNum=Integer.parseInt(cmd[2]);
-		if(EqNum>=eqs.size()||ViroNum>=game.getPlayers().size())return;
+		if(EqNum>eqs.size()||ViroNum>game.getPlayers().size())return;
 		game.getPlayers().get(ViroNum-1).GetEquipmentCollection().Add(eqs.get(EqNum-1));
 		game.getPlayers().get(ViroNum-1).GetEffectCollection().Add(eqs.get(EqNum-1), game.getPlayers().get(ViroNum-1));
 	}
@@ -160,7 +160,7 @@ public class Prototype {
 	public void AddAgCraft(String[] cmd) {
 		int AgNum=Integer.parseInt(cmd[1]);
 		int ViroNum=Integer.parseInt(cmd[2]);
-		if(AgNum>=eqs.size()||ViroNum>=game.getPlayers().size())return;
+		if(AgNum>ags.size()||ViroNum>game.getPlayers().size())return;
 		game.getPlayers().get(ViroNum-1).GetCraftedACollection().Add(ags.get(AgNum-1));
 	}
 	
@@ -171,12 +171,12 @@ public class Prototype {
 	public void SetMat(String[] cmd) {
 		int amount=Integer.parseInt(cmd[2]);
 		int ViroNum=Integer.parseInt(cmd[3]);
-		if(ViroNum>=game.getPlayers().size())return;
+		if(ViroNum>game.getPlayers().size())return;
 		if(cmd[1].equals("a")) {
-			if(game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetAmino().GetAmount()+amount>game.getPlayers().get(ViroNum-1).getmaxamino)
+			if(game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetAmino().GetAmount()+amount>game.getPlayers().get(ViroNum-1).GetMaxAmino())
 				game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetAmino().AddAmount(amount);
 		} else {
-			if(game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetNucle().GetAmount()+amount>game.getPlayers().get(ViroNum-1).getmaxnucle)
+			if(game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetNucle().GetAmount()+amount>game.getPlayers().get(ViroNum-1).GetMaxNucle())
 				game.getPlayers().get(ViroNum-1).GetMaterialCollection().GetNucle().AddAmount(amount);
 		}
 		
@@ -188,8 +188,8 @@ public class Prototype {
 	 */
 	public void PickUp(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
-		if(EqNum>=game.getCurrentPlayer().field.GetThings().size())return;
-		game.getCurrentPlayer().PickUpEquipment();
+		
+		game.getCurrentPlayer().PickUpEquipment(EqNum);
 	}
 	
 	/**
@@ -198,8 +198,8 @@ public class Prototype {
 	 */
 	public void Drop(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
-		if(EqNum>=game.getCurrentPlayer().GetEquipmentCollection().GetSize())return;
-		game.getCurrentPlayer().DropEquipment();
+		
+		game.getCurrentPlayer().DropEquipment(EqNum);
 	}
 	
 	/**

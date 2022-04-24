@@ -63,6 +63,22 @@ public class Virologist extends Thing {
 	}
 	
 	/**
+	 * returns how much aminoacid fits into the virologist's collection
+	 * @return maxAmino
+	 */
+	public int GetMaxAmino() {
+		return maxAmino;
+	}
+	
+	/**
+	 * returns how much mucleotid fits into the virologist's collection
+	 * @return maxNucle
+	 */
+	public int GetMaxNucle() {
+		return maxNucle;
+	}
+	
+	/**
 	* The method stores the genCode in the parameter.
 	* @param genCode - The Agent that will be stored.
 	**/
@@ -321,21 +337,17 @@ public class Virologist extends Thing {
 	}
 	
 	/**
-	* Shows the Equipments from the equipmentCollection to the Player and he chooses one then drops it on the Field that its Virologist standing on 
+	* Drops the selected Equipment from the equipmentCollection of the Player to the Field that it is standing on
+	* @param eqNum the number of the equipment which should be dropped
 	**/
-	public void DropEquipment() {
+	public void DropEquipment(int eqNum) {
 		System.out.println("DropEquipment");
 		List<Equipment> equipments = this.equipmentCollection.GetEquipments();
-		Skeleton.Interaction.PrintList(equipments);
-		int choosenNumber = Skeleton.Interaction.ListItemNumber(equipments.size());
-		
-		if(choosenNumber == 0) {
-			//empty
-		}
+		if(eqNum>equipments.size())return;
 		else {
-			Equipment choosenEquipment = equipments.get(choosenNumber-1);
+			Equipment choosenEquipment = equipments.get(eqNum-1);
 			field.Accept(choosenEquipment);
-			effectCollection.Remove(choosenEquipment);
+			effectCollection.Remove(choosenEquipment.GetEffectName());
 			equipmentCollection.Remove(choosenEquipment.GetEffectName());
 			
 		}
@@ -343,21 +355,17 @@ public class Virologist extends Thing {
 	}
 	
 	/**
-	* Shows the Equipments from the Field its Virologist standing on to the Player and he chooses one then picks it up.
+	* Picks up the selected Equipment from the Field the Player is standing on
+	* @param eqNum the number of the equipment which should be picked up
 	**/
-	public void PickUpEquipment() {
+	public void PickUpEquipment(int eqNum) {
 		System.out.println("PickUpEquipment");
 		List<Thing> things = this.field.GetThings();
-		Skeleton.Interaction.PrintList(things);
-		int choosenNumber = Skeleton.Interaction.ListItemNumber(things.size());
-		//Virologist enemy = null;
 		
-		if(choosenNumber == 0) {
-			//empty
-		}
+		if(eqNum>things.size())return;
 		else {
-			if(!things.get(choosenNumber-1).toString().contains("Virologist")) {
-				Thing equipmentThing = things.get(choosenNumber-1);
+			if(!things.get(eqNum-1).toString().contains("Virologist")) {
+				Thing equipmentThing = things.get(eqNum-1);
 				Equipment equipment = (Equipment)equipmentThing;
 				if(equipment != null) {
 					if(equipmentCollection.GetSize() < 3) {
