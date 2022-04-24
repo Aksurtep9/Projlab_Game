@@ -50,8 +50,8 @@ public class Shelter extends Field {
 	 */
 	
 	 public void Accept(Virologist v) {
-		//System.out.println("Accept");
-		this.things.add(v);
+		 v.SetField(this);
+		 this.things.add(v);
 	 }
 	 
 	
@@ -60,8 +60,10 @@ public class Shelter extends Field {
 	 * @param t - the given thing that will be placed on the field
 	 */
 	public void Accept(Thing t) {
-		System.out.println("TESZTELÜNK HAHA");
-		this.things.add(t);
+		
+		if(t != null)
+			this.things.add(t);
+			
 	}
 	
 	/**

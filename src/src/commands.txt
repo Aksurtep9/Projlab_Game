@@ -28,11 +28,11 @@ ls 0 fi
 move 1
 ls 0 ef
 newgame mapFile.txt
-putViro 0 2
+putViro 0 0
 putEq 0 2
 ls 0 vi
 ls 0 fi
-move 2
+move 1
 pickup 0
 ls 0 eq
 newgame mapFile.txt
@@ -42,20 +42,10 @@ ls 0 vi
 craft 2
 ls 0 ag
 newgame mapFile.txt
-putViro 0 0
-putEq 1 2
-newround
-ls 0 vi
-ls 0 fi
-move 2
-ls 0 fi
-pickup 0
-ls 0 eq
-newgame mapFile.txt
 putViro 0 6
 putViro 2 6
 addEq 0 2
-addAgCraft 2 0
+addAgCraft 0 0
 newround
 ls 0 vi
 ls 0 pl
@@ -66,7 +56,7 @@ ls 2 ef
 newgame mapFile.txt
 putViro 0 6
 putViro 2 6
-addEq 4 0
+addEq 0 1
 addAgCraft 3 2
 newround
 ls 0 vi
@@ -78,56 +68,24 @@ annoint 0 3
 ls 0 ef
 ls 2 ef
 newgame mapFile.txt
-putViro 0 6
-newround
-ls 0 vi
-craft 2
-ls 0 ag
-newgame mapFile.txt
-putViro 0 6
-putViro 1 6
-addEq 1 2
-addAgCraft 1 1
-newround
-ls 0 vi
-ls 0 pl
-ls 1 vi
+putViro 1 5
+putViro 2 5
+addAgEff 2 2
+addEq 2 2
+new round
 ls 1 pl
-anoint 1 2
-ls 1 ef
+ls 2 vi
+ls 2 eq
+stealeq 1 2
+ls 2 eq
 newgame mapFile.txt
-putViro 0 6
 putViro 1 6
-addEq 4 0
-addAgCraft 3 1
-newround
-ls 0 vi
-ls 0 pl
+addEq 0 1
 newround
 ls 1 vi
-ls 1 pl
-anoint 0 3
-ls 0 ef
-ls 1 ef
-newgame mapFile.txt
-putViro 0 6
-putViro 1 6
-addAgEff 2 1
-addEq 2 1
-newround
-ls 0 pl
-ls 1 vi
-ls 1 eq
-stealeq 0 1
-ls 1 eq
-newgame mapFile.txt
-putViro 0 6
-addEq 4 0
-newround
-ls 0 vi
-ls 0 fi
+ls 1 fi
 drop 1
-ls 0 eq
+ls 1 eq
 newgame mapFile.txt
 putViro 0 0
 addAgEff 0 0
@@ -139,6 +97,17 @@ newround
 newround
 ls 0 ef
 newgame mapFile.txt
+putViro 0 5
+putViro 1 6
+addAgEff 0 1
+addAgEff 1 0
+newround
+ls 0 vi
+ls 0 fi
+ls 0 ef
+move 0
+ls 1 ef
+newgame mapFile.txt
 putViro 0 6
 putViro 2 6
 addEq 3 0
@@ -149,45 +118,25 @@ ls 0 fi
 ls 2 ef
 attack 2
 newgame mapFile.txt
-putViro 0 5
 putViro 1 6
-addAgEff 0 1
-addAgEff 1 0
-ls 0 vi
-ls 0 fi
-ls 0 ef
+addEq 1 1
+addEq 2 1
+addEq 3 1
+putEq 0 6
 newround
-ls 1 ef
+ls 1 vi
+ls 1 fi
+pickup 0
+ls 1 eq
 newgame mapFile.txt
-putViro 0 6
-putViro 1 6
-addEq 3 0
-addAgEff 1 1
-newround
-ls 0 vi
-ls 0 fi
-ls 1 ef
-attack 1
-newgame mapFile.txt
-putViro 0 6
-addEq 1 0
-addEq 2 0
-addEq 3 0
-putEq 4 6
-newround
-ls 0 vi
-ls 0 fi
-pickup 4
-ls 0 eq
-newgame mapFile.txt
-put 0 6
 put 1 6
-add 2 1
+put 2 6
+add 2 2
 newround
-ls 0 vi
-ls 0 fi
-stealeq 2 1
-ls 1 ef
+ls 1 vi
+ls 1 fi
+stealeq 2 2
+ls 2 ef
 newgame mapFile.txt
 putViro 0 0
 putAg 1 1

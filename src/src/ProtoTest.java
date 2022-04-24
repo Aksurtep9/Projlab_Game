@@ -384,6 +384,8 @@ public class ProtoTest {
 		cmd = sc.nextLine().split(" ");
 		proto.AddEq(cmd);
 		cmd = sc.nextLine().split(" ");
+		proto.PutEq(cmd);
+		cmd = sc.nextLine().split(" ");
 		proto.NewRound(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
@@ -422,7 +424,13 @@ public class ProtoTest {
 		cmd = sc.nextLine().split(" ");
 		proto.PutViro(cmd);
 		cmd = sc.nextLine().split(" ");
-		proto.NewRound(cmd);
+		proto.PutAg(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.SetMat(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.SetMat(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Move(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
 		cmd = sc.nextLine().split(" ");

@@ -45,9 +45,12 @@ public class Prototype {
 		ags.add(new Chorea()); // 0th agent is Chorea.
 		ags.add(new Protect());// 1st agent is Protect.
 		ags.add(new Paralyze());//2nd agent is Paralyze.
-		eqs.add(new Gloves()); // 0th equip is Gloves
-		eqs.add(new Gloves()); // 1st equip is Gloves.
+		ags.add(new BearDance()); //3rd agent is BearDance.
+		ags.add(new Amnesia()); //4th agent is Amnesia.
+		eqs.add(new Gloves()); 	// 0th equip is Gloves
+		eqs.add(new Cloak()); 	// 1st equip is Gloves.
 		eqs.add(new Sack());	//2nd equip is Sack.
+		eqs.add(new Axe()); 	//3rd equip is Axe.
 	}
 	
 	
@@ -157,9 +160,9 @@ public class Prototype {
 		int EqNum=Integer.parseInt(cmd[1]);
 		int ViroNum=Integer.parseInt(cmd[2]);
 		if(EqNum>eqs.size()||ViroNum>game.getPlayers().size())return;
-		game.getPlayers().get(ViroNum-1).GetEquipmentCollection().Add(eqs.get(EqNum-1));
-		game.getPlayers().get(ViroNum-1).GetEffectCollection().Add(eqs.get(EqNum-1), game.getPlayers().get(ViroNum-1));
-		logger("Added "+eqs.get(EqNum-1).GetEffectName()+"to Virologist "+ViroNum,logFile);
+		game.getPlayers().get(ViroNum).GetEquipmentCollection().Add(eqs.get(EqNum));
+		game.getPlayers().get(ViroNum).GetEffectCollection().Add(eqs.get(EqNum), game.getPlayers().get(ViroNum));
+		logger("Added "+eqs.get(EqNum).GetEffectName()+"to Virologist "+ViroNum,logFile);
 	}
 	
 	/**
@@ -170,8 +173,8 @@ public class Prototype {
 		int AgNum=Integer.parseInt(cmd[1]);
 		int ViroNum=Integer.parseInt(cmd[2]);
 		if(AgNum>ags.size()||ViroNum>game.getPlayers().size())return;
-		game.getPlayers().get(ViroNum-1).GetCraftedACollection().Add(ags.get(AgNum-1));
-		logger("Added "+ags.get(AgNum-1).GetEffectName()+"to Virologist "+ViroNum,logFile);
+		game.getPlayers().get(ViroNum).GetCraftedACollection().Add(ags.get(AgNum));
+		logger("Added "+ags.get(AgNum).GetEffectName()+"to Virologist "+ViroNum,logFile);
 	}
 	
 	/**
@@ -186,7 +189,7 @@ public class Prototype {
 			if(game.getPlayers().get(ViroNum).GetMaterialCollection().GetAmino().GetAmount()+amount>game.getPlayers().get(ViroNum).GetMaxAmino())
 				game.getPlayers().get(ViroNum).GetMaterialCollection().GetAmino().AddAmount(amount);
 		} else {
-			if(game.getPlayers().get(ViroNum).GetMaterialCollection().GetNucle().GetAmount()+amount>game.getPlayers().get(ViroNum-1).GetMaxNucle())
+			if(game.getPlayers().get(ViroNum).GetMaterialCollection().GetNucle().GetAmount()+amount>game.getPlayers().get(ViroNum).GetMaxNucle())
 				game.getPlayers().get(ViroNum).GetMaterialCollection().GetNucle().AddAmount(amount);
 		}
 		
@@ -354,7 +357,8 @@ public class Prototype {
 		int EqNum=Integer.parseInt(cmd[1]);
 		int FieldNum = Integer.parseInt(cmd[2]);
 		Equipment e = eqs.get(EqNum);
-		game.GetMap().GetFields().get(FieldNum).Accept(e);
+		Field sh = game.GetMap().GetFields().get(FieldNum);
+		sh.Accept(e);
 	}
 	
 	/**
@@ -379,8 +383,9 @@ public class Prototype {
 		int AgNum=Integer.parseInt(cmd[1]);
 		int ViroNum=Integer.parseInt(cmd[2]);
 		
-		Virologist v = game.getPlayers().get(ViroNum-1);
-		v.GetEffectCollection().Add(ags.get(AgNum-1), v);
+		Virologist v = game.getPlayers().get(ViroNum);
+		
+		v.GetEffectCollection().Add(ags.get(AgNum), v);
 	}
 	
 	/**

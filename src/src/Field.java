@@ -50,6 +50,7 @@ public class Field implements Serializable{
 	 */
 	public void Accept(Virologist v) {
 		System.out.println("Accept");
+		v.SetField(this);
 		this.things.add(v);
 	}
 	
