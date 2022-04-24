@@ -174,6 +174,102 @@ public class ProtoTest {
 		proto.Ls(cmd);
 	}
 	
+	public void Test_2_7() {
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Craft(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+	}
+	
+	public void Test_2_8() {
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddEq(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddAgCraft(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Anoint(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+	}
+	
+	public void Test_2_9() {
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddEq(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddAgCraft(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Anoint(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+	}
+	
+	public void Test_2_14() {
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddEq(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddAgEff(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Attack(cmd);
+	}
+	
 	/**
 	 * <b> Class for the tests' results.</b><br><br>
 	 * Use this class to see if all the tests have succeeded.

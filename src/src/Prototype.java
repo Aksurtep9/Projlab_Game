@@ -405,11 +405,13 @@ public class Prototype {
 	public void StealMat(String[] cmd){
 		int victim = Integer.parseInt(cmd[1]);
 		game.getCurrentPlayer().StealMaterial(victim);
+		logger("Virologist stole material.", logFile);
 	}
 	
 	public void Attack(String[] cmd) {
 		int victim = Integer.parseInt(cmd[1]);
 		game.getCurrentPlayer().Attack(victim);
+		logger("Virologus used axe! Bear fainted.", logFile);
 	}
 	
 	public void Ls(String[] cmd) {
