@@ -114,9 +114,10 @@ public class Virologist extends Thing {
 			return;
 		
 		/**The destination field*/
-		Field tomoveto = this.field.GetNeighbours().get(field-1);
+		Field tomoveto = this.field.GetNeighbours().get(field);
 		
 		this.field.Remove(this);
+		this.field = tomoveto;
 		tomoveto.Accept(this);
 	}
 	
@@ -373,7 +374,7 @@ public class Virologist extends Thing {
 		
 		if(eqNum>thingsList.size())return;
 		else {
-			if(thingsList.get(eqNum).toString().contains("Equipment")) {
+			if(!thingsList.get(eqNum).toString().contains("Virologist")) {
 				Thing equipmentThing = thingsList.get(eqNum);
 				Equipment equipment = (Equipment)equipmentThing;
 				if(equipment != null) {

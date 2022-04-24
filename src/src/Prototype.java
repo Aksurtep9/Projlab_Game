@@ -422,7 +422,7 @@ public class Prototype {
 	
 	public void Ls(String[] cmd) {
 		int ViroNum = Integer.parseInt(cmd[1]);
-		Virologist viro = game.getPlayers().get(ViroNum-1);
+		Virologist viro = game.getPlayers().get(ViroNum);
 		
 		if(cmd[2].equals("pl")) {
 			int index = 0;

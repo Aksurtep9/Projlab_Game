@@ -6,6 +6,7 @@ Virologist14
 Amount of Nucleotid: 20Equipments: 
 Effects: 
 Learnt Gencodes: 
+Chorea amino cost:3, nucleo cost:2, expire time:4, effect time:4
 Crafted Agents: 
 
 Current: Field:20
@@ -59,4 +60,4 @@ Crafted Agents:
 
 Current: Field:88
 Virologist have been moved
-Current: Field:91
+Current: Field:88

@@ -1,91 +1,91 @@
 newgame mapFile.txt
 newgame mapFile.txt
-putViro 1 1
+putViro 0 1
 newround
-ls 1 vi
-ls 1 fi
+ls 0 vi
+ls 0 fi
 move 2
 newgame mapFile.txt
-putViro 1 0
+putViro 0 0
 newround
-ls 1 vi
-ls 1 fi
+ls 0 vi
+ls 0 fi
 move 1
-ls 1 ge
+ls 0 ge
 newgame mapFile.txt
-putViro 1 4
+putViro 0 4
 newround
-ls 1 vi
-ls 1 fi
+ls 0 vi
+ls 0 fi
 move 3
-ls 1 ma
+ls 0 ma
 newgame mapFile.txt
-putViro 1 0
+putViro 0 0
 putAg 1 1
 newround
-ls 1 vi
-ls 1 fi
+ls 0 vi
+ls 0 fi
 move 1
-ls 1 ef
+ls 0 ef
 newgame mapFile.txt
-putViro 1 0
+putViro 0 0
 putEq 1 2
 newround
-ls 1 vi
-ls 1 fi
+ls 0 vi
+ls 0 fi
 move 2
-ls 2 fi
+ls 0 fi
 pickup 0
-ls 1 eq
+ls 0 eq
 newgame mapFile.txt
-putViro 1 6
+putViro 0 6
 newround
-ls 1 vi
+ls 0 vi
 craft 2
-ls 1 ag
+ls 0 ag
 newgame mapFile.txt
+putViro 0 6
 putViro 1 6
-putViro 2 6
-addEq 2 2
-addAgCraft 2 1
+addEq 1 2
+addAgCraft 1 1
+newround
+ls 0 vi
+ls 0 pl
+ls 1 vi
+ls 1 pl
+anoint 1 2
+ls 1 ef
+newgame mapFile.txt
+putViro 0 6
+putViro 1 6
+addEq 4 0
+addAgCraft 3 1
+newround
+ls 0 vi
+ls 0 pl
 newround
 ls 1 vi
 ls 1 pl
-ls 2 vi
-ls 2 pl
-anoint 2 2
-ls 2 ef
+anoint 0 3
+ls 0 ef
+ls 1 ef
 newgame mapFile.txt
+putViro 0 0
+addAgEff 0 0
+ls 0 ef
+newround
+newround
+newround
+newround
+newround
+ls 0 ef
+newgame mapFile.txt
+putViro 0 6
 putViro 1 6
-putViro 2 6
-addEq 4 1
-addAgCraft 3 2
+addEq 3 0
+addAgEff 1 1
 newround
-ls 1 vi
-ls 1 pl
-newround
-ls 2 vi
-ls 2 pl
-anoint 1 3
+ls 0 vi
+ls 0 fi
 ls 1 ef
-ls 2 ef
-newgame mapFile.txt
-putViro 1 0
-addAgEff 0 1
-ls 1 ef
-newround
-newround
-newround
-newround
-newround
-ls 1 ef
-newgame mapFile.txt
-putViro 1 6
-putViro 2 6
-addEq 3 1
-addAgEff 1 2
-newround
-ls 1 vi
-ls 1 fi
-ls 2 ef
-attack 2
+attack 1
