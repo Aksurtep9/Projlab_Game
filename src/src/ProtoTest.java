@@ -146,7 +146,6 @@ public class ProtoTest {
 		cmd = sc.nextLine().split(" ");
 		proto.PutViro(cmd);
 		cmd = sc.nextLine().split(" ");
-		System.out.println(cmd[0]);
 		proto.PutAg(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.NewRound(cmd);

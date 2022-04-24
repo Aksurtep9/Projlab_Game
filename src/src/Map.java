@@ -18,7 +18,7 @@ public class Map implements Serializable{
 	/**
 	 * Stores all the fields.
 	 */
-	ArrayList<Field> fields;
+	private ArrayList<Field> fields;
 	
 	/**
 	 * Constructor for Map

@@ -55,6 +55,15 @@ public class Shelter extends Field {
 	 */
 	
 	/**
+	 * Stores the given thing.
+	 * @param t - the given thing that will be placed on the field
+	 */
+	public void Accept(Thing t) {
+		System.out.println("Accept");
+		this.things.add(t);
+	}
+	
+	/**
 	 * Gives the field's type back
 	 * @return the type of the field
 	 */

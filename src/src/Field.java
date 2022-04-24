@@ -58,7 +58,6 @@ public class Field implements Serializable{
 	 * @return the things that can be found on the field
 	 */
 	public ArrayList<Thing> GetThings(){
-		System.out.println("GetThings");
 		return things;
 	}
 	

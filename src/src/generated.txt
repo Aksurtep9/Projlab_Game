@@ -1,21 +1,62 @@
 The map has been generated.
 The map has been generated.
 Newround
-Virologist12
+Virologist14
 
 Amount of Nucleotid: 20Equipments: 
 Effects: 
 Learnt Gencodes: 
 Crafted Agents: 
 
-Current: Field:18
+Current: Field:20
 Virologist have been moved
 The map has been generated.
 Newround
-Virologist24
+Virologist26
 
 Amount of Nucleotid: 20Equipments: 
 Effects: 
 Learnt Gencodes: 
 Crafted Agents: 
 
+Current: Field:37
+Virologist have been moved
+Learnt agents: 
+The map has been generated.
+Newround
+Virologist38
+
+Amount of Nucleotid: 20Equipments: 
+Effects: 
+Learnt Gencodes: 
+Crafted Agents: 
+
+Current: Field:54
+Virologist have been moved
+Amount of Nucleotid: 20
+Amount of AminoAcid: 20
+The map has been generated.
+Newround
+Virologist50
+
+Amount of Nucleotid: 20Equipments: 
+Effects: 
+Learnt Gencodes: 
+Crafted Agents: 
+
+Current: Field:71
+Virologist have been moved
+Effects on the Virologist: 
+
+The map has been generated.
+Newround
+Virologist62
+
+Amount of Nucleotid: 20Equipments: 
+Effects: 
+Learnt Gencodes: 
+Crafted Agents: 
+
+Current: Field:88
+Virologist have been moved
+Current: Field:91

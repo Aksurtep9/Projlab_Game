@@ -369,12 +369,12 @@ public class Virologist extends Thing {
 	* @param eqNum the number of the equipment which should be picked up
 	**/
 	public void PickUpEquipment(int eqNum) {
-		List<Thing> things = this.field.GetThings();
+		ArrayList<Thing> thingsList = this.field.GetThings();
 		
-		if(eqNum>things.size())return;
+		if(eqNum>thingsList.size())return;
 		else {
-			if(!things.get(eqNum-1).toString().contains("Virologist")) {
-				Thing equipmentThing = things.get(eqNum-1);
+			if(thingsList.get(eqNum).toString().contains("Equipment")) {
+				Thing equipmentThing = thingsList.get(eqNum);
 				Equipment equipment = (Equipment)equipmentThing;
 				if(equipment != null) {
 					if(equipmentCollection.GetSize() < 3) {

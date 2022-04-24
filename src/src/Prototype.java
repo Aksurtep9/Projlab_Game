@@ -40,7 +40,9 @@ public class Prototype {
 		logEnabled = false;
 		logFile = null;
 		start = true;
-		ags.add(new Chorea()); // 0th item is Chorea.
+		ags.add(new Chorea()); // 0th agent is Chorea.
+		eqs.add(new Gloves()); // 0th equip is Gloves
+		eqs.add(new Gloves()); // 1th equip is Gloves.
 	}
 	
 	
@@ -336,7 +338,7 @@ public class Prototype {
 		int ViroNum = Integer.parseInt(cmd[1]);
 		int FieldNum = Integer.parseInt(cmd[2]);
 		Virologist v = game.getPlayers().get(ViroNum);
-		game.GetMap().fields.get(FieldNum).Accept(v);
+		game.GetMap().GetFields().get(FieldNum).Accept(v);
 	}
 	
 	/**
@@ -346,8 +348,8 @@ public class Prototype {
 	public void PutEq(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
 		int FieldNum = Integer.parseInt(cmd[2]);
-		Equipment e = eqs.get(EqNum-1);
-		game.GetMap().fields.get(FieldNum-1).Accept(e);
+		Equipment e = eqs.get(EqNum);
+		game.GetMap().GetFields().get(FieldNum).Accept(e);
 	}
 	
 	/**
