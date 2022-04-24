@@ -48,7 +48,7 @@ public class Prototype {
 		ags.add(new BearDance()); //3rd agent is BearDance.
 		ags.add(new Amnesia()); //4th agent is Amnesia.
 		eqs.add(new Gloves()); 	// 0th equip is Gloves
-		eqs.add(new Cloak()); 	// 1st equip is Gloves.
+		eqs.add(new Cloak()); 	// 1st equip is Cloak.
 		eqs.add(new Sack());	//2nd equip is Sack.
 		eqs.add(new Axe()); 	//3rd equip is Axe.
 	}

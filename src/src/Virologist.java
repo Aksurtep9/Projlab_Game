@@ -312,8 +312,8 @@ public class Virologist extends Thing {
 			}
 		}
 		Virologist victim;
-		if(vir.size()>=vic) {
-			victim = vir.get(vic-1);
+		if(vir.size()>vic) {
+			victim = vir.get(vic);
 		}else {
 			return;
 		}
@@ -321,16 +321,19 @@ public class Virologist extends Thing {
 		if(paralyzed) {
 			EquipmentCollection eqVictim=victim.GetEquipmentCollection();
 			
-			if(eqNum>victim.GetEquipmentCollection().GetSize()) {
+			if(eqNum>=victim.GetEquipmentCollection().GetSize()) {
 				return;
 			} else {
-				Equipment choosenEquipment = eqVictim.GetEquipments().get(eqNum-1);
+				Equipment choosenEquipment = eqVictim.GetEquipments().get(eqNum);
 				EquipmentCollection eqSelf=this.GetEquipmentCollection();
 				eqSelf.Add(choosenEquipment);
 				eqVictim.Remove(choosenEquipment.GetEffectName());
 				victim.GetEffectCollection().Remove(choosenEquipment.GetEffectName());
 				effectCollection.Add(choosenEquipment,this);
+				Prototype.logger("Stole "+choosenEquipment.GetEffectName()+" from virologist "+vic+" .",Prototype.GetLogFile());
 			}
+		} else {
+			Prototype.logger("Failed, virologist "+vic+" is not paralyzed.",Prototype.GetLogFile());
 		}
 	}
 	
@@ -387,9 +390,13 @@ public class Virologist extends Thing {
 						equipmentCollection.Add(equipment);
 						effectCollection.Add(equipment, this);
 						field.Remove(equipment);
-						Prototype.logger("Hello",Prototype.GetLogFile());
-					}	
-				}
+						Prototype.logger("Picked up "+equipment.GetEffectName(),Prototype.GetLogFile());
+					}else {
+						Prototype.logger("Failed, virologist's itemcollection is full",Prototype.GetLogFile());
+					}
+				}else {Prototype.logger("Failed",Prototype.GetLogFile());}
+			} else {
+				Prototype.logger("Failed",Prototype.GetLogFile());
 			}
 			
 		}
