@@ -72,9 +72,13 @@ public class ProtoTest {
 		Test_2_7();
 		Test_2_8();
 		Test_2_9();
+		Test_2_10();
+		Test_2_11();
 		Test_2_12();
 		Test_2_13();
 		Test_2_14();
+		Test_2_15();
+		Test_2_16();
 		Test_2_17();
 		
 		String result = ProtoTest.TestCalculator.Calculate(generatedOutFile, expectedOutFile);
@@ -253,6 +257,50 @@ public class ProtoTest {
 		proto.Ls(cmd);
 	}
 	
+	public void Test_2_10() {
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddAgEff(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddEq(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.StealEq(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+	}
+	
+	public void Test_2_11() {
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddEq(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Drop(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+	}
+	
 	public void Test_2_12() {
 		String[] cmd = sc.nextLine().split(" ");
 		proto.NewGame(cmd);
@@ -322,6 +370,50 @@ public class ProtoTest {
 		proto.Ls(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.Attack(cmd);
+	}
+	
+	public void Test_2_15() {
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddEq(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddEq(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddEq(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PickUp(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+	}
+	
+	public void Test_2_16() {
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddEq(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.StealEq(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
 	}
 	
 	public void Test_2_17() {

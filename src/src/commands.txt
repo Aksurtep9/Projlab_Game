@@ -110,6 +110,25 @@ anoint 0 3
 ls 0 ef
 ls 1 ef
 newgame mapFile.txt
+putViro 0 6
+putViro 1 6
+addAgEff 2 1
+addEq 2 1
+newround
+ls 0 pl
+ls 1 vi
+ls 1 eq
+stealeq 0 1
+ls 1 eq
+newgame mapFile.txt
+putViro 0 6
+addEq 4 0
+newround
+ls 0 vi
+ls 0 fi
+drop 1
+ls 0 eq
+newgame mapFile.txt
 putViro 0 0
 addAgEff 0 0
 ls 0 ef
@@ -149,6 +168,26 @@ ls 0 vi
 ls 0 fi
 ls 1 ef
 attack 1
+newgame mapFile.txt
+putViro 0 6
+addEq 1 0
+addEq 2 0
+addEq 3 0
+putEq 4 6
+newround
+ls 0 vi
+ls 0 fi
+pickup 4
+ls 0 eq
+newgame mapFile.txt
+put 0 6
+put 1 6
+add 2 1
+newround
+ls 0 vi
+ls 0 fi
+stealeq 2 1
+ls 1 ef
 newgame mapFile.txt
 putViro 0 0
 putAg 1 1
