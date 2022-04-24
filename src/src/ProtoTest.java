@@ -476,10 +476,12 @@ public class ProtoTest {
 				
 				boolean success = true;
 				
-				while(br_gen.readLine()!=null) {
+				while(br_gen.ready()) {
+					
 					line_gen = br_gen.readLine();
 					line_ex = br_ex.readLine();
 					index++;
+					System.out.println("gen: " + line_gen + " ex: " + line_ex);
 					numberOfRows = index;
 					if(line_gen.compareTo(line_ex)==0) {
 						succeededRows = numberOfRows;
