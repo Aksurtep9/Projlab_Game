@@ -29,6 +29,12 @@ move 1
 ls 0 ef
 newgame mapFile.txt
 putViro 0 0
+newround
+ls 0 vi
+craft 2
+ls 0 ag
+newgame mapFile.txt
+putViro 0 0
 putEq 1 2
 newround
 ls 0 vi
@@ -37,6 +43,32 @@ move 2
 ls 0 fi
 pickup 0
 ls 0 eq
+newgame mapFile.txt
+putViro 0 6
+putViro 2 6
+addEq 0 2
+addAgCraft 2 0
+newround
+ls 0 vi
+ls 0 pl
+ls 2 vi
+ls 2 pl
+annoint 2 2
+ls 2 ef
+newgame mapFile.txt
+putViro 0 6
+putViro 2 6
+addEq 4 0
+addAgCraft 3 2
+newround
+ls 0 vi
+ls 0 pl
+newround
+ls 2 vi
+ls 2 pl
+annoint 0 3
+ls 0 ef
+ls 2 ef
 newgame mapFile.txt
 putViro 0 6
 newround
@@ -79,6 +111,16 @@ newround
 newround
 newround
 ls 0 ef
+newgame mapFile.txt
+putViro 0 6
+putViro 2 6
+addEq 3 0
+addAgEff 1 2
+newround
+ls 0 vi
+ls 0 fi
+ls 2 ef
+attack 2
 newgame mapFile.txt
 putViro 0 5
 putViro 1 6
