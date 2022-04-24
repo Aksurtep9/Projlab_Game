@@ -69,9 +69,15 @@ public class ProtoTest {
 		Test_2_4();
 		Test_2_5();
 		Test_2_6();
+		Test_2_7();
+		Test_2_8();
+		Test_2_9();
+		Test_2_12();
+		Test_2_14();
 		
 		String result = ProtoTest.TestCalculator.Calculate(generatedOutFile, expectedOutFile);
 		System.out.println(result);
+		sc.close();
 	}
 	
 	
@@ -140,6 +146,7 @@ public class ProtoTest {
 		cmd = sc.nextLine().split(" ");
 		proto.PutViro(cmd);
 		cmd = sc.nextLine().split(" ");
+		System.out.println(cmd[0]);
 		proto.PutAg(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.NewRound(cmd);
@@ -151,8 +158,6 @@ public class ProtoTest {
 		proto.Move(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
-		
-		sc.close();
 	}
 	
 	public void Test_2_6() {
@@ -247,6 +252,29 @@ public class ProtoTest {
 		proto.Anoint(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+	}
+	
+	public void Test_2_12() {
+		String[] cmd = sc.nextLine().split(" ");
+		proto.NewGame(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.PutViro(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.AddAgEff(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.Ls(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
+		cmd = sc.nextLine().split(" ");
+		proto.NewRound(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
 	}

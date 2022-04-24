@@ -40,6 +40,7 @@ public class Prototype {
 		logEnabled = false;
 		logFile = null;
 		start = true;
+		ags.add(new Chorea()); // 0th item is Chorea.
 	}
 	
 	

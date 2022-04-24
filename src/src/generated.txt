@@ -10,5 +10,12 @@ Crafted Agents:
 
 Current: Field:18
 Virologist have been moved
-Effects on the Virologist: 
+The map has been generated.
+Newround
+Virologist24
+
+Amount of Nucleotid: 20Equipments: 
+Effects: 
+Learnt Gencodes: 
+Crafted Agents: 
 

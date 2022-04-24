@@ -1,10 +1,10 @@
 newgame mapFile.txt
 newgame mapFile.txt
-putViro 1 0
+putViro 1 1
 newround
 ls 1 vi
-ls 0 fi
-move 4
+ls 1 fi
+move 2
 newgame mapFile.txt
 putViro 1 0
 newround
@@ -26,6 +26,16 @@ newround
 ls 1 vi
 ls 1 fi
 move 1
+ls 1 ef
+newgame mapFile.txt
+putViro 1 0
+addAgEff 0 1
+ls 1 ef
+newround
+newround
+newround
+newround
+newround
 ls 1 ef
 newgame mapFile.txt
 putViro 1 0
