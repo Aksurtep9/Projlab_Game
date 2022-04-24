@@ -151,6 +151,7 @@ public class Prototype {
 		if(EqNum>eqs.size()||ViroNum>game.getPlayers().size())return;
 		game.getPlayers().get(ViroNum-1).GetEquipmentCollection().Add(eqs.get(EqNum-1));
 		game.getPlayers().get(ViroNum-1).GetEffectCollection().Add(eqs.get(EqNum-1), game.getPlayers().get(ViroNum-1));
+		logger("Added "+eqs.get(EqNum-1).GetEffectName()+"to Virologist "+ViroNum,logFile);
 	}
 	
 	/**
@@ -162,6 +163,7 @@ public class Prototype {
 		int ViroNum=Integer.parseInt(cmd[2]);
 		if(AgNum>ags.size()||ViroNum>game.getPlayers().size())return;
 		game.getPlayers().get(ViroNum-1).GetCraftedACollection().Add(ags.get(AgNum-1));
+		logger("Added "+ags.get(AgNum-1).GetEffectName()+"to Virologist "+ViroNum,logFile);
 	}
 	
 	/**
@@ -200,6 +202,7 @@ public class Prototype {
 		int EqNum=Integer.parseInt(cmd[1]);
 		
 		game.getCurrentPlayer().DropEquipment(EqNum);
+		logger("Dropped "+game.getCurrentPlayer().GetEquipmentCollection().GetEquipments().get(EqNum-1).toString(),logFile);
 	}
 	
 	/**
@@ -209,8 +212,8 @@ public class Prototype {
 	public void StealEq(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[2]);
 		int ViroNum=Integer.parseInt(cmd[1]);
-		if(EqNum>=eqs.size()||ViroNum>=game.getPlayers().size())return;
-		game.getCurrentPlayer().StealEquipment(game.getPlayers().get(ViroNum-1));
+		
+		game.getCurrentPlayer().StealEquipment(ViroNum,EqNum);
 	}
 	
 	/**

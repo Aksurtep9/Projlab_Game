@@ -292,25 +292,36 @@ public class Virologist extends Thing {
 	}
 	
 	/**
-	* Removes an Equipment from the Virologists (in the parameter) equipmentCollection and adds it to its own (checks if v is paralyzed) 
-	* @param victim - A Virologist on our Field
+	* Removes the selected Equipment from the Virologists (in the parameter) equipmentCollection and adds it to its own (checks if v is paralyzed) 
+	* @param victim - the number of a virologist on a certain Field
+	* @param eqNum - the number of the equipment that should be stolen
 	**/
-	public void StealEquipment(Virologist victim) {
-		System.out.println("StealEquipment");
+	public void StealEquipment(int vic, int eqNum) {
+		ArrayList<Virologist> vir= new ArrayList<Virologist>();
+		for(Thing t : this.field.GetThings())
+		{
+			if(t.toString().contains("Virologist")) {
+				vir.add((Virologist) t);
+			}
+		}
+		Virologist victim;
+		if(vir.size()>=vic) {
+			victim = vir.get(vic-1);
+		}else {
+			return;
+		}
 		boolean paralyzed=victim.GetEffectCollection().Contains("Paralyze");
 		if(paralyzed) {
 			EquipmentCollection eqVictim=victim.GetEquipmentCollection();
-			Skeleton.Interaction.PrintList(eqVictim.GetEquipments());
-			int choosenNumber=Skeleton.Interaction.ListItemNumber(eqVictim.GetEquipments().size());
 			
-			if(choosenNumber==0) {
-				//empty
+			if(eqNum>victim.GetEquipmentCollection().GetSize()) {
+				return;
 			} else {
-				Equipment choosenEquipment = eqVictim.GetEquipments().get(choosenNumber-1);
+				Equipment choosenEquipment = eqVictim.GetEquipments().get(eqNum-1);
 				EquipmentCollection eqSelf=this.GetEquipmentCollection();
 				eqSelf.Add(choosenEquipment);
 				eqVictim.Remove(choosenEquipment.GetEffectName());
-				victim.GetEffectCollection().Remove(choosenEquipment);
+				victim.GetEffectCollection().Remove(choosenEquipment.GetEffectName());
 				effectCollection.Add(choosenEquipment,this);
 			}
 		}
@@ -328,7 +339,7 @@ public class Virologist extends Thing {
 				vir.add((Virologist) t);
 			}
 		}
-		if(vir.size()<=victim)
+		if(vir.size()>=victim)
 		{
 			Virologist vic = vir.get(victim-1);
 			MaterialCollection materialColl2 = vic.GetMaterialCollection();
@@ -341,7 +352,6 @@ public class Virologist extends Thing {
 	* @param eqNum the number of the equipment which should be dropped
 	**/
 	public void DropEquipment(int eqNum) {
-		System.out.println("DropEquipment");
 		List<Equipment> equipments = this.equipmentCollection.GetEquipments();
 		if(eqNum>equipments.size())return;
 		else {
@@ -359,7 +369,6 @@ public class Virologist extends Thing {
 	* @param eqNum the number of the equipment which should be picked up
 	**/
 	public void PickUpEquipment(int eqNum) {
-		System.out.println("PickUpEquipment");
 		List<Thing> things = this.field.GetThings();
 		
 		if(eqNum>things.size())return;
@@ -372,6 +381,7 @@ public class Virologist extends Thing {
 						equipmentCollection.Add(equipment);
 						effectCollection.Add(equipment, this);
 						field.Remove(equipment);
+						//logger()
 					}	
 				}
 			}
