@@ -204,9 +204,9 @@ public class Prototype {
 	 */
 	public void Drop(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
-		
-		game.getCurrentPlayer().DropEquipment(EqNum);
+		if(EqNum>game.getCurrentPlayer().GetEquipmentCollection().GetSize())return;
 		logger("Dropped "+game.getCurrentPlayer().GetEquipmentCollection().GetEquipments().get(EqNum-1).toString(),logFile);
+		game.getCurrentPlayer().DropEquipment(EqNum);
 	}
 	
 	/**
@@ -285,7 +285,7 @@ public class Prototype {
 	 * @param message - the message that needs to logged.
 	 * @param logFile - the file where the log is saved.
 	 */
-	private void logger(String message, File logFile) {
+	public void logger(String message, File logFile) {
 		if(logEnabled) {
 			try {
 				FileWriter fw = new FileWriter(logFile, true);

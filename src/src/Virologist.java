@@ -354,15 +354,12 @@ public class Virologist extends Thing {
 	**/
 	public void DropEquipment(int eqNum) {
 		List<Equipment> equipments = this.equipmentCollection.GetEquipments();
-		if(eqNum>equipments.size())return;
-		else {
-			Equipment choosenEquipment = equipments.get(eqNum-1);
-			field.Accept(choosenEquipment);
-			effectCollection.Remove(choosenEquipment.GetEffectName());
-			equipmentCollection.Remove(choosenEquipment.GetEffectName());
-			
-		}
 		
+		Equipment choosenEquipment = equipments.get(eqNum-1);
+		field.Accept(choosenEquipment);
+		effectCollection.Remove(choosenEquipment.GetEffectName());
+		equipmentCollection.Remove(choosenEquipment.GetEffectName());
+			
 	}
 	
 	/**
