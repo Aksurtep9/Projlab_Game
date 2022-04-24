@@ -64,7 +64,11 @@ public class ProtoTest {
 		
 		//TO-DO: Run tests here
 		Test_2_1();
+		Test_2_2();
+		Test_2_3();
+		Test_2_4();
 		Test_2_5();
+		Test_2_6();
 		
 		String result = ProtoTest.TestCalculator.Calculate(generatedOutFile, expectedOutFile);
 		System.out.println(result);
