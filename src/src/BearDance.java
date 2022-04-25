@@ -14,7 +14,6 @@ public class BearDance extends Agent {
 
 	@Override
 	public String GetEffectName() {
-		
 		return "BearDance";
 	}
 

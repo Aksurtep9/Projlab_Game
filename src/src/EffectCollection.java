@@ -57,6 +57,9 @@ public class EffectCollection implements Serializable {
 	 * @param v Virologist, it is given as parameter to the Affect methods
 	 */
 	void AffectWithAll(Virologist v) {
+		for(int i=0;i<effects.size();i++) {
+			effects.get(i).Affect(v);
+		}
 	}
 	
 	/**

@@ -375,7 +375,7 @@ public class Prototype {
 		if(f.toString().contains("Laboratory")) {
 			Laboratory l = (Laboratory)f;
 			l.SetGenCode(ags.get(AgNum));
-			logger("Field " + LabNum + " got item " + ags.get(AgNum).toString(), logFile);
+			logger("Field " + LabNum + " got item " + ags.get(AgNum).GetEffectName(), logFile);
 		}
 	}
 	

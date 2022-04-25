@@ -485,6 +485,7 @@ public class Virologist extends Thing {
 	* The method is called at the start of each turn and it calls every Effect from the effectCollection
 	**/
 	public void CallAffectWithAll() {
+		this.GetEffectCollection().AffectWithAll(this);
 	}
 	
 	
