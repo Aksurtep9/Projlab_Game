@@ -107,14 +107,14 @@ public class Virologist extends Thing {
 	/**
 	* Shows the available Fields to the Player -> Moves the Virologist.
 	**/
-	public void Move(int field) {
+	public void Move(Field field) {
 		
 		/**Guard for index out of range*/
-		if(this.field.GetNeighbours().size()<=field)
+		if(this.field.GetNeighbours().size() == 0)
 			return;
 		
 		/**The destination field*/
-		Field tomoveto = this.field.GetNeighbours().get(field);
+		Field tomoveto = field;
 		
 		this.field.Remove(this);
 		this.field = tomoveto;
@@ -173,7 +173,7 @@ public class Virologist extends Thing {
 			return;
 		
 		/**The Victim*/
-		Virologist vic = vir.get(victim-1);
+		Virologist vic = vir.get(victim);
 		
 		/**Checking for gloves*/
 		if(vic.GetEquipmentCollection().Contains("Gloves")) {
@@ -234,7 +234,7 @@ public class Virologist extends Thing {
 			return;
 		
 		/**the agent to be crafted*/
-		Agent genCode = genCodeCollection.ListAll().get(index-1);
+		Agent genCode = genCodeCollection.ListAll().get(index);
 		
 		/**Checking whether its possible to craft the agent*/
 		if(genCode.GetCostAmino() <= materialCollection.GetAmino().GetAmount() && genCode.GetCostNucle() <= materialCollection.GetNucle().GetAmount()) {
@@ -351,7 +351,6 @@ public class Virologist extends Thing {
 	**/
 	public void PickUpEquipment(int eqNum) {
 		ArrayList<Thing> thingsList = this.field.GetThings();
-		
 		if(eqNum>thingsList.size()) {
 			Prototype.logger("Failed, virologist's item collection is full", Prototype.GetLogFile());
 			return;
@@ -360,10 +359,11 @@ public class Virologist extends Thing {
 			if(!thingsList.get(eqNum).toString().contains("Virologist")) {
 				Thing equipmentThing = thingsList.get(eqNum);
 				Equipment equipment = (Equipment)equipmentThing;
+				
 				if(equipment != null) {
 					if(equipmentCollection.GetSize() < 3) {
 						equipmentCollection.Add(equipment);
-						Prototype.logger("Picked up "+equipment.toString(), Prototype.GetLogFile());
+						Prototype.logger("Picked up "+equipment.GetEffectName(), Prototype.GetLogFile());
 						effectCollection.Add(equipment, this);
 						field.Remove(equipment);
 					}	

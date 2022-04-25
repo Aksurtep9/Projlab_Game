@@ -360,7 +360,7 @@ public class Prototype {
 		Equipment e = eqs.get(EqNum);
 		Field sh = game.GetMap().GetFields().get(FieldNum);
 		sh.Accept(e);
-		logger("Field " + FieldNum + " got item " + e.GetEffectName(), logFile);
+		logger(sh.toString()  + " got item " + e.GetEffectName(), logFile);
 	}
 	
 	/**
@@ -397,7 +397,7 @@ public class Prototype {
 	 */
 	public void Move(String[] cmd) {
 		int field =Integer.parseInt(cmd[1]);
-		game.getCurrentPlayer().Move(field);
+		game.getCurrentPlayer().Move(game.GetMap().GetFields().get(field));
 		logger("Moved to "+field, logFile);
 	}
 	

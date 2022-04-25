@@ -59,9 +59,8 @@ public class Shelter extends Field {
 	 * @param t - the given thing that will be placed on the field
 	 */
 	public void Accept(Thing t) {
-		
-		if(t != null)
-			this.things.add(t);
+		this.things.add(t);
+		t.SetField(this);
 			
 	}
 	
