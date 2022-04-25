@@ -140,7 +140,7 @@ public class Game implements Serializable{
 			indexCurrent = indexPrevious + 1;
 		
 		currentPlayer = players.get(indexCurrent);
-		System.out.println(indexCurrent);
+		Prototype.logger("Newround", Prototype.GetLogFile());
 	}
 	
 	public Virologist getCurrentPlayer() {
