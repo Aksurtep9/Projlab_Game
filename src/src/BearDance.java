@@ -8,8 +8,7 @@ public class BearDance extends Agent {
 
 	@Override
 	public void Affect(Virologist v) {
-		
-		
+		v.RandomField();
 	}
 
 	@Override

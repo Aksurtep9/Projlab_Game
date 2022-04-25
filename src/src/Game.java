@@ -66,6 +66,7 @@ public class Game implements Serializable{
 			players.add(new Virologist());
 		currentPlayer = players.get(0);
 		random = true;
+		Prototype.logger("The map has been generated.", Prototype.GetLogFile());
 	}
 	
 	/**
@@ -139,6 +140,7 @@ public class Game implements Serializable{
 		else
 			indexCurrent = indexPrevious + 1;
 		
+		currentPlayer.CallAffectWithAll();
 		currentPlayer = players.get(indexCurrent);
 		Prototype.logger("Newround", Prototype.GetLogFile());
 	}

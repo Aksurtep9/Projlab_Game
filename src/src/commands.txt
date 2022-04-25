@@ -105,7 +105,7 @@ newround
 ls 0 vi
 ls 0 fi
 ls 0 ef
-newround
+newround 
 ls 1 ef
 newgame mapFile.txt
 putViro 0 6
@@ -126,7 +126,7 @@ putEq 0 6
 newround
 ls 0 vi
 ls 0 fi
-pickup 0
+pickup 1
 ls 0 eq
 newgame mapFile.txt
 put 0 6

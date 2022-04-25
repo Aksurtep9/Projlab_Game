@@ -348,7 +348,7 @@ public class ProtoTest {
 		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
 		cmd = sc.nextLine().split(" ");
-		proto.Move(cmd);
+		proto.NewRound(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
 	}

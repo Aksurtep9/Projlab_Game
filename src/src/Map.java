@@ -70,6 +70,5 @@ public class Map implements Serializable{
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		Prototype.logger("The map has been generated.", Prototype.GetLogFile());
 	}
 }

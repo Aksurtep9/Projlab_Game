@@ -149,7 +149,6 @@ public class Prototype {
 		String mapPath = cmd[1];
 		File mapFile = new File(wd, mapPath);
 		game.GetMap().GenerateFields(mapFile);
-		logger("The map has been generated.", logFile);
 	}
 	
 	/**
@@ -348,7 +347,7 @@ public class Prototype {
 		int FieldNum = Integer.parseInt(cmd[2]);
 		Virologist v = game.getPlayers().get(ViroNum);
 		game.GetMap().GetFields().get(FieldNum).Accept(v);
-		logger("Virologist " + ViroNum + " has been put to " + FieldNum, logFile);
+		logger("Virologist " + ViroNum + " has been put to " + game.GetMap().GetFields().get(FieldNum).toString(), logFile);
 	}
 	
 	/**
@@ -361,7 +360,7 @@ public class Prototype {
 		Equipment e = eqs.get(EqNum);
 		Field sh = game.GetMap().GetFields().get(FieldNum);
 		sh.Accept(e);
-		logger("Field " + FieldNum + " got item " + e.toString(), logFile);
+		logger("Field " + FieldNum + " got item " + e.GetEffectName(), logFile);
 	}
 	
 	/**
