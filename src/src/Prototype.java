@@ -161,7 +161,7 @@ public class Prototype {
 		if(EqNum>eqs.size()||ViroNum>game.getPlayers().size())return;
 		game.getPlayers().get(ViroNum).GetEquipmentCollection().Add(eqs.get(EqNum));
 		game.getPlayers().get(ViroNum).GetEffectCollection().Add(eqs.get(EqNum), game.getPlayers().get(ViroNum));
-		logger("Added "+eqs.get(EqNum).GetEffectName()+"to Virologist "+ViroNum,logFile);
+		logger("Added "+eqs.get(EqNum).GetEffectName()+" to Virologist "+ViroNum,logFile);
 	}
 	
 	/**
@@ -173,7 +173,7 @@ public class Prototype {
 		int ViroNum=Integer.parseInt(cmd[2]);
 		if(AgNum>ags.size()||ViroNum>game.getPlayers().size())return;
 		game.getPlayers().get(ViroNum).GetCraftedACollection().Add(ags.get(AgNum));
-		logger("Added "+ags.get(AgNum).GetEffectName()+"to Virologist "+ViroNum,logFile);
+		logger("Added "+ags.get(AgNum).GetEffectName()+" to Virologist "+ViroNum,logFile);
 	}
 	
 	/**

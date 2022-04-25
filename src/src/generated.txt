@@ -40,24 +40,25 @@ Virologist 0 has been put to Field
 Field 1 got item Chorea
 Moved to Laboratory
 ls
-Crafted 
+Crafted Chorea
 ls
 The map has been generated.
 Virologist 0 has been put to Field
 Virologist 1 has been put to Field
-Added Cloakto Virologist 1
-Added Choreato Virologist 1
+Added Cloak to Virologist 1
+Added Chorea to Virologist 1
 Newround
 ls
 ls
 ls
 ls
+Anointed Virologist 1 with Chorea
 ls
 The map has been generated.
 Virologist 0 has been put to Field
 Virologist 1 has been put to Field
-Added Cloakto Virologist 0
-Added Amnesiato Virologist 1
+Added Cloak to Virologist 0
+Added Amnesia to Virologist 1
 Newround
 ls
 ls
@@ -70,7 +71,7 @@ The map has been generated.
 Virologist 0 has been put to Field
 Virologist 1 has been put to Field
 Virologist 1 got Paralyze effect 
-Added Sackto Virologist 1
+Added Sack to Virologist 1
 Newround
 ls
 ls
@@ -79,7 +80,7 @@ Stole Sack2 from Virologist 1
 ls
 The map has been generated.
 Virologist 0 has been put to Field
-Added Glovesto Virologist 0
+Added Gloves to Virologist 0
 Newround
 ls
 ls
@@ -108,7 +109,7 @@ ls
 The map has been generated.
 Virologist 0 has been put to Field
 Virologist 1 has been put to Field
-Added Axeto Virologist 0
+Added Axe to Virologist 0
 Virologist 1 got BearDance effect 
 Newround
 ls
@@ -116,9 +117,9 @@ ls
 ls
 The map has been generated.
 Virologist 0 has been put to Field
-Added Cloakto Virologist 0
-Added Sackto Virologist 0
-Added Axeto Virologist 0
+Added Cloak to Virologist 0
+Added Sack to Virologist 0
+Added Axe to Virologist 0
 Field got item Gloves
 Newround
 ls
@@ -128,7 +129,7 @@ ls
 The map has been generated.
 Virologist 0 has been put to Field
 Virologist 1 has been put to Field
-Added Sackto Virologist 1
+Added Sack to Virologist 1
 Newround
 ls
 ls
@@ -142,5 +143,5 @@ Nucleotid is 20
 Moved to Laboratory
 ls
 ls
-Crafted 
+Crafted Protect
 ls
