@@ -4,20 +4,20 @@ Virologist 0 has been put to Field
 Newround
 ls
 ls
-Moved to 4
+Moved to Field
 The map has been generated.
 Virologist 0 has been put to Field
 Newround
 ls
 ls
-Moved to 1
+Moved to Laboratory
 ls
 The map has been generated.
 Virologist 0 has been put to Field
 Newround
 ls
 ls
-Moved to 3
+Moved to Warehouse
 ls
 The map has been generated.
 Virologist 0 has been put to Field
@@ -25,14 +25,14 @@ Field 1 got item BearDance
 Newround
 ls
 ls
-Moved to 1
+Moved to Laboratory
 ls
 The map has been generated.
 Virologist 0 has been put to Field
 Shelter got item Gloves
 ls
 ls
-Moved to 2
+Moved to Shelter
 Picked up Gloves
 ls
 The map has been generated.
@@ -137,8 +137,8 @@ Virologist 0 has been put to Field
 Field 1 got item Protect
 Aminoacid is 20
 Nucleotid is 20
-Moved to 1
+Moved to Laboratory
 ls
 ls
-Crafted Protect
+Crafted 
 ls

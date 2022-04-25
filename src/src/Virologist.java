@@ -228,7 +228,7 @@ public class Virologist extends Thing {
 	* Shows a menu to the Player of the genCodeCollection that he can choose from to craft
 	**/
 	public void Craft(int index) {
-		
+		Prototype.logger("Crafted " /*+ /*genCode.GetEffectName()*/, Prototype.GetLogFile());
 		/**Guard for index out of range*/
 		if(index>=this.GetGenCodeCollection().GetAgents().size())
 			return;
@@ -239,7 +239,7 @@ public class Virologist extends Thing {
 		/**Checking whether its possible to craft the agent*/
 		if(genCode.GetCostAmino() <= materialCollection.GetAmino().GetAmount() && genCode.GetCostNucle() <= materialCollection.GetNucle().GetAmount()) {
 				CreateAgent(genCode);
-				Prototype.logger("Crafted " + genCode.GetEffectName(), Prototype.GetLogFile());
+				
 		}
 	}
 	
