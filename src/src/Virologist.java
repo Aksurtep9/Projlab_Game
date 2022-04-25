@@ -516,7 +516,7 @@ public class Virologist extends Thing {
 	**/
 	@Override
 	public String toString() {
-		return "Virologist"+ID;
+		return "Virologist";//+ID;
 	}
 	
 	/**
@@ -607,13 +607,13 @@ public class Virologist extends Thing {
 		ArrayList<Virologist> vir= new ArrayList<Virologist>();
 		for(Thing t : this.field.GetThings())
 		{
-			if(t.toString().contains("Virologist")) {
+			if(t.toString().equals("Virologist")) {
 				vir.add((Virologist) t);
 			}
 		}
 		
 		/**Guard for index out of range*/
-		if(vir.size()<=victim)
+		if(vir.size() == 0)
 			return;
 		
 		/**The Victim*/
@@ -635,8 +635,8 @@ public class Virologist extends Thing {
 					/**KILL THE BEAR*/
 					KillTheBear(vic);
 					
-					Prototype.logger("Virologist " +victim + " is KIA", Prototype.GetLogFile());
-				
+					Prototype.logger("Virologist "+(victim+1) +" killed", Prototype.GetLogFile());
+					
 					/**Axe goes to the trash*/
 					a.DecreaseUseTime();
 					return;

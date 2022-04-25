@@ -1,293 +1,147 @@
 The map has been generated.
 The map has been generated.
+Virologist 0 has been put to Field
 Newround
-Virologist16
-
-Amount of Nucleotid: 20Equipments: 
-Effects: 
-Learnt Gencodes: 
-Amnesia amino cost:1, nucleo cost:0, expire time:0, effect time:2
-Crafted Agents: 
-
-Current: Field:24
-Virologist have been moved to 2
+ls
+ls
+Moved to Field
 The map has been generated.
+Virologist 0 has been put to Field
 Newround
-Virologist28
-
-Amount of Nucleotid: 20Equipments: 
-Effects: 
-Learnt Gencodes: 
-Crafted Agents: 
-
-Current: Field:52
-0: Virologist28
-1: Laboratory
-2: Shelter
-3: Field:59
-Virologist have been moved to 1
-Learnt agents: 
+ls
+ls
+Moved to Laboratory
+ls
 The map has been generated.
+Virologist 0 has been put to Field
 Newround
-Virologist40
-
-Amount of Nucleotid: 20Equipments: 
-Effects: 
-Learnt Gencodes: 
-Crafted Agents: 
-
-Current: Field:78
-0: Virologist40
-1: Field:71
-2: Laboratory
-3: Warehouse
-Virologist have been moved to 3
-Amount of Nucleotid: 20
-Amount of AminoAcid: 20
+ls
+ls
+Moved to Warehouse
+ls
 The map has been generated.
+Virologist 0 has been put to Field
+Field 1 got item BearDance
 Newround
-Virologist52
-
-Amount of Nucleotid: 20Equipments: 
-Effects: 
-Learnt Gencodes: 
-Crafted Agents: 
-
-Current: Field:90
-0: Virologist52
-1: Laboratory
-2: Shelter
-3: Field:97
-Virologist have been moved to 1
-Effects on the Virologist: 
-
+ls
+ls
+Moved to Laboratory
+ls
 The map has been generated.
-Virologist64
-
-Amount of Nucleotid: 20Equipments: 
-Effects: 
-Learnt Gencodes: 
-Crafted Agents: 
-
-Current: Field:109
-0: Virologist64
-1: Laboratory
-2: Shelter
-3: Field:116
-Virologist have been moved to 1
-Owned equipments: 
-0: Gloves0
+Virologist 0 has been put to Field
+Shelter got item Gloves
+ls
+ls
+Moved to Shelter
+Picked up Gloves
+ls
 The map has been generated.
-Newround
-Virologist76
-
-Amount of Nucleotid: 20Equipments: 
-Effects: 
-Learnt Gencodes: 
-Crafted Agents: 
-
-Crafted agents: 
+Virologist 0 has been put to Field
+Field 1 got item Chorea
+Moved to Laboratory
+ls
+Crafted Chorea
+ls
 The map has been generated.
-Added Glovesto Virologist 2
-Added Choreato Virologist 0
+Virologist 0 has been put to Field
+Virologist 1 has been put to Field
+Added Cloak to Virologist 1
+Added Chorea to Virologist 1
 Newround
-Virologist88
-
-Amount of Nucleotid: 20Equipments: 
-Effects: 
-Learnt Gencodes: 
-Crafted Agents: 
-Chorea amino cost:3, nucleo cost:2, expire time:3, effect time:4
-
-1: Virologist:88
-2: Virologist:94
-Virologist94
-
-Amount of Nucleotid: 20Equipments: 
-Gloves0
-Effects: 
-Gloves
-Learnt Gencodes: 
-Crafted Agents: 
-
-1: Virologist:88
-2: Virologist:94
-Virologist used 2 on 2
-Effects on the Virologist: 
-Gloves
-
+ls
+ls
+ls
+ls
+Anointed Virologist 1 with Chorea
+ls
 The map has been generated.
-Added Glovesto Virologist 1
-Added BearDanceto Virologist 2
+Virologist 0 has been put to Field
+Virologist 1 has been put to Field
+Added Cloak to Virologist 0
+Added Chorea to Virologist 1
 Newround
-Virologist100
-
-Amount of Nucleotid: 20Equipments: 
-Effects: 
-Learnt Gencodes: 
-Crafted Agents: 
-
-1: Virologist:100
-2: Virologist:106
-Newround
-Virologist106
-
-Amount of Nucleotid: 20Equipments: 
-Effects: 
-Learnt Gencodes: 
-Crafted Agents: 
-
-
-1: Virologist:100
-2: Virologist:106
-Virologist used 3 on 0
-Effects on the Virologist: 
-
-Effects on the Virologist: 
-
+ls
+ls
+ls
+ls
+Anointed Virologist 0 with Chorea
+ls
+ls
 The map has been generated.
-Added Sackto Virologist 2
+Virologist 0 has been put to Field
+Virologist 1 has been put to Field
+Virologist 1 got Paralyze effect 
+Added Sack to Virologist 1
 Newround
-1: Virologist:115
-2: Virologist:118
-Virologist118
-
-Amount of Nucleotid: 20Equipments: 
-Sack2
-Effects: 
-Paralyze
-Sack
-Learnt Gencodes: 
-Crafted Agents: 
-
-Owned equipments: 
-0: Sack2
-Owned equipments: 
-0: Sack2
+ls
+ls
+ls
+Stole Sack2 from Virologist 1
+ls
 The map has been generated.
-Added Glovesto Virologist 1
-Newround
-Virologist127
-
-Amount of Nucleotid: 20Equipments: 
-Gloves0
-Effects: 
-Gloves
-Learnt Gencodes: 
-Crafted Agents: 
-
-Current: Field:213
-0: Virologist127
-1: Field:212
+Virologist 0 has been put to Field
+Added Gloves to Virologist 0
+ls
+ls
 Dropped Gloves0
-Owned equipments: 
-0: Gloves0
+ls
 The map has been generated.
-Effects on the Virologist: 
-Chorea
-
+Virologist 0 has been put to Field
+Virologist 0 got Chorea effect 
+ls
 Newround
 Newround
 Newround
 Newround
 Newround
-Effects on the Virologist: 
-Chorea
-
+ls
 The map has been generated.
+Virologist 0 has been put to Field
+Virologist 1 has been put to Field
+Virologist 0 got BearDance effect 
+Virologist 1 got Protect effect 
 Newround
-Virologist148
-
-Amount of Nucleotid: 20Equipments: 
-Effects: 
-Protect
-Learnt Gencodes: 
-Crafted Agents: 
-
-Current: Field:250
-0: Virologist148
-1: Virologist151
-2: Field:251
-Effects on the Virologist: 
-Protect
-
-Virologist have been moved to 0
-Effects on the Virologist: 
-Chorea
-
-The map has been generated.
-Added Axeto Virologist 0
+ls
+ls
+ls
 Newround
-Virologist160
-
-Amount of Nucleotid: 20Equipments: 
-Axe3
-Effects: 
-Axe
-Learnt Gencodes: 
-Crafted Agents: 
-
-Current: Field:270
-0: Virologist160
-1: Virologist166
-2: Field:269
-Effects on the Virologist: 
-Protect
-
-Virologus used axe on 2
+ls
 The map has been generated.
-Added Cloakto Virologist 1
-Added Sackto Virologist 1
-Added Axeto Virologist 1
+Virologist 0 has been put to Field
+Virologist 1 has been put to Field
+Added Axe to Virologist 0
+Virologist 1 got BearDance effect 
+ls
+ls
+ls
+Virologist 1 killed
+The map has been generated.
+Virologist 0 has been put to Field
+Added Cloak to Virologist 0
+Added Sack to Virologist 0
+Added Axe to Virologist 0
+Field got item Gloves
 Newround
-Virologist175
-
-Amount of Nucleotid: 20Equipments: 
-Cloak1
-Sack2
-Axe3
-Effects: 
-Cloak
-Sack
-Axe
-Learnt Gencodes: 
-Crafted Agents: 
-
-Current: Field:289
-0: Virologist175
-1: Gloves0
-2: Field:288
-Owned equipments: 
-0: Cloak1
-0: Sack2
-0: Axe3
+ls
+ls
+Failed, virologist's item collection is full
+ls
 The map has been generated.
-Added Sackto Virologist 2
+Virologist 0 has been put to Field
+Virologist 1 has been put to Field
+Added Sack to Virologist 1
 Newround
-Virologist187
-
-Amount of Nucleotid: 20Equipments: 
-Effects: 
-Learnt Gencodes: 
-Crafted Agents: 
-
-Current: Field:308
-0: Virologist187
-1: Virologist190
-2: Field:307
-Effects on the Virologist: 
-Sack
-
+ls
+ls
+Failed, virologist 1 is not paralyzed 
+ls
 The map has been generated.
-Virologist have been moved to 1
-Virologist196
-
-Amount of Nucleotid: 20Equipments: 
-Effects: 
-Learnt Gencodes: 
-Crafted Agents: 
-
-Current: Shelter
-0: Virologist196
-1: Field:318
-Crafted agents: 
+Virologist 0 has been put to Field
+Field 1 got item Protect
+Aminoacid is 20
+Nucleotid is 20
+Moved to Laboratory
+ls
+ls
+Crafted Protect
+ls

@@ -363,8 +363,6 @@ public class ProtoTest {
 		cmd = sc.nextLine().split(" ");
 		proto.AddAgEff(cmd);
 		cmd = sc.nextLine().split(" ");
-		proto.NewRound(cmd);
-		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);

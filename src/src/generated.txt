@@ -64,7 +64,7 @@ ls
 ls
 ls
 ls
-Anoint fault
+Anointed Virologist 0 with Chorea
 ls
 ls
 The map has been generated.
@@ -111,10 +111,10 @@ Virologist 0 has been put to Field
 Virologist 1 has been put to Field
 Added Axe to Virologist 0
 Virologist 1 got BearDance effect 
-Newround
 ls
 ls
 ls
+Virologist 1 killed
 The map has been generated.
 Virologist 0 has been put to Field
 Added Cloak to Virologist 0
