@@ -50,6 +50,18 @@ public class Field implements Serializable{
 	 */
 	public void Accept(Virologist v) {
 		v.SetField(this);
+		
+		EffectCollection ef = v.GetEffectCollection();
+		boolean contains = ef.Contains("BearDance");
+		if(contains) {
+			ArrayList<Thing> things = GetThings();
+			for(int i = 0; i < things.size(); i++) {
+				if(things.get(i).toString().contains("Virologist")) {
+					v.BearDanceAnoint((Virologist)things.get(i));
+				}
+			}
+		}
+		
 		this.things.add(v);
 	}
 	

@@ -22,8 +22,7 @@ public class Cloak extends Equipment {
 	 * @param v The virologist, who is being affected by an effect.
 	 */
 	public void Affect(Virologist v) {
-		double random = ThreadLocalRandom.current().nextDouble(0,100);
-		if(random>82.3){
+		if(Chance()) {
 			
 		}
 	}

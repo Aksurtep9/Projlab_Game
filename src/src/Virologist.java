@@ -379,9 +379,16 @@ public class Virologist extends Thing {
 	**/
 	public void RandomField() {
 		List<Field> neighbours = field.GetNeighbours();
-		Random rand = new Random();
-		int numberOfSelectedField = rand.nextInt(neighbours.size());
-		Field field = neighbours.get(numberOfSelectedField);
+		Field field = null;
+		if(Game.isRandom()) {
+			Random rand = new Random();
+			int numberOfSelectedField = rand.nextInt(neighbours.size());
+			field = neighbours.get(numberOfSelectedField);
+		}
+		else {
+			field = neighbours.get(0);
+		}
+		
 		
 		MoveTo(field);
 	}

@@ -1,5 +1,7 @@
 package src;
 
+import java.util.ArrayList;
+
 public class BearDance extends Agent {
 	
 	public BearDance() {
@@ -9,6 +11,7 @@ public class BearDance extends Agent {
 	@Override
 	public void Affect(Virologist v) {
 		v.RandomField();
+		
 	}
 
 	@Override

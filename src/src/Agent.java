@@ -88,9 +88,4 @@ public abstract class Agent implements Effect, Serializable
 		return expireTime;
 	}
 	
-	/**
-	 * Deletes the agent.
-	 */
-	public void Delete() {
-	}
 }
