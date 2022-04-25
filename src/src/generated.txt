@@ -6,7 +6,7 @@ Virologist16
 Amount of Nucleotid: 20Equipments: 
 Effects: 
 Learnt Gencodes: 
-Paralyze amino cost:2, nucleo cost:1, expire time:3, effect time:3
+Amnesia amino cost:1, nucleo cost:0, expire time:0, effect time:2
 Crafted Agents: 
 
 Current: Field:24
