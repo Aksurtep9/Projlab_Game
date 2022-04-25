@@ -58,11 +58,10 @@ newgame mapFile.txt
 putViro 0 6
 putViro 1 6
 addEq 1 0
-addAgCraft 4 1
+addAgCraft 0 1
 newround
 ls 0 vi
 ls 0 pl
-newround
 ls 1 vi
 ls 1 pl
 annoint 0 0
@@ -82,7 +81,6 @@ ls 1 eq
 newgame mapFile.txt
 putViro 0 6
 addEq 0 0
-newround
 ls 0 vi
 ls 0 fi
 drop 0

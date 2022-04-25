@@ -32,9 +32,13 @@ public class Cloak extends Equipment {
 	 * @return Whether the Virologist can be interacted with.
 	 */
 	public boolean Chance() {
-		Random rand = new Random();
-		double chance = rand.nextDouble() * 100;
-		return chance >= 82.3;
+		if(Game.isRandom()) {
+			Random rand = new Random();
+			double chance = rand.nextDouble() * 100;
+			return chance >= 82.3;
+		}
+		return true;
+		
 	}
 	
 	/**

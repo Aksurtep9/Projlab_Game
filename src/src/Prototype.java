@@ -215,7 +215,7 @@ public class Prototype {
 	public void Drop(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
 		if(EqNum>game.getCurrentPlayer().GetEquipmentCollection().GetSize())return;
-		//game.getCurrentPlayer().DropEquipment(EqNum);
+		game.getCurrentPlayer().DropEquipment(EqNum);
 	}
 	
 	/**

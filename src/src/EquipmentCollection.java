@@ -63,7 +63,7 @@ public class EquipmentCollection implements Serializable{
 	 * @return true, if the equipment was found in the collection
 	 */
 	public boolean Contains(String s) {
-		for(int i=0; i< equipments.size(); i++) {
+		for(int i=0; i< equipments.size(); ++i) {
 			if(equipments.get(i).GetEffectName().equals(s))
 				return true;
 		}

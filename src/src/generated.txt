@@ -58,13 +58,13 @@ The map has been generated.
 Virologist 0 has been put to Field
 Virologist 1 has been put to Field
 Added Cloak to Virologist 0
-Added Amnesia to Virologist 1
+Added Chorea to Virologist 1
 Newround
 ls
 ls
-Newround
 ls
 ls
+Anoint fault
 ls
 ls
 The map has been generated.
@@ -81,9 +81,9 @@ ls
 The map has been generated.
 Virologist 0 has been put to Field
 Added Gloves to Virologist 0
-Newround
 ls
 ls
+Dropped Gloves0
 ls
 The map has been generated.
 Virologist 0 has been put to Field

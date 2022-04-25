@@ -195,11 +195,11 @@ public class Virologist extends Thing {
 				}
 			}
 		}
-		else {
+		else if(vic.GetEquipmentCollection().Contains("Cloak")){
 			/**Checking for cloak*/
 			if(vic.GetEquipmentCollection().Contains("Cloak")) {
 				Cloak c=null;
-				for(Equipment e: this.GetEquipmentCollection().GetEquipments()) {
+				for(Equipment e: vic.GetEquipmentCollection().GetEquipments()) {
 					if(e.GetEffectName().equals("Cloak")) {
 						c=(Cloak) e;
 					}
@@ -208,7 +208,9 @@ public class Virologist extends Thing {
 				if(!c.Chance()){	
 					vic.GetEffectCollection().Add((Effect)a,vic);
 					Prototype.logger("Anointed Virologist "+victim+" with "+a.GetEffectName(), Prototype.GetLogFile());
-				}		
+				}else {
+					Prototype.logger("Anoint fault", Prototype.GetLogFile());
+				}
 			}
 			else {
 				vic.GetEffectCollection().Add((Effect)a,vic);
@@ -216,6 +218,8 @@ public class Virologist extends Thing {
 			}
 			/**Removing the used agent*/
 			craftedAgentCollection.Remove(a.GetEffectName());
+		}else {
+			Prototype.logger("Anoint fault", Prototype.GetLogFile());
 		}
 	}
 	

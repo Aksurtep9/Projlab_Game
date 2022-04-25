@@ -250,8 +250,6 @@ public class ProtoTest {
 		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
 		cmd = sc.nextLine().split(" ");
-		proto.NewRound(cmd);
-		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
@@ -295,8 +293,6 @@ public class ProtoTest {
 		proto.PutViro(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.AddEq(cmd);
-		cmd = sc.nextLine().split(" ");
-		proto.NewRound(cmd);
 		cmd = sc.nextLine().split(" ");
 		proto.Ls(cmd);
 		cmd = sc.nextLine().split(" ");
