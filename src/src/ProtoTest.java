@@ -51,7 +51,7 @@ public class ProtoTest {
 		
 		String[] setLog = {"log", "on", "generated.txt"};
 		proto.Log(setLog);
-		generatedOutFile = proto.GetLogFile();
+		generatedOutFile = Prototype.GetLogFile();
 	}
 	
 	
@@ -481,7 +481,6 @@ public class ProtoTest {
 					line_gen = br_gen.readLine();
 					line_ex = br_ex.readLine();
 					index++;
-					//System.out.println("gen: " + line_gen + " ex: " + line_ex);
 					numberOfRows = index;
 					if(line_gen.compareTo(line_ex)==0) {
 						succeededRows = numberOfRows;

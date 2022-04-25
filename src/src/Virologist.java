@@ -129,30 +129,7 @@ public class Virologist extends Thing {
 		whereToMove.Accept(this);
 	}
 	
-	/*
-	/**
-	* Starts the interaction with the Virologist on the same Field, opens the menu
-	**/
-	/*
-	public void Encounter() {
-		System.out.println("Encounter");
-		List<Thing> things = this.field.GetThings();
-		//Virologist enemy = null;
-		
-		if(choosenNumber == 0) {
-			//empty
-		}
-		else {
-			Thing enemyThing = things.get(choosenNumber-1);
-			if(enemyThing.toString().contains("Virologist")) {
-				Virologist enemy = (Virologist)enemyThing;
-				Touch(enemy);
-			}
-			
-		}
-		
-	}
-	*/
+	
 	/**
 	* If the Virologist in the parameter is touchable, it shows the interaction menu to the Player
 	* @param v - A Virologist on our Field
@@ -498,7 +475,6 @@ public class Virologist extends Thing {
 	* The method is called at the start of each turn and it calls every Effect from the effectCollection
 	**/
 	public void CallAffectWithAll() {
-		System.out.println("CallAffectWithAll");
 	}
 	
 	

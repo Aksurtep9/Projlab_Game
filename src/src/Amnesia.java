@@ -24,7 +24,6 @@ public class Amnesia extends Agent
 	**/
 	public void Affect(Virologist v)
 	{
-		System.out.println("Affect");
 		v.DeleteLearntAgent();
 	}
 	

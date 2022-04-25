@@ -48,9 +48,7 @@ public abstract class Agent implements Effect, Serializable
 	 * @param v Virologist that has the crafted agent
 	 */
 	public void DecreaseExpireTime(Virologist v) {
-		System.out.println("DescreaseExpireTime");
 		expireTime--;
-		System.out.println("DecreaseEffectTime");
 	}
 	
 	/**
@@ -72,7 +70,6 @@ public abstract class Agent implements Effect, Serializable
 	 * @return the amount of aminoacid required
 	 */
 	public int GetCostAmino() {
-		System.out.println("GetCostAmino");
 		return costAmino;
 	}
 	
@@ -81,7 +78,6 @@ public abstract class Agent implements Effect, Serializable
 	 * @return the amount of nucleotid required
 	 */
 	public int GetCostNucle() {
-		System.out.println("GetCostNucle");
 		return costNucle;
 	}
 	
@@ -90,7 +86,6 @@ public abstract class Agent implements Effect, Serializable
 	 * @return the number of rounds
 	 */
 	public int GetExpireTime() {
-		System.out.println("GetExpireTime");
 		return expireTime;
 	}
 	
@@ -98,6 +93,5 @@ public abstract class Agent implements Effect, Serializable
 	 * Deletes the agent.
 	 */
 	public void Delete() {
-		System.out.println("Delete");
 	}
 }

@@ -106,7 +106,6 @@ public class Game implements Serializable{
 	 * It ends the game and declares the winner.
 	 */
 	static void EndGame() {
-		System.out.println("EndGame");
 		
 	}
 	
