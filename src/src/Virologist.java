@@ -527,9 +527,10 @@ public class Virologist extends Thing {
 		String stat="";
 		stat+=this.toString();
 		stat+=System.lineSeparator();
-		stat+=this.GetMaterialCollection().GetAmino();
+		stat+=this.GetMaterialCollection().GetAmino().ToString();
 		stat+=System.lineSeparator();
 		stat+=this.GetMaterialCollection().GetNucle().ToString();
+		stat+=System.lineSeparator();
 		stat+="Equipments: "+System.lineSeparator();
 		stat+=this.GetEquipmentCollection().toString();
 		stat+="Effects: "+System.lineSeparator();
@@ -627,8 +628,6 @@ public class Virologist extends Thing {
 					axes.add((Axe) e);
 				}
 			}
-			
-			
 			for(Axe a : axes)
 			{
 				if(a.GetUseTime()>0)

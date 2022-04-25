@@ -62,6 +62,9 @@ public class Prototype {
 		Initialize();
 	}
 	
+	public static void SetlogFile(String file) {
+		logFile= new File(file);
+	}
 	
 	
 	/**
