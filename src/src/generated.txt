@@ -37,8 +37,10 @@ Picked up Gloves
 ls
 The map has been generated.
 Virologist 0 has been put to Field
-Newround
+Field 1 got item Chorea
+Moved to Laboratory
 ls
+Crafted 
 ls
 The map has been generated.
 Virologist 0 has been put to Field

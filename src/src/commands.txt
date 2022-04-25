@@ -36,8 +36,9 @@ move 2
 pickup 0
 ls 0 eq
 newgame mapFile.txt
-putViro 0 6
-newround
+putViro 0 0
+putAg 0 1
+move 1
 ls 0 vi
 craft 0
 ls 0 ag
