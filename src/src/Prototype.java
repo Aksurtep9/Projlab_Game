@@ -400,7 +400,7 @@ public class Prototype {
 	 */
 	public void Move(String[] cmd) {
 		int field =Integer.parseInt(cmd[1]);
-		game.getCurrentPlayer().Move(game.GetMap().GetFields().get(field));
+		game.getCurrentPlayer().Move(game.getCurrentPlayer().field.GetNeighbours().get(field));
 		logger("Moved to "+ game.GetMap().GetFields().get(field).toString(), logFile);
 	}
 	
