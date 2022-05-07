@@ -18,7 +18,7 @@ import java.util.Scanner;
  */
 public class ProtoTest {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		ProtoTest test = new ProtoTest();
 		test.Initialize();
 		test.Run();
@@ -36,7 +36,7 @@ public class ProtoTest {
 	
 	private static File wd;
 	
-	private static Scanner sc;
+	private Scanner sc;
 	
 	/**
 	 * Initializes the files' path
@@ -57,13 +57,11 @@ public class ProtoTest {
 	
 	/**
 	 * Runs the tests and gives the results back.
+	 * @throws FileNotFoundException 
 	 */
-	public void Run() {
-		
-		try {
+	public void Run() throws FileNotFoundException {
+		if(commandsFile.exists()) {
 			sc = new Scanner(commandsFile);
-		} catch (FileNotFoundException e) {
-			System.err.println("The file is not found.");
 		}
 		
 		//TO-DO: Run tests here
@@ -95,7 +93,8 @@ public class ProtoTest {
 	// ------ IDE -----
 	//----------------
 	//public void Method() { ... Tesztet tartalmazó algoritmust ... }
-	public void Test_2_1() {
+	public void Test_2_1() throws FileNotFoundException {
+		sc = new Scanner(commandsFile);
 		String[] cmd = sc.nextLine().split(" ");
 		proto.NewGame(cmd);
 	}
