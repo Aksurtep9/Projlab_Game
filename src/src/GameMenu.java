@@ -1,8 +1,9 @@
 package src;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
-public class GameMenu {
+public class GameMenu extends JFrame {
 	
 	JButton btCraft;
 	JButton btAnoint;
