@@ -1,5 +1,10 @@
 package src;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -13,23 +18,36 @@ public class MainMenu extends JFrame{
 	
 	private static final long serialVersionUID = -7953672467585166161L;
 	
-	private JFrame frame;
+	//private JFrame frame;
 	private JPanel logo;
 	private MainSubMenu subMenuFrame;
 	private int[] playerNum;
 	private JComboBox numChooser;
 	private JButton startBtn;
-	private JLabel lbCnt;
+	private JLabel plCnt;
 	
 	public MainMenu() {
 		
 		/**The constructor of frame*/
-		frame = new JFrame();
+		//this = new JFrame();
 		
-		/**The size of the frame*/
-		frame.setSize(450, 475);
+		logo=new JPanel();
+		this.add(logo);
 		
-		frame.add(logo);
+		Toolkit tk=Toolkit.getDefaultToolkit(); 			//Initializing the Toolkit class.
+		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
+		this.setSize(screenSize.width,screenSize.height); 	//Set the width and height of the JFrame.
 		
+		numChooser=new JComboBox();
+		this.add(numChooser);
+		this.add(startBtn);
+		this.add(plCnt);
+	}
+	
+	final class ComboBoxListener implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int selected=(int)numChooser.getSelectedItem();
+			subMenuFrame=new MainSubMenu(selected);
+		}
 	}
 }
