@@ -11,6 +11,8 @@ import javax.swing.JPanel;
  */
 public class MainMenu extends JFrame{
 	
+	private static final long serialVersionUID = -7953672467585166161L;
+	
 	private JFrame frame;
 	private JPanel logo;
 	private MainSubMenu subMenuFrame;
@@ -20,6 +22,14 @@ public class MainMenu extends JFrame{
 	private JLabel lbCnt;
 	
 	public MainMenu() {
+		
+		/**The constructor of frame*/
+		frame = new JFrame();
+		
+		/**The size of the frame*/
+		frame.setSize(450, 475);
+		
+		frame.add(logo);
 		
 	}
 }
