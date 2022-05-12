@@ -44,6 +44,7 @@ public class MainMenu extends JFrame{
 		this.add(startBtn);
 		plCnt= new JLabel();
 		this.add(plCnt);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	final class ComboBoxListener implements ActionListener{
