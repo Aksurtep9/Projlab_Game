@@ -1,6 +1,8 @@
 package src;
 
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,8 +33,11 @@ public class MainMenu extends JFrame{
 		/**The constructor of frame*/
 		//this = new JFrame();
 		
-		logo=new JPanel();
-		this.add(logo);
+		
+		JPanel mainp=new JPanel(new GridBagLayout());//holding the whole 
+		GridBagConstraints c = new GridBagConstraints();
+		this.add(mainp);
+		
 		
 		Toolkit tk=Toolkit.getDefaultToolkit(); 			//Initializing the Toolkit class.
 		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
@@ -40,16 +45,58 @@ public class MainMenu extends JFrame{
 		
 		playerNum=new String[] {"3","4","5"};
 		
+		
+		
+		
+		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		logo=new JPanel();
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridwidth = 3;
+		c.gridx = 0;
+		c.gridy = 0;
+		mainp.add(logo, c);
+		
+		
+		plCnt= new JLabel("Number of players:");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.3;
+		//c.gridwidth = 1;
+		c.gridx = 2;
+		c.gridy = 1;
+		mainp.add(plCnt, c);
+		
+		
+		
+		startBtn=new JButton("START");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridwidth = 1;
+		//c.weightx = 0.2;
+		c.gridx = 0;
+		c.gridy = 2;
+		mainp.add(startBtn, c);
+		
+		JPanel whitespace=new JPanel();
+		c.gridwidth = 1;
+		//c.weightx = 0.2;
+		c.gridx = 1;
+		c.gridy = 2;
+		mainp.add(whitespace, c);
+		
 		numChooser=new JComboBox(playerNum);
 		numChooser.addActionListener(new ComboBoxListener());
 		numChooser.setVisible(true);
-		this.add(numChooser);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridwidth = 1;
+		//c.weightx = 0.5;
+		c.gridx = 2;
+		c.gridy = 2;
+		mainp.add(numChooser, c);
 		
-		startBtn=new JButton("START");
-		this.add(startBtn);
-		plCnt= new JLabel("Number of players:");
-		this.add(plCnt);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		
 	}
 	
 	final class ComboBoxListener implements ActionListener{
