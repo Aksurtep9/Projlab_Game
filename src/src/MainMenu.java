@@ -72,6 +72,7 @@ public class MainMenu extends JFrame{
 		startBtn.addActionListener(new ActionListener() {	 
 			public void actionPerformed(ActionEvent e) {
 				subMenuFrame=new MainSubMenu(playercount);
+				subMenuFrame.setSize(300,400);
 		        subMenuFrame.setVisible(true);
 			}
 		});
