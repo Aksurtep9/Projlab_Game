@@ -38,7 +38,7 @@ public class MainSubMenu extends JFrame{
 		Virologists=new JLabel[playerCnt];
 		ViroNames=new JTextField[playerCnt];
 		this.playerCnt=playerCnt;
-		GameStartBtn=new JButton();
+		GameStartBtn=new JButton("START GAME");
 		this.setSize(800,800);
 		
 		
@@ -47,6 +47,7 @@ public class MainSubMenu extends JFrame{
 		Dimension posTextField=new Dimension(100,500);	//ezek a poziciok
 		for(int i=0;i<playerCnt;i++) {
 			Virologists[i].setSize(size);
+			Virologists[i].setText("Virologist "+i);
 			ViroNames[i].setSize(size);
 			this.add(Virologists[i],posLabel);
 			this.add(ViroNames[i],posTextField);

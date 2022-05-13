@@ -21,7 +21,7 @@ public class MainMenu extends JFrame{
 	//private JFrame frame;
 	private JPanel logo;
 	private MainSubMenu subMenuFrame;
-	private int[] playerNum;
+	private String[] playerNum;
 	private JComboBox numChooser;
 	private JButton startBtn;
 	private JLabel plCnt;
@@ -38,11 +38,16 @@ public class MainMenu extends JFrame{
 		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
 		this.setSize(screenSize.width,screenSize.height); 	//Set the width and height of the JFrame.
 		
-		numChooser=new JComboBox();
+		playerNum=new String[] {"3","4","5"};
+		
+		numChooser=new JComboBox(playerNum);
+		numChooser.addActionListener(new ComboBoxListener());
+		numChooser.setVisible(true);
 		this.add(numChooser);
-		startBtn=new JButton();
+		
+		startBtn=new JButton("START");
 		this.add(startBtn);
-		plCnt= new JLabel();
+		plCnt= new JLabel("Number of players:");
 		this.add(plCnt);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
