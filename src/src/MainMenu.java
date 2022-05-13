@@ -67,7 +67,7 @@ public class MainMenu extends JFrame{
 		
 		
 		startBtn=new JButton("START");
-		startBtn.addActionListener((ActionListener) this);
+		startBtn.addActionListener(this);
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridwidth = 1;
 		//c.weightx = 0.2;
