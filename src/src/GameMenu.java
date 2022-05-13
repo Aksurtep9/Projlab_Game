@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -35,13 +37,61 @@ public class GameMenu extends JFrame {
 		
 		
 		 btCraft=new JButton("Craft");
+		 btCraft.addActionListener(new ActionListener() {	 
+			public void actionPerformed(ActionEvent e) {
+				CallCraft();
+			}
+		 });
+		 
 		 btAnoint = new JButton("Anoint");
+		 btAnoint.addActionListener(new ActionListener() {	 
+				public void actionPerformed(ActionEvent e) {
+					CallAnoint();
+				}
+			 });
+		 
 		 btPickUp = new JButton("Pick Up");
+		 btPickUp.addActionListener(new ActionListener() {	 
+				public void actionPerformed(ActionEvent e) {
+					CallPick();
+				}
+			 });
+		 
 		 btDrop = new JButton("Drop");
+		 btDrop.addActionListener(new ActionListener() {	 
+				public void actionPerformed(ActionEvent e) {
+					CallDrop();
+				}
+			 });
+		 
 		 btStealEq = new JButton("Steal Equipment");
+		 btStealEq.addActionListener(new ActionListener() {	 
+				public void actionPerformed(ActionEvent e) {
+					CallStealEq();
+				}
+			 });
+		 
 		 btStealMat = new JButton("Steal Material");
+		 btStealMat.addActionListener(new ActionListener() {	 
+				public void actionPerformed(ActionEvent e) {
+					CallStealMat();
+				}
+			 });
+		 
 		 btAttack= new JButton("Attack");
+		 btAttack.addActionListener(new ActionListener() {	 
+				public void actionPerformed(ActionEvent e) {
+					CallAttack();
+				}
+			 });
+		 
 		 btPass= new JButton("Pass");
+		 btPass.addActionListener(new ActionListener() {	 
+				public void actionPerformed(ActionEvent e) {
+					CallPass();
+				}
+			 });
+		 
 		 pane2.add(btCraft);
 		 pane2.add(btAnoint);
 		 pane2.add(btPickUp);
@@ -60,31 +110,31 @@ public class GameMenu extends JFrame {
 	}
 	
 	public void CallCraft() {
-		
+		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"gencodecollection" , this);
 	}
 
 	public void CallAnoint() {
-		
+		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"virologists" , this);
 	}
 	
 	public void CallPick() {
-		
+		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"equipment" , this);
 	}
 	
 	public void CallStealEq() {
-		
+		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"virologists" , this);
 	}
 	
 	public void CallDrop() {
-		
+		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"equipment" , this);
 	}
 	
 	public void CallStealMat() {
-		
+		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"virologists" , this);
 	}
 	
 	public void CallAttack() {
-		
+		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"virologists" , this);
 	}
 	
 	public void CallPass() {
@@ -102,4 +152,5 @@ public class GameMenu extends JFrame {
 	public void SetNewPanelField() {
 		
 	}
+
 }

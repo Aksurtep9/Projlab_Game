@@ -37,7 +37,7 @@ public class MainSubMenu extends JFrame{
 			gameFrame=new GameMenu(new Game(playerCnt));
 			gameFrame.setSize(w,h);
 			gameFrame.setVisible(true);
-			this.setVisible(false);
+			this.dispose();
 		}
 	}
 	
@@ -49,7 +49,7 @@ public class MainSubMenu extends JFrame{
 		GameStartBtn.addActionListener(new GameActionListener());
 		this.setSize(800,800);
 		
-		JPanel submainpanel=new JPanel(new GridLayout(playerCnt+1,2,50,50));
+		JPanel submainpanel=new JPanel(new GridLayout(playerCnt+1,2,50,50));//letrehozunk egy uj gridlayoutot...
 		
 		Dimension size=new Dimension(200,25);			//ez  a merete a textfieldeknek + labeleknek
 		
