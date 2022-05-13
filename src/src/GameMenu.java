@@ -36,7 +36,7 @@ public class GameMenu extends JFrame {
 		JPanel pane2 = new JPanel(new FlowLayout());
 		
 		
-		 btCraft=new JButton("Craft");
+		 btCraft=new JButton("Craft");						//if the button is pressed, the according function gets called
 		 btCraft.addActionListener(new ActionListener() {	 
 			public void actionPerformed(ActionEvent e) {
 				CallCraft();
@@ -92,7 +92,7 @@ public class GameMenu extends JFrame {
 				}
 			 });
 		 
-		 pane2.add(btCraft);
+		 pane2.add(btCraft); //adding the buttons which are responsible for controlling the game to the panel
 		 pane2.add(btAnoint);
 		 pane2.add(btPickUp);
 		 pane2.add(btDrop);

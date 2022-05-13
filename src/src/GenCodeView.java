@@ -8,6 +8,10 @@ public class GenCodeView extends View{
 	
 	private Graphics view;
 
+	/**
+	 * Draws a triangle
+	 * @param p - the left corner of the triangle
+	 */
 	public void Draw(Point p) {
 		// TODO Auto-generated method stub
 		view.setColor(Color.green);

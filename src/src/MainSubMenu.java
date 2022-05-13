@@ -49,9 +49,9 @@ public class MainSubMenu extends JFrame{
 		GameStartBtn.addActionListener(new GameActionListener());
 		this.setSize(800,800);
 		
-		JPanel submainpanel=new JPanel(new GridLayout(playerCnt+1,2,50,50));//letrehozunk egy uj gridlayoutot...
+		JPanel submainpanel=new JPanel(new GridLayout(playerCnt+1,2,50,50));
 		
-		Dimension size=new Dimension(200,25);			//ez  a merete a textfieldeknek + labeleknek
+		Dimension size=new Dimension(200,25);			//this is the default(minimum) size of all the JTextFields and JLabels
 		
 		for(int i=0;i<playerCnt;i++) {
 			Virologists[i]=new JLabel("Virologist "+(i+1));
