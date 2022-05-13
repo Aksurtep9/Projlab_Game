@@ -59,7 +59,7 @@ public class GameMenu extends JFrame {
 	}
 	
 	public Virologist GetCurrentPlayer() {
-		
+		return currentPlayer;
 	}
 	
 	public void SetNewPanelField() {

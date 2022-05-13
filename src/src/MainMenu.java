@@ -33,9 +33,7 @@ public class MainMenu extends JFrame{
 		
 		/**The constructor of frame*/
 		//this = new JFrame();
-		
-		
-		JPanel mainp=new JPanel(new GridBagLayout());//holding the whole 
+		JPanel mainp=new JPanel(new GridBagLayout());//holding the whole panel
 		GridBagConstraints c = new GridBagConstraints();
 		this.add(mainp);
 		
@@ -44,10 +42,13 @@ public class MainMenu extends JFrame{
 		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
 		this.setSize(500,500); 	//Set the width and height of the JFrame.
 		
+		/**The content of the JCombobox*/
 		playerNum=new String[] {"3","4","5"};
 		
+		/**Close*/
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		/**Assigning the button, panel and label to the layout */
 		logo=new JPanel();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridwidth = 3;
@@ -67,6 +68,7 @@ public class MainMenu extends JFrame{
 		
 		
 		startBtn=new JButton("START");
+		/**The listener which starts the naming process*/
 		startBtn.addActionListener(new ActionListener() {	 
 			public void actionPerformed(ActionEvent e) {
 				subMenuFrame=new MainSubMenu(playercount);
@@ -98,15 +100,12 @@ public class MainMenu extends JFrame{
 		mainp.add(numChooser, c);		
 	}
 	
+	/**
+	 * The list where the user can choose the number of players going to be playing the game
+	 */
 	final class ComboBoxListener implements ActionListener{
 		public void actionPerformed(ActionEvent ae){
 			 playercount=Integer.parseInt((String)numChooser.getSelectedItem());
 		}
 	}
-	
-	public void actionPerformed(ActionEvent e) {
-        subMenuFrame.setVisible(true);
-	}
-
-	
 }
