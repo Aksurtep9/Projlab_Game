@@ -20,6 +20,7 @@ public class SelectThingsMenu extends JFrame{
 	
 	
 	SelectThingsMenu(Thing t, String info, JFrame p){
+		previous=p;
 		
 	}
 

@@ -7,10 +7,10 @@ import javax.swing.JPanel;
 
 public class Canvas {
 	
-	JPanel panel;
-	int verticesNum;
-	Graphics shape;
-	ArrayList<View> thingsView;
+	protected JPanel panel;
+	protected int verticesNum;
+	protected Graphics shape;
+	protected ArrayList<View> thingsView;
 	
 	public void Draw(int vertices) {
 		
