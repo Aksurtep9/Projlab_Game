@@ -10,6 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MainSubMenu extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel[] Virologists;
 	private JTextField[] ViroNames;
 	private JButton GameStartBtn;

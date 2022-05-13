@@ -27,6 +27,7 @@ public class MainMenu extends JFrame{
 	private JComboBox numChooser;
 	private JButton startBtn;
 	private JLabel plCnt;
+	private int pleyercount;
 	
 	public MainMenu() {
 		
@@ -41,13 +42,9 @@ public class MainMenu extends JFrame{
 		
 		Toolkit tk=Toolkit.getDefaultToolkit(); 			//Initializing the Toolkit class.
 		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
-		this.setSize(screenSize.width,screenSize.height); 	//Set the width and height of the JFrame.
+		this.setSize(500,500); 	//Set the width and height of the JFrame.
 		
 		playerNum=new String[] {"3","4","5"};
-		
-		
-		
-		
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -70,6 +67,7 @@ public class MainMenu extends JFrame{
 		
 		
 		startBtn=new JButton("START");
+		startBtn.addActionListener((ActionListener) this);
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridwidth = 1;
 		//c.weightx = 0.2;
@@ -92,17 +90,19 @@ public class MainMenu extends JFrame{
 		//c.weightx = 0.5;
 		c.gridx = 2;
 		c.gridy = 2;
-		mainp.add(numChooser, c);
-		
-		
-		
-		
+		mainp.add(numChooser, c);		
 	}
 	
 	final class ComboBoxListener implements ActionListener{
 		public void actionPerformed(ActionEvent ae){
-			int selected=(int)numChooser.getSelectedItem();
+			int selected=Integer.parseInt((String)numChooser.getSelectedItem());
 			subMenuFrame=new MainSubMenu(selected);
 		}
 	}
+	
+	public void actionPerformed(ActionEvent e) {
+        subMenuFrame.setVisible(true);
+	}
+
+	
 }
