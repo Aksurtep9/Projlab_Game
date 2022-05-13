@@ -27,7 +27,7 @@ public class MainMenu extends JFrame{
 	private JComboBox numChooser;
 	private JButton startBtn;
 	private JLabel plCnt;
-	private int pleyercount;
+	private int playercount=3;
 	
 	public MainMenu() {
 		
@@ -67,7 +67,12 @@ public class MainMenu extends JFrame{
 		
 		
 		startBtn=new JButton("START");
-		startBtn.addActionListener(this);
+		startBtn.addActionListener(new ActionListener() {	 
+			public void actionPerformed(ActionEvent e) {
+				subMenuFrame=new MainSubMenu(playercount);
+		        subMenuFrame.setVisible(true);
+			}
+		});
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridwidth = 1;
 		//c.weightx = 0.2;
@@ -95,8 +100,7 @@ public class MainMenu extends JFrame{
 	
 	final class ComboBoxListener implements ActionListener{
 		public void actionPerformed(ActionEvent ae){
-			int selected=Integer.parseInt((String)numChooser.getSelectedItem());
-			subMenuFrame=new MainSubMenu(selected);
+			 playercount=Integer.parseInt((String)numChooser.getSelectedItem());
 		}
 	}
 	

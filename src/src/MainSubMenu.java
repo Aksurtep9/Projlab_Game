@@ -18,7 +18,7 @@ public class MainSubMenu extends JFrame{
 	private JTextField[] ViroNames;
 	private JButton GameStartBtn;
 	private GameMenu gameFrame;
-	private int playerCnt=0;
+	private int playerCnt=3;
 	
 	public void GameStartBtnPress(int playerCnt) {
 		boolean allTextFieldsFull=true;
@@ -44,24 +44,27 @@ public class MainSubMenu extends JFrame{
 		this.playerCnt=playerCnt;
 		GameStartBtn=new JButton("START GAME");
 		this.setSize(800,800);
+		JPanel submainpanel=new JPanel();
+		this.add(submainpanel);
 		
 		
 		Dimension size=new Dimension(100,200);			//ez  a merete a textfieldeknek + labeleknek
 		Dimension posLabel=new Dimension(100,200);
 		Dimension posTextField=new Dimension(100,500);	//ezek a poziciok
 		for(int i=0;i<playerCnt;i++) {
+			Virologists[i]=new JLabel("Virologist "+i);
 			Virologists[i].setSize(size);
-			Virologists[i].setText("Virologist "+i);
+			ViroNames[i]=new JTextField();
 			ViroNames[i].setSize(size);
-			this.add(Virologists[i],posLabel);
-			this.add(ViroNames[i],posTextField);
+			submainpanel.add(Virologists[i],posLabel);
+			submainpanel.add(ViroNames[i],posTextField);
 			posLabel.height+=100;
 			posTextField.height+=100;
 			Virologists[i].setVisible(true);
 			ViroNames[i].setVisible(true);
 		}
 		
-		this.add(GameStartBtn);
+		submainpanel.add(GameStartBtn);
 		this.setVisible(true);
 	}
 	
