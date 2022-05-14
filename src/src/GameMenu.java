@@ -111,6 +111,7 @@ public class GameMenu extends JFrame {
 	
 	public void CallCraft() {
 		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"gencodecollection" , this);
+		setsdf.setVisible(true);
 	}
 
 	public void CallAnoint() {
@@ -123,6 +124,9 @@ public class GameMenu extends JFrame {
 	
 	public void CallStealEq() {
 		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"virologists" , this);
+		Thing enemy = this.selectedThing;
+		SelectThingsMenu stm = new SelectThingsMenu(enemy, "equipment", this);
+		currentPlayer.StealEquipment((Virologist)enemy, (Equipment)this.selectedThing);
 	}
 	
 	public void CallDrop() {

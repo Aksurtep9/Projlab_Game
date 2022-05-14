@@ -1,6 +1,8 @@
 package src;
 
-public class ThingData {
+import javax.swing.table.AbstractTableModel;
+
+public class ThingData extends AbstractTableModel {
 	
 	Thing t;
 	
@@ -12,7 +14,7 @@ public class ThingData {
 		
 	}
 	
-	public public int getRowCount() {
+	public int getRowCount() {
 		
 	}
 	

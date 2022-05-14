@@ -19,12 +19,25 @@ public class SelectThingsMenu extends JFrame{
 	ThingData data;
 	
 	
-	SelectThingsMenu(Thing t, String info, JFrame p){
+	public SelectThingsMenu(Thing t, String info, JFrame p){
 		previous=p;
+		btOk = new JButton("OK");
+		table = new JTable();
+		data = new ThingData();
+		
 		
 	}
 
-	SelectThingsMenu(ArrayList<Thing> t, JFrame p){
+	public SelectThingsMenu(ArrayList<Thing> t, JFrame p){
+		previous=p;
+		btOk = new JButton("OK");
+		table = new JTable();
+		data = new ThingData();
+	}
+	
+	public void Initialize() {
+		btOk = new JButton();
+		previous = new JFrame();
 		
 	}
 	

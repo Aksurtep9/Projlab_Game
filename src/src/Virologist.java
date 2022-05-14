@@ -279,7 +279,7 @@ public class Virologist extends Thing {
 	* @param victim - the number of a virologist on a certain Field
 	* @param eqNum - the number of the equipment that should be stolen
 	**/
-	public void StealEquipment(int vic, int eqNum) {
+	public void StealEquipment(Virologist vic, Equipment eqNum) {
 		ArrayList<Virologist> vir= new ArrayList<Virologist>();
 		for(Thing t : this.field.GetThings())
 		{
