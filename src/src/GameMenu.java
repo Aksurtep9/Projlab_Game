@@ -47,6 +47,7 @@ public class GameMenu extends JFrame {
 		mainPanel = new JPanel(new BorderLayout());
 		mainPanel.add(canvas, BorderLayout.CENTER);
 		//this.add(mainPanel);
+		canvas.repaint();
 		canvas.setVisible(true);
 		JPanel pane2 = new JPanel(new FlowLayout());
 		

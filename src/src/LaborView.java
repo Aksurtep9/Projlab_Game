@@ -17,27 +17,27 @@ public class LaborView extends View{
 		switch(vertices) {
 		
 		case 3:
-			img = new ImageIcon(this.getClass().getResource("Lab_3")).getImage();
+			img = new ImageIcon(this.getClass().getResource("Lab_3.png")).getImage();
 			break;
 			
 		case 4:
-			img = new ImageIcon(this.getClass().getResource("Lab_4")).getImage();
+			img = new ImageIcon(this.getClass().getResource("Lab_4.png")).getImage();
 			break;
 			
 		case 5:
-			img = new ImageIcon(this.getClass().getResource("Lab_5")).getImage();
+			img = new ImageIcon(this.getClass().getResource("Lab_5.png")).getImage();
 			break;
 			
 		case 6:
-			img = new ImageIcon(this.getClass().getResource("Lab_6")).getImage();
+			img = new ImageIcon(this.getClass().getResource("Lab_6.png")).getImage();
 			break;
 			
 		case 7:
-			img = new ImageIcon(this.getClass().getResource("Lab_7")).getImage();
+			img = new ImageIcon(this.getClass().getResource("Lab_7.png")).getImage();
 			break;
 			
 		case 8:
-			img = new ImageIcon(this.getClass().getResource("Lab_8")).getImage();;
+			img = new ImageIcon(this.getClass().getResource("Lab_8.png")).getImage();;
 			break;
 			
 		default:

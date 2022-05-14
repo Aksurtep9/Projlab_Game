@@ -1,5 +1,7 @@
 package src;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -25,9 +27,10 @@ public class Canvas extends JPanel {
 	protected JButton[] buttons;
 	
 	public Canvas(int vert) {
+		//graphics = new Graphics2D();
+		
 		verticesNum = vert;
 		buttons = new JButton[verticesNum];
-		//System.out.println(verticesNum);
 		for(int i = 0; i < verticesNum; i++) {
 			buttons[i] = new JButton();
 			this.add(buttons[i]);
@@ -37,6 +40,8 @@ public class Canvas extends JPanel {
 		material = new MaterialView();
 		genCode = new GenCodeView();
 		bear = new BearView();
+		field = new LaborView(vert);
+		
 	}
 	
 	public void Draw(int vertices) {
@@ -126,9 +131,7 @@ public class Canvas extends JPanel {
 			break;
 			
 		}
-		Point p = new Point(100,100);
-		field.Draw(graphics,p);
-		
+
 	}
 	
 	public void ButtonPressed() {
@@ -142,6 +145,17 @@ public class Canvas extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
+		Point p = new Point(100,100);
+		field.Draw(g,p);
+		enemy.Draw(g, new Point(200,200));
+		equipment.Draw(g, new Point(250, 250)); 
+		material.Draw(g, new Point(300, 300));
+		genCode.Draw(g, new Point(350, 350));
+		bear.Draw(g, new Point(400,400));
+		
+		/*g.setColor(Color.black);
+		Dimension dimension = new Dimension(700, 700);
+        g.fillRect(0, 0, dimension.width, dimension.height);*/
 	}
 
 }
