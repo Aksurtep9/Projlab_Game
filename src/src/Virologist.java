@@ -150,33 +150,10 @@ public class Virologist extends Thing {
 	* @param agent - An Agent from the craftedAgentCollection
 	* @param victim - the choosen Virologist we wish to anoint
 	**/
-	public void Anoint(int victim, int agent) {
-		
-		/**Guard for index out of range*/
-		if(this.GetCraftedACollection().GetAgents().size()<=agent)
-			return;
-		
-		/**Agent to be used*/
-		Agent a =this.craftedAgentCollection.GetAgents().get(agent);
-		
-		/**The possible victims*/
-		ArrayList<Virologist> vir= new ArrayList<Virologist>();
-		for(Thing t : this.field.GetThings())
-		{
-			if(t.toString().contains("Virologist")) {
-				vir.add((Virologist) t);
-			}
-		}
-		
-		/**Guard for index out of range*/
-		if(vir.size()<=victim)
-			return;
-		
-		/**The Victim*/
-		Virologist vic = vir.get(victim);
+	public void Anoint(Virologist victim, Agent agent) {
 		
 		/**Checking for gloves*/
-		if(vic.GetEquipmentCollection().Contains("Gloves")) {
+		if(victim.GetEquipmentCollection().Contains("Gloves")) {
 			Gloves g=null;
 			for(Equipment e: this.GetEquipmentCollection().GetEquipments()) {
 				if(e.GetEffectName().equals("Gloves")) {
@@ -187,37 +164,37 @@ public class Virologist extends Thing {
 			/**Checking if the gloves are still usable*/
 			if(g.GetUseTime()>0)
 			{
-				effectCollection.Add((Effect)a,this);
-				craftedAgentCollection.Remove(a.GetEffectName());
+				effectCollection.Add((Effect)agent,this);
+				craftedAgentCollection.Remove(agent.GetEffectName());
 				for(Equipment e: equipmentCollection.GetEquipments()) {
-					if(vic.GetEquipmentCollection().Contains("Gloves"))
+					if(victim.GetEquipmentCollection().Contains("Gloves"))
 						e.DecreaseUseTime();
 				}
 			}
 		}
-		else if(vic.GetEquipmentCollection().Contains("Cloak")){
+		else if(victim.GetEquipmentCollection().Contains("Cloak")){
 			/**Checking for cloak*/
-			if(vic.GetEquipmentCollection().Contains("Cloak")) {
+			if(victim.GetEquipmentCollection().Contains("Cloak")) {
 				Cloak c=null;
-				for(Equipment e: vic.GetEquipmentCollection().GetEquipments()) {
+				for(Equipment e: victim.GetEquipmentCollection().GetEquipments()) {
 					if(e.GetEffectName().equals("Cloak")) {
 						c=(Cloak) e;
 					}
 				}
 				//**Initiating the cloaks defense mechanism*/
 				if(!c.Chance()){	
-					vic.GetEffectCollection().Add((Effect)a,vic);
-					Prototype.logger("Anointed Virologist "+victim+" with "+a.GetEffectName(), Prototype.GetLogFile());
+					victim.GetEffectCollection().Add((Effect)agent,victim);
+					Prototype.logger("Anointed Virologist "+victim+" with "+agent.GetEffectName(), Prototype.GetLogFile());
 				}else {
 					Prototype.logger("Anoint fault", Prototype.GetLogFile());
 				}
 			}
 			else {
-				vic.GetEffectCollection().Add((Effect)a,vic);
-				Prototype.logger("Anointed Virologist "+victim+" with "+a.GetEffectName(), Prototype.GetLogFile());
+				victim.GetEffectCollection().Add((Effect)agent,victim);
+				Prototype.logger("Anointed Virologist "+victim+" with "+agent.GetEffectName(), Prototype.GetLogFile());
 			}
 			/**Removing the used agent*/
-			craftedAgentCollection.Remove(a.GetEffectName());
+			craftedAgentCollection.Remove(agent.GetEffectName());
 		}else {
 			Prototype.logger("Anoint fault", Prototype.GetLogFile());
 		}
@@ -232,18 +209,12 @@ public class Virologist extends Thing {
 	/**
 	* Shows a menu to the Player of the genCodeCollection that he can choose from to craft
 	**/
-	public void Craft(int index) {
-		/**Guard for index out of range*/
-		if(index>=this.GetGenCodeCollection().GetAgents().size())
-			return;
-		
-		/**the agent to be crafted*/
-		Agent genCode = genCodeCollection.ListAll().get(index);
+	public void Craft(Agent tobecrafted) {
 		
 		/**Checking whether its possible to craft the agent*/
-		if(genCode.GetCostAmino() <= materialCollection.GetAmino().GetAmount() && genCode.GetCostNucle() <= materialCollection.GetNucle().GetAmount()) {
-				CreateAgent(genCode);
-				Prototype.logger("Crafted " + genCode.GetEffectName(), Prototype.GetLogFile());
+		if(tobecrafted.GetCostAmino() <= materialCollection.GetAmino().GetAmount() && tobecrafted.GetCostNucle() <= materialCollection.GetNucle().GetAmount()) {
+				CreateAgent(tobecrafted);
+				Prototype.logger("Crafted " + tobecrafted.GetEffectName(), Prototype.GetLogFile());
 		}
 	}
 	
@@ -279,73 +250,54 @@ public class Virologist extends Thing {
 	* @param victim - the number of a virologist on a certain Field
 	* @param eqNum - the number of the equipment that should be stolen
 	**/
-	public void StealEquipment(Virologist vic, Equipment eqNum) {
-		ArrayList<Virologist> vir= new ArrayList<Virologist>();
-		for(Thing t : this.field.GetThings())
-		{
-			if(t.toString().contains("Virologist")) {
-				vir.add((Virologist) t);
-			}
-		}
-		Virologist victim;
-		if(vir.size()>=vic) {
-			victim = vir.get(vic);
-		}else {
-			return;
-		}
+	public void StealEquipment(Virologist victim, Equipment equipment) {
+		
+		//**Checking if the virologist is paralyzed*/
 		boolean paralyzed=victim.GetEffectCollection().Contains("Paralyze");
+		
+		//**if true then he can be robbed*/
 		if(paralyzed) {
+			
+			//**Victims equipmentcollection*/
 			EquipmentCollection eqVictim=victim.GetEquipmentCollection();
 			
-			if(eqNum>victim.GetEquipmentCollection().GetSize()) {
-				return;
-			} else {
-				Equipment choosenEquipment = eqVictim.GetEquipments().get(eqNum);
-				EquipmentCollection eqSelf=this.GetEquipmentCollection();
-				eqSelf.Add(choosenEquipment);
-				eqVictim.Remove(choosenEquipment.GetEffectName());
-				victim.GetEffectCollection().Remove(choosenEquipment.GetEffectName());
-				effectCollection.Add(choosenEquipment,this);
-				Prototype.logger("Stole " + choosenEquipment + " from Virologist " + vic, Prototype.GetLogFile());
+			//**Players equipmentcollection*/
+			EquipmentCollection eqSelf=this.GetEquipmentCollection();
+			
+			eqSelf.Add(equipment);
+			eqVictim.Remove(equipment.GetEffectName());
+			victim.GetEffectCollection().Remove(equipment.GetEffectName());
+			effectCollection.Add(equipment,this);
+			Prototype.logger("Stole " + equipment + " from Virologist " + victim, Prototype.GetLogFile());
 			}
-		}else
-			Prototype.logger("Failed, virologist "+vic+" is not paralyzed ", Prototype.GetLogFile());
+		else
+			Prototype.logger("Failed, virologist "+victim+" is not paralyzed ", Prototype.GetLogFile());
 	}
 	
 	/**
 	* Removes Materials from the Virologists (in the parameter) MaterialCollection and adds it to its own (checks if v is paralyzed) 
 	* @param victim - A Virologist on our Field
 	**/
-	public void StealMaterial(int victim) {
-		ArrayList<Virologist> vir= new ArrayList<Virologist>();
-		for(Thing t : this.field.GetThings())
-		{
-			if(t.toString().contains("Virologist")) {
-				vir.add((Virologist) t);
-			}
-		}
-		if(vir.size()>=victim)
-		{
-			Virologist vic = vir.get(victim);
-			MaterialCollection materialColl2 = vic.GetMaterialCollection();
+	public void StealMaterial(Virologist victim) {
+		
+			MaterialCollection materialColl2 = victim.GetMaterialCollection();
 			FillMaterials(materialColl2);
 			Prototype.logger("Virologist stole material from"+victim, Prototype.GetLogFile());
-		}
 	}
+	
 	
 	/**
 	* Drops the selected Equipment from the equipmentCollection of the Player to the Field that it is standing on
 	* @param eqNum the number of the equipment which should be dropped
 	**/
-	public void DropEquipment(int eqNum) {
+	public void DropEquipment(Equipment equipment) {
 		List<Equipment> equipments = this.equipmentCollection.GetEquipments();
 		
-		Equipment choosenEquipment = equipments.get(eqNum);
-		field.Accept(choosenEquipment);
-		effectCollection.Remove(choosenEquipment.GetEffectName());
-		equipmentCollection.Remove(choosenEquipment.GetEffectName());
+		field.Accept(equipment);
+		effectCollection.Remove(equipment.GetEffectName());
+		equipmentCollection.Remove(equipment.GetEffectName());
 		
-		Prototype.logger("Dropped "+ choosenEquipment.toString(), Prototype.GetLogFile());
+		Prototype.logger("Dropped "+ equipment.toString(), Prototype.GetLogFile());
 			
 	}
 	
@@ -353,27 +305,19 @@ public class Virologist extends Thing {
 	* Picks up the selected Equipment from the Field the Player is standing on
 	* @param eqNum the number of the equipment which should be picked up
 	**/
-	public void PickUpEquipment(int eqNum) {
-		ArrayList<Thing> thingsList = this.field.GetThings();
-		if(eqNum>thingsList.size()) {
+	public void PickUpEquipment(Equipment equipment) {
+		
+		if(this.equipmentCollection.GetEquipments().size()>=3) {
 			Prototype.logger("Failed, virologist's item collection is full", Prototype.GetLogFile());
 			return;
 		}
 		else {
-			if(!thingsList.get(eqNum).toString().contains("Virologist")) {
-				Thing equipmentThing = thingsList.get(eqNum);
-				Equipment equipment = (Equipment)equipmentThing;
-				
-				if(equipment != null) {
-					if(equipmentCollection.GetSize() < 3) {
-						equipmentCollection.Add(equipment);
-						Prototype.logger("Picked up "+equipment.GetEffectName(), Prototype.GetLogFile());
-						effectCollection.Add(equipment, this);
-						field.Remove(equipment);
-					}	
-				}
+			if(equipmentCollection.GetSize() < 3) {
+				equipmentCollection.Add(equipment);
+				Prototype.logger("Picked up "+equipment.GetEffectName(), Prototype.GetLogFile());
+				effectCollection.Add(equipment, this);
+				field.Remove(equipment);
 			}
-			
 		}
 	}
 	
@@ -602,25 +546,10 @@ public class Virologist extends Thing {
 		v.setDead();
 	}
 	
-	public void Attack(int victim) {
-		
-		ArrayList<Virologist> vir= new ArrayList<Virologist>();
-		for(Thing t : this.field.GetThings())
-		{
-			if(t.toString().equals("Virologist")) {
-				vir.add((Virologist) t);
-			}
-		}
-		
-		/**Guard for index out of range*/
-		if(vir.size() == 0)
-			return;
-		
-		/**The Victim*/
-		Virologist vic = vir.get(victim);
+	public void Attack(Virologist victim) {
 		
 		/**Checking for the bear*/
-		if(!vic.IsAlive())
+		if(!victim.IsAlive())
 		{
 			ArrayList<Axe> axes=new ArrayList<Axe>();
 			for(Equipment e: this.GetEquipmentCollection().GetEquipments()) {
@@ -633,9 +562,9 @@ public class Virologist extends Thing {
 				if(a.GetUseTime()>0)
 				{
 					/**KILL THE BEAR*/
-					KillTheBear(vic);
+					KillTheBear(victim);
 					
-					Prototype.logger("Virologist "+(victim+1) +" killed", Prototype.GetLogFile());
+					Prototype.logger("Virologist killed", Prototype.GetLogFile());
 					
 					/**Axe goes to the trash*/
 					a.DecreaseUseTime();
