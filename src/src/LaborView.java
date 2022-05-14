@@ -8,8 +8,6 @@ import javax.swing.ImageIcon;
 
 public class LaborView extends View{
 	
-	private Graphics view;
-	
 	private int vertices;
 	
 	private Image img;
