@@ -115,6 +115,8 @@ public class GameMenu extends JFrame {
 	}
 	
 	public void CallCraft() {
+		
+		// Selecting the genCode
 		game.getCurrentPlayer().CloneGenCode(new Protect());
 		selectMenu = new SelectThingsMenu(currentPlayer,"gencodecollection" , this);
 		selectMenu.setVisible(true);
@@ -122,17 +124,15 @@ public class GameMenu extends JFrame {
 		Thread t = new Thread() {
 			public void run() {
 				synchronized (lock) {
-					//Várakozás
 					while(selectMenu.isVisible()) {
 						try {
 							lock.wait();
 						} catch (InterruptedException e) {
-							// well
+							// Do Nothing
 						}
 					}
-					
-					// Várakozás vége
-					System.out.println("Now working.");
+					// After closing it
+					System.out.println("Well done!");
 				}
 			}
 		};
