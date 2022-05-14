@@ -144,7 +144,7 @@ public class Virologist extends Thing {
 		if(!containsProtect && !containsCloak) {
 			
 		}
-		StealMaterial(1);
+		StealMaterial(v);
 	}
 	
 	/**
