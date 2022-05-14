@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -38,6 +39,10 @@ public class GameMenu extends JFrame {
 		
 		JPanel pane1 = new JPanel();
 		JPanel pane2 = new JPanel(new FlowLayout());
+		
+		this.setIconImage(new ImageIcon("icon.png").getImage());
+		
+		this.setTitle("Game");
 		
 		
 		 btCraft=new JButton("Craft");						//if the button is pressed, the according function gets called

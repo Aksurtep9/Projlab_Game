@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
@@ -22,6 +23,10 @@ public class MainSubMenu extends JFrame{
 	private JButton GameStartBtn;
 	private GameMenu gameFrame;
 	private int playerCnt=3;
+	
+	this.setIconImage(new ImageIcon("icon.png").getImage());
+	
+	this.setTitle("Main Sub Menu");
 	
 	public void GameStartBtnPress(int playerCnt) {
 		boolean allTextFieldsFull=true;
