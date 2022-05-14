@@ -7,7 +7,7 @@ public class ShelterView extends View{
 	
 	private Graphics view;
 
-	public void Draw(Point p) {
+	public void Draw(Graphics g, Point p) {
 		// TODO Auto-generated method stub
 		
 	}

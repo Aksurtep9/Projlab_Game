@@ -12,7 +12,7 @@ public class MaterialView extends View{
 	 * Draws rectangle to given coordinate
 	 * @param p -  top left corner of the rectangle
 	 */
-	public void Draw(Point p) {
+	public void Draw(Graphics g, Point p) {
 		// TODO Auto-generated method stub
 		view.setColor(Color.green);
 		

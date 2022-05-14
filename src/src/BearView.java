@@ -8,11 +8,11 @@ public class BearView extends View{
 	
 	private Graphics view;
 
-	public void Draw(Point p) {
+	public void Draw(Graphics g, Point p) {
 		// TODO Auto-generated method stub
-		view.setColor(Color.pink);
+		g.setColor(Color.pink);
 		
-		view.fillRect(p.x, p.y, 15, 15);
+		g.fillRect(p.x, p.y, 15, 15);
 	}
 
 }
