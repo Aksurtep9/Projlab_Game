@@ -7,6 +7,6 @@ public abstract class View {
 	
 	protected Graphics view;
 	
-	public abstract void Draw(Point p);
+	public abstract void Draw(Graphics g, Point p);
 
 }

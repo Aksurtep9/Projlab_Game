@@ -13,12 +13,14 @@ public class EquipmentView extends View{
 	 * Draws rectangle to given coordinate
 	 * @param p -  top left corner of the rectangle
 	 */
-	public void Draw(Point p) {
+	public void Draw(Graphics g, Point p) {
 		// TODO Auto-generated method stub
-		view.setColor(Color.blue);
 		
-		view.fillRect(p.x, p.y, 15, 15);
+		
+		g.setColor(Color.blue);
+		g.fillRect(p.x, p.y, 15, 15);
 	}
+	
 
 
 }
