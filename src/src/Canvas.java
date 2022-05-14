@@ -26,6 +26,8 @@ public class Canvas extends JPanel {
 	
 	public Canvas(int vert) {
 		verticesNum = vert;
+		buttons = new JButton[verticesNum];
+		//System.out.println(verticesNum);
 		for(int i = 0; i < verticesNum; i++) {
 			buttons[i] = new JButton();
 			this.add(buttons[i]);

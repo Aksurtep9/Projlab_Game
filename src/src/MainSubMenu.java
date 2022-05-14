@@ -36,7 +36,6 @@ public class MainSubMenu extends JFrame{
 		
 		if(allTextFieldsFull) {
 			int w=1120; int h=1020;
-			System.out.println(playerCnt);
 			gameFrame=new GameMenu(new Game(playerCnt));
 			gameFrame.setSize(w,h);
 			gameFrame.setVisible(true);

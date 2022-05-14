@@ -29,25 +29,32 @@ public class GameMenu extends JFrame {
 	private Thing selectedThing;
 	Canvas canvas;
 	
+	private JPanel mainPanel;
+	
 	private static Object lock = new Object();
 	private static JFrame selectMenu = new JFrame();
 	
 	GameMenu(Game game) {
 		this.game=game;
-		currentPlayer = game.getCurrentPlayer();
+		currentPlayer = this.game.getCurrentPlayer();
 		Toolkit tk=Toolkit.getDefaultToolkit(); 			//Initializing the Toolkit class.
 		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
 		this.setSize(screenSize.width,screenSize.height); 	//Set the width and height of the JFrame
 		
-		canvas = new Canvas(currentPlayer.field.GetNeighbours().size());
-		this.add(canvas);
+		this.game.NewGame();
+		
+		canvas = new Canvas(currentPlayer.GetField().GetNeighbours().size());
+		mainPanel = new JPanel(new BorderLayout());
+		mainPanel.add(canvas, BorderLayout.CENTER);
+		//this.add(mainPanel);
+		canvas.setVisible(true);
 		JPanel pane2 = new JPanel(new FlowLayout());
 		
 		this.setIconImage(new ImageIcon(this.getClass().getResource("icon.png")).getImage());
 		
 		this.setTitle("Game");
 		
-		game.NewGame();
+		
 		
 		 btCraft=new JButton("Craft");						//if the button is pressed, the according function gets called
 		 btCraft.addActionListener(new ActionListener() {	 
@@ -223,8 +230,9 @@ public class GameMenu extends JFrame {
 		 canvas.setVisible(true);
 		 pane2.setVisible(true);
 		 
-		 this.add(canvas, BorderLayout.NORTH);
-		 this.add(pane2, BorderLayout.SOUTH);
+		 mainPanel.add(pane2, BorderLayout.SOUTH);
+		 //this.add(pane2, BorderLayout.SOUTH);
+		 this.add(mainPanel);
 		 this.pack();
 		 this.setVisible(true);
 		 

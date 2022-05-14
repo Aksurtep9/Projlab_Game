@@ -71,6 +71,7 @@ public class Laboratory extends Field{
 		if(bearDanceCode != null) {
 			v.BearDanceAnoint(v);
 		}
+		v.SetField(this);
 	}
 	
 	/**

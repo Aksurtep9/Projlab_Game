@@ -61,7 +61,6 @@ public class Shelter extends Field {
 	public void Accept(Thing t) {
 		this.things.add(t);
 		t.SetField(this);
-			
 	}
 	
 	/**

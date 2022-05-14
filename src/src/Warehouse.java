@@ -37,6 +37,7 @@ public class Warehouse extends Field{
 	public void Accept(Virologist v) {
 		this.things.add(v);
 		v.FillMaterials(materialCollection);
+		v.SetField(this);
 	}
 	
 	/**
