@@ -5,6 +5,7 @@ import javax.swing.table.AbstractTableModel;
 public class ThingData extends AbstractTableModel {
 	
 	Thing t;
+	int maxRows = 5;
 	
 	ThingData(){
 		
@@ -25,7 +26,7 @@ public class ThingData extends AbstractTableModel {
 	
 	@Override
 	public int getColumnCount() {
-		return 3;
+		return maxRows;
 	}
 	
 	public Class<? extends Object> getColumnClass(int column){
