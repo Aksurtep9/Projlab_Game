@@ -3,6 +3,7 @@ package src;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -12,13 +13,14 @@ import javax.swing.JPanel;
 public class Canvas extends JPanel {
 	
 	protected int verticesNum;
-	protected Graphics shape;
+	protected Graphics graphics;
 	//protected ArrayList<View> thingsView;
 	protected EnemyView enemy;
 	protected EquipmentView equipment;
 	protected MaterialView material;
 	protected GenCodeView genCode;
 	protected BearView bear;
+	protected View field;
 	//protected Image img;
 	protected JButton[] buttons;
 	
@@ -122,8 +124,8 @@ public class Canvas extends JPanel {
 			break;
 			
 		}
-		
-		
+		Point p = new Point(100,100);
+		field.Draw(shape,p);
 		
 	}
 	
@@ -137,7 +139,6 @@ public class Canvas extends JPanel {
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
 		
 	}
 

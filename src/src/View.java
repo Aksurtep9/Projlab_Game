@@ -5,7 +5,7 @@ import java.awt.Point;
 
 public abstract class View {
 	
-	protected Graphics view;
+	//protected Graphics view;
 	
 	public abstract void Draw(Graphics g, Point p);
 
