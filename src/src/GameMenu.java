@@ -21,13 +21,14 @@ public class GameMenu extends JFrame {
 	JButton btStealMat;
 	JButton btAttack;
 	JButton btPass;
-	Virologist currentPlayer;
+	private Virologist currentPlayer;
 	Game game;
 	Thing selectedThing;
 	Canvas canvas;
 	
 	GameMenu(Game game) {
 		this.game=game;
+		currentPlayer = game.getCurrentPlayer();
 		Toolkit tk=Toolkit.getDefaultToolkit(); 			//Initializing the Toolkit class.
 		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
 		this.setSize(screenSize.width,screenSize.height); 	//Set the width and height of the JFrame
@@ -111,6 +112,8 @@ public class GameMenu extends JFrame {
 	
 	public void CallCraft() {
 		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"gencodecollection" , this);
+		game.getCurrentPlayer().CloneGenCode(new Protect());
+		setsdf.setSize(1120, 1020);
 		setsdf.setVisible(true);
 	}
 

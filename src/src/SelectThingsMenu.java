@@ -23,22 +23,31 @@ public class SelectThingsMenu extends JFrame{
 		previous=p;
 		btOk = new JButton("OK");
 		table = new JTable();
-		data = new ThingData();
 		
+		Virologist player = (Virologist)t;
 		
+		if(info.equals("gencodecollection")) {
+			data = new ThingData<Agent>(player.GetGenCodeCollection().GetAgents());
+		}
+		
+		table = new JTable(data);
+		table.setRowHeight(150);
+		table.setRowSelectionAllowed(true);
+		table.setColumnSelectionAllowed(false);
+		table.setFillsViewportHeight(true);
+		this.add(table);
 	}
 
 	public SelectThingsMenu(ArrayList<Thing> t, JFrame p){
 		previous=p;
 		btOk = new JButton("OK");
 		table = new JTable();
-		data = new ThingData();
+		//data = new ThingData();
 	}
 	
 	public void Initialize() {
 		btOk = new JButton();
 		previous = new JFrame();
-		
 	}
 	
 	void CallOk(Thing t) {

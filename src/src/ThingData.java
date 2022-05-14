@@ -1,42 +1,40 @@
 package src;
 
+import java.util.ArrayList;
+
 import javax.swing.table.AbstractTableModel;
 
-public class ThingData extends AbstractTableModel {
+public class ThingData<T> extends AbstractTableModel {
+	private static final long serialVersionUID = 1L;
 	
-	Thing t;
-	int maxRows = 5;
+	private ArrayList<? super T> thingList;
 	
-	ThingData(){
-		
+	public ThingData(ArrayList<? super T> _t){
+		thingList = _t;
 	}
 	
 	public String getColumnName(int col) {
 		switch(col) {
-		case 0: return "ID";
-		case 1: return "Name";
-		case 2: return "Info";
+		case 0: return "Data";
+		default: return "Empty";
 		}
 	}
 	
-	@Override
 	public int getRowCount() {
-		return maxRows;
+		return thingList.size();
 	}
 	
-	@Override
 	public int getColumnCount() {
-		return 3;
+		return 1;
 	}
 	
 	public Class<? extends Object> getColumnClass(int column){
 		return getValueAt(0, column).getClass();
 	}
 	
-	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		
+		return thingList.get(rowIndex);
 	}
-
-
+	
+	public void setValueAt(Object value, int row, int col) {}
 }
