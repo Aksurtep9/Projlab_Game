@@ -120,6 +120,7 @@ public class GameMenu extends JFrame {
 		// Selecting the genCode
 		selectMenu = new SelectThingsMenu(currentPlayer,"genCode" , this);
 		selectMenu.setVisible(true);
+		GameMenu frame = this;
 		
 		Thread t = new Thread() {
 			public void run() {
@@ -132,7 +133,7 @@ public class GameMenu extends JFrame {
 						}
 					}
 					// After closing it
-					System.out.println("Well done!");
+					game.getCurrentPlayer().Craft((Agent) frame.GetSelectedItem());
 				}
 			}
 		};
@@ -188,30 +189,149 @@ public class GameMenu extends JFrame {
 	}
 	
 	public void CallPick() {
-		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"equipment" , this);
+		// Selecting the equipment
+		selectMenu = new SelectThingsMenu(currentPlayer, "Equipments from Field" , this);
+		selectMenu.setVisible(true);
+		GameMenu frameThis = this;
+		
+		Thread t = new Thread() {
+			public void run() {
+				synchronized (lock) {
+					while(selectMenu.isVisible()) {
+						try {
+							lock.wait();
+						} catch (InterruptedException e) {
+							// Do Nothing
+						}
+					}
+					// After closing it
+					game.getCurrentPlayer().PickUpEquipment((Equipment) frameThis.GetSelectedItem());
+				}
+			}
+		};
+		t.start();
 	}
 	
 	public void CallStealEq() {
-		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"virologists" , this);
-		Thing enemy = this.selectedThing;
-		SelectThingsMenu stm = new SelectThingsMenu(enemy, "equipment", this);
-		currentPlayer.StealEquipment((Virologist)enemy, (Equipment)this.selectedThing);
+		// Selecting enemy
+		selectMenu = new SelectThingsMenu(currentPlayer, "Virologists" , this);
+		selectMenu.setVisible(true);
+		GameMenu frameThis = this;
+		
+		Thread t1 = new Thread() {
+			public void run() {
+				synchronized (lock) {
+					while(selectMenu.isVisible()) {
+						try {
+							lock.wait();
+						} catch (InterruptedException e) {
+							// Do Nothing
+						}
+					}
+					// After closing it
+					Virologist localEnemy = (Virologist) frameThis.GetSelectedItem();
+					
+					// Selecting the Equipment
+					selectMenu = new SelectThingsMenu(localEnemy, "Equipments from Virologist", frameThis);
+					selectMenu.setVisible(true);
+					
+					Thread t2 = new Thread() {
+						public void run() {
+							synchronized (lock) {
+								while(selectMenu.isVisible()) {
+									try {
+										lock.wait();
+									} catch (InterruptedException e) {
+										// Do Nothing
+									}
+								}
+								//After closing it
+								Equipment eq = (Equipment) frameThis.GetSelectedItem();
+								game.getCurrentPlayer().StealEquipment(localEnemy, eq);
+							}
+						}
+					};
+					t2.start();
+				}
+			}
+		};
+		t1.start();
 	}
 	
 	public void CallDrop() {
-		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"equipment" , this);
+		// Selecting the equipment
+		selectMenu = new SelectThingsMenu(currentPlayer, "Equipments from Virologist" , this);
+		selectMenu.setVisible(true);
+		GameMenu frameThis = this;
+		
+		Thread t = new Thread() {
+			public void run() {
+				synchronized (lock) {
+					while(selectMenu.isVisible()) {
+						try {
+							lock.wait();
+						} catch (InterruptedException e) {
+							// Do Nothing
+						}
+					}
+					// After closing it
+					game.getCurrentPlayer().DropEquipment((Equipment) frameThis.GetSelectedItem());
+				}
+			}
+		};
+		t.start();
 	}
 	
 	public void CallStealMat() {
-		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"virologists" , this);
+		// Selecting the enemy
+		selectMenu = new SelectThingsMenu(currentPlayer, "Virologists" , this);
+		selectMenu.setVisible(true);
+		GameMenu frame = this;
+		
+		Thread t = new Thread() {
+			public void run() {
+				synchronized (lock) {
+					while(selectMenu.isVisible()) {
+						try {
+							lock.wait();
+						} catch (InterruptedException e) {
+							// Do Nothing
+						}
+					}
+					// After closing it
+					game.getCurrentPlayer().StealMaterial((Virologist) frame.GetSelectedItem());
+				}
+			}
+		};
+		t.start();
 	}
 	
 	public void CallAttack() {
-		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"virologists" , this);
+		// Selecting the enemy
+		selectMenu = new SelectThingsMenu(currentPlayer, "Virologists" , this);
+		selectMenu.setVisible(true);
+		GameMenu frame = this;
+		
+		Thread t = new Thread() {
+			public void run() {
+				synchronized (lock) {
+					while(selectMenu.isVisible()) {
+						try {
+							lock.wait();
+						} catch (InterruptedException e) {
+							// Do Nothing
+						}
+					}
+					// After closing it
+					game.getCurrentPlayer().Attack((Virologist) frame.GetSelectedItem());
+				}
+			}
+		};
+		t.start();
 	}
 	
 	public void CallPass() {
-		
+		game.NewRound();
 	}
 	
 	public void SetSelectedItem(Thing t) {

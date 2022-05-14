@@ -52,6 +52,16 @@ public class SelectThingsMenu extends JFrame{
 			else if(info.equals("Crafts")) {
 				data = new ThingData<Agent>(player.GetCraftedACollection().GetAgents());
 			}
+			else if(info.equals("Equipments from Field")) {
+				ArrayList<Equipment> lista = new ArrayList<>();
+				for(Thing item: player.GetField().GetThings())
+					if(item.toString().contains("Equipment"))
+						lista.add((Equipment) item);
+				data = new ThingData<Equipment>(lista);
+			}
+			else if(info.equals("Equipments from Virologist")) {
+				data = new ThingData<Equipment>(player.GetEquipmentCollection().GetEquipments());
+			}
 			
 			table = new JTable(data);
 			
