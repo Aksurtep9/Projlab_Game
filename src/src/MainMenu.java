@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -37,6 +38,9 @@ public class MainMenu extends JFrame{
 		GridBagConstraints c = new GridBagConstraints();
 		this.add(mainp);
 		
+		this.setIconImage(new ImageIcon(this.getClass().getResource("icon.png")).getImage());
+		
+		this.setTitle("Main Menu");
 		
 		Toolkit tk=Toolkit.getDefaultToolkit(); 			//Initializing the Toolkit class.
 		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
