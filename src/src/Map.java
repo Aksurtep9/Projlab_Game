@@ -20,11 +20,15 @@ public class Map implements Serializable{
 	 */
 	private ArrayList<Field> fields;
 	
+	private File mapFile = new File(this.getClass().getResource("mapFile.txt").toString());
+	
 	/**
 	 * Constructor for Map
 	 */
 	public Map() {
 		fields = new ArrayList<Field>();
+		GenerateFields(mapFile);
+		//GenerateFields(.getFile());
 	}
 	
 	public ArrayList<Field> GetFields(){

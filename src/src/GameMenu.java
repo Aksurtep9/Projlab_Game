@@ -47,6 +47,7 @@ public class GameMenu extends JFrame {
 		
 		this.setTitle("Game");
 		
+		game.NewGame();
 		
 		 btCraft=new JButton("Craft");						//if the button is pressed, the according function gets called
 		 btCraft.addActionListener(new ActionListener() {	 
