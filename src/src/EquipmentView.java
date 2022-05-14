@@ -7,7 +7,7 @@ import java.awt.Point;
 public class EquipmentView extends View{
 	
 	
-	private Graphics view;
+	//private Graphics view;
 
 	/**
 	 * Draws rectangle to given coordinate

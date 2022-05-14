@@ -6,7 +6,7 @@ import java.awt.Point;
 
 public class MaterialView extends View{
 	
-	private Graphics view;
+	//private Graphics view;
 
 	/**
 	 * Draws rectangle to given coordinate
@@ -14,9 +14,9 @@ public class MaterialView extends View{
 	 */
 	public void Draw(Graphics g, Point p) {
 		// TODO Auto-generated method stub
-		view.setColor(Color.green);
+		g.setColor(Color.green);
 		
-		view.fillRect(p.x, p.y, 15, 15);
+		g.fillRect(p.x, p.y, 15, 15);
 	}
 
 

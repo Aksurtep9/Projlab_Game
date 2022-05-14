@@ -6,7 +6,7 @@ import java.awt.Point;
 
 public class BearView extends View{
 	
-	private Graphics view;
+	//private Graphics view;
 
 	public void Draw(Graphics g, Point p) {
 		// TODO Auto-generated method stub
