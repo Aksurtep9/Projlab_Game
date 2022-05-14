@@ -68,7 +68,7 @@ public class GameMenu extends JFrame {
 					{
 						return;
 					}
-					int cnt;
+					int cnt=0;
 					ArrayList<Virologist> virologists= new ArrayList<Virologist>();
 					for (Thing vir : currentPlayer.field.GetThings()) {
 						if(vir.toString().equals("Virologist"))
@@ -96,7 +96,7 @@ public class GameMenu extends JFrame {
 		 btDrop = new JButton("Drop");
 		 btDrop.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
-					/** checks whether the current player has any action points left and can drop an item*//
+					/** checks whether the current player has any action points left and can drop an item*/
 					if(currentPlayer.GetEquipmentCollection().GetEquipments().size()==0 || game.getActionCount()==0)
 					{
 						return;
@@ -219,10 +219,10 @@ public class GameMenu extends JFrame {
 		 pane2.add(btStealMat);
 		 pane2.add(btAttack);
 		 pane2.add(btPass);
-		 pane1.setVisible(true);
+		 canvas.setVisible(true);
 		 pane2.setVisible(true);
 		 
-		 this.add(pane1, BorderLayout.NORTH);
+		 this.add(canvas, BorderLayout.NORTH);
 		 this.add(pane2, BorderLayout.SOUTH);
 		 this.pack();
 		 this.setVisible(true);
