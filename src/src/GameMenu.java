@@ -26,6 +26,9 @@ public class GameMenu extends JFrame {
 	Thing selectedThing;
 	Canvas canvas;
 	
+	private static Object lock = new Object();
+	private static JFrame selectMenu = new JFrame();
+	
 	GameMenu(Game game) {
 		this.game=game;
 		currentPlayer = game.getCurrentPlayer();
@@ -108,12 +111,35 @@ public class GameMenu extends JFrame {
 		 this.add(pane2, BorderLayout.SOUTH);
 		 this.pack();
 		 this.setVisible(true);
+		 
 	}
 	
 	public void CallCraft() {
 		game.getCurrentPlayer().CloneGenCode(new Protect());
-		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"gencodecollection" , this);
+		selectMenu = new SelectThingsMenu(currentPlayer,"gencodecollection" , this);
+		selectMenu.setVisible(true);
+		
+		Thread t = new Thread() {
+			public void run() {
+				synchronized (lock) {
+					//Várakozás
+					while(selectMenu.isVisible()) {
+						try {
+							lock.wait();
+						} catch (InterruptedException e) {
+							// well
+						}
+					}
+					
+					// Várakozás vége
+					System.out.println("Now working.");
+				}
+			}
+		};
+		t.start();
 	}
+	
+	public Object getLock() { return lock; }
 
 	public void CallAnoint() {
 		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"virologists" , this);

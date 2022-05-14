@@ -18,34 +18,37 @@ public class SelectThingsMenu extends JFrame{
 	private static final long serialVersionUID = -3144941765010925027L;
 	
 	private JButton btOk;
-	private JFrame previous;
+	private GameMenu previous;
 	private JTable table;
 	@SuppressWarnings("rawtypes")
 	private ThingData data;
 	
 	private JPanel panel;
 	
+	//private static Thread thread;
 	
-	public SelectThingsMenu(Thing t, String info, JFrame p){
-		previous=p;
-		btOk = new JButton("OK");
-		table = new JTable();
-		
-		Virologist player = (Virologist)t;
-		
-		if(info.equals("gencodecollection")) {
-			data = new ThingData<Agent>(player.GetGenCodeCollection().GetAgents());
+	//private static Object lock = new Object();
+	
+	public SelectThingsMenu(Thing t, String info, GameMenu p){
+		synchronized (p.getLock()) {
+			previous = p;
+			btOk = new JButton("OK");
+			table = new JTable();
+			
+			Virologist player = (Virologist)t;
+			
+			if(info.equals("gencodecollection")) {
+				data = new ThingData<Agent>(player.GetGenCodeCollection().GetAgents());
+			}
+			
+			table = new JTable(data);
+			
+			View();
 		}
-		
-		table = new JTable(data);
-		
-		View();
-		
 	}
 	
 	private void View() {
 		this.setSize(1120, 1020);
-		this.setVisible(true);
 		
 		panel = new JPanel(new BorderLayout());
 		JScrollPane scrollPanel;
@@ -76,11 +79,15 @@ public class SelectThingsMenu extends JFrame{
 		panel.add(btOk, "South");
 		
 		this.add(panel);
+		
+		this.setVisible(true);
 	}
 	
 	public void CallOk(Thing t) {
-		GameMenu prev = (GameMenu) previous;
-		prev.SetSelectedItem(t);
-		this.dispose();
+		synchronized (previous.getLock()) {
+			previous.SetSelectedItem(t);
+			this.setVisible(false);
+			previous.getLock().notify();
+		}
 	}
 }
