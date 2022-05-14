@@ -6,15 +6,15 @@ import java.awt.Point;
 
 public class GenCodeView extends View{
 	
-	private Graphics view;
+	//private Graphics view;
 
 	/**
 	 * Draws a triangle
 	 * @param p - the left corner of the triangle
 	 */
-	public void Draw(Point p) {
+	public void Draw( Graphics g, Point p) {
 		// TODO Auto-generated method stub
-		view.setColor(Color.green);
+		g.setColor(Color.green);
 		int[] xs=new int[3];
 		int[] ys=new int[3];
 		
@@ -22,7 +22,7 @@ public class GenCodeView extends View{
 		xs[1]=p.x+20; 	ys[1]=p.y;
 		xs[2]=p.x+10; 	ys[2]=p.y+17;
 		
-		view.fillPolygon(xs, ys, 3);
+		g.fillPolygon(xs, ys, 3);
 	}
 
 }
