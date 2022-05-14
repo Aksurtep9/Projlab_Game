@@ -3,6 +3,7 @@ package src;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -37,8 +38,19 @@ public class SelectThingsMenu extends JFrame{
 			
 			Virologist player = (Virologist)t;
 			
-			if(info.equals("gencodecollection")) {
+			if(info.equals("genCode")) {
 				data = new ThingData<Agent>(player.GetGenCodeCollection().GetAgents());
+			}
+			else if(info.equals("Virologists")) {
+				ArrayList<Virologist> lista = new ArrayList<>();
+				for(Thing item: player.GetField().GetThings()) {
+					if(item.toString().contains("Virologist"))
+						lista.add((Virologist)item);
+				}
+				data = new ThingData<Virologist>(lista);
+			}
+			else if(info.equals("Crafts")) {
+				data = new ThingData<Agent>(player.GetCraftedACollection().GetAgents());
 			}
 			
 			table = new JTable(data);

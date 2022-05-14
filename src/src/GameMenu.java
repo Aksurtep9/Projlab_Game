@@ -23,7 +23,7 @@ public class GameMenu extends JFrame {
 	JButton btPass;
 	private Virologist currentPlayer;
 	Game game;
-	Thing selectedThing;
+	private Thing selectedThing;
 	Canvas canvas;
 	
 	private static Object lock = new Object();
@@ -114,11 +114,11 @@ public class GameMenu extends JFrame {
 		 
 	}
 	
+	
 	public void CallCraft() {
 		
 		// Selecting the genCode
-		game.getCurrentPlayer().CloneGenCode(new Protect());
-		selectMenu = new SelectThingsMenu(currentPlayer,"gencodecollection" , this);
+		selectMenu = new SelectThingsMenu(currentPlayer,"genCode" , this);
 		selectMenu.setVisible(true);
 		
 		Thread t = new Thread() {
@@ -141,8 +141,50 @@ public class GameMenu extends JFrame {
 	
 	public Object getLock() { return lock; }
 
+	
 	public void CallAnoint() {
-		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"virologists" , this);
+		selectMenu = new SelectThingsMenu(currentPlayer,"Virologists" , this);
+		selectMenu.setVisible(true);
+		GameMenu frameThis = this;
+		
+		Thread t1 = new Thread() {
+			public void run() {
+				synchronized (lock) {
+					while(selectMenu.isVisible()) {
+						try {
+							lock.wait();
+						} catch (InterruptedException e) {
+							// Do Nothing
+						}
+					}
+					// After closing it
+					Virologist localEnemy = (Virologist) frameThis.GetSelectedItem();
+					
+					// Selecting the agent
+					selectMenu = new SelectThingsMenu(currentPlayer, "Crafts", frameThis);
+					selectMenu.setVisible(true);
+					
+					Thread t2 = new Thread() {
+						public void run() {
+							synchronized (lock) {
+								while(selectMenu.isVisible()) {
+									try {
+										lock.wait();
+									} catch (InterruptedException e) {
+										// Do Nothing
+									}
+								}
+								//After closing it
+								Agent virus = (Agent) frameThis.GetSelectedItem();
+								game.getCurrentPlayer().Anoint(localEnemy, virus);
+							}
+						}
+					};
+					t2.start();
+				}
+			}
+		};
+		t1.start();
 	}
 	
 	public void CallPick() {
@@ -175,6 +217,8 @@ public class GameMenu extends JFrame {
 	public void SetSelectedItem(Thing t) {
 		this.selectedThing = t;
 	}
+	
+	public Thing GetSelectedItem() { return selectedThing; }
 	
 	public Virologist GetCurrentPlayer() {
 		return currentPlayer;
