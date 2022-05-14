@@ -53,6 +53,8 @@ public class Game implements Serializable{
 	/**Stores the game's randomness*/
 	private static boolean random;
 	
+	private int actionCount=3;
+	
 	/**
 	 * Constructor for the game
 	 * @param playerCount - the number of the players
@@ -128,6 +130,7 @@ public class Game implements Serializable{
 	 * current player.
 	 */
 	public void NewRound() {
+		setActionCount(3);
 		currentPlayer.CallDecreaseAgentTime();
 		++roundCount;
 		int indexPrevious = players.indexOf(currentPlayer);
@@ -163,5 +166,13 @@ public class Game implements Serializable{
 	 */
 	public void setRandom(boolean random) {
 		this.random = random;
+	}
+
+	public int getActionCount() {
+		return actionCount;
+	}
+
+	public void setActionCount(int actionCount) {
+		this.actionCount = actionCount;
 	}
 }

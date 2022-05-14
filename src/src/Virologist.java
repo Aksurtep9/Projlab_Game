@@ -53,6 +53,8 @@ public class Virologist extends Thing {
 	/**The Materials owned by the Virologist are in the materialCollection*/
 	private MaterialCollection materialCollection;
 	
+	private boolean bear=false;
+	
 	public Virologist() {
 		equipmentCollection = new EquipmentCollection();
 		effectCollection = new EffectCollection();
@@ -417,7 +419,7 @@ public class Virologist extends Thing {
 		
 		
 		for(Equipment item: v2.GetEquipmentCollection().GetEquipments()) {
-			if(item.toString().contains("cloak") && !containsCloak) {
+			if(item.toString().contains("Cloak") && !containsCloak) {
 				containsCloak = true;
 				eq = (Cloak)item;
 			}
@@ -432,6 +434,7 @@ public class Virologist extends Thing {
 			if(!(isVictimProtected && protectingCloak && hasBearDanceAlready)) {
 				Agent bearDance = new BearDance();
 				v2.effectCollection.Add(bearDance, v2);
+				v2.bear=true;
 			}
 		}
 	}
@@ -551,6 +554,7 @@ public class Virologist extends Thing {
 		/**Checking for the bear*/
 		if(!victim.IsAlive())
 		{
+			/**the collection of axes*/
 			ArrayList<Axe> axes=new ArrayList<Axe>();
 			for(Equipment e: this.GetEquipmentCollection().GetEquipments()) {
 				if(e.GetEffectName().equals("Axe")) {
@@ -572,5 +576,9 @@ public class Virologist extends Thing {
 				}
 			}
 		}
+	}
+
+	public boolean isBear() {
+		return bear;
 	}
 }

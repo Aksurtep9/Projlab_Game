@@ -6,9 +6,11 @@ import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GameMenu extends JFrame {
@@ -43,6 +45,11 @@ public class GameMenu extends JFrame {
 		 btCraft=new JButton("Craft");						//if the button is pressed, the according function gets called
 		 btCraft.addActionListener(new ActionListener() {	 
 			public void actionPerformed(ActionEvent e) {
+				/** checks whether the current player has any action points left and know any gencode to craft*/
+				if(currentPlayer.GetGenCodeCollection().GetAgents().size()==0 || game.getActionCount()==0)
+				{
+					return;
+				}
 				CallCraft();
 			}
 		 });
@@ -50,6 +57,20 @@ public class GameMenu extends JFrame {
 		 btAnoint = new JButton("Anoint");
 		 btAnoint.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
+					/** checks whether the current player has any action point left and has any available agent to anoint with*/
+					if(currentPlayer.GetCraftedACollection().GetAgents().size()==0 || game.getActionCount()==0)
+					{
+						return;
+					}
+					int cnt;
+					ArrayList<Virologist> virologists= new ArrayList<Virologist>();
+					for (Thing vir : currentPlayer.field.GetThings()) {
+						if(vir.toString().equals("Virologist"))
+							virologists.add((Virologist)vir);
+							cnt++;
+					}
+					if(cnt==0)
+						return;
 					CallAnoint();
 				}
 			 });
@@ -57,6 +78,11 @@ public class GameMenu extends JFrame {
 		 btPickUp = new JButton("Pick Up");
 		 btPickUp.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
+					/**checks whether the currentz player has any action points left and has empty space for an equipment*/
+					if(currentPlayer.field.GetThings().size()==0 || game.getActionCount()==0)
+					{
+						return;
+					}
 					CallPick();
 				}
 			 });
@@ -64,6 +90,11 @@ public class GameMenu extends JFrame {
 		 btDrop = new JButton("Drop");
 		 btDrop.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
+					/** checks whether the current player has any action points left and can drop an item*//
+					if(currentPlayer.GetEquipmentCollection().GetEquipments().size()==0 || game.getActionCount()==0)
+					{
+						return;
+					}
 					CallDrop();
 				}
 			 });
@@ -71,6 +102,29 @@ public class GameMenu extends JFrame {
 		 btStealEq = new JButton("Steal Equipment");
 		 btStealEq.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
+					/**checks whether the current player has any action points left to use and has space for more equipment*/
+					if(game.getActionCount()==0 || currentPlayer.GetEquipmentCollection().GetEquipments().size()>=3)
+					{
+						return;
+					}
+					int cnt=0;
+					/** checks whether there is an available virologist on the field to rob*/
+					ArrayList<Virologist> virologists= new ArrayList<Virologist>();
+					for (Thing vir : currentPlayer.field.GetThings()) {
+						if(vir.toString().equals("Virologist"))
+							virologists.add((Virologist)vir);
+							cnt++;
+					}
+					if(cnt==0)
+						return;
+					/**checks whether the current player can store any more equipment*/
+					int eq=0;
+					for (Virologist vir : virologists) {
+						if(vir.GetEquipmentCollection().GetEquipments().size()>0)
+							eq++;
+					}
+					if(eq==0)
+						return;
 					CallStealEq();
 				}
 			 });
@@ -78,6 +132,29 @@ public class GameMenu extends JFrame {
 		 btStealMat = new JButton("Steal Material");
 		 btStealMat.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
+					/** checks if there is any actionpoint left and  whether the virologist has any space left for materials*/
+					if(game.getActionCount()==0 || (currentPlayer.GetMaterialCollection().GetAmino().GetAmount()>=20 && currentPlayer.GetMaterialCollection().GetNucle().GetAmount()>=20 ))
+					{
+						return;
+					}
+					/**checks whether is a virologist to be robbed*/
+					int cnt=0;
+					ArrayList<Virologist> virologists= new ArrayList<Virologist>();
+					for (Thing vir : currentPlayer.field.GetThings()) {
+						if(vir.toString().equals("Virologist"))
+							virologists.add((Virologist)vir);
+							cnt++;
+					}
+					if(cnt==0)
+						return;
+					/**checks whether the current player could steal material from victim*/
+					int eq=0;
+					for (Virologist vir : virologists) {
+						if(vir.GetMaterialCollection().GetAmino().GetAmount()>0 || vir.GetMaterialCollection().GetNucle().GetAmount()>0)
+							eq++;
+					}
+					if(eq==0)
+						return;
 					CallStealMat();
 				}
 			 });
@@ -85,6 +162,38 @@ public class GameMenu extends JFrame {
 		 btAttack= new JButton("Attack");
 		 btAttack.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
+					
+					/**if there are no actionpoint left*/
+					if(game.getActionCount()==0)
+					{
+						return;
+					}
+					/**checks if there are avaliable virologist to kill*/
+					int cnt=0;
+					ArrayList<Virologist> virologists= new ArrayList<Virologist>();
+					for (Thing vir : currentPlayer.field.GetThings()) {
+						if(vir.toString().equals("Virologist"))
+							virologists.add((Virologist)vir);
+							cnt++;
+					}
+					if(cnt==0)
+						return;
+					/**checks if said virologist is bear*/
+					int bear=0;
+					for (Virologist vir : virologists) {
+						if(vir.isBear())
+							bear++;
+					}
+					if(bear==0)
+						return;
+					/** checks whether the current player has an axe usable*/
+					int axe=0;
+					for(Equipment eq : currentPlayer.GetEquipmentCollection().GetEquipments()) {
+						if(eq.toString().equals("Axe")&& eq.useTime>0)
+							axe++;
+					}
+					if(axe==0)
+						return;
 					CallAttack();
 				}
 			 });
