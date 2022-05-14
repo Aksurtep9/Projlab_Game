@@ -17,6 +17,13 @@ public class AminoAcid extends Material{
 	}
 	
 	/**
+	 * constructor with parameter
+	 * @param amount: how many aminoacid we are going to have
+	 */
+	public AminoAcid(int amount) {
+		this.amount=amount;
+	}
+	/**
 	* Default ToString method for console printout.
 	* @return String with the amount
 	**/

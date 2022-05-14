@@ -362,8 +362,7 @@ public class Virologist extends Thing {
 		
 		AminoAcid Amino = materialCollection.GetAmino();
 		Nucleotid Nucle = materialCollection.GetNucle();
-//		int AminoAmount = Amino.amount;
-//		int NucleAmount = Nucle.amount;
+
 		
 		int fillAminoWithAmount = maxAmino - Amino.amount;
 		int fillNucleWithAmount = maxNucle - Nucle.amount;
@@ -371,16 +370,7 @@ public class Virologist extends Thing {
 			victimAminoAmount -= victimAminoAmount;
 			Amino.amount += victimAminoAmount;
 		}
-		/*else if(Amino.amount > fillAminoWithAmount) {
-			fillAminoWithAmount = fillAminoWithAmount - Amino.amount;
-			victimAminoAmount -= fillAminoWithAmount;
-			Amino.amount += fillAminoWithAmount;
-		}
-		else {
-			victimAminoAmount -= fillAminoWithAmount;
-			Amino.amount += fillAminoWithAmount;
-		}
-		*/
+		
 		else if(victimAminoAmount > fillAminoWithAmount) {
 			victimAminoAmount -= fillAminoWithAmount;
 			Amino.amount += fillAminoWithAmount;
@@ -391,20 +381,16 @@ public class Virologist extends Thing {
 			victimNucle.amount -= victimNucleAmount;
 			Nucle.amount += victimNucleAmount;
 		}
-		/*else if(Nucle.amount > fillNucleWithAmount) {
-			fillNucleWithAmount = fillNucleWithAmount - Nucle.amount;
-			victimNucle.amount -= fillNucleWithAmount;
-			Nucle.amount += fillNucleWithAmount;
-		}
-		else {
-			victimNucle.amount -= fillNucleWithAmount;
-			Nucle.amount += fillNucleWithAmount;
-		}*/
+		
 		else if(victimNucleAmount > fillNucleWithAmount) {
 			victimNucleAmount -= fillNucleWithAmount;
 			Nucle.amount += fillNucleWithAmount;
 		}
 		
+		m.SetAmino(new AminoAcid(victimAminoAmount));
+		m.SetNucle(new Nucleotid(victimNucleAmount));
+		materialCollection.SetAmino(Amino);
+		materialCollection.SetNucle(Nucle);
 	}
 	
 	/**

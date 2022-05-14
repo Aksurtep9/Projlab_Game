@@ -14,6 +14,15 @@ public class Nucleotid extends Material{
 	public Nucleotid() {
 		amount = 20;
 	}
+	
+	/**
+	 * constructor with parameter
+	 * @param amount: how many nucleotid we are going to have
+	 */
+	public Nucleotid(int amount) {
+		this.amount=amount;
+	}
+	
 	/**
 	* Default ToString method for console printout.
 	* @return String with the amount

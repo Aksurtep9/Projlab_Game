@@ -34,11 +34,27 @@ public class MaterialCollection implements Serializable {
 	}
 	
 	/**
+	 * sets amino to the variable given as parameter
+	 * @param a Aminoacid
+	 */
+	public void SetAmino(AminoAcid a) {
+		amino=a;
+	}
+	
+	/**
 	* Getter to the Nucleotid
 	* @return nucle
 	**/
 	public Nucleotid GetNucle() {
 		return nucle;
+	}
+	
+	/**
+	 * sets nucle to the variable given as parameter
+	 * @param a Nucleotid
+	 */
+	public void SetNucle(Nucleotid n) {
+		nucle=n;
 	}
 	
 	/**
