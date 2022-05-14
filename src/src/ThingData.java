@@ -21,12 +21,12 @@ public class ThingData extends AbstractTableModel {
 	
 	@Override
 	public int getRowCount() {
-		return 1;
+		return maxRows;
 	}
 	
 	@Override
 	public int getColumnCount() {
-		return maxRows;
+		return 3;
 	}
 	
 	public Class<? extends Object> getColumnClass(int column){
