@@ -39,7 +39,8 @@ public class GameMenu extends JFrame {
 		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
 		this.setSize(screenSize.width,screenSize.height); 	//Set the width and height of the JFrame
 		
-		JPanel pane1 = new JPanel();
+		canvas = new Canvas(currentPlayer.field.GetNeighbours().size());
+		this.add(canvas);
 		JPanel pane2 = new JPanel(new FlowLayout());
 		
 		this.setIconImage(new ImageIcon(this.getClass().getResource("icon.png")).getImage());
