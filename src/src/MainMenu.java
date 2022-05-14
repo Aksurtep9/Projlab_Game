@@ -38,7 +38,7 @@ public class MainMenu extends JFrame{
 		GridBagConstraints c = new GridBagConstraints();
 		this.add(mainp);
 		
-		this.setIconImage(new ImageIcon("icon.png").getImage());
+		this.setIconImage(new ImageIcon(this.getClass().getResource("icon.png")).getImage());
 		
 		this.setTitle("Main Menu");
 		

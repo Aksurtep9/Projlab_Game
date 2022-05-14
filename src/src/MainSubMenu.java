@@ -24,9 +24,6 @@ public class MainSubMenu extends JFrame{
 	private GameMenu gameFrame;
 	private int playerCnt=3;
 	
-	this.setIconImage(new ImageIcon("icon.png").getImage());
-	
-	this.setTitle("Main Sub Menu");
 	
 	public void GameStartBtnPress(int playerCnt) {
 		boolean allTextFieldsFull=true;
@@ -57,7 +54,11 @@ public class MainSubMenu extends JFrame{
 		
 		JPanel submainpanel=new JPanel(new GridLayout(playerCnt+1,2,50,50));
 		
-		Dimension size=new Dimension(200,25);			//this is the default(minimum) size of all the JTextFields and JLabels
+		Dimension size=new Dimension(200,25);	//this is the default(minimum) size of all the JTextFields and JLabels
+		
+		this.setIconImage(new ImageIcon(this.getClass().getResource("icon.png")).getImage());
+		
+		this.setTitle("Main Sub Menu");
 		
 		for(int i=0;i<playerCnt;i++) {
 			Virologists[i]=new JLabel("Virologist "+(i+1));

@@ -40,7 +40,7 @@ public class GameMenu extends JFrame {
 		JPanel pane1 = new JPanel();
 		JPanel pane2 = new JPanel(new FlowLayout());
 		
-		this.setIconImage(new ImageIcon("icon.png").getImage());
+		this.setIconImage(new ImageIcon(this.getClass().getResource("icon.png")).getImage());
 		
 		this.setTitle("Game");
 		
