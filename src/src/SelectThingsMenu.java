@@ -13,10 +13,10 @@ public class SelectThingsMenu extends JFrame{
 	 */
 	private static final long serialVersionUID = -3144941765010925027L;
 	
-	JButton btOk;
-	JFrame previous;
-	JTable table;
-	ThingData data;
+	private JButton btOk;
+	private JFrame previous;
+	private JTable table;
+	private ThingData data;
 	
 	
 	public SelectThingsMenu(Thing t, String info, JFrame p){
