@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author csizm
  *
  */
-public abstract class Agent implements Effect, Serializable
+public abstract class Agent extends Thing implements Effect, Serializable
 {
 	/**The number of remaining rounds, before the agent expires.	 */
 	protected int expireTime;

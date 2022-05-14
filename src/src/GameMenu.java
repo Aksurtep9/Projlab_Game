@@ -111,10 +111,8 @@ public class GameMenu extends JFrame {
 	}
 	
 	public void CallCraft() {
-		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"gencodecollection" , this);
 		game.getCurrentPlayer().CloneGenCode(new Protect());
-		setsdf.setSize(1120, 1020);
-		setsdf.setVisible(true);
+		SelectThingsMenu setsdf=new SelectThingsMenu(currentPlayer,"gencodecollection" , this);
 	}
 
 	public void CallAnoint() {
@@ -149,7 +147,7 @@ public class GameMenu extends JFrame {
 	}
 	
 	public void SetSelectedItem(Thing t) {
-		
+		this.selectedThing = t;
 	}
 	
 	public Virologist GetCurrentPlayer() {
