@@ -42,6 +42,8 @@ public class MainMenu extends JFrame{
 		
 		this.setTitle("Main Menu");
 		
+		
+		
 		Toolkit tk=Toolkit.getDefaultToolkit(); 			//Initializing the Toolkit class.
 		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
 		this.setSize(500,500); 	//Set the width and height of the JFrame.

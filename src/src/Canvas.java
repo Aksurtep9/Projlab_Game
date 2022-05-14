@@ -125,7 +125,7 @@ public class Canvas extends JPanel {
 			
 		}
 		Point p = new Point(100,100);
-		field.Draw(shape,p);
+		field.Draw(graphics,p);
 		
 	}
 	

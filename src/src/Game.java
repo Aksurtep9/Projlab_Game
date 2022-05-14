@@ -2,6 +2,7 @@ package src;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * 
@@ -92,8 +93,9 @@ public class Game implements Serializable{
 	 */
 	void NewGame() {
 		for(int i = 0; i < playerCount; i++) {
-			Virologist v = new Virologist();
-			players.add(v);
+			Random rand = new Random();
+			map.GetFields().get(rand.nextInt(map.GetFields().size())).Accept(players.get(i));   //Random Field gets a Player
+			//players.get(i).
 		}
 		
 		try {
