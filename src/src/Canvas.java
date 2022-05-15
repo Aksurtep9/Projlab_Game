@@ -53,13 +53,16 @@ public class Canvas extends JPanel {
 	 */
 	public Canvas(int vert,Field f) {
 		
-		verticesNum = vert;
+		/*verticesNum = vert;
+		 *
 		buttons = new JButton[verticesNum];
 		for(int i = 0; i < verticesNum; i++) {
 			String name=Integer.toString(i+1);
 			buttons[i] = new JButton(name);
 			this.add(buttons[i]);
-		}
+		}*/
+		
+		verticesNum = vert;
 		this.f=f;
 		enemy = new EnemyView();
 		equipment = new EquipmentView();
@@ -166,6 +169,7 @@ public class Canvas extends JPanel {
 	}
 	
 	public void Refresh(Graphics g,Field f) {
+		
 		this.f=f;
 		verticesNum = f.GetNeighbours().size();
 		buttons = new JButton[verticesNum];
@@ -179,29 +183,28 @@ public class Canvas extends JPanel {
 			{
 				field = new WarehouseView(verticesNum);
 				material.Draw(g, new Point(300, 300));
-				thingsPaint(g);
+				
 				break;
 			}
 			case "Shelter":
 			{
 				field = new ShelterView(verticesNum);
-				thingsPaint(g);
 				break;
 			}
 			case "Laboratory":
 			{
 				field = new LaborView(verticesNum);
 				genCode.Draw(g, new Point(350, 350));
-				thingsPaint(g);
 				break;
 			}
 			default:
 			{
 				field = new FieldView(verticesNum);
-				thingsPaint(g);
 				break;
 			}
 		}
+		field.Draw(graphics, new Point(100,100));
+		thingsPaint(g);
 		this.repaint();
 	}
 	
@@ -252,6 +255,7 @@ public class Canvas extends JPanel {
 	public void paintComponent(Graphics g) {
 		graphics=g;
 		super.paintComponent(graphics);
+		//
 		Refresh(graphics,f);
 		/*Point p = new Point(100,100);
 		field.Draw(g,p);
@@ -264,6 +268,8 @@ public class Canvas extends JPanel {
 		/*g.setColor(Color.black);
 		Dimension dimension = new Dimension(700, 700);
         g.fillRect(0, 0, dimension.width, dimension.height);*/
+		
+		//graphics.dispose();
 	}
 
 }
