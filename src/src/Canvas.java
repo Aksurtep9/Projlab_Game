@@ -200,15 +200,8 @@ public class Canvas extends JPanel{
 					Virologist v = Game.getCurrentPlayer();
 					f.Accept(v);
 					Game.decreaseActioncount();
-					
 				}
-			
-			
 			}
-			
-			
-			
-			//Refresh(graphics, f);
 			repaint();
 		}
 	}
