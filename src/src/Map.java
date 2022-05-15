@@ -57,14 +57,27 @@ public class Map implements Serializable{
 			int numberOfFields = Integer.parseInt(sc.nextLine());
 			for(int i = 0; i<numberOfFields; ++i) {
 				String whatField = sc.nextLine();
-				if(whatField.contains("Field"))
-					fields.add(new Field());
-				else if(whatField.contains("Laboratory"))
-					fields.add(new Laboratory());
-				else if(whatField.contains("Shelter"))
-					fields.add(new Shelter());
-				else if(whatField.contains("Warehouse"))
-					fields.add(new Warehouse());
+				if(whatField.contains("Field")) {
+					Field f = new Field();
+					f.setId(i+1);
+					fields.add(f);
+				}
+				else if(whatField.contains("Laboratory")) {
+					Laboratory l = new Laboratory();
+					l.setId(i+1);
+					fields.add(l);
+				}
+				else if(whatField.contains("Shelter")) {
+					Shelter s = new Shelter();
+					s.setId(i+1);
+					fields.add(s);
+				}
+				else if(whatField.contains("Warehouse")) {
+					Warehouse w = new Warehouse();
+					w.setId(i+1);
+					fields.add(w);
+				}
+					
 			}
 			
 			String line;

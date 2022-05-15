@@ -21,7 +21,7 @@ public class Field implements Serializable{
 	private static int uniqueID = 0;
 	
 	/**The ID which is given to toString method.*/
-	private int ID;
+	protected int ID;
 
 	/**Stores the field neighbours.*/
 	protected ArrayList<Field> neighbours;
@@ -111,6 +111,8 @@ public class Field implements Serializable{
 	}
 	
 	public int getID() { return this.ID; }
+	
+	public void setId(int id) { this.ID = id; }
 	
 	/**
 	 * Gives the field's type back

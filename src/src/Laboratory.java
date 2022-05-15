@@ -80,6 +80,8 @@ public class Laboratory extends Field{
 		v.SetField(this);
 	}
 	
+	public void setId(int id) { this.ID = id; }
+	
 	/**
 	 * Gives the field's type back
 	 * @return the type of the field
