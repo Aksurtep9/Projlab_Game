@@ -3,11 +3,18 @@ package src;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -50,6 +57,10 @@ public class GameMenu extends JFrame {
 	/**the button representing the pass interaction*/
 	JButton btPass;
 	
+	/**the button representing the help interaction*/
+	JButton btHelp;
+	
+	/**label displaying the name of the player currently playing*/
 	JLabel currVName;
 	
 	/**the current player*/
@@ -279,6 +290,13 @@ public class GameMenu extends JFrame {
 				}
 			 });
 		 
+		 btHelp=new JButton("Help");
+		 btHelp.addActionListener(new ActionListener(){
+			 public void actionPerformed(ActionEvent e) {
+					CallHelp();
+			}
+		 });
+		 
 		 pane2.add(btCraft); //adding the buttons which are responsible for controlling the game to the panel
 		 pane2.add(btAnoint);
 		 pane2.add(btPickUp);
@@ -287,6 +305,7 @@ public class GameMenu extends JFrame {
 		 pane2.add(btStealMat);
 		 pane2.add(btAttack);
 		 pane2.add(btPass);
+		 pane2.add(btHelp);
 		 pane2.add(currVName);
 		 canvas.setVisible(true);
 		 pane2.setVisible(true);
@@ -576,6 +595,24 @@ public class GameMenu extends JFrame {
 		currVName.setText(currentPlayer.getName());
 		canvas.setField(currentPlayer.GetField());
 		canvas.repaint();
+	}
+	
+	public void CallHelp() {
+		JFrame helpf=new JFrame("Help");
+		JPanel panel=new JPanel();
+		panel.setBounds(0,0,1044,770);
+		Image img=null;
+		try {
+			img=new ImageIcon(this.getClass().getResource("help.png")).getImage();
+		} catch(Exception ex){
+			System.out.print("the program very not gud.");
+		}
+		JLabel l=new JLabel(new ImageIcon(img));
+		panel.add(l);
+		helpf.add(panel);
+		helpf.setSize(1044,770);
+		helpf.setLayout(null);
+		helpf.setVisible(true);
 	}
 	
 	/**

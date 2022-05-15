@@ -259,7 +259,7 @@ public class Canvas extends JPanel{
 		field.Draw(graphics, new Point(300, 300));
 		thingsPaint(g);
 		if(lab==1)
-			material.Draw(g, new Point(470,480));
+			material.Draw(g, new Point(470,490));
 		else if(lab==2)
 			genCode.Draw(g, new Point(470,480));
 	}
