@@ -29,27 +29,27 @@ public class ShelterView extends View{
 		switch(vertices) {
 		
 		case 3: 
-			img = new ImageIcon(this.getClass().getResource("Shelter_3")).getImage();
+			img = new ImageIcon(this.getClass().getResource("Shelter_3.png")).getImage();
 			break;
 		
 		case 4:
-			img = new ImageIcon(this.getClass().getResource("Shelter_4")).getImage();
+			img = new ImageIcon(this.getClass().getResource("Shelter_4.png")).getImage();
 			break;
 			
 		case 5:
-			img = new ImageIcon(this.getClass().getResource("Shelter_5")).getImage();
+			img = new ImageIcon(this.getClass().getResource("Shelter_5.png")).getImage();
 			break;
 			
 		case 6:
-			img = new ImageIcon(this.getClass().getResource("Shelter_6")).getImage();
+			img = new ImageIcon(this.getClass().getResource("Shelter_6.png")).getImage();
 			break;
 			
 		case 7:
-			img = new ImageIcon(this.getClass().getResource("Shelter_7")).getImage();
+			img = new ImageIcon(this.getClass().getResource("Shelter_7.png")).getImage();
 			break;
 			
 		case 8:
-			img = new ImageIcon(this.getClass().getResource("Shelter_8")).getImage();
+			img = new ImageIcon(this.getClass().getResource("Shelter_8.png")).getImage();
 			break;
 			
 		default:

@@ -28,27 +28,27 @@ public class WarehouseView extends View{
 		switch(vertices) {
 		
 		case 3:
-			img = new ImageIcon(this.getClass().getResource("War_3")).getImage();
+			img = new ImageIcon(this.getClass().getResource("War_3.png")).getImage();
 			break;
 			
 		case 4:
-			img = new ImageIcon(this.getClass().getResource("War_4")).getImage();
+			img = new ImageIcon(this.getClass().getResource("War_4.png")).getImage();
 			break;
 			
 		case 5:
-			img = new ImageIcon(this.getClass().getResource("War_5")).getImage();
+			img = new ImageIcon(this.getClass().getResource("War_5.png")).getImage();
 			break;
 			
 		case 6:
-			img = new ImageIcon(this.getClass().getResource("War_6")).getImage();
+			img = new ImageIcon(this.getClass().getResource("War_6.png")).getImage();
 			break;
 			
 		case 7:
-			img = new ImageIcon(this.getClass().getResource("War_7")).getImage();
+			img = new ImageIcon(this.getClass().getResource("War_7.png")).getImage();
 			break;
 			
 		case 8:
-			img = new ImageIcon(this.getClass().getResource("War_8")).getImage();
+			img = new ImageIcon(this.getClass().getResource("War_8.png")).getImage();
 			break;
 			
 		default:
