@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 public class Canvas extends JPanel {
 	
-	
+	private Field f;
 	/**
 	 * 
 	*/
@@ -51,7 +51,7 @@ public class Canvas extends JPanel {
 	/**
 	 * default constructor
 	 */
-	public Canvas(int vert) {
+	public Canvas(int vert,Field f) {
 		
 		verticesNum = vert;
 		buttons = new JButton[verticesNum];
@@ -60,6 +60,7 @@ public class Canvas extends JPanel {
 			buttons[i] = new JButton(name);
 			this.add(buttons[i]);
 		}
+		this.f=f;
 		enemy = new EnemyView();
 		equipment = new EquipmentView();
 		material = new MaterialView();

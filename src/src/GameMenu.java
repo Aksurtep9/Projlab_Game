@@ -83,7 +83,7 @@ public class GameMenu extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.game.NewGame();
 		
-		canvas = new Canvas(currentPlayer.GetField().GetNeighbours().size());
+		canvas = new Canvas(currentPlayer.GetField().GetNeighbours().size(),currentPlayer.GetField());
 		mainPanel = new JPanel(new BorderLayout());
 		mainPanel.add(canvas, BorderLayout.CENTER);
 		//this.add(mainPanel);
