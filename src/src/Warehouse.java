@@ -61,6 +61,8 @@ public class Warehouse extends Field{
 		return "Warehouse";
 	}
 	
+	public void setId(int id) { this.ID = id; }
+	
 	/**
 	 * Removes every Material from the materialCollection
 	 */

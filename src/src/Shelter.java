@@ -69,6 +69,8 @@ public class Shelter extends Field {
 		t.SetField(this);
 	}
 	
+	public void setId(int id) { this.ID = id; }
+	
 	/**
 	 * Gives the field's type back
 	 * @return the type of the field
