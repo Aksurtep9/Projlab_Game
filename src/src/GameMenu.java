@@ -77,6 +77,10 @@ public class GameMenu extends JFrame {
 	GameMenu(Game game) {
 		this.game=game;
 		currentPlayer = this.game.getCurrentPlayer();
+		
+		currVName=new JLabel();
+		currVName.setText(currentPlayer.getName());
+		
 		Toolkit tk=Toolkit.getDefaultToolkit(); 			//Initializing the Toolkit class.
 		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
 		this.setSize(screenSize.width,screenSize.height); 	//Set the width and height of the JFrame
@@ -268,6 +272,7 @@ public class GameMenu extends JFrame {
 		 pane2.add(btStealMat);
 		 pane2.add(btAttack);
 		 pane2.add(btPass);
+		 pane2.add(currVName);
 		 canvas.setVisible(true);
 		 pane2.setVisible(true);
 		 
@@ -527,6 +532,11 @@ public class GameMenu extends JFrame {
 	 */
 	public void CallPass() {
 		game.NewRound();
+		this.currentPlayer=game.getCurrentPlayer();
+		currentPlayer.GetField();
+		currVName.invalidate();
+		currVName.setText(currentPlayer.getName());
+		
 	}
 	
 	/**

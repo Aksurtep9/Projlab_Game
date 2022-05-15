@@ -73,6 +73,13 @@ public class Virologist extends Thing {
 	}
 	
 	/**
+	 * this method returns the name of the virologist
+	 * @return Name
+	 */
+	public String getName() {
+		return Name;
+	}
+	/**
 	 * returns how much aminoacid fits into the virologist's collection
 	 * @return maxAmino
 	 */
