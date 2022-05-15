@@ -56,7 +56,8 @@ public class Canvas extends JPanel {
 		verticesNum = vert;
 		buttons = new JButton[verticesNum];
 		for(int i = 0; i < verticesNum; i++) {
-			buttons[i] = new JButton();
+			String name=Integer.toString(i);
+			buttons[i] = new JButton(name);
 			this.add(buttons[i]);
 		}
 		enemy = new EnemyView();

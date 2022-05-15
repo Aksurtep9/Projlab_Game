@@ -15,21 +15,37 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
+ * MainFrame
  * The very first frame that the user sees
  */
 public class MainMenu extends JFrame{
 	
 	private static final long serialVersionUID = -7953672467585166161L;
 	
-	//private JFrame frame;
+	/**the panel with the logo*/
 	private JPanel logo;
+	
+	/**the submenu where you can name the virologist*/
 	private MainSubMenu subMenuFrame;
+	
+	/**the possible number of players*/
 	private String[] playerNum;
+	
+	/**JCombobox where the user can choose the number of players*/
 	private JComboBox numChooser;
+	
+	/**the start button*/
 	private JButton startBtn;
+	
+	/**the label making the program more user friendly*/
 	private JLabel plCnt;
+	
+	/**the basic player count*/
 	private int playercount=3;
 	
+	/**
+	 * Constructor for the MainMenu
+	 */
 	public MainMenu() {
 		
 		/**The constructor of frame*/
@@ -71,8 +87,6 @@ public class MainMenu extends JFrame{
 		c.gridy = 1;
 		mainp.add(plCnt, c);
 		
-		
-		
 		startBtn=new JButton("START");
 		/**The listener which starts the naming process*/
 		startBtn.addActionListener(new ActionListener() {	 
@@ -80,6 +94,7 @@ public class MainMenu extends JFrame{
 				subMenuFrame=new MainSubMenu(playercount);
 				subMenuFrame.setSize(300,400);
 		        subMenuFrame.setVisible(true);
+		        Dispose();
 			}
 		});
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -114,5 +129,8 @@ public class MainMenu extends JFrame{
 		public void actionPerformed(ActionEvent ae){
 			 playercount=Integer.parseInt((String)numChooser.getSelectedItem());
 		}
+	}
+	public void Dispose() {
+		this.dispose();
 	}
 }
