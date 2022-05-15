@@ -53,8 +53,12 @@ public class Virologist extends Thing {
 	/**The Materials owned by the Virologist are in the materialCollection*/
 	private MaterialCollection materialCollection;
 	
+	/**this boolean determines, whether the virologist is a bear, or not (by default, it's not a bear)*/
 	private boolean bear=false;
 	
+	/**
+	 * Constructor of Virologist. By default, it is alive.
+	 */
 	public Virologist() {
 		equipmentCollection = new EquipmentCollection();
 		effectCollection = new EffectCollection();
@@ -308,11 +312,12 @@ public class Virologist extends Thing {
 	* @param eqNum the number of the equipment which should be picked up
 	**/
 	public void PickUpEquipment(Equipment equipment) {
-		
+		//if the player's inventory if full, the method returns
 		if(this.equipmentCollection.GetEquipments().size()>=3) {
 			Prototype.logger("Failed, virologist's item collection is full", Prototype.GetLogFile());
 			return;
 		}
+		//picking up the equipment given as parameter
 		else {
 			if(equipmentCollection.GetSize() < 3) {
 				equipmentCollection.Add(equipment);
@@ -330,11 +335,13 @@ public class Virologist extends Thing {
 	public void RandomField() {
 		List<Field> neighbours = field.GetNeighbours();
 		Field field = null;
+		//if we have randomness turned on, the virologist will move to a randomly selected neighboring field
 		if(Game.isRandom()) {
 			Random rand = new Random();
 			int numberOfSelectedField = rand.nextInt(neighbours.size());
 			field = neighbours.get(numberOfSelectedField);
 		}
+		//if we have randomness turned off, the player will move to the field's first neighbour
 		else {
 			field = neighbours.get(0);
 		}
@@ -355,38 +362,47 @@ public class Virologist extends Thing {
 	* @param m - A Warehouse or another Virologist MaterialCollection
 	**/
 	public void FillMaterials(MaterialCollection m) {
+		//the aminoacid and nucleotid of the victim
 		AminoAcid victimAmino = m.GetAmino();
 		Nucleotid victimNucle = m.GetNucle();
 		int victimAminoAmount = victimAmino.amount;
 		int victimNucleAmount = victimNucle.amount;
 		
+		//the aminoacid and nucleotid of the thief
 		AminoAcid Amino = materialCollection.GetAmino();
 		Nucleotid Nucle = materialCollection.GetNucle();
 
-		
+		//determines the amount of aminoacid the virologist can pick up, before reaching his limit
 		int fillAminoWithAmount = maxAmino - Amino.amount;
+		
+		//determines the amount of nucleotid the virologist can pick up, before reaching his limit
 		int fillNucleWithAmount = maxNucle - Nucle.amount;
+		
+		//if the victim has less aminoacid, than the thief's carrying capacity, the thief takes everything from him
 		if(victimAminoAmount <= fillAminoWithAmount) {
 			victimAminoAmount -= victimAminoAmount;
 			Amino.amount += victimAminoAmount;
 		}
 		
+		//if the victim has more aminoacid, than the thief's carrying capacity, the thief takes the most he can carry
 		else if(victimAminoAmount > fillAminoWithAmount) {
 			victimAminoAmount -= fillAminoWithAmount;
 			Amino.amount += fillAminoWithAmount;
 		}
 		
-		
+		//if the victim has less nucleotid, than the thief's carrying capacity, the thief takes everything from him
 		if(victimNucleAmount <= fillNucleWithAmount) {
 			victimNucle.amount -= victimNucleAmount;
 			Nucle.amount += victimNucleAmount;
 		}
 		
+		//if the victim has more nucleotid, than the thief's carrying capacity, the thief takes the most he can carry
 		else if(victimNucleAmount > fillNucleWithAmount) {
 			victimNucleAmount -= fillNucleWithAmount;
 			Nucle.amount += fillNucleWithAmount;
 		}
 		
+		//saving the changes in the victim's and the thief's materialcollections
 		m.SetAmino(new AminoAcid(victimAminoAmount));
 		m.SetNucle(new Nucleotid(victimNucleAmount));
 		materialCollection.SetAmino(Amino);
@@ -399,24 +415,26 @@ public class Virologist extends Thing {
 	 * @param v2 The virologist which will be anointed with bear dance.
 	 */
 	public void BearDanceAnoint(Virologist v2) {
+		//by default, we presume, that the victim we want to anoint, doesn't have a cloak
 		Cloak eq = null;
 		boolean containsCloak = false;
 		
-		
-		
+		//iterating through the victim's equipments, if we find a cloak, we change the boolean to true
 		for(Equipment item: v2.GetEquipmentCollection().GetEquipments()) {
 			if(item.toString().contains("Cloak") && !containsCloak) {
 				containsCloak = true;
 				eq = (Cloak)item;
 			}
 		}
-		
+		//checking whether the victim is protected, and whether his cloak works, or not
 		boolean isVictimProtected = v2.GetEffectCollection().Contains("Protect");
 		boolean haveCloak = v2.GetEffectCollection().Contains("Cloak");
 		if(haveCloak) {
-			boolean protectingCloak = eq.Chance();
+			boolean protectingCloak = eq.Chance();//checking, if the virologist was lucky
 			boolean hasBearDanceAlready = v2.GetEffectCollection().Contains("BearDance");
 
+			//if the victim isn't protected, and his cloak doesn't work, and he isn't a bear
+			//we anoint him with beardance
 			if(!(isVictimProtected && protectingCloak && hasBearDanceAlready)) {
 				Agent bearDance = new BearDance();
 				v2.effectCollection.Add(bearDance, v2);
@@ -432,15 +450,21 @@ public class Virologist extends Thing {
 		this.GetEffectCollection().AffectWithAll(this);
 	}
 	
-	
+	/**
+	 * Decreases the time of both the crafted agents the player has, and
+	 * the effects that are currently applied to him.
+	 */
 	public void CallDecreaseAgentTime() {
 		craftedAgentCollection.DecreaseAgentTimeAColl(this);
 		effectCollection.DecreaseAgentTimeEColl(this);
 	}
 	
+	/**
+	 * removes the agent given as parameter from the effectCollection
+	 * @param a the agent we want to remove
+	 */
 	public void RemoveAgentFromAgentColl(Agent a) {
 		effectCollection.Remove(a.GetEffectName());
-		
 	}
 	
 	/**
@@ -500,10 +524,18 @@ public class Virologist extends Thing {
 		return effectCollection;
 	}
 	
+	/**
+	 * getter, returns the gencodecollection of the virologist
+	 * @return collection of genetic codes learnt
+	 */
 	public AgentCollection GetGenCodeCollection() {
 		return genCodeCollection;
 	}
 	
+	/**
+	 * getter, returns the craftedagentcollection of the virologist
+	 * @return craftedAgentCollection
+	 */
 	public AgentCollection GetCraftedACollection() {
 		return craftedAgentCollection;
 	}
@@ -523,22 +555,30 @@ public class Virologist extends Thing {
 		return alive;
 	}
 	
+	/**
+	 * Returns the id of the virologist
+	 * @return ID
+	 */
 	public int GetId() {
 		return ID;
 	}
 	
 	/**
-	 * 
+	 * Kills the bear by invoking the setDead() method (setting his alive boolean to false).
 	 * @param v - the virologist who's become bear
 	 */
 	public void KillTheBear(Virologist v) {
 		v.setDead();
 	}
 	
+	/**
+	 * Kills the victim, if he is alive, and he is anointed with the beardance virus.
+	 * @param victim
+	 */
 	public void Attack(Virologist victim) {
 		
-		/**Checking for the bear*/
-		if(!victim.IsAlive())
+		/**Checking for the bear and being alive*/
+		if(victim.isBear() && victim.IsAlive())
 		{
 			/**the collection of axes*/
 			ArrayList<Axe> axes=new ArrayList<Axe>();
@@ -547,6 +587,7 @@ public class Virologist extends Thing {
 					axes.add((Axe) e);
 				}
 			}
+			/**The first axe of the collection kills the bear and gets used, then the function returns.*/
 			for(Axe a : axes)
 			{
 				if(a.GetUseTime()>0)
@@ -564,6 +605,10 @@ public class Virologist extends Thing {
 		}
 	}
 
+	/**
+	 * If the Virologist got the BearDance virus, this function returns true.
+	 * @return bear, the boolean that stores if the virologist is a bear
+	 */
 	public boolean isBear() {
 		return bear;
 	}
