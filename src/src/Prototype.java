@@ -147,7 +147,7 @@ public class Prototype {
 	 * @param cmd - the command
 	 */
 	public void NewGame(String[] cmd) {
-		game = new Game(3);
+		//game = new Game(3);
 		
 		String mapPath = cmd[1];
 		File mapFile = new File(wd, mapPath);
@@ -208,7 +208,7 @@ public class Prototype {
 	public void PickUp(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
 		
-		game.getCurrentPlayer().PickUpEquipment(EqNum);
+		//game.getCurrentPlayer().PickUpEquipment(EqNum);
 	}
 	
 	/**
@@ -218,7 +218,7 @@ public class Prototype {
 	public void Drop(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[1]);
 		if(EqNum>game.getCurrentPlayer().GetEquipmentCollection().GetSize())return;
-		game.getCurrentPlayer().DropEquipment(EqNum);
+		//game.getCurrentPlayer().DropEquipment(EqNum);
 	}
 	
 	/**
@@ -228,7 +228,7 @@ public class Prototype {
 	public void StealEq(String[] cmd) {
 		int EqNum=Integer.parseInt(cmd[2]);
 		int ViroNum=Integer.parseInt(cmd[1]);
-		game.getCurrentPlayer().StealEquipment(ViroNum,EqNum);
+		//game.getCurrentPlayer().StealEquipment(ViroNum,EqNum);
 	}
 	
 	/**
@@ -411,24 +411,24 @@ public class Prototype {
 	public void Anoint(String[] cmd) {
 		int victim = Integer.parseInt(cmd[1]);
 		int agent = Integer.parseInt(cmd[2]);
-		game.getCurrentPlayer().Anoint(victim, agent);
+		//game.getCurrentPlayer().Anoint(victim, agent);
 	}
 	
 	public void Craft(String[] cmd) {
 		int craft = Integer.parseInt(cmd[1]);
 		if(game.getCurrentPlayer().GetGenCodeCollection().GetAgents().isEmpty())
 			return;
-		game.getCurrentPlayer().Craft(craft);
+		//game.getCurrentPlayer().Craft(craft);
 	}
 	
 	public void StealMat(String[] cmd){
 		int victim = Integer.parseInt(cmd[1]);
-		game.getCurrentPlayer().StealMaterial(victim);
+		//game.getCurrentPlayer().StealMaterial(victim);
 	}
 	
 	public void Attack(String[] cmd) {
 		int victim = Integer.parseInt(cmd[1]);
-		game.getCurrentPlayer().Attack(victim);
+		//game.getCurrentPlayer().Attack(victim);
 	}
 	
 	public void Ls(String[] cmd) {
