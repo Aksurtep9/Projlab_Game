@@ -63,12 +63,10 @@ public class Canvas extends JPanel{
 			String name=Integer.toString(i+1);
 			buttons[i] = new JButton(name);
 			this.add(buttons[i]);
-<<<<<<< HEAD
 		}*/
-		
+		//this.setSize(800,700);
 		verticesNum = vert;
-			buttons[i].addActionListener(new NumberButtonPressed());
-		}
+			//buttons[i].addActionListener(new NumberButtonPressed());
 
 		this.f=f;
 		enemy = new EnemyView();

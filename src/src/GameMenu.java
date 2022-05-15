@@ -83,7 +83,7 @@ public class GameMenu extends JFrame {
 		
 		Toolkit tk=Toolkit.getDefaultToolkit(); 			//Initializing the Toolkit class.
 		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
-		this.setSize(screenSize.width,screenSize.height); 	//Set the width and height of the JFrame
+		this.setSize(screenSize.width,screenSize.height-800); 	//Set the width and height of the JFrame
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.game.NewGame();
 		
