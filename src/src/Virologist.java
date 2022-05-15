@@ -361,6 +361,7 @@ public class Virologist extends Thing {
 		//if we have randomness turned on, the virologist will move to a randomly selected neighboring field
 		if(Game.isRandom()) {
 			Random rand = new Random();
+			System.out.println(neighbours.size());
 			int numberOfSelectedField = rand.nextInt(neighbours.size());
 			field = neighbours.get(numberOfSelectedField);
 		}

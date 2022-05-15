@@ -98,8 +98,10 @@ public class Game implements Serializable{
 	void NewGame() {
 		for(int i = 0; i < playerCount; i++) {
 			Random rand = new Random();
-			System.out.println(map.GetFields().size());
 			int field = rand.nextInt(map.GetFields().size());
+			while(map.GetFields().get(field).toString().contains("Laboratory")) {
+				field = rand.nextInt(map.GetFields().size());
+			}
 			map.GetFields().get(field).Accept(players.get(i));   //Random Field gets a Player
 		}
 		

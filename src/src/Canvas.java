@@ -187,7 +187,7 @@ public class Canvas extends JPanel{
 			/**iterates through the list of buttons*/
 			for(int i = 0; i < buttons.length; i++) {
 				/**if the i-the button was pressed...*/
-				if(buttons[i] == e.getSource() && Game.getActionCount() > 0) {
+				if(buttons[i] == e.getSource() && Game.getActionCount() > 0  && !Game.getCurrentPlayer().isBear()) {
 					/**...the attribute "f" gets set to the i-th neighbour of the current "f" field*/
 					f = f.GetNeighbours().get(i);
 					Virologist v = Game.getCurrentPlayer();
@@ -273,20 +273,29 @@ public class Canvas extends JPanel{
 			else if(t.toString().contains("Axe") || t.toString().contains("Cloak") || t.toString().contains("Sack") || t.toString().contains("Gloves"))
 				eq++;
 		}
-		if(virocount>1)
-			enemy.Draw(g, new Point(430,430));
+		
+		Virologist player = Game.getCurrentPlayer();
+		
+		ArrayList<Virologist> enemies = new ArrayList<>();
+		for(Thing item: player.GetField().GetThings()) {
+			if(item.toString().contains("Virologist")) {
+				Virologist vir = (Virologist) item;
+				if(!vir.getName().equals(player.getName()))
+					enemies.add(vir);
+			}
+		}
+		
+		if(virocount>0) {
+			for(Virologist v : enemies) {
+				if(v.isBear()) {
+					bear.Draw(g, new Point(500,500));
+				}else {
+					enemy.Draw(g, new Point(430,430));
+				}
+			}	
+		}
 		if(eq>0)
 			equipment.Draw(g, new Point(370, 440));
-		ArrayList<Virologist> viro= new ArrayList<Virologist>();
-		for(Thing t : f.GetThings()) {
-			if(t.toString().equals("Virologist"))
-				viro.add((Virologist)t);
-		}
-		for(Virologist v : viro) {
-			if(v.isBear()) {
-				bear.Draw(g, new Point(500,500));
-			}		
-		}	
 	}
 	
 	/**
