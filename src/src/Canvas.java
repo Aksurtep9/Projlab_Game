@@ -6,13 +6,16 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class Canvas extends JPanel {
+public class Canvas extends JPanel{
 	
 	private Field f;
 	/**
@@ -60,9 +63,13 @@ public class Canvas extends JPanel {
 			String name=Integer.toString(i+1);
 			buttons[i] = new JButton(name);
 			this.add(buttons[i]);
+<<<<<<< HEAD
 		}*/
 		
 		verticesNum = vert;
+			buttons[i].addActionListener(new NumberButtonPressed());
+		}
+
 		this.f=f;
 		enemy = new EnemyView();
 		equipment = new EquipmentView();
@@ -164,10 +171,28 @@ public class Canvas extends JPanel {
 
 	}
 	
-	public void ButtonPressed() {
-		
+	/**
+	 * Action listener for numbered buttons. This method selects the field on which the virologist will move to.
+	 * @param e button event
+	 */
+	public class NumberButtonPressed implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			/**iterates through the list of buttons*/
+			for(int i = 0; i < buttons.length; i++) {
+				/**if the i-th button was pressed...*/
+				if(buttons[i].getModel().isPressed()) {
+					/**...the attribute "f" gets set to the i-th neighbour of the current "f" field*/
+					f = f.GetNeighbours().get(i);
+				}
+			/**screen gets refreshed*/
+			Refresh(graphics, f);
+			}
+			
+		}
 	}
 	
+
 	public void Refresh(Graphics g,Field f) {
 		
 		this.f=f;
@@ -271,5 +296,7 @@ public class Canvas extends JPanel {
 		
 		//graphics.dispose();
 	}
+
+	
 
 }
