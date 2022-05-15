@@ -38,6 +38,7 @@ public class Shelter extends Field {
 		}else {
 			equipments.add(new Gloves());
 		}
+		this.things.add(equipments.get(0));
 	}
 	
 	/**
