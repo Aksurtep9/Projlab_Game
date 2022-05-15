@@ -142,10 +142,18 @@ public class GameMenu extends JFrame {
 		 btPickUp.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
 					/**checks whether the currentz player has any action points left and has empty space for an equipment*/
-					if(currentPlayer.field.GetThings().size()==0 || game.getActionCount()==0)
+					if(game.getActionCount()==0)
 					{
 						return;
 					}
+					int cnt=0;
+					for(Thing t : currentPlayer.field.GetThings())
+					{
+						if(t.toString().equals("Axe") || t.toString().equals("Cloak") || t.toString().equals("Sack") || t.toString().equals("Gloves"))
+							cnt++;
+					}
+					if(cnt==0)
+						return;
 					CallPick();
 				}
 			 });
@@ -178,7 +186,7 @@ public class GameMenu extends JFrame {
 							virologists.add((Virologist)vir);
 							cnt++;
 					}
-					if(cnt==0)
+					if(cnt<=1)
 						return;
 					/**checks whether the current player can store any more equipment*/
 					int eq=0;
