@@ -14,6 +14,7 @@ public class ThingData<T> extends AbstractTableModel {
 	/**unique id*/
 	private static final long serialVersionUID = 1L;
 	
+	
 	private ArrayList<? super T> thingList;
 	
 	/**
@@ -35,21 +36,37 @@ public class ThingData<T> extends AbstractTableModel {
 		}
 	}
 	
+	/**
+	 * getter method, returns how many things are
+	 * currently listed
+	 */
 	public int getRowCount() {
 		return thingList.size();
 	}
 	
+	/**
+	 * getter method, always returns one (there is only 1 column).
+	 */
 	public int getColumnCount() {
 		return 1;
 	}
 	
+	/**
+	 * getter method,it returns the class of the column
+	 */
 	public Class<? extends Object> getColumnClass(int column){
 		return getValueAt(0, column).getClass();
 	}
 	
+	/**
+	 * getter method, returns the thing at the position (column/row) given as parameter
+	 */
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		return thingList.get(rowIndex);
 	}
 	
+	/**
+	 * setter method.
+	 */
 	public void setValueAt(Object value, int row, int col) {}
 }

@@ -22,7 +22,10 @@ public class SelectThingsMenu extends JFrame{
 	/**unique id*/
 	private static final long serialVersionUID = -3144941765010925027L;
 	
+	/**the button the player needs to press to confirm his choice*/
 	private JButton btOk;
+	
+	/**the previous JFrame*/
 	private GameMenu previous;
 	private JTable table;
 	@SuppressWarnings("rawtypes")

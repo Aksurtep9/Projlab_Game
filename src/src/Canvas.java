@@ -199,10 +199,19 @@ public class Canvas extends JPanel{
 		}
 	}
 	
+	/**
+	 * sets the field of the canvas to the field given as parameter
+	 * @param f field
+	 */
 	public void setField(Field f) {
 		this.f=f;
 	}
 	
+	/**
+	 * Redraws the field, and draws genetic codes/ etc. in it, if needed.
+	 * @param g graphics
+	 * @param f field
+	 */
 	public void Refresh(Graphics g,Field f) {
 		this.f=f;
 		int prevVerticesNum=0;
@@ -229,7 +238,8 @@ public class Canvas extends JPanel{
         	}
         }*/
         
-		
+		/**drawing the field according to its type, because every
+		 * child of Field looks different*/
 		int lab=0;
 		switch(f.toString()) {
 			case "Warehouse":
@@ -257,17 +267,26 @@ public class Canvas extends JPanel{
 		}
 		field.Draw(graphics, new Point(300, 300));
 		thingsPaint(g);
+		/**if the field is a lab, draws a genetic code on it, 
+		 * if it is a warehouse, draws a material on it*/
 		if(lab==1)
 			material.Draw(g, new Point(470,490));
 		else if(lab==2)
 			genCode.Draw(g, new Point(470,480));
 	}
 	
+	/**
+	 * Method responsible for displaying the different things on a field
+	 * @param g graphics
+	 */
 	public void thingsPaint(Graphics g) {
 		int virocount=0;
 		int eq=0;
 		for(Thing t : f.GetThings())
 		{
+			/**if there is a virologist on the field, we increment the counter, but
+			 * the enemy icon should only be displayed, if there are
+			 * at least two virologists on the field*/
 			if(t.toString().contains("Virologist"))
 				virocount++;
 			else if(t.toString().contains("Axe") || t.toString().contains("Cloak") || t.toString().contains("Sack") || t.toString().contains("Gloves"))
@@ -300,6 +319,7 @@ public class Canvas extends JPanel{
 	
 	/**
 	 * Responsible for drawing the elements on this field.
+	 * @param g graphics
 	 */
 	public void paintComponent(Graphics g) {
 		graphics=g;

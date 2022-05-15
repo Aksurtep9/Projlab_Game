@@ -164,6 +164,10 @@ public class Game implements Serializable{
 			NewRound();
 	}
 	
+	/**
+	 * getter, which returns the current player
+	 * @return currentPlayer
+	 */
 	public static Virologist getCurrentPlayer() {
 		return currentPlayer;
 	}

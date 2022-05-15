@@ -40,11 +40,13 @@ public class MainSubMenu extends JFrame{
 	public void GameStartBtnPress(int playerCnt) {
 		boolean allTextFieldsFull=true;
 		
+		/**if a virologist hasn't typed in his name, the game won't start*/
 		for(int i=0;i< playerCnt;i++) {
 			if(ViroNames[i].getText().equals("")) {
 				allTextFieldsFull=false;
 			}
 		}
+		/**putting all of the virologist's names into an array*/
 		String[] VNames=new String[ViroNames.length];
 		for(int i=0;i< playerCnt;i++) {
 			VNames[i]=ViroNames[i].getText();
@@ -75,6 +77,7 @@ public class MainSubMenu extends JFrame{
 		
 		Dimension size=new Dimension(200,25);	//this is the default(minimum) size of all the JTextFields and JLabels
 		
+		/**sets the icon of the window to the AMOGUS logo*/
 		this.setIconImage(new ImageIcon(this.getClass().getResource("icon.png")).getImage());
 		
 		this.setTitle("Main Sub Menu");
