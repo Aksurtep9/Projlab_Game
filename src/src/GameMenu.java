@@ -536,7 +536,7 @@ public class GameMenu extends JFrame {
 		currentPlayer.GetField();
 		currVName.invalidate();
 		currVName.setText(currentPlayer.getName());
-		
+		canvas.repaint();
 	}
 	
 	/**

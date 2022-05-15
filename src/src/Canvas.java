@@ -66,7 +66,6 @@ public class Canvas extends JPanel {
 		material = new MaterialView();
 		genCode = new GenCodeView();
 		bear = new BearView();
-		field = new LaborView(vert);
 	}
 	
 	/**
@@ -166,7 +165,29 @@ public class Canvas extends JPanel {
 		
 	}
 	
-	public void Refresh() {
+	public void Refresh(Field f) {
+		this.f=f;
+		verticesNum = f.GetNeighbours().size();
+		buttons = new JButton[verticesNum];
+		for(int i = 0; i < verticesNum; i++) {
+			String name=Integer.toString(i);
+			buttons[i] = new JButton(name);
+			this.add(buttons[i]);
+		}
+		switch(f.toString()) {
+		case "Warehouse":
+			field = new WarehouseView(verticesNum);
+			break;
+		case "Shelter":
+			field = new ShelterView(verticesNum);
+			break;
+		case "Laboratory":
+			field = new LaborView(verticesNum);
+			break;
+		default:
+			field = new FieldView(verticesNum);
+			break;
+		}
 		
 	}
 	
