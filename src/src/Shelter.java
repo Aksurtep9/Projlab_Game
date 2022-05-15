@@ -74,6 +74,6 @@ public class Shelter extends Field {
 	 */
 	@Override
 	public String toString() {
-		return "Shelter" + this.getID();
+		return "Shelter";
 	}
 }

@@ -309,7 +309,7 @@ public class Canvas extends JPanel{
 		
 		g.setColor(new Color(0,150,0));
 		g.setFont(new Font("Arial", 1, 30));
-		String line = "Field: " + f.getID() + "      Player: " + Game.getCurrentPlayer().getName();
+		String line = f.toString() +": " + f.getID() + "      Player: " + Game.getCurrentPlayer().getName();
 		g.drawString(line, 200, 200);
 		/*Point p = new Point(100,100);
 		field.Draw(g,p);
