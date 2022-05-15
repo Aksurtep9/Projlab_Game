@@ -56,7 +56,7 @@ public class Canvas extends JPanel {
 		verticesNum = vert;
 		buttons = new JButton[verticesNum];
 		for(int i = 0; i < verticesNum; i++) {
-			String name=Integer.toString(i);
+			String name=Integer.toString(i+1);
 			buttons[i] = new JButton(name);
 			this.add(buttons[i]);
 		}
@@ -165,39 +165,95 @@ public class Canvas extends JPanel {
 		
 	}
 	
-	public void Refresh(Field f) {
+	public void Refresh(Graphics g,Field f) {
 		this.f=f;
 		verticesNum = f.GetNeighbours().size();
 		buttons = new JButton[verticesNum];
 		for(int i = 0; i < verticesNum; i++) {
-			String name=Integer.toString(i);
+			String name=Integer.toString(i+1);
 			buttons[i] = new JButton(name);
 			this.add(buttons[i]);
 		}
 		switch(f.toString()) {
-		case "Warehouse":
-			field = new WarehouseView(verticesNum);
-			break;
-		case "Shelter":
-			field = new ShelterView(verticesNum);
-			break;
-		case "Laboratory":
-			field = new LaborView(verticesNum);
-			break;
-		default:
-			field = new FieldView(verticesNum);
-			break;
+			case "Warehouse":
+			{
+				field = new WarehouseView(verticesNum);
+				material.Draw(g, new Point(300, 300));
+				thingsPaint(g);
+				break;
+			}
+			case "Shelter":
+			{
+				field = new ShelterView(verticesNum);
+				thingsPaint(g);
+				break;
+			}
+			case "Laboratory":
+			{
+				field = new LaborView(verticesNum);
+				genCode.Draw(g, new Point(350, 350));
+				thingsPaint(g);
+				break;
+			}
+			default:
+			{
+				field = new FieldView(verticesNum);
+				thingsPaint(g);
+				break;
+			}
 		}
-		
+		this.repaint();
+	}
+	
+	public void thingsPaint(Graphics g) {
+		for(Thing t : f.GetThings())
+		{
+			switch(t.toString()) {
+				case "Virologist":{
+					enemy.Draw(g, new Point(200,200));
+					break;
+				}
+				case "Axe":{
+					equipment.Draw(g, new Point(250, 250));
+					break;
+				}
+				case "Cloak":{
+					equipment.Draw(g, new Point(250, 250));
+					break;
+				}
+				case "Gloves":{
+					equipment.Draw(g, new Point(250, 250));
+					break;
+				}
+				case "Sack":{
+					equipment.Draw(g, new Point(250, 250));
+					break;
+				}
+				default:
+					break;
+			}
+		}
+		ArrayList<Virologist> viro= new ArrayList<Virologist>();
+		for(Thing t : f.GetThings()) {
+			if(t.toString().equals("Virologist"))
+				viro.add((Virologist)t);
+		}
+		for(Virologist v : viro) {
+			if(v.isBear()) {
+				bear.Draw(g, new Point(400,400));
+			}		
+		}
+			
 	}
 	
 	/**
 	 * Responsible for drawing the elements on this field.
 	 */
 	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		
-		Point p = new Point(100,100);
+		graphics=g;
+		super.paintComponent(graphics);
+		Refresh(graphics,f);
+		/*Point p = new Point(100,100);
 		field.Draw(g,p);
 		enemy.Draw(g, new Point(200,200));
 		equipment.Draw(g, new Point(250, 250)); 
