@@ -32,7 +32,7 @@ public class Laboratory extends Field{
 			double bearDanceSpawnChance = rand.nextDouble() * 100;
 			System.out.println(bearDanceSpawnChance);
 			System.out.println(this.getID());
-			if(bearDanceSpawnChance >= 50) {
+			if(bearDanceSpawnChance >= 85) {
 				bearDanceCode = new BearDance();
 			}
 			int genCodeRandom = rand.nextInt(3);

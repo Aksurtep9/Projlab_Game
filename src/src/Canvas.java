@@ -51,17 +51,7 @@ public class Canvas extends JPanel{
 	 */
 	public Canvas(int vert,Field f) {
 		
-		/*verticesNum = vert;
-		 *
-		buttons = new JButton[verticesNum];
-		for(int i = 0; i < verticesNum; i++) {
-			String name=Integer.toString(i+1);
-			buttons[i] = new JButton(name);
-			this.add(buttons[i]);
-		}*/
-		//this.setSize(800,700);
 		verticesNum = vert;
-			//buttons[i].addActionListener(new NumberButtonPressed());
 		buttons = new JButton[8];
 		for(int i = 0; i < buttons.length; i++) {
 			String name=Integer.toString(i+1);
@@ -69,7 +59,6 @@ public class Canvas extends JPanel{
 			this.add(buttons[i]);
 			buttons[i].addActionListener(new NumberButtonPressed());
 		}
-		//buttons = new JButton[verticesNum];
 		this.f=f;
 		enemy = new EnemyView();
 		equipment = new EquipmentView();
@@ -77,7 +66,6 @@ public class Canvas extends JPanel{
 		genCode = new GenCodeView();
 		bear = new BearView();
 		
-		// SetVisible = false
 		for(int i = 7; i>=verticesNum; i--) {
 			buttons[i].setVisible(false);
 		}
@@ -231,12 +219,6 @@ public class Canvas extends JPanel{
 			}
 		}
 		
-        /*if(buttons != null) {
-        	int size = buttons.length;
-        	for(int i = verticesNum; i < size; i++) {
-        		buttons[i]=null;
-        	}
-        }*/
         
 		/**drawing the field according to its type, because every
 		 * child of Field looks different*/
@@ -332,18 +314,5 @@ public class Canvas extends JPanel{
 		g.setFont(new Font("Arial", 1, 30));
 		String line = f.toString() +": " + f.getID() + "      Player: " + Game.getCurrentPlayer().getName();
 		g.drawString(line, 200, 200);
-		/*Point p = new Point(100,100);
-		field.Draw(g,p);
-		enemy.Draw(g, new Point(200,200));
-		equipment.Draw(g, new Point(250, 250)); 
-		material.Draw(g, new Point(300, 300));
-		genCode.Draw(g, new Point(350, 350));
-		bear.Draw(g, new Point(400,400));
-		
-		/*g.setColor(Color.black);
-		Dimension dimension = new Dimension(700, 700);
-        g.fillRect(0, 0, dimension.width, dimension.height);*/
-		
-		//graphics.dispose();
 	}
 }
