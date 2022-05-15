@@ -83,7 +83,7 @@ public class GameMenu extends JFrame {
 		
 		Toolkit tk=Toolkit.getDefaultToolkit(); 			//Initializing the Toolkit class.
 		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
-		this.setSize(screenSize.width,screenSize.height-800); 	//Set the width and height of the JFrame
+		//this.setSize(screenSize.width,screenSize.height-800); 	//Set the width and height of the JFrame
 		
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		setMinimumSize(new Dimension(screen.width/2, screen.height/2));
@@ -95,7 +95,6 @@ public class GameMenu extends JFrame {
 		canvas = new Canvas(currentPlayer.GetField().GetNeighbours().size(),currentPlayer.GetField());
 		mainPanel = new JPanel(new BorderLayout());
 		mainPanel.add(canvas, BorderLayout.CENTER);
-		//this.add(mainPanel);
 		canvas.repaint();
 		canvas.setVisible(true);
 		JPanel pane2 = new JPanel(new FlowLayout());

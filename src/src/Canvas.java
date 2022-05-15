@@ -68,6 +68,7 @@ public class Canvas extends JPanel{
 		verticesNum = vert;
 			//buttons[i].addActionListener(new NumberButtonPressed());
 
+		buttons = new JButton[verticesNum];
 		this.f=f;
 		enemy = new EnemyView();
 		equipment = new EquipmentView();
