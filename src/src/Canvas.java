@@ -233,11 +233,12 @@ public class Canvas extends JPanel{
 	}
 	
 	public void thingsPaint(Graphics g) {
+		int virocount=0;
 		for(Thing t : f.GetThings())
 		{
 			switch(t.toString()) {
 				case "Virologist":{
-					enemy.Draw(g, new Point(200,200));
+					virocount++;
 					break;
 				}
 				case "Axe":{
@@ -260,6 +261,8 @@ public class Canvas extends JPanel{
 					break;
 			}
 		}
+		if(virocount>1)
+			enemy.Draw(g, new Point(200,200));
 		ArrayList<Virologist> viro= new ArrayList<Virologist>();
 		for(Thing t : f.GetThings()) {
 			if(t.toString().equals("Virologist"))
