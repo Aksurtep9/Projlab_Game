@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -214,19 +215,14 @@ public class Canvas extends JPanel{
 			prevVerticesNum=verticesNum;
 		}	
 		verticesNum = f.GetNeighbours().size();
-		
-		System.out.println(verticesNum);
-		System.out.println(prevVerticesNum);
 
 		if(verticesNum<prevVerticesNum) {
 			for(int i=prevVerticesNum; i>verticesNum; --i) {
 				buttons[i-1].setVisible(false);
-				System.out.println("Csökken");
 			}
 		} else if(prevVerticesNum<verticesNum) {
 			for(int i=prevVerticesNum;i<verticesNum; ++i) {
 				buttons[i].setVisible(true);
-				System.out.println("Nõ");
 			}
 		}
 		
@@ -263,7 +259,7 @@ public class Canvas extends JPanel{
 				break;
 			}
 		}
-		field.Draw(graphics, new Point(100,100));
+		field.Draw(graphics, new Point(300, 300));
 		thingsPaint(g);
 		if(lab==1)
 			material.Draw(g, new Point(300, 350));
@@ -304,6 +300,8 @@ public class Canvas extends JPanel{
 		graphics=g;
 		super.paintComponent(graphics);
 		Refresh(graphics,f);
+		g.setColor(new Color(255, 0, 0));
+		g.fillOval(350, 300, 20, 20);
 		/*Point p = new Point(100,100);
 		field.Draw(g,p);
 		enemy.Draw(g, new Point(200,200));

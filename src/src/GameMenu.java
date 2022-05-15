@@ -320,8 +320,10 @@ public class GameMenu extends JFrame {
 						}
 					}
 					// After closing it
-					game.getCurrentPlayer().Craft((Agent) frame.GetSelectedItem());
-					game.decreaseActioncount();
+					if(frame.GetSelectedItem() != null) {
+						game.getCurrentPlayer().Craft((Agent) frame.GetSelectedItem());
+						game.decreaseActioncount();
+					}
 				}
 			}
 		};
