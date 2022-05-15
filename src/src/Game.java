@@ -59,7 +59,7 @@ public class Game implements Serializable{
 	/**Stores the game's randomness*/
 	private static boolean random;
 	
-	private int actionCount=3;
+	private static int actionCount=3;
 	
 	/**
 	 * Constructor for the game
@@ -155,7 +155,7 @@ public class Game implements Serializable{
 		Prototype.logger("Newround", Prototype.GetLogFile());
 	}
 	
-	public Virologist getCurrentPlayer() {
+	public static Virologist getCurrentPlayer() {
 		return currentPlayer;
 	}
 
@@ -175,7 +175,7 @@ public class Game implements Serializable{
 		this.random = random;
 	}
 
-	public int getActionCount() {
+	public static int getActionCount() {
 		return actionCount;
 	}
 
@@ -183,7 +183,7 @@ public class Game implements Serializable{
 		this.actionCount = actionCount;
 	}
 	
-	public void decreaseActioncount() {
-		this.actionCount--;
+	public static void decreaseActioncount() {
+		actionCount--;
 	}
 }

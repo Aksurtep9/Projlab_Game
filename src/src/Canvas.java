@@ -189,17 +189,27 @@ public class Canvas extends JPanel{
 	public class NumberButtonPressed implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			int num = 0;
+			
 			/**iterates through the list of buttons*/
 			for(int i = 0; i < buttons.length; i++) {
 				/**if the i-th button was pressed...*/
-				if(buttons[i].getModel().isPressed()) {
+				if(buttons[i] == e.getSource() && Game.getActionCount() > 0) {
 					/**...the attribute "f" gets set to the i-th neighbour of the current "f" field*/
 					f = f.GetNeighbours().get(i);
+					Virologist v = Game.getCurrentPlayer();
+					f.Accept(v);
+					Game.decreaseActioncount();
+					
 				}
-			/**screen gets refreshed*/
-			Refresh(graphics, f);
+			
+			
 			}
 			
+			
+			
+			//Refresh(graphics, f);
+			repaint();
 		}
 	}
 	
