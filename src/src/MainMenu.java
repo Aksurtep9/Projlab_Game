@@ -55,15 +55,18 @@ public class MainMenu extends JFrame{
 		GridBagConstraints c = new GridBagConstraints();
 		this.add(mainp);
 		
+		/**sets the icon of the window to the AMOGUS logo*/
 		this.setIconImage(new ImageIcon(this.getClass().getResource("icon.png")).getImage());
 		
 		this.setTitle("Main Menu");
 		
 		
-		
-		Toolkit tk=Toolkit.getDefaultToolkit(); 			//Initializing the Toolkit class.
-		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
-		this.setSize(500,500); 	//Set the width and height of the JFrame.
+		/**Initializing the Toolkit class.*/
+		Toolkit tk=Toolkit.getDefaultToolkit(); 	
+		/**Get the Screen resolution of our device.*/
+		Dimension screenSize = tk.getScreenSize(); 		
+		/**Set the width and height of the JFrame.*/
+		this.setSize(500,500); 	
 		
 		/**The content of the JCombobox*/
 		playerNum=new String[] {"3","4","5"};
