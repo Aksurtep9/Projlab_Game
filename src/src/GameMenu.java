@@ -119,7 +119,7 @@ public class GameMenu extends JFrame {
 		 btCraft.addActionListener(new ActionListener() {	 
 			public void actionPerformed(ActionEvent e) {
 				/** checks whether the current player has any action points left and know any gencode to craft*/
-				if(currentPlayer.GetGenCodeCollection().GetAgents().size()==0 || game.getActionCount()==0 || currentPlayer.IsParalyzed())
+				if(currentPlayer.GetGenCodeCollection().GetAgents().size()==0 || game.getActionCount()==0 || currentPlayer.IsParalyzed() || currentPlayer.isBear())
 				{
 					return;
 				}
@@ -131,7 +131,7 @@ public class GameMenu extends JFrame {
 		 btAnoint.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
 					/** checks whether the current player has any action point left and has any available agent to anoint with*/
-					if(currentPlayer.GetCraftedACollection().GetAgents().size()==0 || game.getActionCount()==0 || currentPlayer.IsParalyzed())
+					if(currentPlayer.GetCraftedACollection().GetAgents().size()==0 || game.getActionCount()==0 || currentPlayer.IsParalyzed() || currentPlayer.isBear())
 					{
 						return;
 					}
@@ -152,7 +152,7 @@ public class GameMenu extends JFrame {
 		 btPickUp.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
 					/**checks whether the current player has any action points left and has empty space for an equipment*/
-					if(game.getActionCount()==0 || currentPlayer.IsParalyzed())
+					if(game.getActionCount()==0 || currentPlayer.IsParalyzed() || currentPlayer.isBear())
 					{
 						return;
 					}
@@ -174,7 +174,7 @@ public class GameMenu extends JFrame {
 		 btDrop.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
 					/** checks whether the current player has any action points left and can drop an item*/
-					if(currentPlayer.GetEquipmentCollection().GetEquipments().size()==0 || game.getActionCount()==0 || currentPlayer.IsParalyzed())
+					if(currentPlayer.GetEquipmentCollection().GetEquipments().size()==0 || game.getActionCount()==0 || currentPlayer.IsParalyzed() || currentPlayer.isBear())
 					{
 						return;
 					}
@@ -186,7 +186,7 @@ public class GameMenu extends JFrame {
 		 btStealEq.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
 					/**checks whether the current player has any action points left to use and has space for more equipment*/
-					if(game.getActionCount()==0 || currentPlayer.GetEquipmentCollection().GetEquipments().size()>=3|| currentPlayer.IsParalyzed())
+					if(game.getActionCount()==0 || currentPlayer.GetEquipmentCollection().GetEquipments().size()>=3|| currentPlayer.IsParalyzed() || currentPlayer.isBear())
 					{
 						return;
 					}
@@ -216,7 +216,7 @@ public class GameMenu extends JFrame {
 		 btStealMat.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
 					/** checks if there is any actionpoint left and  whether the virologist has any space left for materials*/
-					if(game.getActionCount()==0 || (currentPlayer.GetMaterialCollection().GetAmino().GetAmount()>=20 && currentPlayer.GetMaterialCollection().GetNucle().GetAmount()>=20 )|| currentPlayer.IsParalyzed())
+					if(game.getActionCount()==0 || (currentPlayer.GetMaterialCollection().GetAmino().GetAmount()>=20 && currentPlayer.GetMaterialCollection().GetNucle().GetAmount()>=20 )|| currentPlayer.IsParalyzed() || currentPlayer.isBear())
 					{
 						return;
 					}
@@ -247,7 +247,7 @@ public class GameMenu extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					
 					/**if there are no actionpoint left*/
-					if(game.getActionCount()==0|| currentPlayer.IsParalyzed())
+					if(game.getActionCount()==0|| currentPlayer.IsParalyzed() || currentPlayer.isBear())
 					{
 						return;
 					}
