@@ -230,7 +230,7 @@ public class Canvas extends JPanel{
 		field.Draw(graphics, new Point(100,100));
 		thingsPaint(g);
 		if(lab==1)
-			material.Draw(g, new Point(300, 300));
+			material.Draw(g, new Point(300, 350));
 		else if(lab==2)
 			genCode.Draw(g, new Point(350, 350));
 		this.repaint();
@@ -246,19 +246,19 @@ public class Canvas extends JPanel{
 					break;
 				}
 				case "Axe":{
-					equipment.Draw(g, new Point(250, 250));
+					equipment.Draw(g, new Point(300,300));
 					break;
 				}
 				case "Cloak":{
-					equipment.Draw(g, new Point(250, 250));
+					equipment.Draw(g, new Point(300,300));
 					break;
 				}
 				case "Gloves":{
-					equipment.Draw(g, new Point(250, 250));
+					equipment.Draw(g, new Point(300,300));
 					break;
 				}
 				case "Sack":{
-					equipment.Draw(g, new Point(250, 250));
+					equipment.Draw(g, new Point(300,300));
 					break;
 				}
 				default:
@@ -266,7 +266,7 @@ public class Canvas extends JPanel{
 			}
 		}
 		if(virocount>1)
-			enemy.Draw(g, new Point(200,200));
+			enemy.Draw(g, new Point(250,250));
 		ArrayList<Virologist> viro= new ArrayList<Virologist>();
 		for(Thing t : f.GetThings()) {
 			if(t.toString().equals("Virologist"))
