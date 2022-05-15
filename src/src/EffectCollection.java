@@ -39,13 +39,8 @@ public class EffectCollection implements Serializable {
 	 * Removes the Effect given as parameter from the collection.
 	 * @param e the Effect we need to remove
 	 */
-	public void Remove(String e) {
-		for(int i=0; i< effects.size(); i++) {
-			if(effects.get(i).toString().contains(e)) {
-				effects.remove(i);
-				return;
-			}
-		}
+	public void Remove(Effect e) {
+			effects.remove(e);
 	}
 	
 	/**

@@ -17,7 +17,7 @@ public class Amnesia extends Agent
 	private static final long serialVersionUID = 8698849677626179071L;
 
 	public Amnesia() {
-		this.expireTime = 0;
+		this.expireTime = 3;
 		this.effectTime = 2;
 		this.costAmino = 1;
 		this.costNucle = 0;

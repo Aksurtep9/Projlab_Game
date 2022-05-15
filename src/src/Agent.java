@@ -54,6 +54,10 @@ public abstract class Agent extends Thing implements Effect, Serializable
 	 */
 	public void DecreaseExpireTime(Virologist v) {
 		expireTime--;
+		if(expireTime == 0) {
+			
+			v.GetCraftedACollection().Remove(this);
+		}
 	}
 	
 	/**
@@ -61,8 +65,8 @@ public abstract class Agent extends Thing implements Effect, Serializable
 	 * @param v Virologist that the effect of the agent has been applied to
 	 */
 	public void DecreaseEffectTime(Virologist v) {
-		expireTime--;
-		if(expireTime == 0) {
+		effectTime--;
+		if(effectTime == 0) {
 			
 			v.RemoveAgentFromAgentColl(this);
 		}

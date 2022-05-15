@@ -60,13 +60,8 @@ public class AgentCollection implements Serializable {
 	 * Removes the Agent given as parameter from the collection.
 	 * @param a the name of the agent which needs to be removed
 	 */
-	public void Remove(String a) {
-		for(int i=0; i< agents.size(); i++) {
-			if(agents.get(i).toString().contains(a)) {
-				agents.remove(i);
-				return;
-			}
-		}
+	public void Remove(Agent a) {
+		agents.remove(a);
 	}
 	
 	/**

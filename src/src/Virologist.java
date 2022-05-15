@@ -181,7 +181,7 @@ public class Virologist extends Thing {
 			if(g.GetUseTime()>0)
 			{
 				effectCollection.Add((Effect)agent,this);
-				craftedAgentCollection.Remove(agent.GetEffectName());
+				craftedAgentCollection.Remove(agent);
 				for(Equipment e: equipmentCollection.GetEquipments()) {
 					if(victim.GetEquipmentCollection().Contains("Gloves"))
 						e.DecreaseUseTime();
@@ -210,7 +210,7 @@ public class Virologist extends Thing {
 				Prototype.logger("Anointed Virologist "+victim+" with "+agent.GetEffectName(), Prototype.GetLogFile());
 			}
 			/**Removing the used agent*/
-			craftedAgentCollection.Remove(agent.GetEffectName());
+			craftedAgentCollection.Remove(agent);
 		}else {
 			victim.GetEffectCollection().Add((Effect) agent, victim);
 			Prototype.logger("Anointed Virologist "+victim+" with "+agent.GetEffectName(), Prototype.GetLogFile());
@@ -290,7 +290,7 @@ public class Virologist extends Thing {
 			
 			eqSelf.Add(equipment);
 			eqVictim.Remove(equipment.GetEffectName());
-			victim.GetEffectCollection().Remove(equipment.GetEffectName());
+			victim.GetEffectCollection().Remove(equipment);
 			effectCollection.Add(equipment,this);
 			Prototype.logger("Stole " + equipment + " from Virologist " + victim, Prototype.GetLogFile());
 			}
@@ -318,7 +318,7 @@ public class Virologist extends Thing {
 		List<Equipment> equipments = this.equipmentCollection.GetEquipments();
 		
 		field.Accept(equipment);
-		effectCollection.Remove(equipment.GetEffectName());
+		effectCollection.Remove(equipment);
 		equipmentCollection.Remove(equipment.GetEffectName());
 		
 		Prototype.logger("Dropped "+ equipment.toString(), Prototype.GetLogFile());
@@ -482,7 +482,7 @@ public class Virologist extends Thing {
 	 * @param a the agent we want to remove
 	 */
 	public void RemoveAgentFromAgentColl(Agent a) {
-		effectCollection.Remove(a.GetEffectName());
+		effectCollection.Remove(a);
 	}
 	
 	/**
