@@ -6,9 +6,13 @@ import java.awt.Point;
 
 import javax.swing.ImageIcon;
 
+
+/**
+ * FieldView
+ * This class responsible for drawing the Field onto the canvas.
+ * @author csizm
+ */
 public class FieldView extends View{
-	
-	//protected Graphics view;
 	
 	private int vertices;
 	

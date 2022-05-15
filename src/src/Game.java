@@ -16,6 +16,11 @@ import java.util.Random;
 public class Game implements Serializable{
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6862257109428847614L;
+
+	/**
 	 * The number of players in current game.
 	 */
 	private int playerCount;

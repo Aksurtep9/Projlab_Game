@@ -14,20 +14,44 @@ import javax.swing.JPanel;
 
 public class Canvas extends JPanel {
 	
+	
+	/**
+	 * 
+	*/
+	private static final long serialVersionUID = -3199843376415906925L;
+	
+	/**The number of neighbours.*/
 	protected int verticesNum;
+	
+	/**The component on which the drawings happen.*/
 	protected Graphics graphics;
-	//protected ArrayList<View> thingsView;
+	
+	/**The visual representer of the enemy virologist if there is any.*/
 	protected EnemyView enemy;
+	
+	/**The visual representer of the equipment if there is any.*/
 	protected EquipmentView equipment;
+	
+	/**The visual representer of the materials if there is any.*/
 	protected MaterialView material;
+	
+	/**The visual representer of the genCode if there is any.*/
 	protected GenCodeView genCode;
+	
+	/**The visual representer of the Bear dancer virologist if there is any.*/
 	protected BearView bear;
+	
+	/**The visual representer of the field where the virologist stands*/
 	protected View field;
-	//protected Image img;
+	
+	/**The buttons the user interacts with.*/
 	protected JButton[] buttons;
 	
+	
+	/**
+	 * default constructor
+	 */
 	public Canvas(int vert) {
-		//graphics = new Graphics2D();
 		
 		verticesNum = vert;
 		buttons = new JButton[verticesNum];
@@ -41,9 +65,11 @@ public class Canvas extends JPanel {
 		genCode = new GenCodeView();
 		bear = new BearView();
 		field = new LaborView(vert);
-		
 	}
 	
+	/**
+	 * Responsible for adding the buttons representing the choice which way the user want to move.
+	 */
 	public void Draw(int vertices) {
 		
 		switch(vertices) {
@@ -142,6 +168,9 @@ public class Canvas extends JPanel {
 		
 	}
 	
+	/**
+	 * Responsible for drawing the elements on this field.
+	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		

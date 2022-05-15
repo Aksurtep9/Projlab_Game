@@ -8,6 +8,12 @@ import java.io.Serializable;
  *
  */
 public class EquipmentCollection implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3488868505635455314L;
+	
 	/**the Equipments that the Virologist has */
 	private ArrayList<Equipment> equipments;
 	

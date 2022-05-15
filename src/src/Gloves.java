@@ -12,6 +12,11 @@ package src;
 public class Gloves extends Equipment {
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5223975989698407522L;
+
+	/**
 	 * Constructor for Gloves
 	 */
 	public Gloves() {

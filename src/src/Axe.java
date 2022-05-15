@@ -2,14 +2,17 @@ package src;
 
 
 /**
- * 
  * Axe
  * Inherited from Equipment.
  * It implements the equipment "Axe". Use this equipment to kill a virologist who had been affected by BearDance agent.
- *
  */
 public class Axe extends Equipment{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4717535450883116711L;
+
 	/**
 	 * Constructor for axe.
 	 */
@@ -61,7 +64,10 @@ public class Axe extends Equipment{
 		return "Axe" + this.ID;
 	}
 	
-	
+	/**
+	 * Returns the amount of time the axe can be used.
+	 * @return the use time.
+	 */
 	public int GetUseTime() {
 		return this.useTime;
 	}

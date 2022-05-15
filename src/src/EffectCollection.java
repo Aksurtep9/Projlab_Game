@@ -10,10 +10,18 @@ import java.io.Serializable;
  */
 public class EffectCollection implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7923083142104482278L;
+	
+	
 	/** Stores all of the Effects applied to the Virologist*/
 	private List<Effect> effects;
 	
-	
+	/**
+	 * default constructor
+	 */
 	public EffectCollection() {
 		effects = new ArrayList<Effect>();
 	}

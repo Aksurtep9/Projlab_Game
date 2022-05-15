@@ -13,12 +13,20 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Cloak extends Equipment {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8933112089535646504L;
+
+	/**
+	 * default constructor
+	 */
 	public Cloak() {
 		this.useTime = 1;
 	}
 	
 	/**
-	 * 
+	 * Responsible for the effect this item has on the virologist.
 	 * @param v The virologist, who is being affected by an effect.
 	 */
 	public void Affect(Virologist v) {
@@ -42,7 +50,7 @@ public class Cloak extends Equipment {
 	}
 	
 	/**
-	 * 
+	 * Return the name of the effect(item)
 	 * @return Returns "Cloak".
 	 */
 	public String GetEffectName() {
@@ -50,7 +58,7 @@ public class Cloak extends Equipment {
 	}
 	
 	/**
-	 * 
+	 * The ovveriden toString method
 	 * @return Returns the properties of this Cloak.
 	 */
 	@Override

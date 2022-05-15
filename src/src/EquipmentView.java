@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
+/**
+ * EquipmentView
+ * This class responsible for drawing the equipment onto the canvas.
+ * @author erdei
+ */
 public class EquipmentView extends View{
 	
-	
-	//private Graphics view;
 
 	/**
 	 * Draws rectangle to given coordinate

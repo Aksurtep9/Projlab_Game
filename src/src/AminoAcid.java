@@ -10,6 +10,10 @@ package src;
 public class AminoAcid extends Material{
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7701297255900816515L;
+	/**
 	 * default constructor
 	 */
 	public AminoAcid() {

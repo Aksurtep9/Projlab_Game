@@ -11,6 +11,11 @@ import java.io.Serializable;
  */
 public abstract class Equipment extends Thing implements Effect, Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5600753556673011253L;
+	
 	/** The equipment's time of use which tells when will the equipment get destroyed*/
 	protected int useTime;
 	

@@ -11,6 +11,11 @@ import java.io.Serializable;
  */
 public abstract class Agent extends Thing implements Effect, Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2367437871696091145L;
+
 	/**The number of remaining rounds, before the agent expires.	 */
 	protected int expireTime;
 	

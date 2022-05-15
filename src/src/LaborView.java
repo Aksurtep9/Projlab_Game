@@ -6,12 +6,21 @@ import java.awt.Point;
 
 import javax.swing.ImageIcon;
 
+/**
+ * LaborView
+ * This class responsible for drawing the labor type field onto the canvas.
+ */
 public class LaborView extends View{
 	
+	/**the amount of neighbours this field has*/
 	private int vertices;
 	
+	/**the image put on the labor field*/
 	private Image img;
 	
+	/**
+	 * Constructor for LaborView.
+	 */
 	public LaborView(int vert) {
 		vertices = vert;
 		switch(vertices) {
@@ -44,7 +53,12 @@ public class LaborView extends View{
 			break;
 		}
 	}
-
+	
+	/**
+	 * Puts the image on a given coordinate
+	 * @param g -  the component to draw on
+	 * @param p- top left corner of the rectangle
+	 */
 	public void Draw(Graphics g, Point p) {
 		g.drawImage(img, p.x, p.y, null);
 		

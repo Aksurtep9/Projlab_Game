@@ -13,6 +13,11 @@ public class Laboratory extends Field{
 
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5384914385619678612L;
+
 	/**Stores the laboratory's one and only genetic code.*/
 	private Agent genCode;
 	

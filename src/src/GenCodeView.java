@@ -5,8 +5,6 @@ import java.awt.Graphics;
 import java.awt.Point;
 
 public class GenCodeView extends View{
-	
-	//private Graphics view;
 
 	/**
 	 * Draws a triangle

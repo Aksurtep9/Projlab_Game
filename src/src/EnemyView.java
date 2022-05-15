@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
+/**
+ * EnemyView
+ * This class responsible for drawing the enemy virologist onto the canvas.
+ * @author erdei
+ */
 public class EnemyView extends View{
 	
-	//private Graphics view;
-
 	/**
 	 * Draws circle to given coordinate
 	 * @param p - top left corner of the rectangle

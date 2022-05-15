@@ -13,30 +13,64 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+ * GameMenu
+ * This class responsible for the main frame of the game.
+ * @author erdei
+ */
 public class GameMenu extends JFrame {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5419089507810165936L;
+	
+	/**the button representing the craft interaction*/
 	JButton btCraft;
+	
+	/**the button representing the anoint interaction*/
 	JButton btAnoint;
+	
+	/**the button representing the pickup interaction*/
 	JButton btPickUp;
+	
+	/**the button representing the drop interaction*/
 	JButton btDrop;
+	
+	/**the button representing the steal equipment interaction*/
 	JButton btStealEq;
+	
+	/**the button representing the steal material interaction*/
 	JButton btStealMat;
+	
+	/**the button representing the attack interaction*/
 	JButton btAttack;
+	
+	/**the button representing the pass interaction*/
 	JButton btPass;
+	
+	/**the current player*/
 	private Virologist currentPlayer;
+	
+	/**the game played by the users*/
 	Game game;
+	
+	/**the Thing selected in the select menu*/
 	private Thing selectedThing;
+	
+	/**the panel where the map /field is drawn*/
 	Canvas canvas;
 	
+	/**the panel where the canvas is added*/
 	private JPanel mainPanel;
+	
 	
 	private static Object lock = new Object();
 	private static JFrame selectMenu = new JFrame();
 	
+	/**
+	 * default constructor
+	 */
 	GameMenu(Game game) {
 		this.game=game;
 		currentPlayer = this.game.getCurrentPlayer();
@@ -72,7 +106,7 @@ public class GameMenu extends JFrame {
 			}
 		 });
 		 
-		 btAnoint = new JButton("Anoint");
+		 btAnoint = new JButton("Anoint");					//if the button is pressed, the according function gets called
 		 btAnoint.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
 					/** checks whether the current player has any action point left and has any available agent to anoint with*/
@@ -93,7 +127,7 @@ public class GameMenu extends JFrame {
 				}
 			 });
 		 
-		 btPickUp = new JButton("Pick Up");
+		 btPickUp = new JButton("Pick Up");					//if the button is pressed, the according function gets called
 		 btPickUp.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
 					/**checks whether the currentz player has any action points left and has empty space for an equipment*/
@@ -105,7 +139,7 @@ public class GameMenu extends JFrame {
 				}
 			 });
 		 
-		 btDrop = new JButton("Drop");
+		 btDrop = new JButton("Drop");						//if the button is pressed, the according function gets called
 		 btDrop.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
 					/** checks whether the current player has any action points left and can drop an item*/
@@ -117,7 +151,7 @@ public class GameMenu extends JFrame {
 				}
 			 });
 		 
-		 btStealEq = new JButton("Steal Equipment");
+		 btStealEq = new JButton("Steal Equipment");		//if the button is pressed, the according function gets called
 		 btStealEq.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
 					/**checks whether the current player has any action points left to use and has space for more equipment*/
@@ -147,7 +181,7 @@ public class GameMenu extends JFrame {
 				}
 			 });
 		 
-		 btStealMat = new JButton("Steal Material");
+		 btStealMat = new JButton("Steal Material");		//if the button is pressed, the according function gets called
 		 btStealMat.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
 					/** checks if there is any actionpoint left and  whether the virologist has any space left for materials*/
@@ -177,7 +211,7 @@ public class GameMenu extends JFrame {
 				}
 			 });
 		 
-		 btAttack= new JButton("Attack");
+		 btAttack= new JButton("Attack");					//if the button is pressed, the according function gets called
 		 btAttack.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
 					
@@ -216,7 +250,7 @@ public class GameMenu extends JFrame {
 				}
 			 });
 		 
-		 btPass= new JButton("Pass");
+		 btPass= new JButton("Pass"); 						//if the button is pressed, the according function gets called
 		 btPass.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
 					CallPass();
@@ -243,6 +277,9 @@ public class GameMenu extends JFrame {
 	}
 	
 	
+	/**
+	 * Calls the craft method with the choosen genCode in the parameter
+	 */
 	public void CallCraft() {
 		
 		// Selecting the genCode
@@ -270,7 +307,9 @@ public class GameMenu extends JFrame {
 	
 	public Object getLock() { return lock; }
 
-	
+	/**
+	 * Calls the anoint method with the choosen virologist and crafted agent in the parameter
+	 */
 	public void CallAnoint() {
 		selectMenu = new SelectThingsMenu(currentPlayer,"Virologists" , this);
 		selectMenu.setVisible(true);
@@ -316,6 +355,9 @@ public class GameMenu extends JFrame {
 		t1.start();
 	}
 	
+	/**
+	 * Calls the craft pickup with the choosen equipment in the parameter
+	 */
 	public void CallPick() {
 		// Selecting the equipment
 		selectMenu = new SelectThingsMenu(currentPlayer, "Equipments from Field" , this);
@@ -340,6 +382,9 @@ public class GameMenu extends JFrame {
 		t.start();
 	}
 	
+	/**
+	 * Calls the steal equipment method with the choosen virologist and equipment in the parameter
+	 */
 	public void CallStealEq() {
 		// Selecting enemy
 		selectMenu = new SelectThingsMenu(currentPlayer, "Virologists" , this);
@@ -386,6 +431,9 @@ public class GameMenu extends JFrame {
 		t1.start();
 	}
 	
+	/**
+	 * Calls the drop method with the choosen equipment in the parameter
+	 */
 	public void CallDrop() {
 		// Selecting the equipment
 		selectMenu = new SelectThingsMenu(currentPlayer, "Equipments from Virologist" , this);
@@ -410,6 +458,9 @@ public class GameMenu extends JFrame {
 		t.start();
 	}
 	
+	/**
+	 * Calls the steal material method with the choosen virologist in the parameter
+	 */
 	public void CallStealMat() {
 		// Selecting the enemy
 		selectMenu = new SelectThingsMenu(currentPlayer, "Virologists" , this);
@@ -434,6 +485,9 @@ public class GameMenu extends JFrame {
 		t.start();
 	}
 	
+	/**
+	 * Calls the attack method with the choosen virologist in the parameter
+	 */
 	public void CallAttack() {
 		// Selecting the enemy
 		selectMenu = new SelectThingsMenu(currentPlayer, "Virologists" , this);
@@ -458,16 +512,30 @@ public class GameMenu extends JFrame {
 		t.start();
 	}
 	
+	/**
+	 * Calls the pass method responsible for skipping the round of this specific player
+	 */
 	public void CallPass() {
 		game.NewRound();
 	}
 	
+	/**
+	 * Adds the Thing in the parameter to the selectedThing
+	 */
 	public void SetSelectedItem(Thing t) {
 		this.selectedThing = t;
 	}
 	
+	/**
+	 * Returns the selected thing
+	 * @return thing
+	 */
 	public Thing GetSelectedItem() { return selectedThing; }
 	
+	/**
+	 * Returns the current player
+	 * @return current player
+	 */
 	public Virologist GetCurrentPlayer() {
 		return currentPlayer;
 	}

@@ -11,6 +11,14 @@ package src;
 public class Chorea extends Agent
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6847025066732592929L;
+
+	/**
+	 * default constructor
+	*/
 	public Chorea() {
 		this.expireTime = 4;
 		this.effectTime = 4;
