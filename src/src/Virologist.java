@@ -218,12 +218,6 @@ public class Virologist extends Thing {
 	}
 	
 	/**
-	* Shows a menu to the player of the craftedAgentCollection that he can choose from to vaccinate its own Virologist
-	**/
-	public void Vaccinate() {
-	}
-	
-	/**
 	* Shows a menu to the Player of the genCodeCollection that he can choose from to craft
 	**/
 	public void Craft(Agent tobecrafted) {
@@ -497,7 +491,7 @@ public class Virologist extends Thing {
 	**/
 	@Override
 	public String toString() {
-		return "Virologist";//+ID;
+		return "Virologist: " + this.Name;//+ID;
 	}
 	
 	/**

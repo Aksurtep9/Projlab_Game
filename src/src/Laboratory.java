@@ -86,6 +86,6 @@ public class Laboratory extends Field{
 	 */
 	@Override
 	public String toString() {
-		return "Laboratory";
+		return "Laboratory" + this.getID();
 	}
 }

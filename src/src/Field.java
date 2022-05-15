@@ -118,6 +118,6 @@ public class Field implements Serializable{
 	 */
 	@Override
 	public String toString() {
-		return "Field";
+		return "Field" + this.ID;
 	}
 }

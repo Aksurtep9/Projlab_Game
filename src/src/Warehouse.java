@@ -58,7 +58,7 @@ public class Warehouse extends Field{
 	 */
 	@Override
 	public String toString() {
-		return "Warehouse";
+		return "Warehouse" + this.getID();
 	}
 	
 	/**

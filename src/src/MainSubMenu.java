@@ -49,6 +49,7 @@ public class MainSubMenu extends JFrame{
 		String[] VNames=new String[ViroNames.length];
 		for(int i=0;i< playerCnt;i++) {
 			VNames[i]=ViroNames[i].getText();
+			
 		}
 		if(allTextFieldsFull) {
 			int w=1120; int h=1020;
