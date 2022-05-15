@@ -2,6 +2,7 @@ package src;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -305,6 +306,11 @@ public class Canvas extends JPanel{
 		Refresh(graphics,f);
 		g.setColor(new Color(255, 0, 0));
 		g.fillOval(550, 550, 30,30);
+		
+		g.setColor(new Color(0,150,0));
+		g.setFont(new Font("Arial", 1, 30));
+		String line = "Field: " + f.getID() + "      Player: " + Game.getCurrentPlayer().getName();
+		g.drawString(line, 200, 200);
 		/*Point p = new Point(100,100);
 		field.Draw(g,p);
 		enemy.Draw(g, new Point(200,200));
