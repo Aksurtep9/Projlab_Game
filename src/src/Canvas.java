@@ -202,12 +202,12 @@ public class Canvas extends JPanel{
 			buttons[i] = new JButton(name);
 			this.add(buttons[i]);
 		}
+		int lab=0;
 		switch(f.toString()) {
 			case "Warehouse":
 			{
 				field = new WarehouseView(verticesNum);
-				material.Draw(g, new Point(300, 300));
-				
+				lab=1;
 				break;
 			}
 			case "Shelter":
@@ -218,7 +218,7 @@ public class Canvas extends JPanel{
 			case "Laboratory":
 			{
 				field = new LaborView(verticesNum);
-				genCode.Draw(g, new Point(350, 350));
+				lab=2;
 				break;
 			}
 			default:
@@ -229,6 +229,10 @@ public class Canvas extends JPanel{
 		}
 		field.Draw(graphics, new Point(100,100));
 		thingsPaint(g);
+		if(lab==1)
+			material.Draw(g, new Point(300, 300));
+		else if(lab==2)
+			genCode.Draw(g, new Point(350, 350));
 		this.repaint();
 	}
 	
