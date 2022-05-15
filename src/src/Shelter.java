@@ -69,6 +69,30 @@ public class Shelter extends Field {
 		t.SetField(this);
 	}
 	
+	/**
+	 * Removes the given thing from its store.
+	 * @param t - the removable thing
+	 */
+	public void Remove(Thing t) {
+		this.things.remove(t);
+	}
+	
+	/**
+	 * Gives back the things.
+	 * @return the things that can be found on the field
+	 */
+	public ArrayList<Thing> GetThings(){
+		return things;
+	}
+	
+	/**
+	 * Gives all the neighbour back that has been picked out.
+	 * @return the chosen neigbhour
+	 */
+	public ArrayList<Field> GetNeighbours() {
+		return this.neighbours;
+	}
+	
 	public void setId(int id) { this.ID = id; }
 	
 	/**

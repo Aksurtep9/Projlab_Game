@@ -19,6 +19,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -583,6 +584,15 @@ public class GameMenu extends JFrame {
 			}
 		};
 		t.start();
+	}
+	
+	public static void YouWinTheGame() {
+		int reply = JOptionPane.showConfirmDialog(null,
+                "CONGRATS, YOU HAVE WON!", "WINNER" , JOptionPane.CANCEL_OPTION
+        );
+		if(reply == JOptionPane.CANCEL_OPTION || reply == JOptionPane.OK_OPTION)
+			System.exit(0);
+		System.out.println("Nyertél");
 	}
 	
 	/**

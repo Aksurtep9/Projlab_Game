@@ -107,15 +107,16 @@ public class Virologist extends Thing {
 		//Checks if the virologist already has this genCode
 		boolean contains = false;
 
-		if(this.genCodeCollection.Contains(genCode.GetEffectName())) contains = true;
+		if(this.genCodeCollection.Contains(genCode)) 
+			contains = true;
 
 		
 		//If the genCode is new
 		if(!contains) {
 			this.genCodeCollection.Add(genCode);
-			Game.CheckWin();
 			
-			boolean gameOver = false;
+			boolean gameOver = Game.CheckWin();
+			
 			//If the virologist won
 			if(gameOver) {
 				Game.EndGame();
@@ -128,16 +129,15 @@ public class Virologist extends Thing {
 	**/
 	public void Move(Field field) {
 		
+		System.out.println("move");
+		
 		/**Guard for index out of range*/
 		if(this.field.GetNeighbours().size() == 0)
 			return;
 		
-		/**The destination field*/
-		Field tomoveto = field;
-		
 		this.field.Remove(this);
-		this.field = tomoveto;
-		tomoveto.Accept(this);
+		this.field = field;
+		field.Accept(this);
 	}
 	
 	/**
@@ -216,6 +216,7 @@ public class Virologist extends Thing {
 			craftedAgentCollection.Remove(agent);
 		}else {
 			victim.GetEffectCollection().Add((Effect) agent, victim);
+			craftedAgentCollection.Remove(agent);
 			Prototype.logger("Anointed Virologist "+victim+" with "+agent.GetEffectName(), Prototype.GetLogFile());
 		}
 	}
@@ -230,6 +231,13 @@ public class Virologist extends Thing {
 				CreateAgent(tobecrafted);
 				Prototype.logger("Crafted " + tobecrafted.GetEffectName(), Prototype.GetLogFile());
 		}
+	}
+	
+	public boolean IsParalyzed() {
+		if(effectCollection.Contains(Name)) {
+			return true;
+		}
+		return false;
 	}
 	
 	/**

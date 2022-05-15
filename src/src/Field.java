@@ -100,6 +100,7 @@ public class Field implements Serializable{
 	 */
 	public void Remove(Thing t) {
 		this.things.remove(t);
+		
 	}
 	
 	/**

@@ -56,6 +56,17 @@ public class EffectCollection implements Serializable {
 	}
 	
 	/**
+	 * Checks whether the Effect given as parameter is in the collection or not.
+	 * @param effectName - the name of the Effect we compare to the Effect names in the collection
+	 * @return true, if the Effect is found
+	 */
+	public boolean Contains(Effect e) {
+		if(effects.contains(e))
+			return true;
+		return false;
+	}
+	
+	/**
 	 * Affects the Virologist (owner of the collection)with all of the Effects stored.
 	 * @param v Virologist, it is given as parameter to the Affect methods
 	 */

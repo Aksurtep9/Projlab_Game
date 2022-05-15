@@ -85,6 +85,17 @@ public class AgentCollection implements Serializable {
 	}
 	
 	/**
+	 * Checks whether a genetic code is part of the collection or not. If it is, the function returns true.
+	 * @param s the name of the Agent we want to check
+	 * @return true, if the agent given as parameter is found in the collection
+	 */
+	public boolean Contains(Agent a) {
+		if(agents.contains(a))
+			return true;
+		return false;
+	}
+	
+	/**
 	 * Returns the crated agents a virologist has
 	 * @return the list of agents crafted by the virologist (and still usable)
 	 */

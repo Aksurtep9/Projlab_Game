@@ -33,7 +33,7 @@ public class Game implements Serializable{
 	/**
 	 * The number of genetic codes that can be learnt.
 	 */
-	private static final int maxGenCode = 5;
+	private static final int maxGenCode = 3;
 	
 	/**
 	 * The player who can currently move and interact with other things.
@@ -117,7 +117,7 @@ public class Game implements Serializable{
 	 * It ends the game and declares the winner.
 	 */
 	static void EndGame() {
-		
+		GameMenu.YouWinTheGame();
 	}
 	
 	/**
@@ -138,6 +138,8 @@ public class Game implements Serializable{
 	 * current player.
 	 */
 	public void NewRound() {
+		Prototype.logger("Newround", Prototype.GetLogFile());
+		
 		setActionCount(3);
 		currentPlayer.CallDecreaseAgentTime();
 		
@@ -154,7 +156,9 @@ public class Game implements Serializable{
 		
 		currentPlayer.CallAffectWithAll();
 		currentPlayer = players.get(indexCurrent);
-		Prototype.logger("Newround", Prototype.GetLogFile());
+		
+		if(currentPlayer.GetEffectCollection().Contains("Paralyized"))
+			NewRound();
 	}
 	
 	public static Virologist getCurrentPlayer() {

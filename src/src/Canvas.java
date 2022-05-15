@@ -192,7 +192,7 @@ public class Canvas extends JPanel{
 					/**...the attribute "f" gets set to the i-th neighbour of the current "f" field*/
 					f = f.GetNeighbours().get(i);
 					Virologist v = Game.getCurrentPlayer();
-					f.Accept(v);
+					v.Move(f);
 					Game.decreaseActioncount();
 				}
 			}
