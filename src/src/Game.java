@@ -182,4 +182,8 @@ public class Game implements Serializable{
 	public void setActionCount(int actionCount) {
 		this.actionCount = actionCount;
 	}
+	
+	public void decreaseActioncount() {
+		this.actionCount--;
+	}
 }

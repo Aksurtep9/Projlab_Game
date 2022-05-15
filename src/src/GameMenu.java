@@ -302,6 +302,7 @@ public class GameMenu extends JFrame {
 					}
 					// After closing it
 					game.getCurrentPlayer().Craft((Agent) frame.GetSelectedItem());
+					game.decreaseActioncount();
 				}
 			}
 		};
@@ -348,6 +349,7 @@ public class GameMenu extends JFrame {
 								//After closing it
 								Agent virus = (Agent) frameThis.GetSelectedItem();
 								game.getCurrentPlayer().Anoint(localEnemy, virus);
+								game.decreaseActioncount();
 							}
 						}
 					};
@@ -379,6 +381,7 @@ public class GameMenu extends JFrame {
 					}
 					// After closing it
 					game.getCurrentPlayer().PickUpEquipment((Equipment) frameThis.GetSelectedItem());
+					game.decreaseActioncount();
 				}
 			}
 		};
@@ -424,6 +427,7 @@ public class GameMenu extends JFrame {
 								//After closing it
 								Equipment eq = (Equipment) frameThis.GetSelectedItem();
 								game.getCurrentPlayer().StealEquipment(localEnemy, eq);
+								game.decreaseActioncount();
 							}
 						}
 					};
@@ -455,6 +459,7 @@ public class GameMenu extends JFrame {
 					}
 					// After closing it
 					game.getCurrentPlayer().DropEquipment((Equipment) frameThis.GetSelectedItem());
+					game.decreaseActioncount();
 				}
 			}
 		};
@@ -482,6 +487,7 @@ public class GameMenu extends JFrame {
 					}
 					// After closing it
 					game.getCurrentPlayer().StealMaterial((Virologist) frame.GetSelectedItem());
+					game.decreaseActioncount();
 				}
 			}
 		};
@@ -509,6 +515,7 @@ public class GameMenu extends JFrame {
 					}
 					// After closing it
 					game.getCurrentPlayer().Attack((Virologist) frame.GetSelectedItem());
+					game.decreaseActioncount();
 				}
 			}
 		};
