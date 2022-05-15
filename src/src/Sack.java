@@ -43,7 +43,7 @@ public class Sack extends Equipment {
 	 */
 	@Override
 	public String toString() {
-		return GetEffectName() + this.ID;
+		return GetEffectName()+" " + this.ID;
 	}
 
 	/**

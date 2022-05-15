@@ -45,7 +45,7 @@ public class Gloves extends Equipment {
 	 */
 	@Override
 	public String toString() {
-		return GetEffectName() + this.ID;
+		return GetEffectName()+ " " + this.ID;
 	}
 
 	@Override

@@ -141,7 +141,7 @@ public class GameMenu extends JFrame {
 		 btPickUp = new JButton("Pick Up");					//if the button is pressed, the according function gets called
 		 btPickUp.addActionListener(new ActionListener() {	 
 				public void actionPerformed(ActionEvent e) {
-					/**checks whether the currentz player has any action points left and has empty space for an equipment*/
+					/**checks whether the current player has any action points left and has empty space for an equipment*/
 					if(game.getActionCount()==0)
 					{
 						return;
@@ -149,8 +149,10 @@ public class GameMenu extends JFrame {
 					int cnt=0;
 					for(Thing t : currentPlayer.field.GetThings())
 					{
-						if(t.toString().equals("Axe") || t.toString().equals("Cloak") || t.toString().equals("Sack") || t.toString().equals("Gloves"))
+						if(t.toString().contains("Axe") || t.toString().contains("Cloak") || t.toString().contains("Sack") || t.toString().contains("Gloves")) {
 							cnt++;
+							
+						}
 					}
 					if(cnt==0)
 						return;
@@ -545,7 +547,6 @@ public class GameMenu extends JFrame {
 	public void CallPass() {
 		game.NewRound();
 		this.currentPlayer=game.getCurrentPlayer();
-		currentPlayer.GetField();
 		currVName.invalidate();
 		currVName.setText(currentPlayer.getName());
 		canvas.repaint();

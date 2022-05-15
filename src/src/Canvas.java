@@ -238,35 +238,18 @@ public class Canvas extends JPanel{
 	
 	public void thingsPaint(Graphics g) {
 		int virocount=0;
+		int eq=0;
 		for(Thing t : f.GetThings())
 		{
-			switch(t.toString()) {
-				case "Virologist":{
-					virocount++;
-					break;
-				}
-				case "Axe":{
-					equipment.Draw(g, new Point(300,300));
-					break;
-				}
-				case "Cloak":{
-					equipment.Draw(g, new Point(300,300));
-					break;
-				}
-				case "Gloves":{
-					equipment.Draw(g, new Point(300,300));
-					break;
-				}
-				case "Sack":{
-					equipment.Draw(g, new Point(300,300));
-					break;
-				}
-				default:
-					break;
-			}
+			if(t.toString().equals("Virologist"))
+				virocount++;
+			else if(t.toString().contains("Axe") || t.toString().contains("Cloak") || t.toString().contains("Sack") || t.toString().contains("Gloves"))
+				eq++;
 		}
 		if(virocount>1)
 			enemy.Draw(g, new Point(250,250));
+		if(eq>0)
+			equipment.Draw(g, new Point(250, 250));
 		ArrayList<Virologist> viro= new ArrayList<Virologist>();
 		for(Thing t : f.GetThings()) {
 			if(t.toString().equals("Virologist"))
@@ -276,8 +259,7 @@ public class Canvas extends JPanel{
 			if(v.isBear()) {
 				bear.Draw(g, new Point(400,400));
 			}		
-		}
-			
+		}	
 	}
 	
 	/**
