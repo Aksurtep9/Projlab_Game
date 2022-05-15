@@ -11,11 +11,14 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GameMenu extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5419089507810165936L;
 	JButton btCraft;
 	JButton btAnoint;
 	JButton btPickUp;

@@ -61,6 +61,7 @@ public class Axe extends Equipment{
 		return "Axe" + this.ID;
 	}
 	
+	
 	public int GetUseTime() {
 		return this.useTime;
 	}
