@@ -8,6 +8,11 @@ package src;
 **/
 public abstract class Material extends Thing {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1306440827233104804L;
+	
 	/**Shows the amount of the Material*/
 	protected int amount;
 	

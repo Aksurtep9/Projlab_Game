@@ -11,6 +11,11 @@ package src;
 public class Protect extends Agent
 {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8239659463195653254L;
+
 	/**Stating how long the agent can be used*/
 	private int expireTime;
 	
@@ -23,6 +28,9 @@ public class Protect extends Agent
 	/**Stating how much nukleoid the agent requires to be crafted*/
 	private int costNucle;
 	
+	/**
+	 * default constructor
+	 */
 	public Protect() {
 		expireTime=6;
 		effectTime=6;

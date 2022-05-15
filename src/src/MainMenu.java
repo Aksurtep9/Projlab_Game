@@ -130,6 +130,10 @@ public class MainMenu extends JFrame{
 			 playercount=Integer.parseInt((String)numChooser.getSelectedItem());
 		}
 	}
+	
+	/**
+	 * Closing the main frame
+	 */
 	public void Dispose() {
 		this.dispose();
 	}

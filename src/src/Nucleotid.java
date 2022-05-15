@@ -9,6 +9,11 @@ package src;
 public class Nucleotid extends Material{
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6124272991668120521L;
+
+	/**
 	 * default constructor
 	 */
 	public Nucleotid() {

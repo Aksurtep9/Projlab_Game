@@ -11,6 +11,11 @@ package src;
 public class Paralyze extends Agent
 {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1174265519484897795L;
+
 	/**Stating how long the agent can be used*/
 	private int expireTime;
 	
@@ -24,6 +29,9 @@ public class Paralyze extends Agent
 	private int costNucle;
 
 	
+	/**
+	 * default constructor
+	 */
 	public Paralyze() {
 		expireTime = 3;
 		effectTime = 3;

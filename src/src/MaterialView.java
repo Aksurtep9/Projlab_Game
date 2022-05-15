@@ -4,9 +4,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
+/**
+ * MaterialView
+ * This class responsible for drawing the material onto the canvas.
+ * @author erdei
+ */
 public class MaterialView extends View{
-	
-	//private Graphics view;
 
 	/**
 	 * Draws rectangle to given coordinate

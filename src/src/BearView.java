@@ -4,6 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
+/**
+ * BearView
+ * This class responsible for drawing the bear onto the canvas.
+ * @author erdei
+ */
 public class BearView extends View{
 
 	/**

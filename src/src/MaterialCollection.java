@@ -9,6 +9,11 @@ import java.io.Serializable;
 **/
 public class MaterialCollection implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2837607366196673693L;
+
 	/**The AminoAcid in the collection*/
 	private AminoAcid amino;
 	

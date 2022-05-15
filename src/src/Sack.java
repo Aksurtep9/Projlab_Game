@@ -11,6 +11,11 @@ package src;
 public class Sack extends Equipment {
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7020711234895534256L;
+
+	/**
 	 * Constructor for Sack.
 	 */
 	public Sack() {

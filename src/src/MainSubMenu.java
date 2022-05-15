@@ -18,13 +18,26 @@ public class MainSubMenu extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	/**lables making the program more user friendly*/
 	private JLabel[] Virologists;
+	
+	/**textfield to name the virologists*/
 	private JTextField[] ViroNames;
+	
+	/**the button to start the game*/
 	private JButton GameStartBtn;
+	
+	/**tha game frame*/
 	private GameMenu gameFrame;
+	
+	/**the player count*/
 	private int playerCnt=3;
 	
-	
+	/**
+	 * The start button pressed action calling the main frame of the game
+	 * @param - the amount of players
+	 */
 	public void GameStartBtnPress(int playerCnt) {
 		boolean allTextFieldsFull=true;
 		
@@ -43,6 +56,10 @@ public class MainSubMenu extends JFrame{
 		}
 	}
 	
+	/**
+	 * The constructor of the MainSubMenu
+	 * @param - the amount of players 
+	 */
 	public MainSubMenu(int playerCnt) {
 		Virologists=new JLabel[playerCnt];
 		ViroNames=new JTextField[playerCnt];
@@ -76,6 +93,9 @@ public class MainSubMenu extends JFrame{
 		this.setVisible(true);
 	}
 	
+	/**
+	 * The actionListener of the button
+	 */
 	final class GameActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent ae){
 			GameStartBtnPress(playerCnt);

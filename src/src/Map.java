@@ -11,10 +11,14 @@ import java.util.Scanner;
  * @author Vili
  * Map
  * It is responsible for drawing fields.
- *
  */
 public class Map implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1111398592626854842L;
+
 	/**
 	 * Stores all the fields.
 	 */
@@ -31,6 +35,10 @@ public class Map implements Serializable{
 		//GenerateFields(.getFile());
 	}
 	
+	/**
+	 * The list where the user can choose the number of players going to be playing the game
+	 * @return the array of fields
+	 */
 	public ArrayList<Field> GetFields(){
 		return fields;
 	}
