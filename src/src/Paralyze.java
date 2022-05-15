@@ -82,4 +82,28 @@ public class Paralyze extends Agent
 	{
 		return  GetEffectName() + " amino cost:" + costAmino +", nucleo cost:" + costNucle + ", expire time:" + expireTime + ", effect time:" + effectTime;
 	}
+	
+	/**
+	 * Decreases the attribute expireTime by one. This function is called in each round. If the remaining time is 0, it removes the Agent from AgentCollection.
+	 * @param v Virologist that has the crafted agent
+	 */
+	public void DecreaseExpireTime(Virologist v) {
+		expireTime--;
+		if(expireTime == 0) {
+			
+			v.GetCraftedACollection().Remove(this);
+		}
+	}
+	
+	/**
+	 * Decreases the attribute effectTime by one. This function is called in each round. If the remaining time is 0, it removes the Agent from EffectCollection.
+	 * @param v Virologist that the effect of the agent has been applied to
+	 */
+	public void DecreaseEffectTime(Virologist v) {
+		effectTime--;
+		if(effectTime == 0) {
+			v.RemoveAgentFromAgentColl(this);
+		}
+		
+	}
 }

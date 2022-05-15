@@ -296,7 +296,6 @@ public class GameMenu extends JFrame {
 		 this.add(mainPanel);
 		 this.pack();
 		 this.setVisible(true);
-		 
 	}
 	
 	

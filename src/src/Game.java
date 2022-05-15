@@ -140,6 +140,7 @@ public class Game implements Serializable{
 	public void NewRound() {
 		setActionCount(3);
 		currentPlayer.CallDecreaseAgentTime();
+		
 		++roundCount;
 		int indexPrevious = players.indexOf(currentPlayer);
 		previousPlayer = currentPlayer;

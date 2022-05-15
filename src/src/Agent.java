@@ -67,7 +67,6 @@ public abstract class Agent extends Thing implements Effect, Serializable
 	public void DecreaseEffectTime(Virologist v) {
 		effectTime--;
 		if(effectTime == 0) {
-			
 			v.RemoveAgentFromAgentColl(this);
 		}
 		

@@ -40,5 +40,17 @@ public class BearDance extends Agent {
 	public String GetEffectName() {
 		return "BearDance";
 	}
+	
+	/**
+	 * Decreases the attribute effectTime by one. This function is called in each round. If the remaining time is 0, it removes the Agent from EffectCollection.
+	 * @param v Virologist that the effect of the agent has been applied to
+	 */
+	public void DecreaseEffectTime(Virologist v) {
+		effectTime--;
+		if(effectTime == 0) {
+			v.RemoveAgentFromAgentColl(this);
+		}
+		
+	}
 
 }
