@@ -3,8 +3,6 @@ package src;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
-import java.io.File;
 
 
 /**
@@ -21,6 +19,11 @@ import java.io.File;
 **/
 public class Virologist extends Thing {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2820125078419166282L;
+
 	/**the name of the virologist*/
 	private String Name;
 	
@@ -315,7 +318,6 @@ public class Virologist extends Thing {
 	* @param eqNum the number of the equipment which should be dropped
 	**/
 	public void DropEquipment(Equipment equipment) {
-		List<Equipment> equipments = this.equipmentCollection.GetEquipments();
 		
 		field.Accept(equipment);
 		effectCollection.Remove(equipment.GetEffectName());
