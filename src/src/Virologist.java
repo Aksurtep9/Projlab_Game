@@ -212,7 +212,8 @@ public class Virologist extends Thing {
 			/**Removing the used agent*/
 			craftedAgentCollection.Remove(agent.GetEffectName());
 		}else {
-			Prototype.logger("Anoint fault", Prototype.GetLogFile());
+			victim.GetEffectCollection().Add((Effect) agent, victim);
+			Prototype.logger("Anointed Virologist "+victim+" with "+agent.GetEffectName(), Prototype.GetLogFile());
 		}
 	}
 	
