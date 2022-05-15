@@ -212,7 +212,8 @@ public class Virologist extends Thing {
 			/**Removing the used agent*/
 			craftedAgentCollection.Remove(agent.GetEffectName());
 		}else {
-			Prototype.logger("Anoint fault", Prototype.GetLogFile());
+			victim.GetEffectCollection().Add((Effect) agent, victim);
+			Prototype.logger("Anointed Virologist "+victim+" with "+agent.GetEffectName(), Prototype.GetLogFile());
 		}
 	}
 	
@@ -249,8 +250,15 @@ public class Virologist extends Thing {
 			a=new Amnesia();
 		else if(genCode.GetEffectName().equals("Paralyze"))
 			a=new Paralyze();
-		else if(genCode.GetEffectName().equals("Protect"))
-			a= new Protect();
+		else if(genCode.GetEffectName().equals("Protect")) {
+			Protect b = new Protect();
+			a= b;
+			
+			System.out.println("Cost  bent N:" + a.costNucle);
+			System.out.println("Cost  bent A:" + a.costAmino);
+			System.out.println("Cost  bent N:" + b.GetCostNucle());
+			System.out.println("Cost  bent A:" + b.GetCostAmino());
+		}
 		
 		/**Adding it to the collection*/
 		this.craftedAgentCollection.Add(a);
@@ -258,6 +266,12 @@ public class Virologist extends Thing {
 		/**Removes the amount required crafting the agent*/
 		materialCollection.GetAmino().RemoveAmount(genCode.GetCostAmino());
 		materialCollection.GetNucle().RemoveAmount(genCode.GetCostNucle());
+		
+		System.out.println("Cost N:" + a.costNucle);
+		System.out.println("Cost A:" + a.costAmino);
+		
+		System.out.println("Nucle: " + materialCollection.GetNucle().amount);
+		System.out.println("Amino: " + materialCollection.GetAmino().amount);
 		return a;
 	}
 	

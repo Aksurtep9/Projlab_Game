@@ -324,6 +324,7 @@ public class GameMenu extends JFrame {
 						game.getCurrentPlayer().Craft((Agent) frame.GetSelectedItem());
 						game.decreaseActioncount();
 					}
+					selectedThing = null;
 				}
 			}
 		};
@@ -352,29 +353,34 @@ public class GameMenu extends JFrame {
 					}
 					// After closing it
 					Virologist localEnemy = (Virologist) frameThis.GetSelectedItem();
-					
-					// Selecting the agent
-					selectMenu = new SelectThingsMenu(currentPlayer, "Crafts", frameThis);
-					selectMenu.setVisible(true);
-					
-					Thread t2 = new Thread() {
-						public void run() {
-							synchronized (lock) {
-								while(selectMenu.isVisible()) {
-									try {
-										lock.wait();
-									} catch (InterruptedException e) {
-										// Do Nothing
+					if(localEnemy != null) {
+						// Selecting the agent
+						selectMenu = new SelectThingsMenu(currentPlayer, "Crafts", frameThis);
+						selectMenu.setVisible(true);
+						
+						Thread t2 = new Thread() {
+							public void run() {
+								synchronized (lock) {
+									while(selectMenu.isVisible()) {
+										try {
+											lock.wait();
+										} catch (InterruptedException e) {
+											// Do Nothing
+										}
 									}
+									//After closing it
+									Agent virus = (Agent) frameThis.GetSelectedItem();
+									if(virus != null) {
+										game.getCurrentPlayer().Anoint(localEnemy, virus);
+										game.decreaseActioncount();
+									}
+									selectedThing = null;
 								}
-								//After closing it
-								Agent virus = (Agent) frameThis.GetSelectedItem();
-								game.getCurrentPlayer().Anoint(localEnemy, virus);
-								game.decreaseActioncount();
 							}
-						}
-					};
-					t2.start();
+						};
+						t2.start();
+					}
+					selectedThing = null;
 				}
 			}
 		};
@@ -401,8 +407,11 @@ public class GameMenu extends JFrame {
 						}
 					}
 					// After closing it
-					game.getCurrentPlayer().PickUpEquipment((Equipment) frameThis.GetSelectedItem());
-					game.decreaseActioncount();
+					if(frameThis.GetSelectedItem() != null) {
+						game.getCurrentPlayer().PickUpEquipment((Equipment) frameThis.GetSelectedItem());
+						game.decreaseActioncount();
+					}
+					selectedThing = null;
 				}
 			}
 		};
@@ -430,29 +439,34 @@ public class GameMenu extends JFrame {
 					}
 					// After closing it
 					Virologist localEnemy = (Virologist) frameThis.GetSelectedItem();
-					
-					// Selecting the Equipment
-					selectMenu = new SelectThingsMenu(localEnemy, "Equipments from Virologist", frameThis);
-					selectMenu.setVisible(true);
-					
-					Thread t2 = new Thread() {
-						public void run() {
-							synchronized (lock) {
-								while(selectMenu.isVisible()) {
-									try {
-										lock.wait();
-									} catch (InterruptedException e) {
-										// Do Nothing
+					if(localEnemy != null) {
+						// Selecting the Equipment
+						selectMenu = new SelectThingsMenu(localEnemy, "Equipments from Virologist", frameThis);
+						selectMenu.setVisible(true);
+						
+						Thread t2 = new Thread() {
+							public void run() {
+								synchronized (lock) {
+									while(selectMenu.isVisible()) {
+										try {
+											lock.wait();
+										} catch (InterruptedException e) {
+											// Do Nothing
+										}
 									}
+									//After closing it
+									Equipment eq = (Equipment) frameThis.GetSelectedItem();
+									if(eq != null) {
+										game.getCurrentPlayer().StealEquipment(localEnemy, eq);
+										game.decreaseActioncount();
+									}
+									selectedThing = null;
 								}
-								//After closing it
-								Equipment eq = (Equipment) frameThis.GetSelectedItem();
-								game.getCurrentPlayer().StealEquipment(localEnemy, eq);
-								game.decreaseActioncount();
 							}
-						}
-					};
-					t2.start();
+						};
+						t2.start();
+					}
+					selectedThing = null;
 				}
 			}
 		};
@@ -479,8 +493,11 @@ public class GameMenu extends JFrame {
 						}
 					}
 					// After closing it
-					game.getCurrentPlayer().DropEquipment((Equipment) frameThis.GetSelectedItem());
-					game.decreaseActioncount();
+					if(frameThis.GetSelectedItem() != null) {
+						game.getCurrentPlayer().DropEquipment((Equipment) frameThis.GetSelectedItem());
+						game.decreaseActioncount();
+					}
+					selectedThing = null;
 				}
 			}
 		};
@@ -507,8 +524,11 @@ public class GameMenu extends JFrame {
 						}
 					}
 					// After closing it
-					game.getCurrentPlayer().StealMaterial((Virologist) frame.GetSelectedItem());
-					game.decreaseActioncount();
+					if(frame.GetSelectedItem() != null) {
+						game.getCurrentPlayer().StealMaterial((Virologist) frame.GetSelectedItem());
+						game.decreaseActioncount();
+					}
+					selectedThing = null;
 				}
 			}
 		};
@@ -535,8 +555,11 @@ public class GameMenu extends JFrame {
 						}
 					}
 					// After closing it
-					game.getCurrentPlayer().Attack((Virologist) frame.GetSelectedItem());
-					game.decreaseActioncount();
+					if(frame.GetSelectedItem() != null) {
+						game.getCurrentPlayer().Attack((Virologist) frame.GetSelectedItem());
+						game.decreaseActioncount();
+					}
+					selectedThing = null;
 				}
 			}
 		};
