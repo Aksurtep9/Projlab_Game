@@ -66,4 +66,20 @@ public class Protect extends Agent
 	{
 		return  GetEffectName() + " amino cost:" + costAmino +", nucleo cost:" + costNucle + ", expire time:" + expireTime + ", effect time:" + effectTime;
 	}
+	
+	/**
+	 * Returns how much aminoacid is needed to craft the agent.
+	 * @return the amount of aminoacid required
+	 */
+	public int GetCostAmino() {
+		return costAmino;
+	}
+	
+	/**
+	 * Returns how much nucleotid is needed to craft the agent.
+	 * @return the amount of nucleotid required
+	 */
+	public int GetCostNucle() {
+		return costNucle;
+	}
 }
