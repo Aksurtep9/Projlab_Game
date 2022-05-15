@@ -269,7 +269,7 @@ public class Canvas extends JPanel{
 		int eq=0;
 		for(Thing t : f.GetThings())
 		{
-			if(t.toString().equals("Virologist"))
+			if(t.toString().contains("Virologist"))
 				virocount++;
 			else if(t.toString().contains("Axe") || t.toString().contains("Cloak") || t.toString().contains("Sack") || t.toString().contains("Gloves"))
 				eq++;
@@ -277,7 +277,7 @@ public class Canvas extends JPanel{
 		if(virocount>1)
 			enemy.Draw(g, new Point(430,430));
 		if(eq>0)
-			equipment.Draw(g, new Point(370, 400));
+			equipment.Draw(g, new Point(370, 440));
 		ArrayList<Virologist> viro= new ArrayList<Virologist>();
 		for(Thing t : f.GetThings()) {
 			if(t.toString().equals("Virologist"))

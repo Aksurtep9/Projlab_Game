@@ -612,6 +612,7 @@ public class GameMenu extends JFrame {
 		helpf.add(panel);
 		helpf.setSize(1044,770);
 		helpf.setLayout(null);
+		helpf.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		helpf.setVisible(true);
 	}
 	
