@@ -24,7 +24,7 @@ public class Canvas extends JPanel{
 	private static final long serialVersionUID = -3199843376415906925L;
 	
 	/**The number of neighbours.*/
-	protected int verticesNum;
+	protected int verticesNum=0;
 	
 	/**The component on which the drawings happen.*/
 	protected Graphics graphics;
@@ -67,8 +67,14 @@ public class Canvas extends JPanel{
 		//this.setSize(800,700);
 		verticesNum = vert;
 			//buttons[i].addActionListener(new NumberButtonPressed());
-
-		buttons = new JButton[verticesNum];
+		buttons = new JButton[8];
+		for(int i = 0; i < buttons.length; i++) {
+			String name=Integer.toString(i+1);
+			buttons[i] = new JButton(name);
+			this.add(buttons[i]);
+			buttons[i].addActionListener(new NumberButtonPressed());
+		}
+		//buttons = new JButton[verticesNum];
 		this.f=f;
 		enemy = new EnemyView();
 		equipment = new EquipmentView();
@@ -191,17 +197,42 @@ public class Canvas extends JPanel{
 		}
 	}
 	
-
-	public void Refresh(Graphics g,Field f) {
-		
+	public void setField(Field f) {
 		this.f=f;
+	}
+	
+	public void Refresh(Graphics g,Field f) {
+		this.f=f;
+		int prevVerticesNum=0;
+		
+		if(buttons!=null) {
+			prevVerticesNum=verticesNum;
+		}	
 		verticesNum = f.GetNeighbours().size();
-		buttons = new JButton[verticesNum];
-		for(int i = 0; i < verticesNum; i++) {
-			String name=Integer.toString(i+1);
-			buttons[i] = new JButton(name);
-			this.add(buttons[i]);
+
+		if(verticesNum<prevVerticesNum) {
+			for(int i=verticesNum;i<prevVerticesNum;i++) {
+				buttons[i].setVisible(false);
+			}
+		} else if(prevVerticesNum<verticesNum) {
+			for(int i=prevVerticesNum;i<verticesNum;i++) {
+				buttons[i].setVisible(true);
+			}
 		}
+		for(int i=0;i<buttons.length;i++) {
+			if(buttons[i].isVisible()) {
+				System.out.println("az "+(i+1)+"edik gomb lathato, te fasz.");
+			}
+		}
+		
+        /*if(buttons != null) {
+        	int size = buttons.length;
+        	for(int i = verticesNum; i < size; i++) {
+        		buttons[i]=null;
+        	}
+        }*/
+        
+		
 		int lab=0;
 		switch(f.toString()) {
 			case "Warehouse":
@@ -233,7 +264,6 @@ public class Canvas extends JPanel{
 			material.Draw(g, new Point(300, 350));
 		else if(lab==2)
 			genCode.Draw(g, new Point(350, 350));
-		this.repaint();
 	}
 	
 	public void thingsPaint(Graphics g) {
