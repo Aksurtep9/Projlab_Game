@@ -262,9 +262,9 @@ public class Canvas extends JPanel{
 		field.Draw(graphics, new Point(300, 300));
 		thingsPaint(g);
 		if(lab==1)
-			material.Draw(g, new Point(300, 350));
+			material.Draw(g, new Point(470,480));
 		else if(lab==2)
-			genCode.Draw(g, new Point(350, 350));
+			genCode.Draw(g, new Point(470,480));
 	}
 	
 	public void thingsPaint(Graphics g) {
@@ -278,9 +278,9 @@ public class Canvas extends JPanel{
 				eq++;
 		}
 		if(virocount>1)
-			enemy.Draw(g, new Point(250,250));
+			enemy.Draw(g, new Point(430,430));
 		if(eq>0)
-			equipment.Draw(g, new Point(250, 250));
+			equipment.Draw(g, new Point(370, 400));
 		ArrayList<Virologist> viro= new ArrayList<Virologist>();
 		for(Thing t : f.GetThings()) {
 			if(t.toString().equals("Virologist"))
@@ -288,7 +288,7 @@ public class Canvas extends JPanel{
 		}
 		for(Virologist v : viro) {
 			if(v.isBear()) {
-				bear.Draw(g, new Point(400,400));
+				bear.Draw(g, new Point(500,500));
 			}		
 		}	
 	}
@@ -301,7 +301,7 @@ public class Canvas extends JPanel{
 		super.paintComponent(graphics);
 		Refresh(graphics,f);
 		g.setColor(new Color(255, 0, 0));
-		g.fillOval(350, 300, 20, 20);
+		g.fillOval(550, 550, 30,30);
 		/*Point p = new Point(100,100);
 		field.Draw(g,p);
 		enemy.Draw(g, new Point(200,200));

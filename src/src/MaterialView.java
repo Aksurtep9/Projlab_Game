@@ -19,7 +19,7 @@ public class MaterialView extends View{
 		// TODO Auto-generated method stub
 		g.setColor(Color.green);
 		
-		g.fillRect(p.x, p.y, 15, 15);
+		g.fillRect(p.x, p.y, 30, 30);
 	}
 
 

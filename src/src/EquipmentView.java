@@ -21,7 +21,7 @@ public class EquipmentView extends View{
 		
 		
 		g.setColor(Color.blue);
-		g.fillRect(p.x, p.y, 15, 15);
+		g.fillRect(p.x, p.y, 30, 30);
 	}
 	
 

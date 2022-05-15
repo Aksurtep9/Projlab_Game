@@ -17,8 +17,8 @@ public class GenCodeView extends View{
 		int[] ys=new int[3];
 		
 		xs[0]=p.x; 		ys[0]=p.y;
-		xs[1]=p.x+20; 	ys[1]=p.y;
-		xs[2]=p.x+10; 	ys[2]=p.y+17;
+		xs[1]=p.x+30; 	ys[1]=p.y;
+		xs[2]=p.x+15; 	ys[2]=p.y+25;
 		
 		g.fillPolygon(xs, ys, 3);
 	}

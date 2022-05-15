@@ -19,7 +19,7 @@ public class EnemyView extends View{
 		// TODO Auto-generated method stub
 		g.setColor(Color.yellow);
 		
-		g.fillOval(p.x, p.y, 15, 15);
+		g.fillOval(p.x, p.y, 30,30);
 	}
 
 }
