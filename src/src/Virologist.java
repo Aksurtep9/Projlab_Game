@@ -19,9 +19,7 @@ import java.util.Random;
 **/
 public class Virologist extends Thing {
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 2820125078419166282L;
 
 	/**the name of the virologist*/

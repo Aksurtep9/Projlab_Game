@@ -10,9 +10,7 @@ import java.io.Serializable;
  */
 public class EffectCollection implements Serializable {
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 7923083142104482278L;
 	
 	

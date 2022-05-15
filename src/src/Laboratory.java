@@ -11,12 +11,8 @@ import java.util.Random;
  * @author Martin
  */
 public class Laboratory extends Field{
-
 	
-	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 5384914385619678612L;
 
 	/**Stores the laboratory's one and only genetic code.*/

@@ -12,9 +12,7 @@ import java.io.Serializable;
  */
 public class Field implements Serializable{
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = -652830960113928255L;
 
 	/**A counter for the fields. Use this to differ one field from another field.*/

@@ -29,9 +29,7 @@ import javax.swing.JPanel;
  */
 public class GameMenu extends JFrame {
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 5419089507810165936L;
 	
 	/**the button representing the craft interaction*/

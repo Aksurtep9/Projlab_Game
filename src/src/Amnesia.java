@@ -11,11 +11,12 @@ package src;
 public class Amnesia extends Agent
 {
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 8698849677626179071L;
 
+	/**
+	 * default constructor
+	 */
 	public Amnesia() {
 		this.expireTime = 3;
 		this.effectTime = 2;

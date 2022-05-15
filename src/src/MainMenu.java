@@ -20,7 +20,7 @@ import javax.swing.WindowConstants;
  * The very first frame that the user sees
  */
 public class MainMenu extends JFrame{
-	
+	/**unique id*/
 	private static final long serialVersionUID = -7953672467585166161L;
 	
 	/**the panel with the logo*/

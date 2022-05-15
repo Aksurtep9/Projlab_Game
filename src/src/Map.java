@@ -14,9 +14,7 @@ import java.util.Scanner;
  */
 public class Map implements Serializable{
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 1111398592626854842L;
 
 	/**

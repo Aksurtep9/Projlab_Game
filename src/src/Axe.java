@@ -8,9 +8,7 @@ package src;
  */
 public class Axe extends Equipment{
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 4717535450883116711L;
 
 	/**

@@ -11,9 +11,7 @@ package src;
 public class Chorea extends Agent
 {
 
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 6847025066732592929L;
 
 	/**

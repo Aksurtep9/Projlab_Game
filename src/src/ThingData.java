@@ -11,6 +11,7 @@ import javax.swing.table.AbstractTableModel;
  * @author Martin
  */
 public class ThingData<T> extends AbstractTableModel {
+	/**unique id*/
 	private static final long serialVersionUID = 1L;
 	
 	private ArrayList<? super T> thingList;

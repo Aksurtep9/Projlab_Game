@@ -8,9 +8,7 @@ import java.io.Serializable;
  *
  */
 public class AgentCollection implements Serializable {
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = -7277215157745347778L;
 	
 	/** heterogenous collection of the different child classes of Agent*/

@@ -11,9 +11,7 @@ package src;
 public class Paralyze extends Agent
 {
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 1174265519484897795L;
 
 	/**Stating how long the agent can be used*/

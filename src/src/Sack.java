@@ -10,9 +10,7 @@ package src;
  */
 public class Sack extends Equipment {
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 7020711234895534256L;
 
 	/**

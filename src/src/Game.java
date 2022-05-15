@@ -15,9 +15,7 @@ import java.util.Random;
  */
 public class Game implements Serializable{
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 6862257109428847614L;
 
 	/**
@@ -59,6 +57,7 @@ public class Game implements Serializable{
 	/**Stores the game's randomness*/
 	private static boolean random;
 	
+	/**the number of actions a player can take, before his round ends*/
 	private static int actionCount=3;
 	
 	/**
@@ -144,11 +143,13 @@ public class Game implements Serializable{
 		currentPlayer.CallDecreaseAgentTime();
 		
 		++roundCount;
+		/**switching to the next player */
 		int indexPrevious = players.indexOf(currentPlayer);
 		previousPlayer = currentPlayer;
 		
 		int indexCurrent = 0;
 		
+		/**if the index of the previous player reaches the last element of the array, it resets to zero*/
 		if(indexPrevious == players.size()-1)
 			indexCurrent = 0;
 		else
@@ -181,14 +182,25 @@ public class Game implements Serializable{
 		this.random = random;
 	}
 
+	/**
+	 * getter, return how many actions the player has left
+	 * @return actionCount
+	 */
 	public static int getActionCount() {
 		return actionCount;
 	}
 
+	/**
+	 * setter, sets actionCount to the value given as parameter
+	 * @param actionCount
+	 */
 	public void setActionCount(int actionCount) {
 		this.actionCount = actionCount;
 	}
 	
+	/**
+	 * decreases actionCount
+	 */
 	public static void decreaseActioncount() {
 		actionCount--;
 	}

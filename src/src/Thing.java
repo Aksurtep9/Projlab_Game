@@ -8,9 +8,7 @@ import java.io.Serializable;
 **/
 public abstract class Thing implements Serializable
 {
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = -3563474329624981175L;
 
 	/**A counter for the fields. Use this to differ one field from another field.*/

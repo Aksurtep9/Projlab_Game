@@ -12,9 +12,7 @@ import java.util.Random;
  */
 public class Cloak extends Equipment {
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = -8933112089535646504L;
 
 	/**

@@ -11,11 +11,7 @@ import java.util.ArrayList;
  */
 public class Warehouse extends Field{
 
-	
-	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = -495876710085396712L;
 	/**Stores the warehouse's materials.*/
 	private MaterialCollection materialCollection;

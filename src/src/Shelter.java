@@ -10,9 +10,7 @@ import java.util.Random;
  */
 public class Shelter extends Field {
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 1L;
 	
 	/**Stores the shelter's equipments.*/

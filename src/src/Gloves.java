@@ -11,9 +11,7 @@ package src;
  */
 public class Gloves extends Equipment {
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 5223975989698407522L;
 
 	/**

@@ -19,7 +19,7 @@ import javax.swing.WindowConstants;
  */
 public class SelectThingsMenu extends JFrame{
 
-
+	/**unique id*/
 	private static final long serialVersionUID = -3144941765010925027L;
 	
 	private JButton btOk;

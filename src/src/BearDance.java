@@ -10,9 +10,7 @@ package src;
  */
 public class BearDance extends Agent {
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = -7301741576013918512L;
 
 	/**

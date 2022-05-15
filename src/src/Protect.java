@@ -11,9 +11,7 @@ package src;
 public class Protect extends Agent
 {
 	
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 8239659463195653254L;
 
 	/**Stating how long the agent can be used*/

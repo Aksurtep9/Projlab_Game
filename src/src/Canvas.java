@@ -12,11 +12,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class Canvas extends JPanel{
-	
+	/**the current field on display*/
 	private Field f;
-	/**
-	 * 
-	*/
+	
+	/**unique id*/
 	private static final long serialVersionUID = -3199843376415906925L;
 	
 	/**The number of neighbours.*/

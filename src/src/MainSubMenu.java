@@ -15,9 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MainSubMenu extends JFrame{
-	/**
-	 * 
-	 */
+	/**unique id*/
 	private static final long serialVersionUID = 1L;
 	
 	/**lables making the program more user friendly*/
