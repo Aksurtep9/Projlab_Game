@@ -69,13 +69,29 @@ public class SelectThingsMenu extends JFrame{
 			else if(info.equals("Equipments from Field")) {
 				ArrayList<Equipment> lista = new ArrayList<>();
 				for(Thing item: player.GetField().GetThings())
-					if(item.toString().contains("Equipment"))
+					if(item.toString().contains("Equipment") ||
+							item.toString().contains("Gloves") ||
+							item.toString().contains("Axe") ||
+							item.toString().contains("Cloak") ||
+							item.toString().contains("Sack"))
 						lista.add((Equipment) item);
 				data = new ThingData<Equipment>(lista);
 			}
 			//if info is Equipments from Virologist, we display the equipments the virologist has as thingdata
 			else if(info.equals("Equipments from Virologist")) {
 				data = new ThingData<Equipment>(player.GetEquipmentCollection().GetEquipments());
+			}
+			else if(info.equals("Virologists: just enemy")) {
+				ArrayList<Virologist> enemies = new ArrayList<>();
+				for(Thing item: player.GetField().GetThings()) {
+					if(item.toString().contains("Virologist")) {
+						Virologist vir = (Virologist) item;
+						if(!vir.getName().equals(player.getName()))
+							enemies.add(vir);
+					}
+				}
+				
+				data = new ThingData<Virologist>(enemies);
 			}
 			
 			table = new JTable(data);

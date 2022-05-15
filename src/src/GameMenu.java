@@ -94,7 +94,6 @@ public class GameMenu extends JFrame {
 		
 		Toolkit tk=Toolkit.getDefaultToolkit(); 			//Initializing the Toolkit class.
 		Dimension screenSize = tk.getScreenSize(); 			//Get the Screen resolution of our device.
-		//this.setSize(screenSize.width,screenSize.height-800); 	//Set the width and height of the JFrame
 		
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		setMinimumSize(new Dimension(screen.width/2, screen.height/2));
@@ -139,7 +138,7 @@ public class GameMenu extends JFrame {
 					int cnt=0;
 					ArrayList<Virologist> virologists= new ArrayList<Virologist>();
 					for (Thing vir : currentPlayer.field.GetThings()) {
-						if(vir.toString().equals("Virologist"))
+						if(vir.toString().contains("Virologist"))
 							virologists.add((Virologist)vir);
 							cnt++;
 					}
@@ -195,7 +194,7 @@ public class GameMenu extends JFrame {
 					/** checks whether there is an available virologist on the field to rob*/
 					ArrayList<Virologist> virologists= new ArrayList<Virologist>();
 					for (Thing vir : currentPlayer.field.GetThings()) {
-						if(vir.toString().equals("Virologist"))
+						if(vir.toString().contains("Virologist"))
 							virologists.add((Virologist)vir);
 							cnt++;
 					}
@@ -225,7 +224,7 @@ public class GameMenu extends JFrame {
 					int cnt=0;
 					ArrayList<Virologist> virologists= new ArrayList<Virologist>();
 					for (Thing vir : currentPlayer.field.GetThings()) {
-						if(vir.toString().equals("Virologist"))
+						if(vir.toString().contains("Virologist"))
 							virologists.add((Virologist)vir);
 							cnt++;
 					}
@@ -256,7 +255,7 @@ public class GameMenu extends JFrame {
 					int cnt=0;
 					ArrayList<Virologist> virologists= new ArrayList<Virologist>();
 					for (Thing vir : currentPlayer.field.GetThings()) {
-						if(vir.toString().equals("Virologist"))
+						if(vir.toString().contains("Virologist"))
 							virologists.add((Virologist)vir);
 							cnt++;
 					}
@@ -273,7 +272,7 @@ public class GameMenu extends JFrame {
 					/** checks whether the current player has an axe usable*/
 					int axe=0;
 					for(Equipment eq : currentPlayer.GetEquipmentCollection().GetEquipments()) {
-						if(eq.toString().equals("Axe")&& eq.useTime>0)
+						if(eq.toString().contains("Axe")&& eq.useTime>0)
 							axe++;
 					}
 					if(axe==0)
@@ -326,6 +325,7 @@ public class GameMenu extends JFrame {
 		selectMenu = new SelectThingsMenu(currentPlayer,"genCode" , this);
 		selectMenu.setVisible(true);
 		GameMenu frame = this;
+		Canvas canvas = frame.canvas;
 		
 		Thread t = new Thread() {
 			public void run() {
@@ -343,6 +343,7 @@ public class GameMenu extends JFrame {
 						game.decreaseActioncount();
 					}
 					selectedThing = null;
+					canvas.repaint();
 				}
 			}
 		};
@@ -358,6 +359,7 @@ public class GameMenu extends JFrame {
 		selectMenu = new SelectThingsMenu(currentPlayer,"Virologists" , this);
 		selectMenu.setVisible(true);
 		GameMenu frameThis = this;
+		Canvas canvas = frameThis.canvas;
 		
 		Thread t1 = new Thread() {
 			public void run() {
@@ -393,12 +395,14 @@ public class GameMenu extends JFrame {
 										game.decreaseActioncount();
 									}
 									selectedThing = null;
+									canvas.repaint();
 								}
 							}
 						};
 						t2.start();
 					}
 					selectedThing = null;
+					canvas.repaint();
 				}
 			}
 		};
@@ -413,6 +417,7 @@ public class GameMenu extends JFrame {
 		selectMenu = new SelectThingsMenu(currentPlayer, "Equipments from Field" , this);
 		selectMenu.setVisible(true);
 		GameMenu frameThis = this;
+		Canvas canvas = frameThis.canvas;
 		
 		Thread t = new Thread() {
 			public void run() {
@@ -430,6 +435,7 @@ public class GameMenu extends JFrame {
 						game.decreaseActioncount();
 					}
 					selectedThing = null;
+					canvas.repaint();
 				}
 			}
 		};
@@ -441,9 +447,10 @@ public class GameMenu extends JFrame {
 	 */
 	public void CallStealEq() {
 		// Selecting enemy
-		selectMenu = new SelectThingsMenu(currentPlayer, "Virologists" , this);
+		selectMenu = new SelectThingsMenu(currentPlayer, "Virologists: just enemy" , this);
 		selectMenu.setVisible(true);
 		GameMenu frameThis = this;
+		Canvas canvas = frameThis.canvas;
 		
 		Thread t1 = new Thread() {
 			public void run() {
@@ -479,12 +486,14 @@ public class GameMenu extends JFrame {
 										game.decreaseActioncount();
 									}
 									selectedThing = null;
+									canvas.repaint();
 								}
 							}
 						};
 						t2.start();
 					}
 					selectedThing = null;
+					canvas.repaint();
 				}
 			}
 		};
@@ -499,6 +508,7 @@ public class GameMenu extends JFrame {
 		selectMenu = new SelectThingsMenu(currentPlayer, "Equipments from Virologist" , this);
 		selectMenu.setVisible(true);
 		GameMenu frameThis = this;
+		Canvas canvas = frameThis.canvas;
 		
 		Thread t = new Thread() {
 			public void run() {
@@ -516,6 +526,7 @@ public class GameMenu extends JFrame {
 						game.decreaseActioncount();
 					}
 					selectedThing = null;
+					canvas.repaint();
 				}
 			}
 		};
@@ -530,6 +541,7 @@ public class GameMenu extends JFrame {
 		selectMenu = new SelectThingsMenu(currentPlayer, "Virologists" , this);
 		selectMenu.setVisible(true);
 		GameMenu frame = this;
+		Canvas canvas = frame.canvas;
 		
 		Thread t = new Thread() {
 			public void run() {
@@ -547,6 +559,7 @@ public class GameMenu extends JFrame {
 						game.decreaseActioncount();
 					}
 					selectedThing = null;
+					canvas.repaint();
 				}
 			}
 		};
@@ -561,6 +574,7 @@ public class GameMenu extends JFrame {
 		selectMenu = new SelectThingsMenu(currentPlayer, "Virologists" , this);
 		selectMenu.setVisible(true);
 		GameMenu frame = this;
+		Canvas canvas = frame.canvas;
 		
 		Thread t = new Thread() {
 			public void run() {
@@ -578,6 +592,7 @@ public class GameMenu extends JFrame {
 						game.decreaseActioncount();
 					}
 					selectedThing = null;
+					canvas.repaint();
 				}
 			}
 		};

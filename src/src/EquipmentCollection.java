@@ -64,6 +64,15 @@ public class EquipmentCollection implements Serializable{
 	}
 	
 	/**
+	 * Removes the equipment given as parameter from the collection.
+	 * @param e the name of the item we want to remove
+	 */
+	public void Remove(Equipment e) {
+		equipments.remove(e);
+		
+	}
+	
+	/**
 	 * Checks whether the given Equipment is part of the Collection.
 	 * @param e the Equipment we are checking
 	 * @return true, if the equipment was found in the collection

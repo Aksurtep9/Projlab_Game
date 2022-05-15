@@ -172,8 +172,8 @@ public class Virologist extends Thing {
 		/**Checking for gloves*/
 		if(victim.GetEquipmentCollection().Contains("Gloves")) {
 			Gloves g=null;
-			for(Equipment e: this.GetEquipmentCollection().GetEquipments()) {
-				if(e.GetEffectName().equals("Gloves")) {
+			for(Equipment e: victim.GetEquipmentCollection().GetEquipments()) {
+				if(e.GetEffectName().contains("Gloves")) {
 					g=(Gloves) e;
 				}
 			}
@@ -183,10 +183,7 @@ public class Virologist extends Thing {
 			{
 				effectCollection.Add((Effect)agent,this);
 				craftedAgentCollection.Remove(agent);
-				for(Equipment e: equipmentCollection.GetEquipments()) {
-					if(victim.GetEquipmentCollection().Contains("Gloves"))
-						e.DecreaseUseTime();
-				}
+				g.DecreaseUseTime();
 			}
 		}
 		else if(victim.GetEquipmentCollection().Contains("Cloak")){
@@ -298,7 +295,7 @@ public class Virologist extends Thing {
 			EquipmentCollection eqSelf=this.GetEquipmentCollection();
 			
 			eqSelf.Add(equipment);
-			eqVictim.Remove(equipment.GetEffectName());
+			eqVictim.Remove(equipment);
 			victim.GetEffectCollection().Remove(equipment);
 			effectCollection.Add(equipment,this);
 			Prototype.logger("Stole " + equipment + " from Virologist " + victim, Prototype.GetLogFile());
@@ -327,7 +324,7 @@ public class Virologist extends Thing {
 		
 		field.Accept(equipment);
 		effectCollection.Remove(equipment);
-		equipmentCollection.Remove(equipment.GetEffectName());
+		equipmentCollection.Remove(equipment);
 		
 		Prototype.logger("Dropped "+ equipment.toString(), Prototype.GetLogFile());
 			
@@ -459,13 +456,15 @@ public class Virologist extends Thing {
 			boolean protectingCloak = eq.Chance();//checking, if the virologist was lucky
 			boolean hasBearDanceAlready = v2.GetEffectCollection().Contains("BearDance");
 
+			
+		}else {
 			//if the victim isn't protected, and his cloak doesn't work, and he isn't a bear
 			//we anoint him with beardance
-			if(!(isVictimProtected && protectingCloak && hasBearDanceAlready)) {
-				Agent bearDance = new BearDance();
-				v2.effectCollection.Add(bearDance, v2);
-				v2.bear=true;
-			}
+			Agent bearDance = new BearDance();
+			v2.effectCollection.Add(bearDance, v2);
+			v2.bear=true;
+			
+			System.out.println("MEDVE VAGY BASZOD");
 		}
 	}
 	
