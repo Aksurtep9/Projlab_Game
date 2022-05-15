@@ -65,13 +65,13 @@ public class Game implements Serializable{
 	 * Constructor for the game
 	 * @param playerCount - the number of the players
 	 */
-	public Game(int playerCount) {
+	public Game(int playerCount,String[] vNames) {
 		this.playerCount = playerCount;
 		this.roundCount = 0;
 		this.map = new Map();
 		players = new ArrayList<Virologist>();
 		for(int i = 0; i<playerCount; ++i)
-			players.add(new Virologist());
+			players.add(new Virologist(vNames[i]));
 		currentPlayer = players.get(0);
 		random = true;
 		Prototype.logger("The map has been generated.", Prototype.GetLogFile());

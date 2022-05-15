@@ -46,10 +46,13 @@ public class MainSubMenu extends JFrame{
 				allTextFieldsFull=false;
 			}
 		}
-		
+		String[] VNames=new String[ViroNames.length];
+		for(int i=0;i< playerCnt;i++) {
+			VNames[i]=ViroNames[i].getText();
+		}
 		if(allTextFieldsFull) {
 			int w=1120; int h=1020;
-			gameFrame=new GameMenu(new Game(playerCnt));
+			gameFrame=new GameMenu(new Game(playerCnt,VNames));
 			gameFrame.setSize(w,h);
 			gameFrame.setVisible(true);
 			this.dispose();

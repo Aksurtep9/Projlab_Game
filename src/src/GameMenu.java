@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -48,6 +49,8 @@ public class GameMenu extends JFrame {
 	
 	/**the button representing the pass interaction*/
 	JButton btPass;
+	
+	JLabel currVName;
 	
 	/**the current player*/
 	private Virologist currentPlayer;

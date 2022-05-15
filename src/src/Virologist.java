@@ -21,6 +21,9 @@ import java.io.File;
 **/
 public class Virologist extends Thing {
 	
+	/**the name of the virologist*/
+	private String Name;
+	
 	/**
 	 * A boolean that shows if the player is still alive in the game
 	 */
@@ -59,14 +62,14 @@ public class Virologist extends Thing {
 	/**
 	 * Constructor of Virologist. By default, it is alive.
 	 */
-	public Virologist() {
+	public Virologist(String name) {
 		equipmentCollection = new EquipmentCollection();
 		effectCollection = new EffectCollection();
 		craftedAgentCollection = new AgentCollection();
 		genCodeCollection = new AgentCollection();
 		materialCollection = new MaterialCollection();
 		alive = true;
-		
+		this.Name=name;
 	}
 	
 	/**
