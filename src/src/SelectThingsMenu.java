@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.WindowConstants;
 
 /**
  * inherits from JFrame.
@@ -116,6 +117,8 @@ public class SelectThingsMenu extends JFrame{
 			}
 		});
 		panel.add(btOk, "South");
+		
+		this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		
 		this.add(panel);
 		

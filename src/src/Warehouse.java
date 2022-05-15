@@ -1,7 +1,5 @@
 package src;
 
-import java.util.ArrayList;
-
 /**
  * <b>Warehouse class</b><br>
  * <i>Inherites from Field.</i><br><br>
@@ -13,6 +11,10 @@ public class Warehouse extends Field{
 
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -495876710085396712L;
 	/**Stores the warehouse's materials.*/
 	private MaterialCollection materialCollection;
 	

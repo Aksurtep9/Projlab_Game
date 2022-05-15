@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -93,6 +94,8 @@ public class MainSubMenu extends JFrame{
 		}
 		submainpanel.add(GameStartBtn);
 		this.add(submainpanel);
+		
+		this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		
 		this.setVisible(true);
 	}

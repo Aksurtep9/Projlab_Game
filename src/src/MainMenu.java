@@ -13,6 +13,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 /**
  * MainFrame
@@ -119,7 +120,9 @@ public class MainMenu extends JFrame{
 		//c.weightx = 0.5;
 		c.gridx = 2;
 		c.gridy = 2;
-		mainp.add(numChooser, c);		
+		mainp.add(numChooser, c);	
+		
+		this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 	}
 	
 	/**

@@ -66,6 +66,7 @@ public class Game implements Serializable{
 	 * @param playerCount - the number of the players
 	 */
 	public Game(int playerCount,String[] vNames) {
+		random = true;
 		this.playerCount = playerCount;
 		this.roundCount = 0;
 		this.map = new Map();
@@ -73,7 +74,6 @@ public class Game implements Serializable{
 		for(int i = 0; i<playerCount; ++i)
 			players.add(new Virologist(vNames[i]));
 		currentPlayer = players.get(0);
-		random = true;
 		Prototype.logger("The map has been generated.", Prototype.GetLogFile());
 	}
 	

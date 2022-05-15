@@ -1,19 +1,13 @@
 package src;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.Point;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.stream.IntStream;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -190,11 +184,10 @@ public class Canvas extends JPanel{
 	public class NumberButtonPressed implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			int num = 0;
 			
 			/**iterates through the list of buttons*/
 			for(int i = 0; i < buttons.length; i++) {
-				/**if the i-th button was pressed...*/
+				/**if the i-the button was pressed...*/
 				if(buttons[i] == e.getSource() && Game.getActionCount() > 0) {
 					/**...the attribute "f" gets set to the i-th neighbour of the current "f" field*/
 					f = f.GetNeighbours().get(i);

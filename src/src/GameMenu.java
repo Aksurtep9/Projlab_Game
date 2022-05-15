@@ -76,6 +76,7 @@ public class GameMenu extends JFrame {
 	 */
 	GameMenu(Game game) {
 		this.game=game;
+		
 		currentPlayer = this.game.getCurrentPlayer();
 		
 		currVName=new JLabel();
@@ -291,7 +292,7 @@ public class GameMenu extends JFrame {
 		 pane2.setVisible(true);
 		 
 		 mainPanel.add(pane2, BorderLayout.SOUTH);
-		 //this.add(pane2, BorderLayout.SOUTH);
+		 
 		 this.add(mainPanel);
 		 this.pack();
 		 this.setVisible(true);
