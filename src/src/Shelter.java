@@ -10,15 +10,20 @@ import java.util.Random;
  */
 public class Shelter extends Field {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	/**Stores the shelter's equipments.*/
 	private ArrayList<Equipment> equipments;
-	
 	
 	/**
 	 * Constructor for the Laboratory
 	 */
 	public Shelter() {
 		super();
+		
 		equipments = new ArrayList<Equipment>();
 		
 		if(Game.isRandom()) {

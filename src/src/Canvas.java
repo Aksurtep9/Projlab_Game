@@ -81,6 +81,11 @@ public class Canvas extends JPanel{
 		material = new MaterialView();
 		genCode = new GenCodeView();
 		bear = new BearView();
+		
+		// SetVisible = false
+		for(int i = 7; i>=verticesNum; i--) {
+			buttons[i].setVisible(false);
+		}
 	}
 	
 	/**
@@ -209,19 +214,19 @@ public class Canvas extends JPanel{
 			prevVerticesNum=verticesNum;
 		}	
 		verticesNum = f.GetNeighbours().size();
+		
+		System.out.println(verticesNum);
+		System.out.println(prevVerticesNum);
 
 		if(verticesNum<prevVerticesNum) {
-			for(int i=verticesNum;i<prevVerticesNum;i++) {
-				buttons[i].setVisible(false);
+			for(int i=prevVerticesNum; i>verticesNum; --i) {
+				buttons[i-1].setVisible(false);
+				System.out.println("Csökken");
 			}
 		} else if(prevVerticesNum<verticesNum) {
-			for(int i=prevVerticesNum;i<verticesNum;i++) {
+			for(int i=prevVerticesNum;i<verticesNum; ++i) {
 				buttons[i].setVisible(true);
-			}
-		}
-		for(int i=0;i<buttons.length;i++) {
-			if(buttons[i].isVisible()) {
-				System.out.println("az "+(i+1)+"edik gomb lathato, te fasz.");
+				System.out.println("Nõ");
 			}
 		}
 		
@@ -298,7 +303,6 @@ public class Canvas extends JPanel{
 	public void paintComponent(Graphics g) {
 		graphics=g;
 		super.paintComponent(graphics);
-		//
 		Refresh(graphics,f);
 		/*Point p = new Point(100,100);
 		field.Draw(g,p);
@@ -314,7 +318,4 @@ public class Canvas extends JPanel{
 		
 		//graphics.dispose();
 	}
-
-	
-
 }

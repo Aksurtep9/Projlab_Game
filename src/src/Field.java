@@ -35,7 +35,7 @@ public class Field implements Serializable{
 	 */
 	public Field() {
 		++uniqueID;
-		ID = uniqueID;
+		this.ID = uniqueID;
 		neighbours = new ArrayList<Field>();
 		things = new ArrayList<Thing>();
 	}
@@ -109,12 +109,15 @@ public class Field implements Serializable{
 	public void AddNeighbours(Field f) {
 		neighbours.add(f);
 	}
+	
+	public int getID() { return this.ID; }
+	
 	/**
 	 * Gives the field's type back
 	 * @return the type of the field
 	 */
 	@Override
 	public String toString() {
-		return "Field" ; //+ this.ID;
+		return "Field";
 	}
 }

@@ -65,6 +65,8 @@ public class Map implements Serializable{
 					fields.add(new Shelter());
 				else if(whatField.contains("Warehouse"))
 					fields.add(new Warehouse());
+				
+				System.out.println(fields.get(i).toString());
 			}
 			
 			String line;

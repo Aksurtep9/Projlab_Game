@@ -1,5 +1,6 @@
 package src;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -29,7 +30,7 @@ public class Laboratory extends Field{
 	 */
 	public Laboratory() {
 		super();
-		
+		 
 		if(Game.isRandom()) {
 			Random rand = new Random();
 			double bearDanceSpawnChance = rand.nextDouble() * 100;

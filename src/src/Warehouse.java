@@ -1,5 +1,7 @@
 package src;
 
+import java.util.ArrayList;
+
 /**
  * <b>Warehouse class</b><br>
  * <i>Inherites from Field.</i><br><br>
@@ -14,11 +16,13 @@ public class Warehouse extends Field{
 	/**Stores the warehouse's materials.*/
 	private MaterialCollection materialCollection;
 	
+	
 	/**
 	 * Constructor for the Warehouse
 	 */
 	public Warehouse() {
 		super();
+		
 		materialCollection = new MaterialCollection();
 	}
 	
