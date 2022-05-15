@@ -42,6 +42,22 @@ public class Amnesia extends Agent
 	}
 	
 	/**
+	 * Returns how much aminoacid is needed to craft the agent.
+	 * @return the amount of aminoacid required
+	 */
+	public int GetCostAmino() {
+		return costAmino;
+	}
+	
+	/**
+	 * Returns how much nucleotid is needed to craft the agent.
+	 * @return the amount of nucleotid required
+	 */
+	public int GetCostNucle() {
+		return costNucle;
+	}
+	
+	/**
 	* Gives back all the attributes in string
 	* @return a string stating the parameters of the class
 	**/
