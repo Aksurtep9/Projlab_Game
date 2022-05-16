@@ -605,7 +605,6 @@ public class GameMenu extends JFrame {
         );
 		if(reply == JOptionPane.CANCEL_OPTION || reply == JOptionPane.OK_OPTION)
 			System.exit(0);
-		System.out.println("Nyertél");
 	}
 	
 	/**

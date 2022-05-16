@@ -160,7 +160,7 @@ public class Game implements Serializable{
 		currentPlayer.CallAffectWithAll();
 		currentPlayer = players.get(indexCurrent);
 		
-		if(currentPlayer.GetEffectCollection().Contains("Paralyized"))
+		if(currentPlayer.GetEffectCollection().Contains("Paraliyzed"))
 			NewRound();
 	}
 	

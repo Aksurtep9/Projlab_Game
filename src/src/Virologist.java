@@ -465,7 +465,6 @@ public class Virologist extends Thing {
 			v2.effectCollection.Add(bearDance, v2);
 			v2.bear=true;
 			
-			System.out.println("MEDVE VAGY BASZOD");
 		}
 	}
 	

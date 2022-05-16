@@ -22,7 +22,7 @@ public class Map implements Serializable{
 	 */
 	private ArrayList<Field> fields;
 	
-	private File mapFile = new File(System.getProperty("user.dir"), "src/src/mapFile.txt");
+	private File mapFile = new File(System.getProperty("user.dir"), "src/mapFile.txt");
 	
 	/**
 	 * Constructor for Map
